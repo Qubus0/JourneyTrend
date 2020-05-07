@@ -1,0 +1,17 @@
+INFO:
+Armor Names:
+Grid's Facemask
+Grid's Body Armor
+Grid's Footgear
+
+Tooltip: A legendary piece of armor, crafted by Grid.
+This is the tooltip for all 3 pieces
+
+Obtained from the cyborg for 50 gold per piece, after defeating the moon lord, in the jungle, during martian madness.
+It's meant to be hard to get :D
+
+Text is HEX:#550000
+
+If you can, make the white parts show up in dark areas.
+No particles/dust
+ 
