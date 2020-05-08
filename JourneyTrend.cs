@@ -11,10 +11,10 @@ namespace JourneyTrend
 		}
 		public override void Load()
 		{
-			if (!Main.dedServ)
-			{
-				AddEquipTexture(null, EquipType.Legs, "RookieBody_Legs", "JourneyTrend/Items/Vanity/RookieSet/RookieBody_Legs");
-			}
+			// if (!Main.dedServ)
+			// {
+			// 	AddEquipTexture(null, EquipType.Legs, "RookieBody_Legs", "JourneyTrend/Items/Vanity/RookieSet/RookieBody_Legs");
+			// }
 		}
 	}
 }
