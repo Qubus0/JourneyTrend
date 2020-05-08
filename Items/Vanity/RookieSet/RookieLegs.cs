@@ -1,16 +1,16 @@
-using Terraria;
+﻿using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
 namespace JourneyTrend.Items.Vanity.RookieSet
 {
-    [AutoloadEquip(EquipType.Body)]
-    public class RookieBody : ModItem
+    [AutoloadEquip(EquipType.Legs)]
+    public class RookieLegs : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Rook");
-            Tooltip.SetDefault("You tower above.");
+            DisplayName.SetDefault("Base");
+            Tooltip.SetDefault("Stay Grounded.");
         }
         public override void SetDefaults()
         {
@@ -19,7 +19,7 @@ namespace JourneyTrend.Items.Vanity.RookieSet
             item.rare = 1;
             item.vanity = true;
         }
-        public override bool DrawBody()
+        public override bool DrawLegs()
         {
             return false;
         }
