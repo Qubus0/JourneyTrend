@@ -2,16 +2,16 @@
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace JourneyTrend.Items.Vanity.RookieSet
+namespace JourneyTrend.Items.Vanity.Mothron
 {
     [AutoloadEquip(EquipType.Legs)]
-    public class RookieBase : ModItem
+    public class MothronPants : ModItem
     {
         public override void SetStaticDefaults()
         {
             base.SetStaticDefaults();
-            DisplayName.SetDefault("Rookie Base");
-            Tooltip.SetDefault("Stay Grounded. \nCreated by Ste");
+            DisplayName.SetDefault("Mothron Pants");
+            Tooltip.SetDefault("The pattern resembles that of Mothron's abdomen. \nCreated by Drdragonfly");
         }
         public override void SetDefaults()
         {
@@ -20,9 +20,9 @@ namespace JourneyTrend.Items.Vanity.RookieSet
             item.rare = 1;
             item.vanity = true;
         }
-        public override bool DrawLegs()
-        {
-            return false;
-        }
+        // public override bool DrawLegs()
+        // {
+        //     return false;
+        // }
     }
 }

@@ -1,0 +1,13 @@
+Hat name: Mothron Mask
+-Tooltip: A mask born in the dim light of a solar eclipse
+
+Chest name: Mothron Shirt
+-Tooltip: Fashioned from the thorax of an ancient Kaiju
+
+Pants name: Mothron Pants
+-Tooltip: The pattern resembles that of Mothron's abdomen
+
+Means of obtaining:
+The pieces drop as an entire set from Mothron with a 12% chance.
+
+I'd like to be credited as Drdragonfly

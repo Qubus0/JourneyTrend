@@ -2,15 +2,15 @@ using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
-namespace JourneyTrend.Items.Vanity.RookieSet
+namespace JourneyTrend.Items.Vanity.Mothron
 {
     [AutoloadEquip(EquipType.Head)]
-    public class RookieHead : ModItem
+    public class MothronMask : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Rookie Steepletop");
-            Tooltip.SetDefault("Made by an aspiring artist. \nCreated by Ste");
+            DisplayName.SetDefault("Mothron Mask");
+            Tooltip.SetDefault("A mask born in the dim light of a solar eclipse. \nCreated by Drdragonfly");
         }
         public override void SetDefaults()
         {
@@ -19,9 +19,9 @@ namespace JourneyTrend.Items.Vanity.RookieSet
             item.rare = 1;
             item.vanity = true;
         }
-        public override bool DrawHead()
-        {
-            return false;
-        }
+        // public override bool DrawHead()
+        // {
+        //     return false;
+        // }
     }
 }
