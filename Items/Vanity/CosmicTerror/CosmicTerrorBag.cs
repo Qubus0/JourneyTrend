@@ -9,7 +9,7 @@ namespace JourneyTrend.Items.Vanity.CosmicTerror
     public class CosmicTerrorBag : ModItem
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("CosmicTerror Bag");
+            DisplayName.SetDefault("Cosmic Terror Bag");
             Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
         }
 
