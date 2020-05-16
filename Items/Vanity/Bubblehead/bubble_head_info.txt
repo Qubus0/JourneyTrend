@@ -1,0 +1,31 @@
+- What is the name you want to have for each piece (E.g. "Helmet", "Chestplate", "Greaves")
+
+Helmet = Bubble Head
+Chestplate = Hydro Tank V3
+Greaves = Carbon Boots
+
+- What tooltip do you want to have for each piece (The tooltip can be multilined)
+
+Helmet = "Literally a Bubble Head"
+Chestplate = "One of the most modern supply tanks !"
+Greaves = "Carbon has fantastic properties"
+ 
+- What name do you want to go by with credit?
+
+Metidigiti
+
+- How do you want each piece obtained?
+
+-Crafting:
+
+*Helment: requirements =  water nearby
+
+ingredients = Fishbowl + 1 Soul Of light
+
+*Chestplate: requirements =  water nearby
+
+ingredients = (1) Bottled Water + (1) Switch + (20) Wires + (3) Any Iron Bar
+
+*Greaves: requirements =  Mythril Anvil or Orichalcum Anviel
+
+ingredients = (1) Soul Of Night + (2) Diamond
