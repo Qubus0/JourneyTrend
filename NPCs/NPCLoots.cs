@@ -5,54 +5,11 @@ using Terraria.Utilities;
 
 namespace JourneyTrend.NPCs
 {
-    public class MyGlobalNPC : GlobalNPC
+    class NPCLoots : GlobalNPC
     {
-        public override void SetupShop(int type, Chest shop, ref int nextSlot)
-        {
-            switch (type)
-            {
-                case NPCID.DD2Bartender:
-                    shop.item[nextSlot].SetDefaults(mod.ItemType("SeaBuckthornTeaHead"));
-                    nextSlot++;
-                    shop.item[nextSlot].SetDefaults(mod.ItemType("SeaBuckthornTeaChest"));
-                    nextSlot++;
-                    shop.item[nextSlot].SetDefaults(mod.ItemType("SeaBuckthornTeaLegs"));
-                    nextSlot++;
-                    break;
-
-                case NPCID.WitchDoctor:
-                    if (Main.player[Main.myPlayer].ZoneJungle && Main.bloodMoon)
-                    {
-                        shop.item[nextSlot].SetDefaults(mod.ItemType("ArcaneExosuitHead"));
-                        nextSlot++;
-                        shop.item[nextSlot].SetDefaults(mod.ItemType("ArcaneExosuitBody"));
-                        nextSlot++;
-                        shop.item[nextSlot].SetDefaults(mod.ItemType("ArcaneExosuitLegs"));
-                        nextSlot++;
-                    }
-                    break;
-                case NPCID.TravellingMerchant:
-                    if (Main.moonPhase == 6)
-                    {
-                        shop.item[nextSlot].SetDefaults(mod.ItemType("JourneymanHat"));
-                        nextSlot++;
-                    }
-                    if (Main.moonPhase == 0)
-                    {
-                        shop.item[nextSlot].SetDefaults(mod.ItemType("JourneymanShirt"));
-                        nextSlot++;
-                    }
-                    if (Main.moonPhase == 2)
-                    {
-                        shop.item[nextSlot].SetDefaults(mod.ItemType("JourneymanPants"));
-                        nextSlot++;
-                    }
-                    break;
-            }
-        }
         public override void NPCLoot(NPC npc)
         {
-            if (npc.type == NPCID.BirdBlue && Main.rand.Next(200) == 0) 
+            if (npc.type == NPCID.BirdBlue && Main.rand.Next(200) == 0)
             {
                 var dropChooser = new WeightedRandom<int>();
                 dropChooser.Add(ModContent.ItemType<Items.Vanity.CommonKingfisher.KingfisherHead>());
@@ -84,6 +41,18 @@ namespace JourneyTrend.NPCs
                 Item.NewItem(npc.getRect(), mod.ItemType("IronCoreHead"));
                 Item.NewItem(npc.getRect(), mod.ItemType("IronCoreBody"));
                 Item.NewItem(npc.getRect(), mod.ItemType("IronCoreLegs"));
+            }
+            if (npc.type == NPCID.DukeFishron && !Main.expertMode && Main.rand.Next(10) < 1)
+            {
+                Item.NewItem(npc.getRect(), mod.ItemType("MagicGrillHead"));
+                Item.NewItem(npc.getRect(), mod.ItemType("MagicGrillBody"));
+                Item.NewItem(npc.getRect(), mod.ItemType("MagicGrillLegs"));
+            }
+            if (npc.type == NPCID.Mothron && Main.rand.Next(25) < 3)
+            {
+                Item.NewItem(npc.getRect(), mod.ItemType("MothronMask"));
+                Item.NewItem(npc.getRect(), mod.ItemType("MothronShirt"));
+                Item.NewItem(npc.getRect(), mod.ItemType("MothronPants"));
             }
         }
     }
