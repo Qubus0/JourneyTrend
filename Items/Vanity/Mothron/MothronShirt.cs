@@ -9,7 +9,7 @@ namespace JourneyTrend.Items.Vanity.Mothron
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("MothronShirt");
+            DisplayName.SetDefault("Mothron Shirt");
             Tooltip.SetDefault("Fashioned from the thorax of an ancient Kaiju. \nCreated by Drdragonfly");
         }
         public override void SetDefaults()
