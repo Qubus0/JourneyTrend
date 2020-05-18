@@ -54,6 +54,19 @@ namespace JourneyTrend.NPCs
                 Item.NewItem(npc.getRect(), mod.ItemType("MothronShirt"));
                 Item.NewItem(npc.getRect(), mod.ItemType("MothronPants"));
             }
+            if ((npc.type == NPCID.GreekSkeleton || npc.type == NPCID.Medusa) && Main.rand.Next(15) == 0)
+            {
+                Item.NewItem(npc.getRect(), mod.ItemType("RookieBase"));
+                Item.NewItem(npc.getRect(), mod.ItemType("RookieBody"));
+                Item.NewItem(npc.getRect(), mod.ItemType("RookieHead"));
+            }
+            if ((npc.type == NPCID.GraniteGolem || npc.type == NPCID.GraniteFlyer) && Main.rand.Next(15) == 0)
+            {
+                Item.NewItem(npc.getRect(), mod.ItemType("RookieBase"));
+                Item.NewItem(npc.getRect(), mod.ItemType("RookieBody"));
+                Item.NewItem(npc.getRect(), mod.ItemType("RookieHead"));
+                Item.NewItem(npc.getRect(), ItemID.ReflectiveMetalDye, 3);
+            }
         }
     }
 }

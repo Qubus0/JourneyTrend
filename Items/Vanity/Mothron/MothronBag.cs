@@ -32,6 +32,7 @@ namespace JourneyTrend.Items.Vanity.Mothron
             player.QuickSpawnItem(ItemType<MothronPants>());
             player.QuickSpawnItem(ItemType<MothronShirt>());
             player.QuickSpawnItem(ItemType<MothronMask>());
+            player.QuickSpawnItem(ItemID.MothronWings);
 
             // randomized from these items
             // int choice = Main.rand.Next(7);
