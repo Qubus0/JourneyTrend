@@ -1,0 +1,19 @@
+Helmet: Dragonhat,
+Tooltip: Used as a hat to protect from the sun and the rain. 
+
+
+Chestplate: Kuijia Platemail,
+Tooltip: Used by fighters to protect their bodies.
+
+
+Leggings: Kuijia Legmail,
+Tooltip: Used by fighters for splash and impact protection.
+
+
+I would like to be credited in the mod description.
+
+Hat obtained by killing a wyvern at night at any biome other than the hollow %20 or nothing
+
+Chestplate and Leggings Obtained by killing a wyvern while at the hollow at night %50 to drop chestplate or leggings
+
+Pink or #ff98ff

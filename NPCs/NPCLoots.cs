@@ -67,6 +67,19 @@ namespace JourneyTrend.NPCs
                 Item.NewItem(npc.getRect(), mod.ItemType("RookieHead"));
                 Item.NewItem(npc.getRect(), ItemID.ReflectiveMetalDye, 3);
             }
+            if (npc.type == NPCID.WyvernHead && !Main.dayTime && !Main.player[Main.myPlayer].ZoneHoly && Main.rand.Next(5) == 0) 
+            {
+                Item.NewItem(npc.getRect(), mod.ItemType("KuijiaHead"));
+            }
+            if (npc.type == NPCID.WyvernHead && !Main.dayTime && Main.player[Main.myPlayer].ZoneHoly && Main.rand.Next(2) == 0) 
+            {
+                var dropChooser = new WeightedRandom<int>();
+                dropChooser.Add(ModContent.ItemType<Items.Vanity.Kuijia.KuijiaBody>());
+                dropChooser.Add(ModContent.ItemType<Items.Vanity.Kuijia.KuijiaLegs>());
+                int choice = dropChooser;
+                Item.NewItem(npc.getRect(), choice);
+            }
+
         }
     }
 }
