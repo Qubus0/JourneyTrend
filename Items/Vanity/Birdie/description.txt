@@ -1,0 +1,14 @@
+Golfin' Head set
+
+Golfin' Head headgear:
+	Tooltip: Go ahead, dominate this golf course!
+
+Golfin' Head sweater:
+	Tooltip: It's not stylish anymore...
+
+Golfin' Head pants:
+	Tooltip: By spreading your legs a little, you can nail a pretty decent shot!
+
+
+Obtaining:
+	1.4: Sold by the new Golfer NPC for 5 gold (every part) upon Hardmode

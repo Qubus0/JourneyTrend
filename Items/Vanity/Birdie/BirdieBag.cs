@@ -4,13 +4,13 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace JourneyTrend.Items.Vanity.RookieSet
+namespace JourneyTrend.Items.Vanity.Birdie
 {
-    public class RookieBag : ModItem
+    public class BirdieBag : ModItem
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Rookie Bag");
-            Tooltip.SetDefault("Don't see everything black and white\n{$CommonItemTooltip.RightClickToOpen}");
+            DisplayName.SetDefault("Birdie Bag");
+            Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults() {
@@ -29,9 +29,9 @@ namespace JourneyTrend.Items.Vanity.RookieSet
         public override void RightClick(Player player) {
 
             // //guaranteed drops
-            player.QuickSpawnItem(ItemType<RookieBase>());
-            player.QuickSpawnItem(ItemType<RookieBody>());
-            player.QuickSpawnItem(ItemType<RookieHead>());
+            player.QuickSpawnItem(ItemType<BirdieLegs>());
+            player.QuickSpawnItem(ItemType<BirdieBody>());
+            player.QuickSpawnItem(ItemType<BirdieHead>());
 
             // randomized from these items
             // int choice = Main.rand.Next(7);

@@ -1,6 +1,8 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 
 namespace JourneyTrend.Items.Vanity.GridSet
 {
@@ -9,8 +11,15 @@ namespace JourneyTrend.Items.Vanity.GridSet
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("[c/550000:Grid's Footgear]");
+            DisplayName.SetDefault("Grid's Footgear");
             Tooltip.SetDefault("A legendary piece of armor.\nCrafted by Grid.");
+        }
+        public override void ModifyTooltips(List<TooltipLine> tooltips) {
+            foreach (TooltipLine line2 in tooltips) {
+                if (line2.mod == "Terraria" && line2.Name == "ItemName") {
+                    line2.overrideColor = new Color(85, 0, 0);
+                }
+            }
         }
         public override void SetDefaults()
         {

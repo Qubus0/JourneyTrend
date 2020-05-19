@@ -31,6 +31,7 @@ namespace JourneyTrend.NPCs
                         nextSlot++;
                     }
                     break;
+
                 case NPCID.TravellingMerchant:
                     if (Main.moonPhase == 6)
                     {
@@ -48,6 +49,7 @@ namespace JourneyTrend.NPCs
                         nextSlot++;
                     }
                     break;
+
                 case NPCID.Cyborg:
                     if (Main.player[Main.myPlayer].ZoneJungle && NPC.downedMoonlord && Main.invasionType == 4)
                     {
@@ -59,7 +61,16 @@ namespace JourneyTrend.NPCs
                         nextSlot++;
                     }
                     break;
-            }
+
+                    case NPCID.Clothier:
+                    shop.item[nextSlot].SetDefaults(mod.ItemType("BirdieHead"));
+                    nextSlot++;
+                    shop.item[nextSlot].SetDefaults(mod.ItemType("BirdieBody"));
+                    nextSlot++;
+                    shop.item[nextSlot].SetDefaults(mod.ItemType("BirdieLegs"));
+                    nextSlot++;
+                    break;
+                }
         }
     }
 }

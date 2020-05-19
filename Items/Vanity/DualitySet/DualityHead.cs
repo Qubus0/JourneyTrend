@@ -1,6 +1,8 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 
 namespace JourneyTrend.Items.Vanity.DualitySet
 {
@@ -9,8 +11,15 @@ namespace JourneyTrend.Items.Vanity.DualitySet
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("[c/6e658e:Duality Mask]");
+            DisplayName.SetDefault("Duality Mask");
             Tooltip.SetDefault("Good and evil, mind of two worlds.\nMade by Chan.");
+        }
+        public override void ModifyTooltips(List<TooltipLine> tooltips) {
+            foreach (TooltipLine line2 in tooltips) {
+                if (line2.mod == "Terraria" && line2.Name == "ItemName") {
+                    line2.overrideColor = new Color(110, 101, 142);
+                }
+            }
         }
         public override void SetDefaults()
         {
