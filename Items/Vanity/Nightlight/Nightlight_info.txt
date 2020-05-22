@@ -1,0 +1,31 @@
+- What is the name you want to have for each piece (E.g. "Helmet", "Chestplate", "Greaves")
+
+Helmet = Nightlight Eyes
+Chestplate = Nightlight Body
+Greaves = Nightlight Feet
+
+- What tooltip do you want to have for each piece (The tooltip can be multilined)
+
+Helmet = "Eyes that reflect a moonlit night.."
+Chestplate = "A bright friendly glow in the night."
+Greaves = "No tripping at night with bug feet."
+ 
+- What name do you want to go by with credit?
+
+Metalsquirrel
+
+- How do you want each piece obtained?
+
+-Crafting:
+
+*Helment: requirements =  Loom
+
+ingredients = 15 silk + 5 Moonglow + 2 lens
+
+*Chestplate: requirements =  Loom
+
+ingredients = 15 silk + 15 moonglow
+
+*Greaves: requirements =  Loom
+
+ingredients = 15 silk + 5 moonglow
