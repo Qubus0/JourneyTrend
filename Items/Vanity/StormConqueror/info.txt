@@ -1,0 +1,37 @@
+Storm Conqueror's Bag:
+
+    Rarity: Cyan
+    Tooltip: "What's inside, hmmm?"
+
+Storm Conqueror's Visage:
+
+    Rarity: Cyan
+    Tooltip: "Wow, so shiny!"
+
+Storm Conqueror's Breastplate:
+
+    Rarity: Cyan
+    Tooltip: "Ouch, it zapped me!"
+
+Storm Conqueror's Greaves:
+    
+    Rarity: Cyan
+    Tooltip: "So comfy"
+
+Other Notes:
+
+Could it have dust 226 as a trail? Stationary and not affected by
+gravity.
+
+Created by Dandandooo
+
+There is a treasure bag that drops from enemies in space:
+
+ - Wyvern: 5%
+ - Harpy: 1%
+ - Other: 0.25%
+
+Other means any other mob that is killed in space.
+Also, statues will work for this. Harpy statues count toward Harpy.
+
+Created by Dandandooo

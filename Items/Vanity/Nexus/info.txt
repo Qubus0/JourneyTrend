@@ -1,0 +1,47 @@
+Vanity Set Description:
+
+
+Top: 
+Nexus Helmet
+
+Desc: "100% waterproof."
+10 any iron
+3 soul of sight
+3 silk
+
+
+Middle: 
+Nexus Chestplate
+
+Desc: "You sense ceaseless energy coming from within."
+20 any iron
+3 soul of sight
+5 silk
+
+
+Bottom: 
+Nexus Greaves
+
+Desc: "Light and swift."
+15 any iron
+3 soul of sight
+3 silk
+
+@ hardmode anvil
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -79,6 +79,24 @@ namespace JourneyTrend.NPCs
                 int choice = dropChooser;
                 Item.NewItem(npc.getRect(), choice);
             }
+            if (npc.type == NPCID.Mothron && Main.rand.Next(25) < 3)
+            {
+                Item.NewItem(npc.getRect(), mod.ItemType("MothronMask"));
+                Item.NewItem(npc.getRect(), mod.ItemType("MothronShirt"));
+                Item.NewItem(npc.getRect(), mod.ItemType("MothronPants"));
+            }
+            if (npc.type == NPCID.WyvernHead && Main.rand.Next(20) == 0)
+            {
+                Item.NewItem(npc.getRect(), mod.ItemType("StormBag"));
+            }
+            if (npc.type == NPCID.Harpy && Main.rand.Next(100) == 0)
+            {
+                Item.NewItem(npc.getRect(), mod.ItemType("StormBag"));
+            }
+            if (((npc.Center.Y) < (Main.worldSurface * 0.35f) * 16f) && Main.rand.Next(250) == 0)     // if the mob is above certain Y level (sky)
+            {
+                Item.NewItem(npc.getRect(), mod.ItemType("StormBag"));
+            }
 
         }
     }

@@ -10,7 +10,7 @@ namespace JourneyTrend.Items.Vanity.IronCore
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Breastplate of the Iron Core");
-            Tooltip.SetDefault("A worn down chestpiece for an old knight.\nYour heart feels a little heavier when you put this on, but you aren't any stronger.\nMade by RealStiel");
+            Tooltip.SetDefault("A worn down chestpiece for an old knight.\nYour heart feels a little heavier when you put this on, but you aren't any stronger.\nMade by TunaToda & RealStiel");
         }
         public override void SetDefaults()
         {

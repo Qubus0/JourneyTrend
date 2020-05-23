@@ -1,4 +1,4 @@
-displayName = Journey's Trend: A Community Vanity Mod
+displayName = Journey's Trend: The Community Vanity Mod
 author = Lobster2, Lotaru, Many, Many Artists
 version = 0.1
 buildIgnore = .gitattributes, README.md
