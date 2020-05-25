@@ -1,0 +1,26 @@
+(I’ve changed some of the things from my forum post as the design has changed, use this over the forum post as reference)
+
+- HiveNet Digital Wings
+	- Cloud-based Engineering
+	- Crafted: 1 Neuron + 10 Copper/tin + 20 Souls of Flight
+- HiveNet Headset
+8 Copper/TinBar, 8 BeeWax, 10 Wire
+	- Listen to the Queen
+	- Crafted: 1 Neuron + 10 Copper/tin
+- HiveNet Chestplate
+10 Copper/TinBar, 8 BeeWax, 5 Wire
+	- Not as Protective as it Looks
+	- Crafted: 1 Neuron + 10 Copper/tin
+- HiveNet Leggings
+10 Copper/TinBar, 5 BeeWax, 3 Wire
+	- Complete with 2 bytes of ram
+	- Crafted: 1 Neuron + 10 Copper/tin
+- HiveNet Neuron
+	- Flavor Text: Plugs straight in to the hive mind.
+	- Rare Drop from Moss Hornets (6%)
+
+- The Particles: Will only come from the wing’s screens, and should not float away from them if at all possible, like text on the screen, not sparks coming off it. They should also spawn in lines of text, and should move from right to left. I don’t know if six variants is possible, but if you can only use 3, use the three on the left. I don’t know if they get flipped horizontally or vertically, but if they can they should do that for variety’s sake. 
+
+If you need a visual, you can look at my forum post (link is in the contest-submissions channel) They don’t have to go under the lines on the screen.
+
+- The Glowmask: I don’t know how much you can control the brightness of a glowmask, but it should only really be as bright as a  
