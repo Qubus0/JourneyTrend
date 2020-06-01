@@ -1,0 +1,11 @@
+Set Name: Bounty Hunter Set
+
+Pieces' Names: Bounty Hunter Mask, Bounty Hunter Chestplate, Bounty Hunter Greaves
+
+Tooltip: A high-tech battle armour developed by Dr. Tobopolis. Some Accidental Disintegration.
+
+Obtained: Sold by the Cyborg at night time after defeating the Martian Madness event. 5 gold a piece.
+
+Rarity: Yellow 8
+
+Tobopolis

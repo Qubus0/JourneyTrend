@@ -30,8 +30,14 @@ namespace JourneyTrend.Items.Vanity.Hivenet
 			if(dust.alpha > 100) {
 				dust.frame = new Rectangle(0, Main.rand.Next(4) * 10, 8, 10);
 			}
+
+			float light = 0.4f;
+			Lighting.AddLight(dust.position, light, light, light);
 			return false;
 		}
+
+		public override Color? GetAlpha(Dust dust, Color lightColor) 
+			=> new Color(0, 255, 128, 10);
 	}
 }
 

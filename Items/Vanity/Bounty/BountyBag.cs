@@ -4,13 +4,13 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace JourneyTrend.Items.Vanity.Hivenet
+namespace JourneyTrend.Items.Vanity.Bounty
 {
-    public class HivenetBag : ModItem
+    public class BountyBag : ModItem
     {
         public override void SetStaticDefaults() {
-            DisplayName.SetDefault("Hivenet Bag");
-            Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+            DisplayName.SetDefault("Bounty Hunter's Bag");
+            Tooltip.SetDefault("{.RightClickToOpen}");
         }
 
         public override void SetDefaults() {
@@ -27,10 +27,10 @@ namespace JourneyTrend.Items.Vanity.Hivenet
         }
 
         public override void RightClick(Player player) {
-            player.QuickSpawnItem(ItemType<HivenetLegs>());
-            player.QuickSpawnItem(ItemType<HivenetBody>());
-            player.QuickSpawnItem(ItemType<HivenetHead>());
-            player.QuickSpawnItem(ItemType<HivenetWings>());
+            player.QuickSpawnItem(ItemType<BountyLegs>());
+            player.QuickSpawnItem(ItemType<BountyBody>());
+            player.QuickSpawnItem(ItemType<BountyHead>());
         }
+
     }
 }

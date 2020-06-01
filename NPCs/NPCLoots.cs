@@ -97,7 +97,12 @@ namespace JourneyTrend.NPCs
             {
                 Item.NewItem(npc.getRect(), mod.ItemType("StormBag"));
             }
-
+            if ((npc.type == NPCID.MossHornet || npc.type == NPCID.Moth || npc.type == NPCID.WallCreeperWall || npc.type == NPCID.WallCreeper) && Main.rand.Next(200) == 0)
+            {
+                Item.NewItem(npc.getRect(), mod.ItemType("SwampHorrorLegs"));
+                Item.NewItem(npc.getRect(), mod.ItemType("SwampHorrorBody"));
+                Item.NewItem(npc.getRect(), mod.ItemType("SwampHorrorHead"));
+            }
         }
     }
 }

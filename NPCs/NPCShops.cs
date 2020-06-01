@@ -51,13 +51,22 @@ namespace JourneyTrend.NPCs
                     break;
 
                 case NPCID.Cyborg:
-                    if (Main.player[Main.myPlayer].ZoneJungle && NPC.downedMoonlord && Main.invasionType == 4)
+                    if (Main.player[Main.myPlayer].ZoneJungle && NPC.downedMoonlord && Main.invasionType == 4)  //4 -> martian madness
                     {
                         shop.item[nextSlot].SetDefaults(mod.ItemType("GridHead"));
                         nextSlot++;
                         shop.item[nextSlot].SetDefaults(mod.ItemType("GridBody"));
                         nextSlot++;
                         shop.item[nextSlot].SetDefaults(mod.ItemType("GridLegs"));
+                        nextSlot++;
+                    }
+                    if (!Main.dayTime && NPC.downedMartians)
+                    {
+                        shop.item[nextSlot].SetDefaults(mod.ItemType("BountyHead"));
+                        nextSlot++;
+                        shop.item[nextSlot].SetDefaults(mod.ItemType("BountyBody"));
+                        nextSlot++;
+                        shop.item[nextSlot].SetDefaults(mod.ItemType("BountyLegs"));
                         nextSlot++;
                     }
                     break;

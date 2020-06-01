@@ -1,0 +1,15 @@
+Hat name: Swamp Horror Mask
+-Tooltip:
+
+Chest name: Swamp Horror Shirt
+-Tooltip:
+
+Pants name: Swamp Horror Pants
+-Tooltip:
+
+Means of obtaining:
+-Quote from forum post: "Low chance to have full set dropped by Plantera in expert mode, or even lower chance for one piece to drop from random monsters in the jungle?"
+
+-Arms/Hands/Body need to be hidden on Shirt
+
+Outerwar
