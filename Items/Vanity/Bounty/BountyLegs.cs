@@ -9,8 +9,7 @@ namespace JourneyTrend.Items.Vanity.Bounty
     {
         public override void SetStaticDefaults() {
             DisplayName.SetDefault("Bounty Hunter Greaves");
-            Tooltip.SetDefault("A high-tech battle armour developed by Dr. Tobopolis.\nMade by Tobopolis");
-        }
+            Tooltip.SetDefault("A high-tech battle armour developed by Dr. Tobopolis.\nIt's strictly business.\nMade by Tobopolis");        }
         
         public override void SetDefaults() {
             item.width = 18;

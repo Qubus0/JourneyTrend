@@ -10,7 +10,7 @@ namespace JourneyTrend.Items.Vanity.Bounty
     {
         public override void SetStaticDefaults() {
             DisplayName.SetDefault("Bounty Hunter's Bag");
-            Tooltip.SetDefault("{.RightClickToOpen}");
+            Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults() {

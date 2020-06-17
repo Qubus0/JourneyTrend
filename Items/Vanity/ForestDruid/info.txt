@@ -1,0 +1,19 @@
+Hat name: Forest Druid's Horns / Forest Druid's Hood / Forest Druid's Mask
+
+shows hair
+
+Chest name: Forest Druid's Robe
+-Tooltip:
+
+Druid's Robe tooltip - "An ancient robe filled with the forest's essence"
+Druid's Horns tooltip - "As animal horns, branches have grown in your head"
+
+
+
+Means of obtaining: The set should be obtained inside a living wood chest, under those giant trees.
+
+Kohi_aue
+
+-The legs are intentionally left blank, didn't know if you need those. These sprites for the robes act like the Reaper's robe, so they have no legs.
+-The Forest Druid's Horns are the main head piece and Hood and Mask are the alternative designs (Kohi might still want to change the names of the two alternates).
+-Kohi might still want to add tooltips

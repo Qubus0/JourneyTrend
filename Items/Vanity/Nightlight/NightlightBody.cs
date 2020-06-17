@@ -1,6 +1,8 @@
 using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
+using Microsoft.Xna.Framework;
+using static Terraria.ModLoader.ModContent;
 
 namespace JourneyTrend.Items.Vanity.Nightlight
 {
@@ -18,6 +20,9 @@ namespace JourneyTrend.Items.Vanity.Nightlight
             item.height = 18;
             item.rare = 2;
             item.vanity = true;
+        }
+        public override void UpdateVanity(Player player, EquipType type) {
+            Lighting.AddLight(player.Center, 2*0.135f, 2*0.166f, 0);
         }
         public override void AddRecipes()
         {

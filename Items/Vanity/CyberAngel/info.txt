@@ -1,0 +1,17 @@
+
+rarity cyan, 9
+
+Cyber Angel Halo
+
+Cyber Angel Breastplate
+
+Cyber Angel Leggings
+
+
+
+
+CyberAngelBreastplate:
+for "public override void DrawHands(ref bool drawHands, ref bool drawArms)"
+drawHands = true;
+
+Rariaz

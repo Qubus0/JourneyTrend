@@ -11,7 +11,7 @@ namespace JourneyTrend.Items.Vanity.Hivenet
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("HiveNet Digital Wings");
-			Tooltip.SetDefault("Cloud-based Engineering.");
+			Tooltip.SetDefault("Cloud-based Engineering.\nMade by Sam Holt");
 		}
 
 		public override void SetDefaults() {

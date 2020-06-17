@@ -1,7 +1,7 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Utilities;
+using static Terraria.ModLoader.ModContent;
 
 namespace JourneyTrend.NPCs
 {
@@ -71,7 +71,7 @@ namespace JourneyTrend.NPCs
                     }
                     break;
 
-                    case NPCID.Clothier:
+                case NPCID.Clothier:
                     shop.item[nextSlot].SetDefaults(mod.ItemType("BirdieHead"));
                     nextSlot++;
                     shop.item[nextSlot].SetDefaults(mod.ItemType("BirdieBody"));
@@ -79,7 +79,29 @@ namespace JourneyTrend.NPCs
                     shop.item[nextSlot].SetDefaults(mod.ItemType("BirdieLegs"));
                     nextSlot++;
                     break;
+
+                case NPCID.Pirate:
+                if (Main.raining)
+                {
+                    shop.item[nextSlot].SetDefaults(mod.ItemType("DeepDiverHead"));
+                    nextSlot++;
+                    shop.item[nextSlot].SetDefaults(mod.ItemType("DeepDiverBody"));
+                    nextSlot++;
+                    shop.item[nextSlot].SetDefaults(mod.ItemType("DeepDiverLegs"));
+                    nextSlot++;
                 }
+                    break;
+
+                case NPCID.Truffle:
+                    shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.MushroomAlchemist.MushroomAlchemistHead>());
+                    nextSlot++;
+                    shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.MushroomAlchemist.MushroomAlchemistBody>());
+                    nextSlot++;
+                    shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.MushroomAlchemist.MushroomAlchemistLegs>());
+                    nextSlot++;
+                    break;
+
+            }
         }
     }
 }

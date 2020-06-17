@@ -10,7 +10,7 @@ namespace JourneyTrend.Items.Vanity.Hivenet
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("HiveNet Leggings");
-            Tooltip.SetDefault("Complete with 2 bytes of ram\nMade by Sam Holt");
+            Tooltip.SetDefault("Complete with 2 bytes of ram.\nMade by Sam Holt");
         }
         
         public override void SetDefaults()

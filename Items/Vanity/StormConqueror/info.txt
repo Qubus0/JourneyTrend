@@ -18,12 +18,24 @@ Storm Conqueror's Greaves:
     Rarity: Cyan
     Tooltip: "So comfy"
 
+Storm in a Balloon:
+
+    Rarity: Cyan
+    Tooltip: "Helium not included"
+
+Cloud Pack:
+
+    Rarity: Cyan
+    Tooltip: "a Fluffy Cloud"
+
 Other Notes:
 
 Could it have dust 226 as a trail? Stationary and not affected by
-gravity.
+gravity. The wings should be like the jetpack but fly as high as
+the harpy wings.
 
 Created by Dandandooo
+
 
 There is a treasure bag that drops from enemies in space:
 

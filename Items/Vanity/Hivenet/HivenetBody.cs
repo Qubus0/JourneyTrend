@@ -10,7 +10,7 @@ namespace JourneyTrend.Items.Vanity.Hivenet
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("HiveNet Chestplate");
-            Tooltip.SetDefault("Not as Protective as it Looks\nMade by Sam Holt");
+            Tooltip.SetDefault("Not as Protective as it Looks.\nMade by Sam Holt");
         }
 
         public override void SetDefaults()
