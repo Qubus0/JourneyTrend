@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "yrKpoBhwpvjdeLVIeYGUe/XvCRD7hozNlWnPfQ3ENAo1VZKH3MLyRv7Y8tmdSz6yWFQAtgHc2J2Rxa6tQA4LjQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\kelle1\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\JourneyTrend\\JourneyTrend.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\kelle1\\.nuget\\packages\\tmodloader.codeassist\\0.1.1\\tmodloader.codeassist.0.1.1.nupkg.sha512"
+  ],
+  "logs": []
+}
