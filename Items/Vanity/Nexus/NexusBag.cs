@@ -1,4 +1,3 @@
-using JourneyTrend.Items.Vanity;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -18,8 +17,7 @@ namespace JourneyTrend.Items.Vanity.Nexus
             item.consumable = true;
             item.width = 24;
             item.height = 24;
-            item.rare = 1;
-            //item.expert = true;
+            item.rare = ItemRarityID.Blue;
         }
 
         public override bool CanRightClick() {

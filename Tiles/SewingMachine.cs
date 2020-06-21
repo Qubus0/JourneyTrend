@@ -34,7 +34,7 @@ namespace JourneyTrend.Tiles
 			AddMapEntry(new Color(200, 200, 200), name);
 		}
 
-		private readonly int animationFrameHeight = 20;
+		private new readonly int animationFrameHeight = 20;
 
 		public override void AnimateIndividualTile(int type, int i, int j, ref int frameXOffset, ref int frameYOffset) {
 			// Tweak the frame drawn by x position so tiles next to each other are off-sync and look much more interesting.

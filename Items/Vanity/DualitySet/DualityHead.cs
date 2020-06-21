@@ -1,8 +1,7 @@
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
-using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.DualitySet
 {
@@ -14,6 +13,7 @@ namespace JourneyTrend.Items.Vanity.DualitySet
             DisplayName.SetDefault("Duality Mask");
             Tooltip.SetDefault("Good and evil, mind of two worlds.\nMade by Chan.");
         }
+
         public override void ModifyTooltips(List<TooltipLine> tooltips) {
             foreach (TooltipLine line2 in tooltips) {
                 if (line2.mod == "Terraria" && line2.Name == "ItemName") {
@@ -21,12 +21,20 @@ namespace JourneyTrend.Items.Vanity.DualitySet
                 }
             }
         }
+
         public override void SetDefaults()
         {
             item.width = 18;
             item.height = 18;
             item.vanity = true;
+            item.rare = ItemRarityID.White;
         }
+
+        public override bool CanBurnInLava()
+        {
+            return false;
+        }
+
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
@@ -36,6 +44,7 @@ namespace JourneyTrend.Items.Vanity.DualitySet
             recipe.SetResult(this);
             recipe.AddRecipe();
         }
+
         public override bool DrawHead()
         {
             return false;

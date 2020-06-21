@@ -1,10 +1,10 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 
 namespace JourneyTrend.Items.Vanity.WyvernRider
 {
-	public class WyvernRiderDust : ModDust
+    public class WyvernRiderDust : ModDust
 	{
 		public override void OnSpawn(Dust dust) {
 			dust.noGravity = true;

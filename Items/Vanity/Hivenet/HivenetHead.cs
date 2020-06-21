@@ -1,6 +1,5 @@
-using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.Hivenet
 {
@@ -17,7 +16,7 @@ namespace JourneyTrend.Items.Vanity.Hivenet
         {
             item.width = 18;
             item.height = 18;
-            item.rare = 2;
+            item.rare = ItemRarityID.Green;
             item.vanity = true;
         }
 

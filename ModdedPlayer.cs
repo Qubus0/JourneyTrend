@@ -1,22 +1,9 @@
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
 using Terraria;
-using Terraria.Audio;
 using Terraria.DataStructures;
-using Terraria.Enums;
-using Terraria.GameContent.Achievements;
-using Terraria.GameContent.Events;
-using Terraria.GameContent.UI;
-using Terraria.GameInput;
-using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.IO;
-using Terraria.ObjectData;
-using Terraria.Localization;
-using static Terraria.ModLoader.ModContent;
-using System.Runtime.Remoting.Messaging;
 
 namespace JourneyTrend
 {
@@ -48,6 +35,7 @@ namespace JourneyTrend
 			drawData.shader = drawInfo.headArmorShader;
 			Main.playerDrawData.Add(drawData);
 		});
+
 		public static readonly PlayerLayer ContainmentBodyGlowmask = new PlayerLayer("JourneyTrend", "ContainmentBodyGlowmask", PlayerLayer.Body, delegate (PlayerDrawInfo drawInfo)
 		{
 			if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
@@ -74,6 +62,7 @@ namespace JourneyTrend
 			drawData.shader = drawInfo.bodyArmorShader;
 			Main.playerDrawData.Add(drawData);
 		});
+
 		public static readonly PlayerLayer CyberAngelHeadGlowmask = new PlayerLayer("JourneyTrend", "CyberAngelHeadGlowmask", PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)
 		{
 			if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
@@ -100,6 +89,7 @@ namespace JourneyTrend
 			drawData.shader = drawInfo.headArmorShader;
 			Main.playerDrawData.Add(drawData);
 		});
+
 		public static readonly PlayerLayer CyberAngelBodyGlowmask = new PlayerLayer("JourneyTrend", "CyberAngelBodyGlowmask", PlayerLayer.Body, delegate (PlayerDrawInfo drawInfo)
 		{
 			if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
@@ -126,6 +116,7 @@ namespace JourneyTrend
 			drawData.shader = drawInfo.bodyArmorShader;
 			Main.playerDrawData.Add(drawData);
 		});
+
 		public static readonly PlayerLayer CyberAngelLegsGlowmask = new PlayerLayer("JourneyTrend", "CyberAngelLegsGlowmask", PlayerLayer.Legs, delegate (PlayerDrawInfo drawInfo)
 		{
 			if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
@@ -152,6 +143,7 @@ namespace JourneyTrend
 			drawData.shader = drawInfo.legArmorShader;
 			Main.playerDrawData.Add(drawData);
 		});
+
 		public static readonly PlayerLayer MushroomHeadGlowmask = new PlayerLayer("JourneyTrend", "MushroomHeadGlowmask", PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)
 		{
 			if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
@@ -178,6 +170,7 @@ namespace JourneyTrend
 			drawData.shader = drawInfo.headArmorShader;
 			Main.playerDrawData.Add(drawData);
 		});
+
 		public static readonly PlayerLayer MushroomBodyGlowmask = new PlayerLayer("JourneyTrend", "MushroomBodyGlowmask", PlayerLayer.Body, delegate (PlayerDrawInfo drawInfo)
 		{
 			if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
@@ -204,6 +197,7 @@ namespace JourneyTrend
 			drawData.shader = drawInfo.bodyArmorShader;
 			Main.playerDrawData.Add(drawData);
 		});
+
 		public static readonly PlayerLayer MushroomLegsGlowmask = new PlayerLayer("JourneyTrend", "MushroomLegsGlowmask", PlayerLayer.Legs, delegate (PlayerDrawInfo drawInfo)
 		{
 			if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
@@ -230,6 +224,7 @@ namespace JourneyTrend
 			drawData.shader = drawInfo.legArmorShader;
 			Main.playerDrawData.Add(drawData);
 		});
+
 		public static readonly PlayerLayer MushroomArmsGlowmask = new PlayerLayer("JourneyTrend", "MushroomArmsGlowmask", PlayerLayer.Arms, delegate (PlayerDrawInfo drawInfo)
 		{
 			if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
@@ -256,6 +251,7 @@ namespace JourneyTrend
 			drawData.shader = drawInfo.bodyArmorShader;
 			Main.playerDrawData.Add(drawData);
 		});
+
 		public static readonly PlayerLayer NexusHeadGlowmask = new PlayerLayer("JourneyTrend", "NexusHeadGlowmask", PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)
 		{
 			if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
@@ -282,6 +278,7 @@ namespace JourneyTrend
 			drawData.shader = drawInfo.headArmorShader;
 			Main.playerDrawData.Add(drawData);
 		});
+
 		public static readonly PlayerLayer NexusBodyGlowmask = new PlayerLayer("JourneyTrend", "NexusBodyGlowmask", PlayerLayer.Body, delegate (PlayerDrawInfo drawInfo)
 		{
 			if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
@@ -312,6 +309,7 @@ namespace JourneyTrend
 			drawData.shader = drawInfo.bodyArmorShader;
 			Main.playerDrawData.Add(drawData);
 		});
+
 		public static readonly PlayerLayer NexusLegsGlowmask = new PlayerLayer("JourneyTrend", "NexusLegsGlowmask", PlayerLayer.Legs, delegate (PlayerDrawInfo drawInfo)
 		{
 			if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
@@ -338,6 +336,7 @@ namespace JourneyTrend
 			drawData.shader = drawInfo.legArmorShader;
 			Main.playerDrawData.Add(drawData);
 		});
+
 		public static readonly PlayerLayer NexusArmsGlowmask = new PlayerLayer("JourneyTrend", "NexusArmsGlowmask", PlayerLayer.Arms, delegate (PlayerDrawInfo drawInfo)
 		{
 			if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
@@ -364,6 +363,7 @@ namespace JourneyTrend
 			drawData.shader = drawInfo.bodyArmorShader;
 			Main.playerDrawData.Add(drawData);
 		});
+
 		public static readonly PlayerLayer NightlightBodyGlowmask = new PlayerLayer("JourneyTrend", "NightlightBodyGlowmask", PlayerLayer.Body, delegate (PlayerDrawInfo drawInfo)
 		{
 			if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
@@ -390,6 +390,7 @@ namespace JourneyTrend
 			drawData.shader = drawInfo.bodyArmorShader;
 			Main.playerDrawData.Add(drawData);
 		});
+
 		public override void ModifyDrawLayers(List<PlayerLayer> layers)
 		{
 			int headLayer = layers.FindIndex(l => l == PlayerLayer.Head);

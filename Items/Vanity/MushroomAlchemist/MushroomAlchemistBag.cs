@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
+using Terraria.ID;
 
 namespace JourneyTrend.Items.Vanity.MushroomAlchemist
 {
@@ -16,8 +17,7 @@ namespace JourneyTrend.Items.Vanity.MushroomAlchemist
             item.consumable = true;
             item.width = 24;
             item.height = 24;
-            item.rare = 1;
-            //item.expert = true;
+            item.rare = ItemRarityID.Blue;
         }
 
         public override bool CanRightClick() {

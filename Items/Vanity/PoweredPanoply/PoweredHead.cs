@@ -1,6 +1,5 @@
-using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.PoweredPanoply
 {
@@ -12,13 +11,15 @@ namespace JourneyTrend.Items.Vanity.PoweredPanoply
             DisplayName.SetDefault("Powered Armet");
             Tooltip.SetDefault("Three fourths and a fifth\nMade by Fake_Tank");
         }
+
         public override void SetDefaults()
         {
             item.width = 18;
             item.height = 18;
-            item.rare = 1;
+            item.rare = ItemRarityID.Blue;
             item.vanity = true;
         }
+
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);

@@ -4,7 +4,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace JourneyTrend.Items.Placeable
 {
-	public class SewingMachine : ModItem
+    public class SewingMachine : ModItem
 	{
 		public override void SetStaticDefaults() {
 			Tooltip.SetDefault("Not so fond of that one vanity in particular? \nTry yoursef at the job of a tailor here.");
@@ -18,7 +18,7 @@ namespace JourneyTrend.Items.Placeable
 			item.autoReuse = true;
 			item.useAnimation = 15;
 			item.useTime = 10;
-			item.useStyle = 1;
+			item.useStyle = ItemUseStyleID.SwingThrow;
 			item.consumable = true;
 			item.value = 150;
 			item.createTile = TileType<Tiles.SewingMachine>();

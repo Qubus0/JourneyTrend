@@ -1,12 +1,12 @@
+using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
-using Terraria.ID;
-using Microsoft.Xna.Framework;
 
 namespace JourneyTrend.Items.Vanity.Hivenet
 {
-	[AutoloadEquip(EquipType.Wings)]
+    [AutoloadEquip(EquipType.Wings)]
 	public class HivenetWings : ModItem
 	{
 		public override void SetStaticDefaults() {
@@ -17,7 +17,7 @@ namespace JourneyTrend.Items.Vanity.Hivenet
 		public override void SetDefaults() {
 			item.width = 22;
 			item.height = 20;
-			item.rare = 2;
+			item.rare = ItemRarityID.Green;
 			item.vanity = true;
 			item.accessory = true;
 		}

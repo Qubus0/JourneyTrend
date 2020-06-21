@@ -1,22 +1,20 @@
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
 
 namespace JourneyTrend.Items.Vanity.WyvernRider
 {
-	[AutoloadEquip(EquipType.Wings)]
+    [AutoloadEquip(EquipType.Wings)]
 	public class WyvernRiderWings : ModItem
 	{
 		public override void SetStaticDefaults() {
 			DisplayName.SetDefault("Wyvern Rider Tail");
-			Tooltip.SetDefault("It doesn't allow you to ride wyverns, sorry.\nMade by manzXja");
+			Tooltip.SetDefault("It doesn't allow you to ride wyverns, sorry\nMade by manzXja");
 		}
 
 		public override void SetDefaults() {
 			item.width = 22;
 			item.height = 20;
-			item.rare = 9;
+			item.rare = ItemRarityID.Cyan;
 			item.vanity = true;
 			item.accessory = true;
 		}

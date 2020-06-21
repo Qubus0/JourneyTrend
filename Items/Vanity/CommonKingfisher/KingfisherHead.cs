@@ -1,6 +1,5 @@
-using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.CommonKingfisher
 {
@@ -10,13 +9,13 @@ namespace JourneyTrend.Items.Vanity.CommonKingfisher
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Common Kingfisher Mask");
-            Tooltip.SetDefault("The kingfisher rises out of the black wave like a blue flower.\nIn his beak, he carries a silver leaf.\nA. atthis Approved!");
+            Tooltip.SetDefault("The kingfisher rises out of the black wave like a blue flower.\nIn his beak, he carries a silver leaf.\nAlcedo atthis Approved!\nMade by Squidcrane");
         }
         public override void SetDefaults()
         {
             item.width = 18;
             item.height = 18;
-            item.rare = 1;
+            item.rare = ItemRarityID.Blue;
             item.vanity = true;
         }
         public override bool DrawHead()

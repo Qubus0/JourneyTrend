@@ -1,6 +1,5 @@
-using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.CosmicTerror
 {
@@ -16,7 +15,7 @@ namespace JourneyTrend.Items.Vanity.CosmicTerror
         {
             item.width = 24;
             item.height = 24;
-            item.rare = 1;
+            item.rare = ItemRarityID.Blue;
             item.accessory = true;
             item.vanity = true;
         }

@@ -1,4 +1,3 @@
-using Terraria;
 using Terraria.ModLoader;
 using Terraria.ID;
 
@@ -10,13 +9,13 @@ namespace JourneyTrend.Items.Vanity.Birdie
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Birdie Pants");
-            Tooltip.SetDefault("By spreading your legs a little, you can nail a pretty decent shot!\nMade by Pyromma.");
+            Tooltip.SetDefault("By spreading your legs a little, you can nail a pretty decent shot!\nMade by Pyromma");
         }
         public override void SetDefaults()
         {
             item.width = 18;
             item.height = 18;
-            item.rare = 4;
+            item.rare = ItemRarityID.LightRed;
             item.vanity = true;
             item.value = 50000;
         }

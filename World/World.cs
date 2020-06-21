@@ -22,7 +22,7 @@ namespace JourneyTrend.World
                     { // 1 in 4 Ice Chests will have the following
                         for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
                         { // For each inventory slot in the chest
-                            if (chest.item[inventoryIndex].type == 0 && itemsToPlaceInIceChestsChoice < itemsToPlaceInIceChests.Length)
+                            if (chest.item[inventoryIndex].type == ItemID.None && itemsToPlaceInIceChestsChoice < itemsToPlaceInIceChests.Length)
                             { // If selected inventory slot is empty
                                 chest.item[inventoryIndex].SetDefaults(itemsToPlaceInIceChests[itemsToPlaceInIceChestsChoice]);
                                 itemsToPlaceInIceChestsChoice++;
@@ -38,7 +38,7 @@ namespace JourneyTrend.World
                     { // 1 in 2 Living Chests will have the following
                         for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
                         { // For each inventory slot in the chest
-                            if (chest.item[inventoryIndex].type == 0 && itemsToPlaceInLivingChestsChoice < itemsToPlaceInLivingChests.Length)
+                            if (chest.item[inventoryIndex].type == ItemID.None && itemsToPlaceInLivingChestsChoice < itemsToPlaceInLivingChests.Length)
                             { // If selected inventory slot is empty
                                 chest.item[inventoryIndex].SetDefaults(itemsToPlaceInLivingChests[itemsToPlaceInLivingChestsChoice]);
                                 itemsToPlaceInLivingChestsChoice++;

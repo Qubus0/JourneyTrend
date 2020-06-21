@@ -1,11 +1,10 @@
 using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
 using Terraria.Localization;
+using Terraria.ModLoader;
 
 namespace JourneyTrend
 {
-	public class JourneyTrend : Mod
+    public class JourneyTrend : Mod
 	{
 		public JourneyTrend()
 		{

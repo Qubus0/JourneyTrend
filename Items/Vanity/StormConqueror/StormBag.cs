@@ -1,8 +1,6 @@
-using JourneyTrend.Items.Vanity;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
 
 namespace JourneyTrend.Items.Vanity.StormConqueror
 {
@@ -10,7 +8,7 @@ namespace JourneyTrend.Items.Vanity.StormConqueror
     {
         public override void SetStaticDefaults() {
             DisplayName.SetDefault("Storm Conqueror's Bag");
-            Tooltip.SetDefault("What's inside, hmmm?\n{$CommonItemTooltip.RightClickToOpen}");
+            Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults() {
@@ -18,33 +16,18 @@ namespace JourneyTrend.Items.Vanity.StormConqueror
             item.consumable = true;
             item.width = 24;
             item.height = 24;
-            item.rare = 1;
-            //item.expert = true;
+            item.rare = ItemRarityID.Blue;
         }
 
         public override bool CanRightClick() {
             return true;
         }
 
-        public override void RightClick(Player player) {
-
-            // //guaranteed drops
+        public override void RightClick(Player player)
+        {
             player.QuickSpawnItem(mod.ItemType("StormLegs"));
             player.QuickSpawnItem(mod.ItemType("StormBody"));
             player.QuickSpawnItem(mod.ItemType("StormHead"));
-
-            // randomized from these items
-            // int choice = Main.rand.Next(7);
-            // if (choice == 0) {
-            //     player.QuickSpawnItem(ItemType<PuritySpiritMask>());
-            // }
-            // else if (choice == 1) {
-            //     player.QuickSpawnItem(ItemType<BunnyMask>());
-            // }
-            // if (choice != 1) {
-            //     player.QuickSpawnItem(ItemID.Bunny);
-            // }
         }
-
     }
 }

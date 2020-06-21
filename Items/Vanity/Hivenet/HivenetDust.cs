@@ -1,10 +1,10 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ModLoader;
-using Microsoft.Xna.Framework;
 
 namespace JourneyTrend.Items.Vanity.Hivenet
 {
-	public class HivenetDust : ModDust
+    public class HivenetDust : ModDust
 	{
 		public override void OnSpawn(Dust dust) {
 			dust.noGravity = true;

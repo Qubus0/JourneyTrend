@@ -1,6 +1,5 @@
-using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.WyvernRider
 {
@@ -9,13 +8,13 @@ namespace JourneyTrend.Items.Vanity.WyvernRider
     {
         public override void SetStaticDefaults() {
             DisplayName.SetDefault("Wyvern Rider Hat");
-            Tooltip.SetDefault("It doesn't allow you to ride wyverns, sorry.\nMade by manzXja");
+            Tooltip.SetDefault("It doesn't allow you to ride wyverns, sorry\nMade by manzXja");
         }
         
         public override void SetDefaults() {
             item.width = 18;
             item.height = 18;
-            item.rare = 9;
+            item.rare = ItemRarityID.Cyan;
             item.vanity = true;
         }
 

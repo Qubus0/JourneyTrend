@@ -1,4 +1,5 @@
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace JourneyTrend.Items.Vanity.Shootsaton
 {
@@ -8,14 +9,14 @@ namespace JourneyTrend.Items.Vanity.Shootsaton
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Sire Shootsaton Pants");
-            Tooltip.SetDefault("Take aim of your talons in the dark.\nMade by Enembra");
+            Tooltip.SetDefault("Take aim of your talons in the dark\nMade by Enembra");
         }
         
         public override void SetDefaults()
         {
             item.width = 18;
             item.height = 18;
-            item.rare = 1;
+            item.rare = ItemRarityID.Blue;
             item.vanity = true;
         }
     }
