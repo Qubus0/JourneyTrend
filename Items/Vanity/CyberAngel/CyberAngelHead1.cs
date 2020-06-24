@@ -8,7 +8,7 @@ namespace JourneyTrend.Items.Vanity.CyberAngel
     {
         public override void SetStaticDefaults() {
             DisplayName.SetDefault("Cyber Halo");
-            Tooltip.SetDefault("This armor was designed to restrict, control and extract the power and energy of gods, angels and powerful beings.\nMade by Rariaz");
+            Tooltip.SetDefault("This armor was designed to restrict,\ncontrol and extract the power and energy of gods,\nangels and powerful beings.\nMade by Rariaz");
         }
         
         public override void SetDefaults() {

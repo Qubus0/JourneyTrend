@@ -14,6 +14,10 @@ namespace JourneyTrend
 		}
 		public override void Load()
 		{
+			if (!Main.dedServ)
+			{
+				AddEquipTexture(null, EquipType.Legs, "PilotBody_Legs", "JourneyTrend/Items/Vanity/Pilot/PilotBody_Legs");
+			}
 		}
 		public override void AddRecipeGroups()
 		{
