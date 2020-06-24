@@ -1,5 +1,4 @@
-﻿using Terraria;
-using Terraria.ID;
+﻿using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.CrystalLegacy
@@ -17,7 +16,7 @@ namespace JourneyTrend.Items.Vanity.CrystalLegacy
         {
             item.width = 18;
             item.height = 18;
-            item.rare = 3;
+            item.rare = ItemRarityID.Orange;
             item.vanity = true;
         }
         public override void AddRecipes()

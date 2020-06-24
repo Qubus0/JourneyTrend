@@ -1,4 +1,3 @@
-using JourneyTrend.Items.Vanity;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -18,8 +17,7 @@ namespace JourneyTrend.Items.Vanity.Mothron
             item.consumable = true;
             item.width = 24;
             item.height = 24;
-            item.rare = 1;
-            //item.expert = true;
+            item.rare = ItemRarityID.Blue;
         }
 
         public override bool CanRightClick() {
@@ -27,25 +25,10 @@ namespace JourneyTrend.Items.Vanity.Mothron
         }
 
         public override void RightClick(Player player) {
-
-            // //guaranteed drops
-            player.QuickSpawnItem(ItemType<MothronPants>());
-            player.QuickSpawnItem(ItemType<MothronShirt>());
-            player.QuickSpawnItem(ItemType<MothronMask>());
+            player.QuickSpawnItem(ItemType<MothronLegs>());
+            player.QuickSpawnItem(ItemType<MothronBody>());
+            player.QuickSpawnItem(ItemType<MothronHead>());
             player.QuickSpawnItem(ItemID.MothronWings);
-
-            // randomized from these items
-            // int choice = Main.rand.Next(7);
-            // if (choice == 0) {
-            //     player.QuickSpawnItem(ItemType<PuritySpiritMask>());
-            // }
-            // else if (choice == 1) {
-            //     player.QuickSpawnItem(ItemType<BunnyMask>());
-            // }
-            // if (choice != 1) {
-            //     player.QuickSpawnItem(ItemID.Bunny);
-            // }
         }
-
     }
 }

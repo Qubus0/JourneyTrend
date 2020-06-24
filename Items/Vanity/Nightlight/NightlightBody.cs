@@ -1,8 +1,6 @@
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
-using Microsoft.Xna.Framework;
-using static Terraria.ModLoader.ModContent;
+using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.Nightlight
 {
@@ -12,18 +10,21 @@ namespace JourneyTrend.Items.Vanity.Nightlight
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Nightlight Body");
-            Tooltip.SetDefault("A bright friendly glow in the night.\nMade by Metalsquirrel.");
+            Tooltip.SetDefault("A bright friendly glow in the night.\nMade by Metalsquirrel");
         }
+
         public override void SetDefaults()
         {
             item.width = 18;
             item.height = 18;
-            item.rare = 2;
+            item.rare = ItemRarityID.Green;
             item.vanity = true;
         }
+
         public override void UpdateVanity(Player player, EquipType type) {
             Lighting.AddLight(player.Center, 2*0.135f, 2*0.166f, 0);
         }
+
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);

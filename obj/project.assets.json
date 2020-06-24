@@ -31,26 +31,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\kelle1\\.nuget\\packages\\": {}
+    "/Users/kimdreyer/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\kelle1\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\JourneyTrend\\JourneyTrend.csproj",
+      "projectUniqueName": "/Users/kimdreyer/Library/Application Support/Terraria/ModLoader/Mod Sources/JourneyTrend/JourneyTrend.csproj",
       "projectName": "JourneyTrend",
-      "projectPath": "C:\\Users\\kelle1\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\JourneyTrend\\JourneyTrend.csproj",
-      "packagesPath": "C:\\Users\\kelle1\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\kelle1\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\JourneyTrend\\obj\\",
+      "projectPath": "/Users/kimdreyer/Library/Application Support/Terraria/ModLoader/Mod Sources/JourneyTrend/JourneyTrend.csproj",
+      "packagesPath": "/Users/kimdreyer/.nuget/packages/",
+      "outputPath": "/Users/kimdreyer/Library/Application Support/Terraria/ModLoader/Mod Sources/JourneyTrend/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\kelle1\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/kimdreyer/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net45"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -72,7 +70,7 @@
             "version": "[0.1.*, )"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.1.301/RuntimeIdentifierGraph.json"
       }
     }
   }

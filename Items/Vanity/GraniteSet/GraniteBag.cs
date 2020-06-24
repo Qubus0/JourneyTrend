@@ -1,4 +1,3 @@
-using JourneyTrend.Items.Vanity;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -18,33 +17,18 @@ namespace JourneyTrend.Items.Vanity.GraniteSet
             item.consumable = true;
             item.width = 24;
             item.height = 24;
-            item.rare = 1;
-            //item.expert = true;
+            item.rare = ItemRarityID.Blue;
         }
 
         public override bool CanRightClick() {
             return true;
         }
 
-        public override void RightClick(Player player) {
-
-            // //guaranteed drops
+        public override void RightClick(Player player)
+        {
             player.QuickSpawnItem(ItemType<GraniteLegs>());
             player.QuickSpawnItem(ItemType<GraniteBody>());
             player.QuickSpawnItem(ItemType<GraniteHead>());
-
-            // randomized from these items
-            // int choice = Main.rand.Next(7);
-            // if (choice == 0) {
-            //     player.QuickSpawnItem(ItemType<PuritySpiritMask>());
-            // }
-            // else if (choice == 1) {
-            //     player.QuickSpawnItem(ItemType<BunnyMask>());
-            // }
-            // if (choice != 1) {
-            //     player.QuickSpawnItem(ItemID.Bunny);
-            // }
         }
-
     }
 }

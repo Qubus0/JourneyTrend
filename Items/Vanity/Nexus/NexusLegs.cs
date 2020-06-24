@@ -1,6 +1,5 @@
-using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.Nexus
 {
@@ -10,14 +9,14 @@ namespace JourneyTrend.Items.Vanity.Nexus
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Nexus Greaves");
-            Tooltip.SetDefault("Light and swift.\nMade by LazyGhost14");
+            Tooltip.SetDefault("Light and swift\nMade by LazyGhost14");
         }
         
         public override void SetDefaults()
         {
             item.width = 18;
             item.height = 18;
-            item.rare = 2;
+            item.rare = ItemRarityID.Green;
             item.vanity = true;
         }
 

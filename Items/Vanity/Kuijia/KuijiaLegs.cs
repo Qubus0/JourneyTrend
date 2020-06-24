@@ -1,8 +1,7 @@
-using Terraria;
-using Terraria.ModLoader;
-using Terraria.ID;
-using Microsoft.Xna.Framework;
 using System.Collections.Generic;
+using Microsoft.Xna.Framework;
+using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.Kuijia
 {
@@ -12,8 +11,9 @@ namespace JourneyTrend.Items.Vanity.Kuijia
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Kuijia Legmail");
-            Tooltip.SetDefault("Used by fighters for splash and impact protection.\nMade by PatisNow.");
+            Tooltip.SetDefault("Used by fighters for splash and impact protection.\nMade by PatisNow");
         }
+
         public override void ModifyTooltips(List<TooltipLine> tooltips) {
             foreach (TooltipLine line2 in tooltips) {
                 if (line2.mod == "Terraria" && line2.Name == "ItemName") {
@@ -21,11 +21,12 @@ namespace JourneyTrend.Items.Vanity.Kuijia
                 }
             }
         }
+
         public override void SetDefaults()
         {
             item.width = 18;
             item.height = 18;
-            item.rare = 1;
+            item.rare = ItemRarityID.Blue;
             item.vanity = true;
         }
     }

@@ -1,6 +1,5 @@
-using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.Nexus
 {
@@ -10,14 +9,14 @@ namespace JourneyTrend.Items.Vanity.Nexus
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Nexus Chestplate");
-            Tooltip.SetDefault("You sense ceaseless energy coming from within.\nMade by LazyGhost14");
+            Tooltip.SetDefault("You sense ceaseless energy coming from within\nMade by LazyGhost14");
         }
 
         public override void SetDefaults()
         {
             item.width = 18;
             item.height = 18;
-            item.rare = 2;
+            item.rare = ItemRarityID.Green;
             item.vanity = true;
         }
 

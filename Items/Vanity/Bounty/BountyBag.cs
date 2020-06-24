@@ -1,8 +1,7 @@
-using JourneyTrend.Items.Vanity;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
+using Terraria.ID;
 
 namespace JourneyTrend.Items.Vanity.Bounty
 {
@@ -18,7 +17,7 @@ namespace JourneyTrend.Items.Vanity.Bounty
             item.consumable = true;
             item.width = 24;
             item.height = 24;
-            item.rare = 1;
+            item.rare = ItemRarityID.Blue;
             //item.expert = true;
         }
 

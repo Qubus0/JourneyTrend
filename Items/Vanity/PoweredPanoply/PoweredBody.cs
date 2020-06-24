@@ -1,4 +1,3 @@
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -12,13 +11,15 @@ namespace JourneyTrend.Items.Vanity.PoweredPanoply
             DisplayName.SetDefault("Powered Breastplate");
             Tooltip.SetDefault("Made by Fake_Tank");
         }
+
         public override void SetDefaults()
         {
             item.width = 18;
             item.height = 18;
-            item.rare = 1;
+            item.rare = ItemRarityID.Blue;
             item.vanity = true;
         }
+
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);

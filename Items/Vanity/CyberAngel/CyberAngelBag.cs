@@ -1,8 +1,7 @@
-using JourneyTrend.Items.Vanity;
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
+using Terraria.ID;
 
 namespace JourneyTrend.Items.Vanity.CyberAngel
 {
@@ -18,8 +17,7 @@ namespace JourneyTrend.Items.Vanity.CyberAngel
             item.consumable = true;
             item.width = 24;
             item.height = 24;
-            item.rare = 1;
-            //item.expert = true;
+            item.rare = ItemRarityID.Blue;
         }
 
         public override bool CanRightClick() {
@@ -31,6 +29,5 @@ namespace JourneyTrend.Items.Vanity.CyberAngel
             player.QuickSpawnItem(ItemType<CyberAngelBody>());
             player.QuickSpawnItem(ItemType<CyberAngelHead>());
         }
-
     }
 }

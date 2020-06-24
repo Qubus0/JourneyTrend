@@ -1,11 +1,12 @@
 using Microsoft.Xna.Framework;
 using Terraria;
-using Terraria.ModLoader;
 using Terraria.Localization;
+using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace JourneyTrend
 {
-	public class JourneyTrend : Mod
+    public class JourneyTrend : Mod
 	{
 		public static Vector2 ScalePoint(Vector2 a, Vector2 c, float t) => new Vector2(c.X + (t * (a.X - c.X)), c.Y + (t * (a.Y - c.Y)));
 		public JourneyTrend()

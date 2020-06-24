@@ -1,6 +1,5 @@
-using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.Bubblehead
 {
@@ -10,13 +9,13 @@ namespace JourneyTrend.Items.Vanity.Bubblehead
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Bubble Head");
-            Tooltip.SetDefault("Literally a Bubble Head.\nMade by Metidigiti.");
+            Tooltip.SetDefault("Literally a Bubble Head.\nMade by Metidigiti");
         }
         public override void SetDefaults()
         {
             item.width = 18;
             item.height = 18;
-            item.rare = 4;
+            item.rare = ItemRarityID.LightRed;
             item.vanity = true;
         }
         public override void AddRecipes()

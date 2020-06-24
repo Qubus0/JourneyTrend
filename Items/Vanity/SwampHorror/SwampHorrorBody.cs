@@ -1,6 +1,5 @@
-using Terraria;
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.SwampHorror
 {
@@ -15,7 +14,7 @@ namespace JourneyTrend.Items.Vanity.SwampHorror
         public override void SetDefaults() {
             item.width = 18;
             item.height = 18;
-            item.rare = 1;
+            item.rare = ItemRarityID.Blue;
             item.vanity = true;
         }
 

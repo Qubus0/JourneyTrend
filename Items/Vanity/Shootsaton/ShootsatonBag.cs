@@ -1,4 +1,5 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
@@ -16,8 +17,7 @@ namespace JourneyTrend.Items.Vanity.Shootsaton
             item.consumable = true;
             item.width = 24;
             item.height = 24;
-            item.rare = 1;
-            //item.expert = true;
+            item.rare = ItemRarityID.Blue;
         }
 
         public override bool CanRightClick() {
@@ -29,6 +29,5 @@ namespace JourneyTrend.Items.Vanity.Shootsaton
             player.QuickSpawnItem(ItemType<ShootsatonBody>());
             player.QuickSpawnItem(ItemType<ShootsatonHead>());
         }
-
     }
 }

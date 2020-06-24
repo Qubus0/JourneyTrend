@@ -1,8 +1,6 @@
-using JourneyTrend.Items.Vanity;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
 
 namespace JourneyTrend.Items.Vanity.ContainmentSuit
 {
@@ -18,8 +16,7 @@ namespace JourneyTrend.Items.Vanity.ContainmentSuit
             item.consumable = true;
             item.width = 24;
             item.height = 24;
-            item.rare = 1;
-            //item.expert = true;
+            item.rare = ItemRarityID.Blue;
         }
 
         public override bool CanRightClick() {
@@ -27,24 +24,9 @@ namespace JourneyTrend.Items.Vanity.ContainmentSuit
         }
 
         public override void RightClick(Player player) {
-
-            // //guaranteed drops
             player.QuickSpawnItem(mod.ItemType("ContainmentHead"));
             player.QuickSpawnItem(mod.ItemType("ContainmentBody"));
             player.QuickSpawnItem(mod.ItemType("ContainmentLegs"));
-
-            // randomized from these items
-            // int choice = Main.rand.Next(7);
-            // if (choice == 0) {
-            //     player.QuickSpawnItem(ItemType<PuritySpiritMask>());
-            // }
-            // else if (choice == 1) {
-            //     player.QuickSpawnItem(ItemType<BunnyMask>());
-            // }
-            // if (choice != 1) {
-            //     player.QuickSpawnItem(ItemID.Bunny);
-            // }
         }
-
     }
 }

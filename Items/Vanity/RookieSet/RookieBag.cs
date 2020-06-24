@@ -1,4 +1,3 @@
-using JourneyTrend.Items.Vanity;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,7 +9,7 @@ namespace JourneyTrend.Items.Vanity.RookieSet
     {
         public override void SetStaticDefaults() {
             DisplayName.SetDefault("Rookie Bag");
-            Tooltip.SetDefault("Don't see everything black and white\n{$CommonItemTooltip.RightClickToOpen}");
+            Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults() {
@@ -18,8 +17,7 @@ namespace JourneyTrend.Items.Vanity.RookieSet
             item.consumable = true;
             item.width = 24;
             item.height = 24;
-            item.rare = 1;
-            //item.expert = true;
+            item.rare = ItemRarityID.Blue;
         }
 
         public override bool CanRightClick() {
@@ -27,24 +25,9 @@ namespace JourneyTrend.Items.Vanity.RookieSet
         }
 
         public override void RightClick(Player player) {
-
-            // //guaranteed drops
-            player.QuickSpawnItem(ItemType<RookieBase>());
+            player.QuickSpawnItem(ItemType<RookieLegs>());
             player.QuickSpawnItem(ItemType<RookieBody>());
             player.QuickSpawnItem(ItemType<RookieHead>());
-
-            // randomized from these items
-            // int choice = Main.rand.Next(7);
-            // if (choice == 0) {
-            //     player.QuickSpawnItem(ItemType<PuritySpiritMask>());
-            // }
-            // else if (choice == 1) {
-            //     player.QuickSpawnItem(ItemType<BunnyMask>());
-            // }
-            // if (choice != 1) {
-            //     player.QuickSpawnItem(ItemID.Bunny);
-            // }
         }
-
     }
 }
