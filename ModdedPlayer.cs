@@ -17,11 +17,65 @@ using Terraria.ObjectData;
 using Terraria.Localization;
 using static Terraria.ModLoader.ModContent;
 using System.Runtime.Remoting.Messaging;
+using Terraria.Graphics.Shaders;
 
 namespace JourneyTrend
 {
     public class JourneyPlayer : ModPlayer
 	{
+		// For Idle Animating (Fox Tails)
+		public bool foxTails;
+		private int tailFrameUp;
+		private int tailFrame;
+		private int tailShader = 0;
+		private int tailFrame2 = 0;
+		public bool foxFly;
+		public static readonly PlayerLayer NineTailedFoxTail = new PlayerLayer("JourneyTrend", "NineTailedFoxTail", PlayerLayer.WaistAcc, delegate (PlayerDrawInfo drawInfo)
+		{
+			if (!drawInfo.drawPlayer.dead)
+			{
+				Player drawPlayer = drawInfo.drawPlayer;
+				Mod mod = ModLoader.GetMod("JourneyTrend");
+				JourneyPlayer modPlayer = drawPlayer.GetModPlayer<JourneyPlayer>();
+				if (modPlayer.foxTails)
+				{
+					Rectangle? rectangle = new Rectangle(0, modPlayer.tailFrame * 56, 46, 56);
+					Color newColor = Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f),
+					(int)((drawInfo.position.Y + drawPlayer.height / 2f) / 16f));
+					newColor = new Color(newColor.R, newColor.B, newColor.G, (int)((1 - drawPlayer.shadow) * 255));
+					Texture2D texture = mod.GetTexture("Items/Vanity/NineTailedFox/NineTailedFoxAcc_Tails");
+					int num = texture.Height / 11;
+					int num2 = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X - (3 * drawPlayer.direction));
+					int num3 = (int)(drawInfo.position.Y + drawPlayer.height / 2f - Main.screenPosition.Y - 3f);
+					DrawData item = new DrawData(texture, new Vector2(num2, num3), rectangle,
+					newColor, 0f, new Vector2(texture.Width / 2f, num / 2f), 1f, drawInfo.spriteEffects, 0)
+					{
+						shader = drawPlayer.cWings
+					};
+					Main.playerDrawData.Add(item);
+				}
+			}
+		});
+		public override void ResetEffects()
+		{
+			foxTails = false;
+			foxFly = false;
+		}
+		public override void PreUpdate()
+		{
+			tailFrameUp++;
+			if (tailFrameUp == 8)
+			{
+				tailFrame2++;
+				if (tailFrame2 >= 10)
+				{
+					tailFrame2 = 0;
+				}
+				tailFrameUp = 0;
+			}
+			if (!foxFly) { tailFrame = tailFrame2; }
+			else { tailFrame = 10; }
+		}
 		public static readonly PlayerLayer ContainmentHeadGlowmask = new PlayerLayer("JourneyTrend", "ContainmentHeadGlowmask", PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)
 		{
 			if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
@@ -392,6 +446,11 @@ namespace JourneyTrend
 		});
 		public override void ModifyDrawLayers(List<PlayerLayer> layers)
 		{
+			if (foxTails)
+			{
+				int legsIndex = layers.IndexOf(PlayerLayer.Skin);
+				layers.Insert(legsIndex - 1, NineTailedFoxTail);
+			}
 			int headLayer = layers.FindIndex(l => l == PlayerLayer.Head);
 			int bodyLayer = layers.FindIndex(l => l == PlayerLayer.Body);
 			int legsLayer = layers.FindIndex(l => l == PlayerLayer.Legs);

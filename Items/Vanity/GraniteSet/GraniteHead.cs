@@ -22,7 +22,7 @@ namespace JourneyTrend.Items.Vanity.GraniteSet
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.DirtBlock, 5);
+            recipe.AddIngredient(ItemID.Granite, 20);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
             recipe.AddRecipe();
