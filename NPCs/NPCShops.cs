@@ -12,22 +12,22 @@ namespace JourneyTrend.NPCs
             switch (type)
             {
                 case NPCID.DD2Bartender:
-                    shop.item[nextSlot].SetDefaults(mod.ItemType("SeaBuckthornTeaHead"));
+                    shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.SeaBuckthornTea.SeaHead>());
                     nextSlot++;
-                    shop.item[nextSlot].SetDefaults(mod.ItemType("SeaBuckthornTeaChest"));
+                    shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.SeaBuckthornTea.SeaBody>());
                     nextSlot++;
-                    shop.item[nextSlot].SetDefaults(mod.ItemType("SeaBuckthornTeaLegs"));
+                    shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.SeaBuckthornTea.SeaLegs>());
                     nextSlot++;
                     break;
 
                 case NPCID.WitchDoctor:
                     if (Main.player[Main.myPlayer].ZoneJungle && Main.bloodMoon)
                     {
-                        shop.item[nextSlot].SetDefaults(mod.ItemType("ArcaneExosuitHead"));
+                        shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.ArcaneExosuit.ArcaneExosuitLegs>());
                         nextSlot++;
-                        shop.item[nextSlot].SetDefaults(mod.ItemType("ArcaneExosuitBody"));
+                        shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.ArcaneExosuit.ArcaneExosuitLegs>());
                         nextSlot++;
-                        shop.item[nextSlot].SetDefaults(mod.ItemType("ArcaneExosuitLegs"));
+                        shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.ArcaneExosuit.ArcaneExosuitLegs>());
                         nextSlot++;
                     }
                     break;
@@ -35,17 +35,17 @@ namespace JourneyTrend.NPCs
                 case NPCID.TravellingMerchant:
                     if (Main.moonPhase == 6)
                     {
-                        shop.item[nextSlot].SetDefaults(mod.ItemType("JourneymanHat"));
+                        shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.Journeyman.JourneymanHead>());
                         nextSlot++;
                     }
                     if (Main.moonPhase == 0)
                     {
-                        shop.item[nextSlot].SetDefaults(mod.ItemType("JourneymanShirt"));
+                        shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.Journeyman.JourneymanBody>());
                         nextSlot++;
                     }
                     if (Main.moonPhase == 2)
                     {
-                        shop.item[nextSlot].SetDefaults(mod.ItemType("JourneymanPants"));
+                        shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.Journeyman.JourneymanLegs>());
                         nextSlot++;
                     }
                     break;
@@ -53,41 +53,52 @@ namespace JourneyTrend.NPCs
                 case NPCID.Cyborg:
                     if (Main.player[Main.myPlayer].ZoneJungle && NPC.downedMoonlord && Main.invasionType == 4)  //4 -> martian madness
                     {
-                        shop.item[nextSlot].SetDefaults(mod.ItemType("GridHead"));
+                        shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.GridSet.GridHead>());
                         nextSlot++;
-                        shop.item[nextSlot].SetDefaults(mod.ItemType("GridBody"));
+                        shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.GridSet.GridBody>());
                         nextSlot++;
-                        shop.item[nextSlot].SetDefaults(mod.ItemType("GridLegs"));
+                        shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.GridSet.GridLegs>());
                         nextSlot++;
                     }
                     if (!Main.dayTime && NPC.downedMartians)
                     {
-                        shop.item[nextSlot].SetDefaults(mod.ItemType("BountyHead"));
+                        shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.Bounty.BountyHead>());
                         nextSlot++;
-                        shop.item[nextSlot].SetDefaults(mod.ItemType("BountyBody"));
+                        shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.Bounty.BountyBody>());
                         nextSlot++;
-                        shop.item[nextSlot].SetDefaults(mod.ItemType("BountyLegs"));
+                        shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.Bounty.BountyLegs>());
+                        nextSlot++;
+                    }
+                    if (Main.dayTime)
+                    {
+                        shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.CyberAngel.CyberAngelHead>());
+                        nextSlot++;
+                        shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.CyberAngel.CyberAngelHead1>());
+                        nextSlot++;
+                        shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.CyberAngel.CyberAngelBody>());
+                        nextSlot++;
+                        shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.CyberAngel.CyberAngelLegs>());
                         nextSlot++;
                     }
                     break;
 
                 case NPCID.Clothier:
-                    shop.item[nextSlot].SetDefaults(mod.ItemType("BirdieHead"));
+                    shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.Birdie.BirdieHead>());
                     nextSlot++;
-                    shop.item[nextSlot].SetDefaults(mod.ItemType("BirdieBody"));
+                    shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.Birdie.BirdieBody>());
                     nextSlot++;
-                    shop.item[nextSlot].SetDefaults(mod.ItemType("BirdieLegs"));
+                    shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.Birdie.BirdieLegs>());
                     nextSlot++;
                     break;
 
                 case NPCID.Pirate:
                 if (Main.raining)
                 {
-                    shop.item[nextSlot].SetDefaults(mod.ItemType("DeepDiverHead"));
+                    shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.DeepDiver.DeepDiverHead>());
                     nextSlot++;
-                    shop.item[nextSlot].SetDefaults(mod.ItemType("DeepDiverBody"));
+                    shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.DeepDiver.DeepDiverBody>());
                     nextSlot++;
-                    shop.item[nextSlot].SetDefaults(mod.ItemType("DeepDiverLegs"));
+                    shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.DeepDiver.DeepDiverLegs>());
                     nextSlot++;
                 }
                     break;
