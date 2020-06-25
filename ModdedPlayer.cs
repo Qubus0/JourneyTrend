@@ -9,6 +9,27 @@ namespace JourneyTrend
 {
     public class JourneyPlayer : ModPlayer
 	{
+		//starting Items
+		public override void SetupStartInventory(IList<Item> items, bool mediumcoreDeath)
+		{
+			Item TravellerHead = new Item();
+			TravellerHead.SetDefaults(ModContent.ItemType<Items.Vanity.Traveller.TravellerHead>());
+			TravellerHead.stack = 1;
+			items.Add(TravellerHead);
+
+			Item TravellerBody = new Item();
+			TravellerBody.SetDefaults(ModContent.ItemType<Items.Vanity.Traveller.TravellerBody>());
+			TravellerBody.stack = 1;
+			items.Add(TravellerBody);
+
+			Item TravellerLegs = new Item();
+			TravellerLegs.SetDefaults(ModContent.ItemType<Items.Vanity.Traveller.TravellerLegs>());
+			TravellerLegs.stack = 1;
+			items.Add(TravellerLegs);
+		}
+
+
+		//Glowmask Business 
 		public static readonly PlayerLayer ContainmentHeadGlowmask = new PlayerLayer("JourneyTrend", "ContainmentHeadGlowmask", PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)
 		{
 			if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)

@@ -11,7 +11,7 @@ namespace JourneyTrend.Items.Vanity.DualitySet
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Duality Mask");
-            Tooltip.SetDefault("Good and evil, mind of two worlds.\nMade by Chan.");
+            Tooltip.SetDefault("Good and evil, mind of two worlds.\nMade by Chan");
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips) {

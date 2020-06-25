@@ -9,6 +9,7 @@ namespace JourneyTrend.Items.Vanity.PoweredPanoply
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Powered Breastplate");
+            //no extra Tooltip
             Tooltip.SetDefault("Made by Fake_Tank");
         }
 

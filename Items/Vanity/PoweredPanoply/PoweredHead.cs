@@ -9,7 +9,7 @@ namespace JourneyTrend.Items.Vanity.PoweredPanoply
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Powered Armet");
-            Tooltip.SetDefault("Three fourths and a fifth\nMade by Fake_Tank");
+            Tooltip.SetDefault("'Three fourths and a fifth'\nMade by Fake_Tank");
         }
 
         public override void SetDefaults()

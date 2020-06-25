@@ -29,6 +29,16 @@ namespace JourneyTrend.NPCs
                 Item.NewItem(npc.getRect(), choice);
             }
 
+            if (npc.type == NPCID.Mothron && Main.rand.Next(5) == 0)
+            {
+                var dropChooser = new WeightedRandom<int>();
+                dropChooser.Add(ModContent.ItemType<Items.Vanity.BrokenHero.BrokenHeroHead>());
+                dropChooser.Add(ModContent.ItemType<Items.Vanity.BrokenHero.BrokenHeroBody>());
+                dropChooser.Add(ModContent.ItemType<Items.Vanity.BrokenHero.BrokenHeroLegs>());
+                int choice = dropChooser;
+                Item.NewItem(npc.getRect(), choice);
+            }
+
             if ((npc.type == NPCID.NebulaBeast || npc.type == NPCID.NebulaBrain || npc.type == NPCID.NebulaHeadcrab || npc.type == NPCID.NebulaSoldier) && Main.rand.Next(999) < 1)
             {
                 var dropChooser = new WeightedRandom<int>();
