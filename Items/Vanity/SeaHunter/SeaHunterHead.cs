@@ -19,5 +19,9 @@ namespace JourneyTrend.Items.Vanity.SeaHunter
             item.vanity = true;
             item.value = 50000;
         }
+        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
+        {
+            drawAltHair = true;
+        }
     }
 }
