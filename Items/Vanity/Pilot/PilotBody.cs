@@ -8,14 +8,14 @@ namespace JourneyTrend.Items.Vanity.Pilot
 	{
 		public override void SetStaticDefaults()
 		{
-			DisplayName.SetDefault("Arcane Exosuit Skull");
-			Tooltip.SetDefault("Resembles the skull of a long extinct species\nMade by Faskeon");
+			DisplayName.SetDefault("Pilot's Jumpsuit");
+			Tooltip.SetDefault("Parachute not included.\nMade by CyrantontheCold");
 		}
 		public override void SetDefaults()
 		{
 			item.width = 18;
 			item.height = 14;
-			item.rare = ItemRarityID.Blue;
+			item.rare = ItemRarityID.LightRed;
 			item.vanity = true;
 		}
 

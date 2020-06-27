@@ -120,6 +120,12 @@ namespace JourneyTrend.NPCs
             {
                 Item.NewItem(npc.getRect(), mod.ItemType("ShootsatonBag"));
             }
+
+            if (npc.type == NPCID.WyvernHead && Main.rand.Next(3) == 0)
+            {
+                if (Main.rand.Next(2) == 0) { Item.NewItem(npc.getRect(), mod.ItemType("PilotHead")); }
+                else { Item.NewItem(npc.getRect(), mod.ItemType("PilotBody")); }
+            }
         }
     }
 }

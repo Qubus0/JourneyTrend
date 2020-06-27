@@ -31,7 +31,7 @@ namespace JourneyTrend
 				JourneyPlayer modPlayer = drawPlayer.GetModPlayer<JourneyPlayer>();
 				if (modPlayer.foxTails)
 				{
-					Rectangle? rectangle = new Rectangle(0, modPlayer.tailFrame * 56, 46, 56);
+					Rectangle? rectangle = new Rectangle(0, modPlayer.tailFrame * 56, 46, 56); // 46x56 frame size
 					Color newColor = Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f),
 					(int)((drawInfo.position.Y + drawPlayer.height / 2f) / 16f));
 					newColor = new Color(newColor.R, newColor.B, newColor.G, (int)((1 - drawPlayer.shadow) * 255));
@@ -53,7 +53,7 @@ namespace JourneyTrend
 			foxTails = false;
 			foxFly = false;
 		}
-		public override void PreUpdate()
+		public override void PreUpdate() // 11 frames (need to work out what frame is what)
 		{
 			tailFrameUp++;
 			if (tailFrameUp == 8)
