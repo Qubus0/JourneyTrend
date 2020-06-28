@@ -131,7 +131,7 @@ namespace JourneyTrend
 
 
 		//Glowmask business
-		public static readonly PlayerLayer ContainmentHeadGlowmask = new PlayerLayer("JourneyTrend", "ContainmentHeadGlowmask", PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)
+		public static readonly PlayerLayer ContainmentSuitHeadGlowmask = new PlayerLayer("JourneyTrend", "ContainmentSuitHeadGlowmask", PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)
 		{
 			if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
 			{
@@ -139,11 +139,11 @@ namespace JourneyTrend
 			}
 			Player drawPlayer = drawInfo.drawPlayer;
 			Mod mod = ModLoader.GetMod("JourneyTrend");
-			if (drawPlayer.head != mod.GetEquipSlot("ContainmentHead", EquipType.Head))
+			if (drawPlayer.head != mod.GetEquipSlot("ContainmentSuitHead", EquipType.Head))
 			{
 				return;
 			}
-			Texture2D texture = mod.GetTexture("Items/Vanity/ContainmentSuit/ContainmentHead_Glowmask");
+			Texture2D texture = mod.GetTexture("Items/Vanity/ContainmentSuit/ContainmentSuitHead_Glowmask");
 			float drawX = (int)drawInfo.position.X + drawPlayer.width / 2;
 			float drawY = (int)drawInfo.position.Y + drawPlayer.height - drawPlayer.headFrame.Height / 2 + 4f - 34f;
 			Vector2 origin = drawInfo.headOrigin;
@@ -158,7 +158,7 @@ namespace JourneyTrend
 			Main.playerDrawData.Add(drawData);
 		});
 
-		public static readonly PlayerLayer ContainmentBodyGlowmask = new PlayerLayer("JourneyTrend", "ContainmentBodyGlowmask", PlayerLayer.Body, delegate (PlayerDrawInfo drawInfo)
+		public static readonly PlayerLayer ContainmentSuitBodyGlowmask = new PlayerLayer("JourneyTrend", "ContainmentSuitBodyGlowmask", PlayerLayer.Body, delegate (PlayerDrawInfo drawInfo)
 		{
 			if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
 			{
@@ -166,11 +166,11 @@ namespace JourneyTrend
 			}
 			Player drawPlayer = drawInfo.drawPlayer;
 			Mod mod = ModLoader.GetMod("JourneyTrend");
-			if (drawPlayer.body != mod.GetEquipSlot("ContainmentBody", EquipType.Body))
+			if (drawPlayer.body != mod.GetEquipSlot("ContainmentSuitBody", EquipType.Body))
 			{
 				return;
 			}
-			Texture2D texture = mod.GetTexture("Items/Vanity/ContainmentSuit/ContainmentBody_Glowmask");
+			Texture2D texture = mod.GetTexture("Items/Vanity/ContainmentSuit/ContainmentSuitBody_Glowmask");
 			float drawX = (int)drawInfo.position.X + drawPlayer.width / 2;
 			float drawY = (int)drawInfo.position.Y + drawPlayer.height - drawPlayer.bodyFrame.Height / 2 + 4f;
 			Vector2 origin = drawInfo.bodyOrigin;
@@ -532,14 +532,14 @@ namespace JourneyTrend
 			int legsLayer = layers.FindIndex(l => l == PlayerLayer.Legs);
 			if (headLayer > -1)
 			{
-				layers.Insert(headLayer + 1, ContainmentHeadGlowmask);
+				layers.Insert(headLayer + 1, ContainmentSuitHeadGlowmask);
 				layers.Insert(headLayer + 1, CyberAngelHeadGlowmask);
 				layers.Insert(headLayer + 1, MushroomHeadGlowmask);
 				layers.Insert(headLayer + 1, NexusHeadGlowmask);
 			}
 			if (bodyLayer > -1)
 			{
-				layers.Insert(bodyLayer + 1, ContainmentBodyGlowmask);
+				layers.Insert(bodyLayer + 1, ContainmentSuitBodyGlowmask);
 				layers.Insert(bodyLayer + 1, CyberAngelBodyGlowmask);
 				layers.Insert(bodyLayer + 1, MushroomBodyGlowmask);
 				layers.Insert(bodyLayer + 1, NexusBodyGlowmask);

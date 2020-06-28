@@ -1,4 +1,5 @@
-﻿using Terraria;
+﻿using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -17,4 +18,16 @@ namespace ExampleMod.Items
 			}
 		}
 	}
+
+	public class FallingStar : GlobalProjectile
+    {
+        public override bool OnTileCollide(Projectile projectile, Vector2 oldVelocity)
+        {
+			if (projectile.type == 12 && projectile.damage > 500 && Main.rand.Next(20) < 1)
+			{
+				Item.NewItem(projectile.Hitbox, ItemType<JourneyTrend.Items.Vanity.StarlightDream.StarlightDreamBag>());
+			}
+			return base.OnTileCollide(projectile, oldVelocity);
+        }
+    }
 }
