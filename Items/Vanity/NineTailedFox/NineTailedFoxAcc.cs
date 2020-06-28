@@ -25,14 +25,14 @@ namespace JourneyTrend.Items.Vanity.NineTailedFox
 		{
 			if (inUse)
 			{
-				player.GetModPlayer<JourneyPlayer>().foxFly = true;
+				player.GetModPlayer<JourneyPlayer>().NinetailedFlying = true;
 			}
 			return false;
 		}
 
 		public override void UpdateVanity(Player player, EquipType type)
 		{
-			player.GetModPlayer<JourneyPlayer>().foxTails = true;
+			player.GetModPlayer<JourneyPlayer>().FoxTailsEquipped = true;
 		}
 	}
 }

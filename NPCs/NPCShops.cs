@@ -12,11 +12,11 @@ namespace JourneyTrend.NPCs
             switch (type)
             {
                 case NPCID.DD2Bartender:
-                    shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.SeaBuckthornTea.SeaHead>());
+                    shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.SeaBuckthornTea.SeaBuckthornTeaHead>());
                     nextSlot++;
-                    shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.SeaBuckthornTea.SeaBody>());
+                    shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.SeaBuckthornTea.SeaBuckthornTeaBody>());
                     nextSlot++;
-                    shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.SeaBuckthornTea.SeaLegs>());
+                    shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.SeaBuckthornTea.SeaBuckthornTeaLegs>());
                     nextSlot++;
                     break;
 
@@ -53,11 +53,11 @@ namespace JourneyTrend.NPCs
                 case NPCID.Cyborg:
                     if (Main.player[Main.myPlayer].ZoneJungle && NPC.downedMoonlord && Main.invasionType == 4)  //4 -> martian madness
                     {
-                        shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.GridSet.GridHead>());
+                        shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.Grid.GridHead>());
                         nextSlot++;
-                        shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.GridSet.GridBody>());
+                        shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.Grid.GridBody>());
                         nextSlot++;
-                        shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.GridSet.GridLegs>());
+                        shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.Grid.GridLegs>());
                         nextSlot++;
                     }
                     if (!Main.dayTime && NPC.downedMartians)
@@ -92,15 +92,15 @@ namespace JourneyTrend.NPCs
                     break;
 
                 case NPCID.Pirate:
-                if (Main.raining)
-                {
-                    shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.DeepDiver.DeepDiverHead>());
-                    nextSlot++;
-                    shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.DeepDiver.DeepDiverBody>());
-                    nextSlot++;
-                    shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.DeepDiver.DeepDiverLegs>());
-                    nextSlot++;
-                }
+                    if (Main.raining)
+                    {
+                        shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.DeepDiver.DeepDiverHead>());
+                        nextSlot++;
+                        shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.DeepDiver.DeepDiverBody>());
+                        nextSlot++;
+                        shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.DeepDiver.DeepDiverLegs>());
+                        nextSlot++;
+                    }
                     break;
 
                 case NPCID.Truffle:

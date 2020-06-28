@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace JourneyTrend.Items.Vanity.Nightlight
 {
@@ -25,9 +26,9 @@ namespace JourneyTrend.Items.Vanity.Nightlight
 
         public override void RightClick(Player player)
         {
-            player.QuickSpawnItem(mod.ItemType("NightlightHead"));
-            player.QuickSpawnItem(mod.ItemType("NightlightBody"));
-            player.QuickSpawnItem(mod.ItemType("NightlightLegs"));
+            player.QuickSpawnItem(ItemType<NightlightLegs>());
+            player.QuickSpawnItem(ItemType<NightlightBody>());
+            player.QuickSpawnItem(ItemType<NightlightHead>());
         }
     }
 }

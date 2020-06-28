@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Localization;
 using Terraria.ModLoader;
-using Terraria.ID;
+
 
 namespace JourneyTrend
 {
@@ -23,16 +23,16 @@ namespace JourneyTrend
 		{
 			RecipeGroup CyberHalos = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " CyberHalo", new int[]
 			{
-				ItemType("CyberAngelHead"),
-				ItemType("CyberAngelHead1")
+				ModContent.ItemType<Items.Vanity.CyberAngel.CyberAngelHead>(),
+				ModContent.ItemType<Items.Vanity.CyberAngel.CyberAngelHead1>()
 			});
 			RecipeGroup.RegisterGroup("JourneyTrend:CyberHalos", CyberHalos);
 
 			RecipeGroup DruidMasks = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " DruidMask", new int[]
 			{
-				ItemType("ForestDruidHead"),
-				ItemType("ForestDruidHead1"),
-				ItemType("ForestDruidHead2")
+				ModContent.ItemType<Items.Vanity.ForestDruid.ForestDruidHead>(),
+				ModContent.ItemType<Items.Vanity.ForestDruid.ForestDruidHead1>(),
+				ModContent.ItemType<Items.Vanity.ForestDruid.ForestDruidHead2>()
 			});
 			RecipeGroup.RegisterGroup("JourneyTrend:DruidMasks", DruidMasks);
 		}

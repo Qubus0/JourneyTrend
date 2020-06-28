@@ -1,6 +1,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace JourneyTrend.World
 {
@@ -8,9 +9,9 @@ namespace JourneyTrend.World
     {
         public override void PostWorldGen()
         {
-            int[] itemsToPlaceInIceChests = { mod.ItemType("IronCoreHead"), mod.ItemType("IronCoreBody"), mod.ItemType("IronCoreLegs")};
+            int[] itemsToPlaceInIceChests = {ItemType<Items.Vanity.IronCore.IronCoreBag>()};
             int itemsToPlaceInIceChestsChoice = 0;
-            int[] itemsToPlaceInLivingChests = { mod.ItemType("ForestDruidHead"), mod.ItemType("ForestDruidBody")};
+            int[] itemsToPlaceInLivingChests = { ItemType<Items.Vanity.ForestDruid.ForestDruidBag>() };
             int itemsToPlaceInLivingChestsChoice = 0;
             for (int chestIndex = 0; chestIndex < 1000; chestIndex++)
             { // For all chests in world on generation

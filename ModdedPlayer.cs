@@ -4,12 +4,6 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
-using Terraria.ModLoader.IO;
-using Terraria.ObjectData;
-using Terraria.Localization;
-using static Terraria.ModLoader.ModContent;
-using System.Runtime.Remoting.Messaging;
-using Terraria.Graphics.Shaders;
 
 namespace JourneyTrend
 {
@@ -35,13 +29,12 @@ namespace JourneyTrend
 		}
 
 
-		// For Idle Animating (Fox Tails)
-		public bool foxTails;
-		private int tailFrameUp;
-		private int tailFrame;
-		private int tailShader = 0;
-		private int tailFrame2 = 0;
-		public bool foxFly;
+		//Idle Animating Fox Tails
+		public bool FoxTailsEquipped;
+		private int NineTailedTickToFrame;
+		private int NineTailedlFrameUpdater;
+		private int NineTailedFrameCounter = 0;
+		public bool NinetailedFlying;
 		public static readonly PlayerLayer NineTailedFoxTail = new PlayerLayer("JourneyTrend", "NineTailedFoxTail", PlayerLayer.WaistAcc, delegate (PlayerDrawInfo drawInfo)
 		{
 			if (!drawInfo.drawPlayer.dead)
@@ -49,15 +42,15 @@ namespace JourneyTrend
 				Player drawPlayer = drawInfo.drawPlayer;
 				Mod mod = ModLoader.GetMod("JourneyTrend");
 				JourneyPlayer modPlayer = drawPlayer.GetModPlayer<JourneyPlayer>();
-				if (modPlayer.foxTails)
+				if (modPlayer.FoxTailsEquipped)
 				{
-					Rectangle? rectangle = new Rectangle(0, modPlayer.tailFrame * 56, 46, 56);
+					Rectangle? rectangle = new Rectangle(0, modPlayer.NineTailedlFrameUpdater * 56, 46, 56);	//frame updater
 					Color newColor = Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f),
 					(int)((drawInfo.position.Y + drawPlayer.height / 2f) / 16f));
 					newColor = new Color(newColor.R, newColor.B, newColor.G, (int)((1 - drawPlayer.shadow) * 255));
 					Texture2D texture = mod.GetTexture("Items/Vanity/NineTailedFox/NineTailedFoxAcc_Tails");
 					int num = texture.Height / 11;
-					int num2 = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X - (3 * drawPlayer.direction));
+					int num2 = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X - (3 * drawPlayer.direction)); //has offset of -3 px
 					int num3 = (int)(drawInfo.position.Y + drawPlayer.height / 2f - Main.screenPosition.Y - 3f);
 					DrawData item = new DrawData(texture, new Vector2(num2, num3), rectangle,
 					newColor, 0f, new Vector2(texture.Width / 2f, num / 2f), 1f, drawInfo.spriteEffects, 0)
@@ -68,26 +61,74 @@ namespace JourneyTrend
 				}
 			}
 		});
-		public override void ResetEffects()
+
+
+
+
+		//accessory type capes (not idle animated)
+        public bool StarlightScarfEquipped;
+        private static Rectangle ScarfFrameUpdate;
+        public static readonly PlayerLayer StarlightDreamScarf = new PlayerLayer("JourneyTrend", "StarlightDreamScarf", PlayerLayer.BackAcc, delegate (PlayerDrawInfo drawInfo)
+        {									//name here same as name								here.	Needs correct accesory here as well
+            if (!drawInfo.drawPlayer.dead)
+            {
+                Player drawPlayer = drawInfo.drawPlayer;
+                Mod mod = ModLoader.GetMod("JourneyTrend");
+                JourneyPlayer modPlayer = drawPlayer.GetModPlayer<JourneyPlayer>();
+                if (modPlayer.StarlightScarfEquipped)			//needs coorect equip bool
+                {
+					Rectangle? rectangle = ScarfFrameUpdate;	//updates rect here
+                    Color newColor = Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f),
+                    (int)((drawInfo.position.Y + drawPlayer.height / 2f) / 16f));
+                    newColor = new Color(newColor.R, newColor.B, newColor.G, (int)((1 - drawPlayer.shadow) * 255));
+                    Texture2D texture = mod.GetTexture("Items/Vanity/StarlightDream/StarlightDreamAcc_Back");	//needs correct sprite path
+                    int num = texture.Height / 20;				//20 -> number of frames
+                    int num2 = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X);		//no offset from player rect
+					int num3 = (int)(drawInfo.position.Y + drawPlayer.height / 2f - Main.screenPosition.Y - 3f);
+                    DrawData item = new DrawData(texture, new Vector2(num2, num3), rectangle,
+                    newColor, 0f, new Vector2(texture.Width / 2f, num / 2f), 1f, drawInfo.spriteEffects, 0)
+                    {
+                        shader = drawPlayer.cBack				//use correct shader (c... for accesorie types)
+                    };
+                    Main.playerDrawData.Add(item);
+                }
+            }
+        });
+
+        public override void PreUpdate()
 		{
-			foxTails = false;
-			foxFly = false;
-		}
-		public override void PreUpdate()
-		{
-			tailFrameUp++;
-			if (tailFrameUp == 8)
+			if (StarlightScarfEquipped)						
 			{
-				tailFrame2++;
-				if (tailFrame2 >= 10)
-				{
-					tailFrame2 = 0;
-				}
-				tailFrameUp = 0;
+				ScarfFrameUpdate = player.bodyFrame;        //grabs player rect
 			}
-			if (!foxFly) { tailFrame = tailFrame2; }
-			else { tailFrame = 10; }
+
+			if (FoxTailsEquipped)							//foxTailsEquipped gets updated in NineTailedFoxAcc.cs
+			{
+				NineTailedTickToFrame++;
+				if (NineTailedTickToFrame == 8)				//every 8 ticks update
+				{
+					NineTailedFrameCounter++;				//next frame
+					if (NineTailedFrameCounter >= 10)		//loop all frames from 0 to 9
+					{
+						NineTailedFrameCounter = 0;			//reset to first frame
+					}
+					NineTailedTickToFrame = 0;				//reset tick counter
+				}
+				if (!NinetailedFlying) { NineTailedlFrameUpdater = NineTailedFrameCounter; }	//set counter to updater
+				else { NineTailedlFrameUpdater = 10; }							//use frame 10 when flying
+			}
 		}
+
+		public override void ResetEffects()	//restet all the equip type bools
+		{
+			FoxTailsEquipped = false;
+			NinetailedFlying = false;
+            StarlightScarfEquipped = false;
+        }
+
+
+
+
 
 		//Glowmask business
 		public static readonly PlayerLayer ContainmentHeadGlowmask = new PlayerLayer("JourneyTrend", "ContainmentHeadGlowmask", PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)
@@ -474,11 +515,18 @@ namespace JourneyTrend
 
 		public override void ModifyDrawLayers(List<PlayerLayer> layers)
 		{
-			if (foxTails)
+			if (FoxTailsEquipped)
 			{
 				int legsIndex = layers.IndexOf(PlayerLayer.Skin);
 				layers.Insert(legsIndex - 1, NineTailedFoxTail);
 			}
+
+			if (StarlightScarfEquipped)
+			{
+				int legsIndex = layers.IndexOf(PlayerLayer.Skin);
+				layers.Insert(legsIndex - 1, StarlightDreamScarf);
+			}
+
 			int headLayer = layers.FindIndex(l => l == PlayerLayer.Head);
 			int bodyLayer = layers.FindIndex(l => l == PlayerLayer.Body);
 			int legsLayer = layers.FindIndex(l => l == PlayerLayer.Legs);

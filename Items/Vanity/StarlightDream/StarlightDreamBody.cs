@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
+using Terraria;
 using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.StarlightDream
@@ -37,6 +38,11 @@ namespace JourneyTrend.Items.Vanity.StarlightDream
         public override void DrawHands(ref bool drawHands, ref bool drawArms)
         {
             drawHands = true;
+        }
+
+        public override void UpdateVanity(Player player, EquipType type)
+        {
+            player.GetModPlayer<JourneyPlayer>().StarlightScarfEquipped = true;
         }
 
         //public override void ModifyTooltips(List<TooltipLine> tooltips)

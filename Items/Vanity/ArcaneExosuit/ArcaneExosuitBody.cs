@@ -4,7 +4,7 @@ using Terraria.ID;
 namespace JourneyTrend.Items.Vanity.ArcaneExosuit
 {
     [AutoloadEquip(EquipType.Body)]
-    public class ArcaneExosuitBodey : ModItem
+    public class ArcaneExosuitBody : ModItem
     {
         public override void SetStaticDefaults()
         {
