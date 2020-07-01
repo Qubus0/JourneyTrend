@@ -1,0 +1,15 @@
+by Nedrilax
+
+There will be some Greek Mythology references when it comes to the set due to its name.
+The name of the set items will be simple though:
+-Andromeda Pilot Helmet
+-Andromeda Pilot Breastplate
+-Cetus
+
+The tooltips for both helmet and breastplate would be "Let there be a constellation with your name on it" while
+Cetus' tooltip would be "Those chains really don't suit you"
+
+The helmet and breastplate could have a guaranteed drop chance from Medusa if the player is wearing
+Hermes Boots as a reference to Perseus.
+The leggings could be a drop from Duke Fishron as a reference to the sea monster sent by
+Poseidon who was meant to devour Andromeda.

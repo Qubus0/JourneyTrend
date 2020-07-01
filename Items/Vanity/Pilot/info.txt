@@ -1,0 +1,15 @@
+Hello there,
+
+Good to hear! The set item names are as follows:
+- Pilot's Cap (head)
+- Pilot's Jumpsuit (body, visually covers legs)
+The names would be in Light Red rarity.
+
+Tooltip for the Cap would preferably be "Still some wyvern saliva in the goggles, but otherwise
+surprisingly intact."
+Tooltip for the Jumpsuit would preferably be "Parachute not included."
+
+Ideally, I'd like the set to be obtained from Wyvern drops at a high drop rate, let's say 1 in 3.
+I'd prefer if it was a guaranteed drop for one piece, but it's fine if that's too difficult to work with.
+
+As for the name to give credit to, CyrantontheCold works fine.

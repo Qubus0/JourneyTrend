@@ -32,24 +32,6 @@ namespace JourneyTrend.NPCs
                     }
                     break;
 
-                case NPCID.TravellingMerchant:
-                    if (Main.moonPhase == 6)
-                    {
-                        shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.Journeyman.JourneymanHead>());
-                        nextSlot++;
-                    }
-                    if (Main.moonPhase == 0)
-                    {
-                        shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.Journeyman.JourneymanBody>());
-                        nextSlot++;
-                    }
-                    if (Main.moonPhase == 2)
-                    {
-                        shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.Journeyman.JourneymanLegs>());
-                        nextSlot++;
-                    }
-                    break;
-
                 case NPCID.Cyborg:
                     if (Main.player[Main.myPlayer].ZoneJungle && NPC.downedMoonlord && Main.invasionType == 4)  //4 -> martian madness
                     {
@@ -112,6 +94,25 @@ namespace JourneyTrend.NPCs
                     nextSlot++;
                     break;
 
+            }
+        }
+
+        public override void SetupTravelShop(int[] shop, ref int nextSlot)
+        {
+            if (Main.moonPhase == 6)
+            {
+                shop[nextSlot] = ItemType<Items.Vanity.Journeyman.JourneymanHead>();
+                nextSlot++;
+            }
+            if (Main.moonPhase == 0)
+            {
+                shop[nextSlot] = ItemType<Items.Vanity.Journeyman.JourneymanBody>();
+                nextSlot++;
+            }
+            if (Main.moonPhase == 2)
+            {
+                shop[nextSlot] = ItemType<Items.Vanity.Journeyman.JourneymanLegs>();
+                nextSlot++;
             }
         }
     }

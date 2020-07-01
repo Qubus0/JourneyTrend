@@ -1,0 +1,23 @@
+For the item description i was thinking:
+
+Item names:
+- Sea Hunter's Trifold Hat
+- Sea Hunter's Longcoat
+- Sea Hunter's Boots
+
+Item tooltip:
+- "May the hunt commence"
+
+To obtain the item i was thinking:
+
+Craftable at a loom:
+Hat - 10 silk + 5 shark fins
+Coat - 15 silk + 5 shark fins
+Boots - 10 silk + 5 shark fins
+
+
+SeaHunterHat:
+for "public override void DrawHair(ref bool drawHair, ref bool drawAltHair)"
+drawAltHair = true;
+
+Authon

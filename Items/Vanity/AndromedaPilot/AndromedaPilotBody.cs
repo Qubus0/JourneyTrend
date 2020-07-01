@@ -8,16 +8,15 @@ namespace JourneyTrend.Items.Vanity.AndromedaPilot
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Arcane Exosuit Ribcage");
-            Tooltip.SetDefault("The energy core for the exosuit is damaged but perhaps there is a way to restore it\nMade by Faskeon");
+            DisplayName.SetDefault("Andromeda Pilot Breastplate");
+            Tooltip.SetDefault("Let there be a constellation with your name on it\nMade by Nedrilax");
         }
         public override void SetDefaults()
         {
             item.width = 18;
             item.height = 18;
-            item.rare = ItemRarityID.Blue;
+            item.rare = ItemRarityID.Lime;
             item.vanity = true;
-            item.value = 50000;
         }
     }
 }

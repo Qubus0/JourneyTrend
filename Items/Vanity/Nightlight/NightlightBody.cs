@@ -21,8 +21,9 @@ namespace JourneyTrend.Items.Vanity.Nightlight
             item.vanity = true;
         }
 
+        public float adj = 1 / 255; //adjusts the rgb value from 0-255 to 0-1 because light is stupid like that
         public override void UpdateVanity(Player player, EquipType type) {
-            Lighting.AddLight(player.Center, 2*0.135f, 2*0.166f, 0);
+            Lighting.AddLight(player.Center, 198*adj, 229*adj, 10*adj);
         }
 
         public override void AddRecipes()

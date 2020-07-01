@@ -8,17 +8,28 @@ namespace JourneyTrend.Items.Vanity.SeaHunter
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Arcane Exosuit Skull");
-            Tooltip.SetDefault("Resembles the skull of a long extinct species\nMade by Faskeon");
+            DisplayName.SetDefault("Sea Hunter's Trifold Hat");
+            Tooltip.SetDefault("May the hunt commence\nMade by Authon");
         }
+
         public override void SetDefaults()
         {
             item.width = 18;
             item.height = 18;
             item.rare = ItemRarityID.Blue;
             item.vanity = true;
-            item.value = 50000;
         }
+
+        public override void AddRecipes()
+        {
+            ModRecipe recipe = new ModRecipe(mod);
+            recipe.AddTile(TileID.Loom);
+            recipe.AddIngredient(ItemID.Silk, 10);
+            recipe.AddIngredient(ItemID.SharkFin, 5);
+            recipe.SetResult(this);
+            recipe.AddRecipe();
+        }
+
         public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
         {
             drawAltHair = true;

@@ -8,16 +8,15 @@ namespace JourneyTrend.Items.Vanity.AndromedaPilot
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Arcane Exosuit Skull");
-            Tooltip.SetDefault("Resembles the skull of a long extinct species\nMade by Faskeon");
+            DisplayName.SetDefault("Andromeda Pilot Helmet");
+            Tooltip.SetDefault("Let there be a constellation with your name on it\nMade by Nedrilax");
         }
         public override void SetDefaults()
         {
             item.width = 18;
             item.height = 18;
-            item.rare = ItemRarityID.Blue;
+            item.rare = ItemRarityID.Lime;
             item.vanity = true;
-            item.value = 50000;
         }
         public override bool DrawHead()
         {

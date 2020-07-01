@@ -127,8 +127,20 @@ namespace JourneyTrend.NPCs
 
             if (npc.type == NPCID.WyvernHead && Main.rand.Next(3) == 0)
             {
-                if (Main.rand.Next(2) == 0) { Item.NewItem(npc.getRect(), mod.ItemType("PilotHead")); }
-                else { Item.NewItem(npc.getRect(), mod.ItemType("PilotBody")); }
+                if (Main.rand.Next(2) == 0)
+                {
+                    Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Pilot.PilotHead>());
+                } else {
+                    Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Pilot.PilotBody>());
+                }
+            }
+
+            if (npc.type == NPCID.DukeFishron && Main.rand.Next(3) == 0)
+            {
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.AndromedaPilot.AndromedaPilotHead>());
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.AndromedaPilot.AndromedaPilotBody>());
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.AndromedaPilot.AndromedaPilotLegs>());
+
             }
         }
     }
