@@ -8,16 +8,15 @@ namespace JourneyTrend.Items.Vanity.Draugr
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Arcane Exosuit Femora");
-            Tooltip.SetDefault("The armor shines a dull gold that could be enchanced with a solar coating\nMade by Faskeon");
+            DisplayName.SetDefault("Draugr Greaves");
+            Tooltip.SetDefault("Made by tic");
         }
         public override void SetDefaults()
         {
             item.width = 18;
             item.height = 18;
-            item.rare = ItemRarityID.Blue;
+            item.rare = ItemRarityID.Orange;
             item.vanity = true;
-            item.value = 50000;
         }
     }
 }

@@ -108,7 +108,8 @@ namespace JourneyTrend.NPCs
             {
                 Item.NewItem(npc.getRect(), ItemType<Items.Vanity.StormConqueror.StormConquerorBag>());
             }
-            if (((npc.Center.Y) < (Main.worldSurface * 0.35f) * 16f) && Main.rand.Next(250) == 0)     // if the mob is above certain Y level (sky)
+            
+            if (Main.player[Main.myPlayer].ZoneSkyHeight && Main.rand.Next(250) == 0)     // if the mob is above certain Y level (sky) ((npc.Center.Y) < (Main.worldSurface * 0.35f) * 16f)
             {
                 Item.NewItem(npc.getRect(), ItemType<Items.Vanity.StormConqueror.StormConquerorBag>());
             }

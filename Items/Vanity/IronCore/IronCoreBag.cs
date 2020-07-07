@@ -9,7 +9,7 @@ namespace JourneyTrend.Items.Vanity.IronCore
     {
         public override void SetStaticDefaults() {
             DisplayName.SetDefault("Knight of the Iron Core Bag");
-            Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+            Tooltip.SetDefault("Bag sprite by Polish_Soap\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults() {

@@ -9,7 +9,7 @@ namespace JourneyTrend.Items.Vanity.AndromedaPilot
     {
         public override void SetStaticDefaults() {
             DisplayName.SetDefault("Andromeda Pilot Bag");
-            Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+            Tooltip.SetDefault("Sprinting assisted by Faskeon\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults() {

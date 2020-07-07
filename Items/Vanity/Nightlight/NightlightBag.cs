@@ -9,7 +9,7 @@ namespace JourneyTrend.Items.Vanity.Nightlight
     {
         public override void SetStaticDefaults() {
             DisplayName.SetDefault("Nightlight Bag");
-            Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+            Tooltip.SetDefault("Bag sprite by PeanutSte\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults() {

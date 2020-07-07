@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -24,6 +25,11 @@ namespace JourneyTrend.Items.Vanity.Rookie
         public override bool DrawBody()
         {
             return false;
+        }
+
+        public override void UpdateVanity(Player player, EquipType type)
+        {
+            player.GetModPlayer<JourneyPlayer>().doOffset = true;
         }
     }
 }

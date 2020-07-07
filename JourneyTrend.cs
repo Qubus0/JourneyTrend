@@ -8,8 +8,6 @@ namespace JourneyTrend
 {
     public class JourneyTrend : Mod
 	{
-		public bool HermesBootsEquipped;
-
 		public static Vector2 ScalePoint(Vector2 a, Vector2 c, float t) => new Vector2(c.X + (t * (a.X - c.X)), c.Y + (t * (a.Y - c.Y)));
 		public JourneyTrend()
 		{
@@ -37,6 +35,13 @@ namespace JourneyTrend
 				ModContent.ItemType<Items.Vanity.ForestDruid.ForestDruidHead2>()
 			});
 			RecipeGroup.RegisterGroup("JourneyTrend:DruidMasks", DruidMasks);
+
+			RecipeGroup KnightwalkerCapes = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " Cape of the Knightwalker", new int[]
+			{
+				ModContent.ItemType<Items.Vanity.Knightwalker.KnightwalkerBody>(),
+				ModContent.ItemType<Items.Vanity.Knightwalker.KnightwalkerBody1>()
+			});
+			RecipeGroup.RegisterGroup("JourneyTrend:KnightwalkerCapes", KnightwalkerCapes);
 		}
 	}
 }

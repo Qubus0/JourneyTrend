@@ -114,6 +114,15 @@ namespace JourneyTrend.NPCs
                 shop[nextSlot] = ItemType<Items.Vanity.Journeyman.JourneymanLegs>();
                 nextSlot++;
             }
+
+            shop[nextSlot] = ItemType<Items.Vanity.NineTailedFox.NineTailedFoxHead>();
+            nextSlot++;
+            shop[nextSlot] = ItemType<Items.Vanity.NineTailedFox.NineTailedFoxBody>();
+            nextSlot++;
+            shop[nextSlot] = ItemType<Items.Vanity.NineTailedFox.NineTailedFoxLegs>();
+            nextSlot++;
+            shop[nextSlot] = ItemType<Items.Vanity.NineTailedFox.NineTailedFoxAcc>();
+            nextSlot++;
         }
     }
 }

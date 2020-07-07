@@ -8,16 +8,15 @@ namespace JourneyTrend.Items.Vanity.Draugr
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Arcane Exosuit Ribcage");
-            Tooltip.SetDefault("The energy core for the exosuit is damaged but perhaps there is a way to restore it\nMade by Faskeon");
+            DisplayName.SetDefault("Draugr Chestplate");
+            Tooltip.SetDefault("Made by tic");
         }
         public override void SetDefaults()
         {
             item.width = 18;
             item.height = 18;
-            item.rare = ItemRarityID.Blue;
+            item.rare = ItemRarityID.Orange;
             item.vanity = true;
-            item.value = 50000;
         }
     }
 }

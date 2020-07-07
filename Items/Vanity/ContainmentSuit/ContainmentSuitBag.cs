@@ -10,7 +10,7 @@ namespace JourneyTrend.Items.Vanity.ContainmentSuit
     {
         public override void SetStaticDefaults() {
             DisplayName.SetDefault("Containment Suit Bag");
-            Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+            Tooltip.SetDefault("Sprinting assisted by Curt 'Bucket Face' Black\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults() {

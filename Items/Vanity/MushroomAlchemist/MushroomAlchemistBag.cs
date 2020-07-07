@@ -9,7 +9,7 @@ namespace JourneyTrend.Items.Vanity.MushroomAlchemist
     {
         public override void SetStaticDefaults() {
             DisplayName.SetDefault("Mushroom Alchemist Bag");
-            Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+            Tooltip.SetDefault("Bag sprite by TerraKingCole614\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults() {

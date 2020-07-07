@@ -9,7 +9,7 @@ namespace JourneyTrend.Items.Vanity.Shootsaton
     {
         public override void SetStaticDefaults() {
             DisplayName.SetDefault("Sire Shootsaton Bag");
-            Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+            Tooltip.SetDefault("Sprinting assisted by Faskeon\nBag sprite by PeanutSte\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults() {

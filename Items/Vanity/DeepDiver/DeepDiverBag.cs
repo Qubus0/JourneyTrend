@@ -9,7 +9,7 @@ namespace JourneyTrend.Items.Vanity.DeepDiver
     {
         public override void SetStaticDefaults() {
             DisplayName.SetDefault("Deep Diver's Disguise Bag");
-            Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+            Tooltip.SetDefault("Sprinting assisted by Curt 'Bucket Face' Black\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults() {

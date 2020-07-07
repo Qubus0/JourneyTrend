@@ -33,12 +33,17 @@ namespace JourneyTrend.Items.Vanity.Hivenet
 		}
 
 		public override void UpdateVanity(Player player, EquipType type) {
-			if (Main.GameUpdateCount % 20 == 0) {
-				Dust.NewDust(player.Center + new Vector2(-player.direction*30-20, -25), 40, 40, DustType<HivenetDust>());
-			}
 			//if (Main.rand.NextFloat() < 0.02f)		//for random particle spawns
-			if (Main.GameUpdateCount % 30 == 0) {
-				Dust.NewDust(player.Center + new Vector2(player.direction*30-20, -25), 10, 30, DustType<HivenetDust>());
+
+			if (Main.GameUpdateCount % 20 == 0) {       //big wing
+				int wid = 40;
+				int hei = 40;
+				Dust.NewDust(player.Center + new Vector2(-(wid / 2) - player.direction * 30, -25), wid, hei, DustType<HivenetDust>());
+			}
+			if (Main.GameUpdateCount % 30 == 0) {       //smol wing
+				int wid = 10;
+				int hei = 30;
+				Dust.NewDust(player.Center + new Vector2(-(wid / 2) + player.direction * 18 , -25), wid, hei, DustType<HivenetDust>());
 			}
 		}
 	}

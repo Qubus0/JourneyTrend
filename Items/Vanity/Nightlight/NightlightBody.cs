@@ -20,10 +20,11 @@ namespace JourneyTrend.Items.Vanity.Nightlight
             item.rare = ItemRarityID.Green;
             item.vanity = true;
         }
-
-        public float adj = 1 / 255; //adjusts the rgb value from 0-255 to 0-1 because light is stupid like that
-        public override void UpdateVanity(Player player, EquipType type) {
-            Lighting.AddLight(player.Center, 198*adj, 229*adj, 10*adj);
+                                                   //and halves it because bright
+        private readonly float adj = 0.00392f/2; //adjusts the rgb value from 0-255 to 0-1 because light is stupid like that
+        public override void UpdateVanity(Player player, EquipType type)
+        {
+            Lighting.AddLight(player.Center, 198 * adj, 229 * adj, 10 * adj);
         }
 
         public override void AddRecipes()

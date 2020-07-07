@@ -1,0 +1,16 @@
+Mantle of the Knightwalker Helmet: TBD
+Mantle of the Knightwalker Chestplate: TBD
+Mantle of the Knightwalker Boots: TBD
+
+Credited as: "Dusk Ealain" 
+
+Method of obtaining:
+- TBD (Designer is unlikely to respond, Consult community for method?)
+
+Rarity Colour: TBD
+
+Additional Info:
+
+- The spritesheet labelled as "New Shoulder Flame" if implemented will need the "Knight walker dust particles" added to it.
+- The helmet will need the player's head to be hidden.
+- Self-explanatory but; Idle Cape animation is to be played while the player is still and the Running cape animation is to be played while the player is moving.

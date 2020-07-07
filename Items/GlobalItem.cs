@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using JourneyTrend;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -6,7 +7,7 @@ using static Terraria.ModLoader.ModContent;
 
 namespace ExampleMod.Items
 {
-    public class BossBags : GlobalItem
+	public class BossBags : GlobalItem
 	{
 		public override void OpenVanillaBag(string context, Player player, int arg)
 		{
@@ -28,6 +29,19 @@ namespace ExampleMod.Items
 				Item.NewItem(projectile.Hitbox, ItemType<JourneyTrend.Items.Vanity.StarlightDream.StarlightDreamBag>());
 			}
 			return base.OnTileCollide(projectile, oldVelocity);
+        }
+    }
+
+	public class Offset : GlobalItem
+    {
+        public override void UseStyle(Item item, Player player)
+        {
+			if (player.GetModPlayer<JourneyPlayer>().doOffset)		//updated in RookieBody.cs
+            {
+				player.itemLocation.X += 2;
+				player.itemLocation.Y += 8;
+				player.GetModPlayer<JourneyPlayer>().doOffset = false;
+			}
         }
     }
 }

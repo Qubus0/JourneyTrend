@@ -9,7 +9,7 @@ namespace JourneyTrend.Items.Vanity.StarlightDream
     {
         public override void SetStaticDefaults() {
             DisplayName.SetDefault("Starlight Dream Bag");
-            Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+            Tooltip.SetDefault("Sprinting assisted by Cakeboiii\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults() {

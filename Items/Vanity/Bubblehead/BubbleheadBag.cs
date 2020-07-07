@@ -9,7 +9,7 @@ namespace JourneyTrend.Items.Vanity.Bubblehead
     {
         public override void SetStaticDefaults() {
             DisplayName.SetDefault("Bubblehead Bag");
-            Tooltip.SetDefault("Found him!\n{$CommonItemTooltip.RightClickToOpen}");
+            Tooltip.SetDefault("Found him!\nBag sprite by PeanutSte\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults() {

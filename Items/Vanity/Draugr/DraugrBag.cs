@@ -1,7 +1,7 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
-using Terraria.ID;
 
 namespace JourneyTrend.Items.Vanity.Draugr
 {
@@ -9,7 +9,7 @@ namespace JourneyTrend.Items.Vanity.Draugr
     {
         public override void SetStaticDefaults() {
             DisplayName.SetDefault("Draugr Bag");
-            Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+            Tooltip.SetDefault("Sprinting assisted by Faskeon{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults() {

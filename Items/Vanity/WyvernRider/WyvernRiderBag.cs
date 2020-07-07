@@ -9,7 +9,7 @@ namespace JourneyTrend.Items.Vanity.WyvernRider
     {
         public override void SetStaticDefaults() {
             DisplayName.SetDefault("Wyvern Rider Bag");
-            Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+            Tooltip.SetDefault("Bag sprite by PeanutSte\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults() {

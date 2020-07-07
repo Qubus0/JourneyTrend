@@ -20,7 +20,7 @@ namespace JourneyTrend.Items.Vanity.NineTailedFox
             item.width = 24;
             item.height = 24;
             item.value = 200000;
-            item.rare = ItemRarityID.Lime;
+            item.rare = ItemRarityID.Blue;
         }
 
         public override bool CanRightClick()
