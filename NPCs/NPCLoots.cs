@@ -51,7 +51,7 @@ namespace JourneyTrend.NPCs
                 Item.NewItem(npc.getRect(), choice);
             }
 
-            if (npc.type == NPCID.WyvernHead && !Main.dayTime && Main.player[Main.myPlayer].ZoneHoly && Main.rand.Next(2) == 0)
+            if (npc.type == NPCID.WyvernHead && !Main.dayTime && Main.LocalPlayer.ZoneHoly && Main.rand.Next(2) == 0)
             {
                 var dropChooser = new WeightedRandom<int>();
                 dropChooser.Add(ItemType<Items.Vanity.Kuijia.KuijiaBody>());
@@ -59,7 +59,7 @@ namespace JourneyTrend.NPCs
                 int choice = dropChooser;
                 Item.NewItem(npc.getRect(), choice);
             }
-            if (npc.type == NPCID.WyvernHead && !Main.dayTime && !Main.player[Main.myPlayer].ZoneHoly && Main.rand.Next(5) == 0)
+            if (npc.type == NPCID.WyvernHead && !Main.dayTime && !Main.LocalPlayer.ZoneHoly && Main.rand.Next(5) == 0)
             {
                 Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Kuijia.KuijiaHead>());
             }
@@ -109,7 +109,7 @@ namespace JourneyTrend.NPCs
                 Item.NewItem(npc.getRect(), ItemType<Items.Vanity.StormConqueror.StormConquerorBag>());
             }
             
-            if (Main.player[Main.myPlayer].ZoneSkyHeight && Main.rand.Next(250) == 0)     // if the mob is above certain Y level (sky) ((npc.Center.Y) < (Main.worldSurface * 0.35f) * 16f)
+            if (Main.LocalPlayer.ZoneSkyHeight && Main.rand.Next(250) == 0)     // if the mob is above certain Y level (sky) ((npc.Center.Y) < (Main.worldSurface * 0.35f) * 16f)
             {
                 Item.NewItem(npc.getRect(), ItemType<Items.Vanity.StormConqueror.StormConquerorBag>());
             }
@@ -136,12 +136,17 @@ namespace JourneyTrend.NPCs
                 }
             }
 
-            if (npc.type == NPCID.DukeFishron && Main.rand.Next(3) == 0)
+            for (int i = 3; i < 9; i++)
             {
-                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.AndromedaPilot.AndromedaPilotHead>());
-                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.AndromedaPilot.AndromedaPilotBody>());
-                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.AndromedaPilot.AndromedaPilotLegs>());
-
+                if (Main.LocalPlayer.armor[i].type == ItemID.HermesBoots)
+                {
+                    if (npc.type == NPCID.DukeFishron && Main.rand.Next(3) == 0)
+                    {
+                        Item.NewItem(npc.getRect(), ItemType<Items.Vanity.AndromedaPilot.AndromedaPilotHead>());
+                        Item.NewItem(npc.getRect(), ItemType<Items.Vanity.AndromedaPilot.AndromedaPilotBody>());
+                        Item.NewItem(npc.getRect(), ItemType<Items.Vanity.AndromedaPilot.AndromedaPilotLegs>());
+                    }
+                }
             }
         }
     }

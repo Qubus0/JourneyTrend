@@ -732,6 +732,60 @@ namespace JourneyTrend
 			Main.playerDrawData.Add(drawData);
 		});
 
+		public static readonly PlayerLayer DeepDiverHeadGlowmask = new PlayerLayer("JourneyTrend", "DeepDiverHeadGlowmask", PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)
+		{
+			if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
+			{
+				return;
+			}
+			Player drawPlayer = drawInfo.drawPlayer;
+			Mod mod = ModLoader.GetMod("JourneyTrend");
+			if (drawPlayer.head != mod.GetEquipSlot("DeepDiverHead", EquipType.Head))
+			{
+				return;
+			}
+			Texture2D texture = mod.GetTexture("Items/Vanity/DeepDiver/DeepDiverHead_Glow");
+			float drawX = (int)drawInfo.position.X + drawPlayer.width / 2;
+			float drawY = (int)drawInfo.position.Y + drawPlayer.height - drawPlayer.headFrame.Height / 2 + 4f - 34f;
+			Vector2 origin = drawInfo.headOrigin;
+			Vector2 position = new Vector2(drawX, drawY) + drawPlayer.headPosition - Main.screenPosition;
+			float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
+			Color color = Color.White;
+			Rectangle frame = new Rectangle(0, drawPlayer.bodyFrame.Y, texture.Width, texture.Height / 20);
+			float rotation = drawPlayer.headRotation;
+			SpriteEffects spriteEffects = drawInfo.spriteEffects;
+			DrawData drawData = new DrawData(texture, position, frame, color * alpha, rotation, origin, 1f, spriteEffects, 0);
+			drawData.shader = drawInfo.headArmorShader;
+			Main.playerDrawData.Add(drawData);
+		});
+
+		public static readonly PlayerLayer BountyHeadGlowmask = new PlayerLayer("JourneyTrend", "BountyHeadGlowmask", PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)
+		{
+			if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
+			{
+				return;
+			}
+			Player drawPlayer = drawInfo.drawPlayer;
+			Mod mod = ModLoader.GetMod("JourneyTrend");
+			if (drawPlayer.head != mod.GetEquipSlot("BountyHead", EquipType.Head))
+			{
+				return;
+			}
+			Texture2D texture = mod.GetTexture("Items/Vanity/Bounty/BountyHead_Glow");
+			float drawX = (int)drawInfo.position.X + drawPlayer.width / 2;
+			float drawY = (int)drawInfo.position.Y + drawPlayer.height - drawPlayer.headFrame.Height / 2 + 4f - 34f;
+			Vector2 origin = drawInfo.headOrigin;
+			Vector2 position = new Vector2(drawX, drawY) + drawPlayer.headPosition - Main.screenPosition;
+			float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
+			Color color = Color.White;
+			Rectangle frame = new Rectangle(0, drawPlayer.bodyFrame.Y, texture.Width, texture.Height / 20);
+			float rotation = drawPlayer.headRotation;
+			SpriteEffects spriteEffects = drawInfo.spriteEffects;
+			DrawData drawData = new DrawData(texture, position, frame, color * alpha, rotation, origin, 1f, spriteEffects, 0);
+			drawData.shader = drawInfo.headArmorShader;
+			Main.playerDrawData.Add(drawData);
+		});
+
 
 		public override void ModifyDrawLayers(List<PlayerLayer> layers)
 		{
@@ -770,6 +824,8 @@ namespace JourneyTrend
 				layers.Insert(headLayer + 1, MushroomHeadGlowmask);
 				layers.Insert(headLayer + 1, NexusHeadGlowmask);
 				layers.Insert(headLayer + 1, KnighwalkerHeadGlowmask);
+				layers.Insert(headLayer + 1, DeepDiverHeadGlowmask);
+				layers.Insert(headLayer + 1, BountyHeadGlowmask);
 			}
 			if (bodyLayer > -1)
 			{

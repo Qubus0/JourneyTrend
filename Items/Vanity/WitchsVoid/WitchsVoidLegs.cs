@@ -1,22 +1,22 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace JourneyTrend.Items.Vanity.StarlightDream
+namespace JourneyTrend.Items.Vanity.WitchsVoid
 {
     [AutoloadEquip(EquipType.Legs)]
-    public class StarlightDreamLegs : ModItem
+    public class WitchsVoidLegs : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Starlight Dream Leggings");
-            Tooltip.SetDefault("Tooltip\nMade by Golditale");
+            DisplayName.SetDefault("Void Boots");
+            Tooltip.SetDefault("It will alter the wearers attitude and power\nMade by Hexanne");
         }
         
         public override void SetDefaults()
         {
             item.width = 18;
             item.height = 18;
-            item.rare = ItemRarityID.Cyan;
+            item.rare = ItemRarityID.Pink;
             item.vanity = true;
         }
     }

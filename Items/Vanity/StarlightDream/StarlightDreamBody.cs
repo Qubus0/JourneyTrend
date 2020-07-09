@@ -11,8 +11,8 @@ namespace JourneyTrend.Items.Vanity.StarlightDream
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Set");
-            Tooltip.SetDefault("Tooltip\nMade by Golditale");
+            DisplayName.SetDefault("Starlight Dream Scarf");
+            Tooltip.SetDefault("Made by Golditale");
         }
 
         public override void SetDefaults()

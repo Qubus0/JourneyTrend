@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -27,6 +28,12 @@ namespace JourneyTrend.Items.Vanity.ContainmentSuit
             recipe.AddTile(TileID.HeavyWorkBench);
             recipe.SetResult(this);
             recipe.AddRecipe();
+        }
+
+        private readonly float adj = 0.00392f / 3; //adjusts the rgb value from 0-255 to 0-1 (/3)
+        public override void UpdateVanity(Player player, EquipType type)
+        {
+            Lighting.AddLight(player.Center, 255 * adj, 210 * adj, 159 * adj);
         }
     }
 }

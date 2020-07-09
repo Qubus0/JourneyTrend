@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -27,6 +28,12 @@ namespace JourneyTrend.Items.Vanity.DeepDiver
                     line2.overrideColor = new Color(15, 4, 68);
                 }
            }
+        }
+
+        private readonly float adj = 0.00392f / 2; //adjusts the rgb value from 0-255 to 0-1 (/3)
+        public override void UpdateVanity(Player player, EquipType type)
+        {
+            Lighting.AddLight(player.Center, 226 * adj, 255 * adj, 88 * adj);
         }
     }
 }

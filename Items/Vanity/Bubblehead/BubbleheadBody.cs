@@ -23,6 +23,7 @@ namespace JourneyTrend.Items.Vanity.Bubblehead
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.BottledWater, 1);
             recipe.AddIngredient(ItemID.Switch, 1);
+            recipe.AddIngredient(ItemID.SoulofNight, 1);
             recipe.AddIngredient(ItemID.Wire, 20);
             recipe.AddRecipeGroup("IronBar", 3);
             recipe.needWater = true;
