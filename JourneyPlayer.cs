@@ -29,6 +29,12 @@ namespace JourneyTrend
 		}
 
 
+		//accessory type capes (not idle animated)
+		private static Rectangle playerframe;       //grabs playerframe for all below
+		private bool isIdle;                        //true if not moving
+		private int walkUpShift = 0;       //-2 when the walkcykle has 'up' frames
+
+
 		//Idle Animating Fox Tails
 		public bool FoxTailsEquipped;
 		private int NineTailedTickToFrame;
@@ -51,7 +57,7 @@ namespace JourneyTrend
 					Texture2D texture = mod.GetTexture("Items/Vanity/NineTailedFox/NineTailedFoxAcc_Tails");
 					int num = texture.Height / 11;
 					int num2 = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X - (3 * drawPlayer.direction)); //has offset of -3 px
-					int num3 = (int)(drawInfo.position.Y + drawPlayer.height / 2f - Main.screenPosition.Y - 3f);
+					int num3 = (int)(drawInfo.position.Y + drawPlayer.height / 2f - Main.screenPosition.Y - 3f + modPlayer.walkUpShift);
 					DrawData item = new DrawData(texture, new Vector2(num2, num3), rectangle,
 					newColor, 0f, new Vector2(texture.Width / 2f, num / 2f), 1f, drawInfo.spriteEffects, 0)
 					{
@@ -64,10 +70,6 @@ namespace JourneyTrend
 
 
 
-
-		//accessory type capes (not idle animated)
-		private static Rectangle playerframe;       //grabs playerframe for all below
-		private bool isIdle;						//true if not moving
 
 		public bool StarlightBodyEquipped;        //corresponding equip bool
         public static readonly PlayerLayer StarlightDreamScarf = new PlayerLayer("JourneyTrend", "StarlightDreamScarf", PlayerLayer.BackAcc, delegate (PlayerDrawInfo drawInfo)
@@ -86,7 +88,7 @@ namespace JourneyTrend
                     Texture2D texture = mod.GetTexture("Items/Vanity/StarlightDream/StarlightDreamAcc_Back");	//needs correct sprite path
                     int num = texture.Height / 20;				//20 -> number of frames
                     int num2 = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X);		//no offset from player rect
-					int num3 = (int)(drawInfo.position.Y + drawPlayer.height / 2f - Main.screenPosition.Y - 3f);
+					int num3 = (int)(drawInfo.position.Y + drawPlayer.height / 2f - Main.screenPosition.Y - 3f + modPlayer.walkUpShift);
                     DrawData item = new DrawData(texture, new Vector2(num2, num3), rectangle,
                     newColor, 0f, new Vector2(texture.Width / 2f, num / 2f), 1f, drawInfo.spriteEffects, 0)
                     {
@@ -97,7 +99,30 @@ namespace JourneyTrend
             }
         });         //don't forget to change ModifyDrawlayers at the bottom
 
-		
+		public static readonly PlayerLayer StarlightDreamScarfGlow = new PlayerLayer("JourneyTrend", "StarlightDreamScarfGlow", PlayerLayer.BackAcc, delegate (PlayerDrawInfo drawInfo)
+		{                                   //name here same as name								here.	Needs correct accesory here as well
+			if (!drawInfo.drawPlayer.dead)
+			{
+				Player drawPlayer = drawInfo.drawPlayer;
+				Mod mod = ModLoader.GetMod("JourneyTrend");
+				JourneyPlayer modPlayer = drawPlayer.GetModPlayer<JourneyPlayer>();
+				if (modPlayer.StarlightBodyEquipped)            //needs coorect equip bool
+				{
+					Rectangle? rectangle = playerframe; //updates rect here
+					Color newColor = Color.White;
+					Texture2D texture = mod.GetTexture("Items/Vanity/StarlightDream/StarlightDreamAcc_Glow");   //needs correct sprite path
+					int num = texture.Height / 20;              //20 -> number of frames
+					int num2 = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X);      //no offset from player rect
+					int num3 = (int)(drawInfo.position.Y + drawPlayer.height / 2f - Main.screenPosition.Y - 3f + modPlayer.walkUpShift);
+					DrawData item = new DrawData(texture, new Vector2(num2, num3), rectangle,
+					newColor, 0f, new Vector2(texture.Width / 2f, num / 2f), 1f, drawInfo.spriteEffects, 0)
+					{
+						shader = drawPlayer.cBody               //part of body -> body shader (c...)
+					};
+					Main.playerDrawData.Add(item);
+				}
+			}
+		});         //don't forget to change ModifyDrawlayers at the bottom
 
 
 		public bool KnightwalkerHeadEquipped;
@@ -118,7 +143,7 @@ namespace JourneyTrend
 					Rectangle? rectangle = new Rectangle(0, modPlayer.KnightwalkerHeadFrameUpdater * num, texture.Width, num);    //frame updater
 					Color color = Color.White;
 					int num2 = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X + drawPlayer.direction);
-					int num3 = (int)(drawInfo.position.Y + drawPlayer.height / 2f - Main.screenPosition.Y-27f);
+					int num3 = (int)(drawInfo.position.Y + drawPlayer.height / 2f - Main.screenPosition.Y-27f + modPlayer.walkUpShift);
 					DrawData item = new DrawData(texture, new Vector2(num2, num3), rectangle,
 					color, 0f, new Vector2(texture.Width / 2f, num / 2f), 1f, drawInfo.spriteEffects, 0)
 					{
@@ -155,7 +180,7 @@ namespace JourneyTrend
 					(int)((drawInfo.position.Y + drawPlayer.height / 2f) / 16f));
 					color = new Color(color.R, color.B, color.G, (int)((1 - drawPlayer.shadow) * 255));
 					int num2 = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X - (6 * drawPlayer.direction));
-					int num3 = (int)(drawInfo.position.Y + drawPlayer.height / 2f - Main.screenPosition.Y + 7f);
+					int num3 = (int)(drawInfo.position.Y + drawPlayer.height / 2f - Main.screenPosition.Y + 7f + modPlayer.walkUpShift);
 					DrawData item = new DrawData(texture, new Vector2(num2, num3), rectangle,
 					color, 0f, new Vector2(texture.Width / 2f, num / 2f), 1f, drawInfo.spriteEffects, 0)
 					{
@@ -172,7 +197,7 @@ namespace JourneyTrend
 					Texture2D texture = mod.GetTexture("Items/Vanity/Knightwalker/KnightwalkerBodyAcc_Back");   //needs correct sprite path
 					int num = texture.Height / 20;              //20 -> number of frames
 					int num2 = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X);      //no offset from player rect
-					int num3 = (int)(drawInfo.position.Y + drawPlayer.height / 2f - Main.screenPosition.Y - 3f);
+					int num3 = (int)(drawInfo.position.Y + drawPlayer.height / 2f - Main.screenPosition.Y - 3f + modPlayer.walkUpShift);
 					DrawData item = new DrawData(texture, new Vector2(num2, num3), rectangle,
 					color, 0f, new Vector2(texture.Width / 2f, num / 2f), 1f, drawInfo.spriteEffects, 0)
 					{
@@ -194,7 +219,7 @@ namespace JourneyTrend
 					Rectangle? rectangle = new Rectangle(0, modPlayer.KnightwalkerFlameFrameUpdater * num, texture.Width, num);    //frame updater
 					Color color = Color.White;
 					int num2 = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X - (2 * drawPlayer.direction));
-					int num3 = (int)(drawInfo.position.Y + drawPlayer.height / 2f - Main.screenPosition.Y - 14f);
+					int num3 = (int)(drawInfo.position.Y + drawPlayer.height / 2f - Main.screenPosition.Y - 14f + modPlayer.walkUpShift);
 					DrawData item = new DrawData(texture, new Vector2(num2, num3), rectangle,
 					color, 0f, new Vector2(texture.Width / 2f, num / 2f), 1f, drawInfo.spriteEffects, 0)
 					{
@@ -206,7 +231,36 @@ namespace JourneyTrend
 		});         //don't forget to change ModifyDrawlayers at the bottom
 
 
-
+		public bool BubbleheadHeadEquipped;
+		private int BubbleheadHeadTickToFrame;
+		private int BubbleheadHeadFrameUpdater;
+		private int BubbleheadHeadFrameCounter = 0;
+		public static readonly PlayerLayer BubbleheadHeadAddons = new PlayerLayer("JourneyTrend", "BubbleheadHeadAddons", PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)
+		{
+			if (!drawInfo.drawPlayer.dead)
+			{
+				Player drawPlayer = drawInfo.drawPlayer;
+				Mod mod = ModLoader.GetMod("JourneyTrend");
+				JourneyPlayer modPlayer = drawPlayer.GetModPlayer<JourneyPlayer>();
+				if (modPlayer.BubbleheadHeadEquipped)
+				{
+					Texture2D texture = mod.GetTexture("Items/Vanity/Bubblehead/BubbleheadHead_Idle");   //needs correct sprite path
+					int num = texture.Height / 14;              //14 -> number of frames
+					Rectangle? rectangle = new Rectangle(0, modPlayer.BubbleheadHeadFrameUpdater * num, texture.Width, num);    //frame updater
+					Color color = Lighting.GetColor((int)((drawInfo.position.X + drawPlayer.width / 2f) / 16f), // ) replace these 3 lines
+					(int)((drawInfo.position.Y + drawPlayer.height / 2f) / 16f));                               // ) with Color color = Color.White;
+					color = new Color(color.R, color.B, color.G, (int)((1 - drawPlayer.shadow) * 255));         // ) for glowmask
+					int num2 = (int)(drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X + drawPlayer.direction);
+					int num3 = (int)(drawInfo.position.Y + drawPlayer.height / 2f - Main.screenPosition.Y - 14f + modPlayer.walkUpShift);
+					DrawData item = new DrawData(texture, new Vector2(num2, num3), rectangle,
+					color, 0f, new Vector2(texture.Width / 2f, num / 2f), 1f, drawInfo.spriteEffects, 0)
+					{
+						shader = drawPlayer.cHead              //use correct shader (c...)
+					};
+					Main.playerDrawData.Add(item);
+				}
+			}
+		});         //don't forget to change ModifyDrawlayers at the bottom
 
 
 		public override void PreUpdate()
@@ -214,10 +268,23 @@ namespace JourneyTrend
 			if (player.velocity == Vector2.Zero)
             {
 				isIdle = true;
-			} else
+            }
+            else
             {
 				isIdle = false;
 			}
+
+			//0,frameNum * frame hei, width, height
+			int pl = player.bodyFrame.Y / 56;
+			if (pl == 7 || pl == 8 || pl == 9 || pl == 14 || pl == 15 || pl == 16)
+			{
+				walkUpShift = -2;
+			}
+			else
+			{
+				walkUpShift = 0;
+			}
+
 
 			if (StarlightBodyEquipped)						
 			{
@@ -228,7 +295,7 @@ namespace JourneyTrend
             {
 
 				if (player.grapCount > 0 && !isIdle) //when grappling and not not moving (grappled still)
-				{
+				{							//0,frameNum * frame hei, width, height 
 					playerframe = new Rectangle(0, 6 * (1120/20), 40, 1120/20);
 				}
 				else
@@ -286,6 +353,22 @@ namespace JourneyTrend
 			KnightwalkerHeadFrameUpdater = KnightwalkerHeadFrameCounter;
 
 
+			if (BubbleheadHeadEquipped)
+			{
+				BubbleheadHeadTickToFrame++;
+				if (BubbleheadHeadTickToFrame == 5)             //every 5 ticks update
+				{
+					BubbleheadHeadFrameCounter++;               //next frame
+					if (BubbleheadHeadFrameCounter >= 14)      //loop all frames from 0 to 7
+					{
+						BubbleheadHeadFrameCounter = 0;         //reset to first frame
+					}
+					BubbleheadHeadTickToFrame = 0;              //reset tick counter
+				}
+			}
+			BubbleheadHeadFrameUpdater = BubbleheadHeadFrameCounter;
+
+
 			if (FoxTailsEquipped)							//foxTailsEquipped gets updated in NineTailedFoxAcc.cs
 				{
 				NineTailedTickToFrame++;
@@ -312,6 +395,7 @@ namespace JourneyTrend
             StarlightBodyEquipped = false;
 			KnightwalkerBodyEquipped = false;
 			KnightwalkerHeadEquipped = false;
+			BubbleheadHeadEquipped = false;
 			isIdle = false;
 		}
 
@@ -786,33 +870,63 @@ namespace JourneyTrend
 			Main.playerDrawData.Add(drawData);
 		});
 
+		public static readonly PlayerLayer StarlightDreamHeadGlowmask = new PlayerLayer("JourneyTrend", "StarlightDreamHeadGlowmask", PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)
+		{
+			if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
+			{
+				return;
+			}
+			Player drawPlayer = drawInfo.drawPlayer;
+			Mod mod = ModLoader.GetMod("JourneyTrend");
+			if (drawPlayer.head != mod.GetEquipSlot("StarlightDreamHead", EquipType.Head))
+			{
+				return;
+			}
+			Texture2D texture = mod.GetTexture("Items/Vanity/StarlightDream/StarlightDreamHead_Glow");
+			float drawX = (int)drawInfo.position.X + drawPlayer.width / 2;
+			float drawY = (int)drawInfo.position.Y + drawPlayer.height - drawPlayer.headFrame.Height / 2 + 4f - 34f;
+			Vector2 origin = drawInfo.headOrigin;
+			Vector2 position = new Vector2(drawX, drawY) + drawPlayer.headPosition - Main.screenPosition;
+			float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
+			Color color = Color.White;
+			Rectangle frame = new Rectangle(0, drawPlayer.bodyFrame.Y, texture.Width, texture.Height / 20);
+			float rotation = drawPlayer.headRotation;
+			SpriteEffects spriteEffects = drawInfo.spriteEffects;
+			DrawData drawData = new DrawData(texture, position, frame, color * alpha, rotation, origin, 1f, spriteEffects, 0);
+			drawData.shader = drawInfo.headArmorShader;
+			Main.playerDrawData.Add(drawData);
+		});
+
 
 		public override void ModifyDrawLayers(List<PlayerLayer> layers)
 		{
-			if (FoxTailsEquipped)
-			{
-				int legsIndex = layers.IndexOf(PlayerLayer.Skin);
-				layers.Insert(legsIndex - 1, NineTailedFoxTail);
-			}
-
+			int legsIndex = layers.IndexOf(PlayerLayer.Skin);
+			int headIndex = layers.IndexOf(PlayerLayer.Head);
 			if (StarlightBodyEquipped)
 			{
-				int legsIndex = layers.IndexOf(PlayerLayer.Skin);
+				layers.Insert(legsIndex - 1, StarlightDreamScarfGlow);
 				layers.Insert(legsIndex - 1, StarlightDreamScarf);
 			}
 
 			if (KnightwalkerHeadEquipped)
 			{
-				int legsIndex = layers.IndexOf(PlayerLayer.Skin);
 				layers.Insert(legsIndex - 1, KnightwalkerHeadAddons);
 			}
 
 			if (KnightwalkerBodyEquipped)
 			{
-				int legsIndex = layers.IndexOf(PlayerLayer.Skin);
 				layers.Insert(legsIndex - 1, KnightwalkerBodyAddons);
 			}
 
+			if (BubbleheadHeadEquipped)
+			{
+				layers.Insert(headIndex + 1, BubbleheadHeadAddons);
+			}
+
+			if (FoxTailsEquipped)
+			{
+				layers.Insert(legsIndex - 1, NineTailedFoxTail);
+			}
 
 			int headLayer = layers.FindIndex(l => l == PlayerLayer.Head);
 			int bodyLayer = layers.FindIndex(l => l == PlayerLayer.Body);
@@ -826,6 +940,7 @@ namespace JourneyTrend
 				layers.Insert(headLayer + 1, KnighwalkerHeadGlowmask);
 				layers.Insert(headLayer + 1, DeepDiverHeadGlowmask);
 				layers.Insert(headLayer + 1, BountyHeadGlowmask);
+				layers.Insert(headLayer + 1, StarlightDreamHeadGlowmask);
 			}
 			if (bodyLayer > -1)
 			{

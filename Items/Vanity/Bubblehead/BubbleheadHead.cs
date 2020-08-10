@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -26,6 +27,20 @@ namespace JourneyTrend.Items.Vanity.Bubblehead
             recipe.needWater = true;
             recipe.SetResult(this);
             recipe.AddRecipe();
+
+            ModRecipe alt = new ModRecipe(mod);
+            alt.AddTile(mod.GetTile("SewingMachine"));
+            alt.AddRecipeGroup("JourneyTrend:BubbleHeads");
+            alt.SetResult(this);
+            alt.AddRecipe();
+        }
+        public override bool DrawHead()
+        {
+            return false;
+        }
+        public override void UpdateVanity(Player player, EquipType type)
+        {
+            player.GetModPlayer<JourneyPlayer>().BubbleheadHeadEquipped = true;
         }
     }
 }

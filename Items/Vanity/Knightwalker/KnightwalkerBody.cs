@@ -31,11 +31,34 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddTile(mod.GetTile("SewingMachine"));
-            recipe.AddRecipeGroup("JourneyTrend:KnightwalkerCapes");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            if (WorldGen.crimson)
+            {
+                ModRecipe recipe = new ModRecipe(mod);
+                recipe.AddTile(TileID.Hellforge);
+                recipe.AddIngredient(ItemID.UnicornHorn, 5);
+                recipe.AddIngredient(ItemID.TissueSample, 5);
+                recipe.AddIngredient(ItemID.Ichor, 5);
+                recipe.AddRecipeGroup("IronBar", 20);
+                recipe.SetResult(this);
+                recipe.AddRecipe();
+            }
+            else
+            {
+                ModRecipe recipe = new ModRecipe(mod);
+                recipe.AddTile(TileID.Hellforge);
+                recipe.AddIngredient(ItemID.UnicornHorn, 5);
+                recipe.AddIngredient(ItemID.ShadowScale, 5);
+                recipe.AddIngredient(ItemID.CursedFlame, 5);
+                recipe.AddRecipeGroup("IronBar", 20);
+                recipe.SetResult(this);
+                recipe.AddRecipe();
+            }
+
+            ModRecipe alt = new ModRecipe(mod);
+            alt.AddTile(mod.GetTile("SewingMachine"));
+            alt.AddRecipeGroup("JourneyTrend:KnightwalkerCapes");
+            alt.SetResult(this);
+            alt.AddRecipe();
         }
     }
 }

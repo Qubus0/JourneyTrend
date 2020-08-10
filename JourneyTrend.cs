@@ -42,6 +42,25 @@ namespace JourneyTrend
 				ModContent.ItemType<Items.Vanity.Knightwalker.KnightwalkerBody1>()
 			});
 			RecipeGroup.RegisterGroup("JourneyTrend:KnightwalkerCapes", KnightwalkerCapes);
+
+			RecipeGroup BubbleHeads = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " Bubblehead", new int[]
+			{
+				ModContent.ItemType<Items.Vanity.Bubblehead.BubbleheadHead>(),
+				ModContent.ItemType<Items.Vanity.Bubblehead.BubbleheadHead1>(),
+				ModContent.ItemType<Items.Vanity.Bubblehead.BubbleheadHead2>(),
+				ModContent.ItemType<Items.Vanity.Bubblehead.BubbleheadHead3>(),
+				ModContent.ItemType<Items.Vanity.Bubblehead.BubbleheadHead4>(),
+				ModContent.ItemType<Items.Vanity.Bubblehead.BubbleheadHead5>(),
+				ModContent.ItemType<Items.Vanity.Bubblehead.BubbleheadHead6>()
+			});
+			RecipeGroup.RegisterGroup("JourneyTrend:BubbleHeads", BubbleHeads);
+
+			RecipeGroup TerraCrowns = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " Terra Crown", new int[]
+			{
+				ModContent.ItemType<Items.Vanity.Terra.TerraHead>(),
+				ModContent.ItemType<Items.Vanity.Terra.TerraHead1>()
+			});
+			RecipeGroup.RegisterGroup("JourneyTrend:TerraCrowns", TerraCrowns);
 		}
 	}
 }

@@ -85,6 +85,20 @@ namespace JourneyTrend.NPCs
                 Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Mothron.MothronLegs>());
             }
 
+            if (npc.type == NPCID.Mothron && Main.rand.Next(20) == 1)
+            {
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Terra.TerraHead>());
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Terra.TerraBody>());
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Terra.TerraLegs>());
+            }
+
+            if ((npc.type == NPCID.Eyezor || npc.type == NPCID.Nailhead || npc.type == NPCID.Reaper) && Main.rand.Next(40) == 1)
+            {
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Terra.TerraHead>());
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Terra.TerraBody>());
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Terra.TerraLegs>());
+            }
+
             if ((npc.type == NPCID.GreekSkeleton || npc.type == NPCID.Medusa) && Main.rand.Next(15) == 0)
             {
                 Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Rookie.RookieHead>());
@@ -136,9 +150,9 @@ namespace JourneyTrend.NPCs
                 }
             }
 
-            for (int i = 3; i < 9; i++)
+            for (int i = 3; i < 9; i++)     //loops through armor slots 3 to 9 (non vanity accessories)
             {
-                if (Main.LocalPlayer.armor[i].type == ItemID.HermesBoots)
+                if (Main.LocalPlayer.armor[i].type == ItemID.HermesBoots)   //if one is hermes boots
                 {
                     if (npc.type == NPCID.DukeFishron && Main.rand.Next(3) == 0)
                     {
@@ -147,6 +161,18 @@ namespace JourneyTrend.NPCs
                         Item.NewItem(npc.getRect(), ItemType<Items.Vanity.AndromedaPilot.AndromedaPilotLegs>());
                     }
                 }
+            }
+
+            if ((npc.type == NPCID.UndeadViking || npc.type == NPCID.ArmoredViking) && Main.rand.Next(20) == 0)
+            {
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Draugr.DraugrHead>());
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Draugr.DraugrBody>());
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Draugr.DraugrLegs>());
+            }
+
+            if ((npc.type == NPCID.ChaosElemental) && Main.rand.Next(20) == 0)
+            {
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.WitchsVoid.WitchsVoidBag>());
             }
         }
     }

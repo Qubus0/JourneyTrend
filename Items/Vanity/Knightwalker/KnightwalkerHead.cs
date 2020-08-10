@@ -30,6 +30,32 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
         {
             player.GetModPlayer<JourneyPlayer>().KnightwalkerHeadEquipped = true;
         }
+
+        public override void AddRecipes()
+        {
+            if (WorldGen.crimson)
+            {
+                ModRecipe recipe = new ModRecipe(mod);
+                recipe.AddTile(TileID.Hellforge);
+                recipe.AddIngredient(ItemID.UnicornHorn, 5);
+                recipe.AddIngredient(ItemID.TissueSample, 5);
+                recipe.AddIngredient(ItemID.Ichor, 5);
+                recipe.AddRecipeGroup("IronBar", 10);
+                recipe.SetResult(this);
+                recipe.AddRecipe();
+            }
+            else
+            {
+                ModRecipe recipe = new ModRecipe(mod);
+                recipe.AddTile(TileID.Hellforge);
+                recipe.AddIngredient(ItemID.UnicornHorn, 5);
+                recipe.AddIngredient(ItemID.ShadowScale, 5);
+                recipe.AddIngredient(ItemID.CursedFlame, 5);
+                recipe.AddRecipeGroup("IronBar", 10);
+                recipe.SetResult(this);
+                recipe.AddRecipe();
+            }
+        }
     }
 }
 

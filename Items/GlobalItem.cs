@@ -23,7 +23,7 @@ namespace JourneyTrend.Items
     {
         public override bool OnTileCollide(Projectile projectile, Vector2 oldVelocity)
         {
-			if (projectile.type == 12 && projectile.damage > 500 && Main.rand.Next(20) < 1)
+			if (projectile.type == 12 && projectile.damage > 500 && Main.rand.Next(300) < 1)
 			{
 				Item.NewItem(projectile.Hitbox, ItemType<Vanity.StarlightDream.StarlightDreamBag>());
 			}

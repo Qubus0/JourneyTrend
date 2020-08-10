@@ -8,8 +8,8 @@ namespace JourneyTrend.Items.Vanity.StarlightDream
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Starlight Dream Leggings");
-            Tooltip.SetDefault("Tooltip\nMade by Golditale");
+            DisplayName.SetDefault("Starlight Dream Pants");
+            Tooltip.SetDefault("Made by Golditale");
         }
         
         public override void SetDefaults()

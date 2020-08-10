@@ -11,7 +11,7 @@ namespace JourneyTrend.Items.Vanity.StarlightDream
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Starlight Dream Scarf");
+            DisplayName.SetDefault("Starlight Dream Shirt");
             Tooltip.SetDefault("Made by Golditale");
         }
 
@@ -28,9 +28,12 @@ namespace JourneyTrend.Items.Vanity.StarlightDream
             drawHands = true;
         }
 
+        private readonly float adj = 0.00392f / 2; //adjusts the rgb value from 0-255 to 0-1 (/2)
         public override void UpdateVanity(Player player, EquipType type)
         {
             player.GetModPlayer<JourneyPlayer>().StarlightBodyEquipped = true;
+            Lighting.AddLight(player.Center, 241 * adj, 215 * adj, 108 * adj);
+
         }
     }
 }
