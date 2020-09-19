@@ -631,7 +631,7 @@ namespace JourneyTrend
 			}
 			Player drawPlayer = drawInfo.drawPlayer;
 			Mod mod = ModLoader.GetMod("JourneyTrend");
-			if (drawPlayer.legs != mod.GetEquipSlot("MushroomAlchemistBody", EquipType.Body))
+			if (drawPlayer.body != mod.GetEquipSlot("MushroomAlchemistBody", EquipType.Body))
 			{
 				return;
 			}
@@ -689,10 +689,10 @@ namespace JourneyTrend
 			{
 				return;
 			}
-			Texture2D texture = mod.GetTexture("Items/Vanity/Nexus/NexusBody_FemaleGlow");
-			if (drawPlayer.Male)
+			Texture2D texture = mod.GetTexture("Items/Vanity/Nexus/NexusBody_Glow");
+			if (!drawPlayer.Male)
 			{
-				texture = mod.GetTexture("Items/Vanity/Nexus/NexusBody_Glow");
+				texture = mod.GetTexture("Items/Vanity/Nexus/NexusBody_FemaleGlow");
 			}			
 			float drawX = (int)drawInfo.position.X + drawPlayer.width / 2;
 			float drawY = (int)drawInfo.position.Y + drawPlayer.height - drawPlayer.bodyFrame.Height / 2 + 4f;
@@ -726,7 +726,7 @@ namespace JourneyTrend
 			Vector2 origin = drawInfo.legOrigin;
 			Vector2 position = new Vector2(drawX, drawY) + drawPlayer.legPosition - Main.screenPosition;
 			float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
-			Color color = new Color(255 * 100 / 100, 255 * 100 / 100, 255 * 100 / 100);
+			Color color = Color.White;
 			Rectangle frame = drawPlayer.legFrame;
 			float rotation = drawPlayer.legRotation;
 			SpriteEffects spriteEffects = drawInfo.spriteEffects;
@@ -743,7 +743,7 @@ namespace JourneyTrend
 			}
 			Player drawPlayer = drawInfo.drawPlayer;
 			Mod mod = ModLoader.GetMod("JourneyTrend");
-			if (drawPlayer.legs != mod.GetEquipSlot("NexusBody", EquipType.Body))
+			if (drawPlayer.body != mod.GetEquipSlot("NexusBody", EquipType.Body))
 			{
 				return;
 			}
@@ -753,7 +753,7 @@ namespace JourneyTrend
 			Vector2 origin = drawInfo.bodyOrigin;
 			Vector2 position = new Vector2(drawX, drawY) + drawPlayer.bodyPosition - Main.screenPosition;
 			float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
-			Color color = new Color(255 * 100 / 100, 255 * 100 / 100, 255 * 100 / 100);
+			Color color = Color.White;
 			Rectangle frame = drawPlayer.bodyFrame;
 			float rotation = drawPlayer.bodyRotation;
 			SpriteEffects spriteEffects = drawInfo.spriteEffects;
@@ -786,6 +786,91 @@ namespace JourneyTrend
 			SpriteEffects spriteEffects = drawInfo.spriteEffects;
 			DrawData drawData = new DrawData(texture, position, frame, color * alpha, rotation, origin, 1f, spriteEffects, 0);
 			drawData.shader = drawInfo.bodyArmorShader;
+			Main.playerDrawData.Add(drawData);
+		});
+
+        public static readonly PlayerLayer CosmicTerrorBodyGlowmask = new PlayerLayer("JourneyTrend", "CosmicTerrorBodyGlowmask", PlayerLayer.Body, delegate (PlayerDrawInfo drawInfo)
+        {
+            if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
+            {
+                return;
+            }
+            Player drawPlayer = drawInfo.drawPlayer;
+            Mod mod = ModLoader.GetMod("JourneyTrend");
+            if (drawPlayer.body != mod.GetEquipSlot("CosmicTerrorBody", EquipType.Body))
+            {
+                return;
+            }
+            Texture2D texture = mod.GetTexture("Items/Vanity/CosmicTerror/CosmicTerrorBody_Glow");
+			if (!drawPlayer.Male)
+			{
+				texture = mod.GetTexture("Items/Vanity/CosmicTerror/CosmicTerrorBody_FemaleGlow");
+			}
+			float drawX = (int)drawInfo.position.X + drawPlayer.width / 2;
+            float drawY = (int)drawInfo.position.Y + drawPlayer.height - drawPlayer.bodyFrame.Height / 2 + 4f;
+            Vector2 origin = drawInfo.bodyOrigin;
+            Vector2 position = new Vector2(drawX, drawY) + drawPlayer.bodyPosition - Main.screenPosition;
+            float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
+            Color color = Color.White;
+            Rectangle frame = drawPlayer.bodyFrame;
+            float rotation = drawPlayer.bodyRotation;
+            SpriteEffects spriteEffects = drawInfo.spriteEffects;
+            DrawData drawData = new DrawData(texture, position, frame, color * alpha, rotation, origin, 1f, spriteEffects, 0);
+            drawData.shader = drawInfo.bodyArmorShader;
+            Main.playerDrawData.Add(drawData);
+        });
+
+        public static readonly PlayerLayer CosmicTerrorArmsGlowmask = new PlayerLayer("JourneyTrend", "CosmicTerrorArmsGlowmask", PlayerLayer.Arms, delegate (PlayerDrawInfo drawInfo)
+		{
+			if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
+			{
+				return;
+			}
+			Player drawPlayer = drawInfo.drawPlayer;
+			Mod mod = ModLoader.GetMod("JourneyTrend");
+			if (drawPlayer.body != mod.GetEquipSlot("CosmicTerrorBody", EquipType.Body))
+			{
+				return;
+			}
+			Texture2D texture = mod.GetTexture("Items/Vanity/CosmicTerror/CosmicTerrorBody_ArmsGlow");
+			float drawX = (int)drawInfo.position.X + drawPlayer.width / 2;
+			float drawY = (int)drawInfo.position.Y + drawPlayer.height - drawPlayer.bodyFrame.Height / 2 + 4f;
+			Vector2 origin = drawInfo.bodyOrigin;
+			Vector2 position = new Vector2(drawX, drawY) + drawPlayer.bodyPosition - Main.screenPosition;
+			float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
+			Color color = Color.White;
+			Rectangle frame = drawPlayer.bodyFrame;
+			float rotation = drawPlayer.bodyRotation;
+			SpriteEffects spriteEffects = drawInfo.spriteEffects;
+			DrawData drawData = new DrawData(texture, position, frame, color * alpha, rotation, origin, 1f, spriteEffects, 0);
+			drawData.shader = drawInfo.bodyArmorShader;
+			Main.playerDrawData.Add(drawData);
+		});
+
+		public static readonly PlayerLayer CosmicTerrorHeadGlowmask = new PlayerLayer("JourneyTrend", "CosmicTerrorHeadGlowmask", PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)
+		{
+			if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
+			{
+				return;
+			}
+			Player drawPlayer = drawInfo.drawPlayer;
+			Mod mod = ModLoader.GetMod("JourneyTrend");
+			if (drawPlayer.head != mod.GetEquipSlot("CosmicTerrorHead", EquipType.Head))
+			{
+				return;
+			}
+			Texture2D texture = mod.GetTexture("Items/Vanity/CosmicTerror/CosmicTerrorHead_Glow");
+			float drawX = (int)drawInfo.position.X + drawPlayer.width / 2;
+			float drawY = (int)drawInfo.position.Y + drawPlayer.height - drawPlayer.headFrame.Height / 2 + 4f - 34f;
+			Vector2 origin = drawInfo.headOrigin;
+			Vector2 position = new Vector2(drawX, drawY) + drawPlayer.headPosition - Main.screenPosition;
+			float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
+			Color color = Color.White;
+			Rectangle frame = new Rectangle(0, drawPlayer.bodyFrame.Y, texture.Width, texture.Height / 20);
+			float rotation = drawPlayer.headRotation;
+			SpriteEffects spriteEffects = drawInfo.spriteEffects;
+			DrawData drawData = new DrawData(texture, position, frame, color * alpha, rotation, origin, 1f, spriteEffects, 0);
+			drawData.shader = drawInfo.headArmorShader;
 			Main.playerDrawData.Add(drawData);
 		});
 
@@ -897,6 +982,61 @@ namespace JourneyTrend
 			Main.playerDrawData.Add(drawData);
 		});
 
+		public static readonly PlayerLayer WitchsVoidHeadGlowmask = new PlayerLayer("JourneyTrend", "WitchsVoidHeadGlowmask", PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)
+		{
+			if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
+			{
+				return;
+			}
+			Player drawPlayer = drawInfo.drawPlayer;
+			Mod mod = ModLoader.GetMod("JourneyTrend");
+			if (drawPlayer.head != mod.GetEquipSlot("WitchsVoidHead", EquipType.Head))
+			{
+				return;
+			}
+			Texture2D texture = mod.GetTexture("Items/Vanity/WitchsVoid/WitchsVoidHead_Glow");
+			float drawX = (int)drawInfo.position.X + drawPlayer.width / 2;
+			float drawY = (int)drawInfo.position.Y + drawPlayer.height - drawPlayer.headFrame.Height / 2 + 4f - 34f;
+			Vector2 origin = drawInfo.headOrigin;
+			Vector2 position = new Vector2(drawX, drawY) + drawPlayer.headPosition - Main.screenPosition;
+			float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
+			Color color = Color.White;
+			Rectangle frame = new Rectangle(0, drawPlayer.bodyFrame.Y, texture.Width, texture.Height / 20);
+			float rotation = drawPlayer.headRotation;
+			SpriteEffects spriteEffects = drawInfo.spriteEffects;
+			DrawData drawData = new DrawData(texture, position, frame, color * alpha, rotation, origin, 1f, spriteEffects, 0);
+			drawData.shader = drawInfo.headArmorShader;
+			Main.playerDrawData.Add(drawData);
+		});
+
+		public static readonly PlayerLayer ShadowSpellHeadGlowmask = new PlayerLayer("JourneyTrend", "ShadowSpellHeadGlowmask", PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)
+		{
+			if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead)
+			{
+				return;
+			}
+			Player drawPlayer = drawInfo.drawPlayer;
+			Mod mod = ModLoader.GetMod("JourneyTrend");
+			if (drawPlayer.head != mod.GetEquipSlot("ShadowSpellHead", EquipType.Head))
+			{
+				return;
+			}
+			Texture2D texture = mod.GetTexture("Items/Vanity/ShadowSpell/ShadowSpellHead_Glow");
+			float drawX = (int)drawInfo.position.X + drawPlayer.width / 2;
+			float drawY = (int)drawInfo.position.Y + drawPlayer.height - drawPlayer.headFrame.Height / 2 + 4f - 34f;
+			Vector2 origin = drawInfo.headOrigin;
+			Vector2 position = new Vector2(drawX, drawY) + drawPlayer.headPosition - Main.screenPosition;
+			float alpha = (255 - drawPlayer.immuneAlpha) / 255f;
+			Color color = Color.White;
+			Rectangle frame = new Rectangle(0, drawPlayer.bodyFrame.Y, texture.Width, texture.Height / 20);
+			float rotation = drawPlayer.headRotation;
+			SpriteEffects spriteEffects = drawInfo.spriteEffects;
+			DrawData drawData = new DrawData(texture, position, frame, color * alpha, rotation, origin, 1f, spriteEffects, 0);
+			drawData.shader = drawInfo.headArmorShader;
+			Main.playerDrawData.Add(drawData);
+		});
+
+		//don't forget to add the layer below
 
 		public override void ModifyDrawLayers(List<PlayerLayer> layers)
 		{
@@ -941,6 +1081,9 @@ namespace JourneyTrend
 				layers.Insert(headLayer + 1, DeepDiverHeadGlowmask);
 				layers.Insert(headLayer + 1, BountyHeadGlowmask);
 				layers.Insert(headLayer + 1, StarlightDreamHeadGlowmask);
+				layers.Insert(headLayer + 1, WitchsVoidHeadGlowmask);
+				layers.Insert(headLayer + 1, CosmicTerrorHeadGlowmask);
+				layers.Insert(headLayer + 1, ShadowSpellHeadGlowmask);
 			}
 			if (bodyLayer > -1)
 			{
@@ -949,11 +1092,13 @@ namespace JourneyTrend
 				layers.Insert(bodyLayer + 1, MushroomBodyGlowmask);
 				layers.Insert(bodyLayer + 1, NexusBodyGlowmask);
 				layers.Insert(bodyLayer + 1, NightlightBodyGlowmask);
-				int armsLayer = layers.FindIndex(l => l == PlayerLayer.Arms);
+                layers.Insert(bodyLayer + 1, CosmicTerrorBodyGlowmask);
+                int armsLayer = layers.FindIndex(l => l == PlayerLayer.Arms);
 				if (armsLayer > -1)
 				{
 					layers.Insert(armsLayer + 1, MushroomArmsGlowmask);
 					layers.Insert(armsLayer + 1, NexusArmsGlowmask);
+					layers.Insert(armsLayer + 1, CosmicTerrorArmsGlowmask);
 				}
 			}
 			if (legsLayer > -1)

@@ -61,6 +61,27 @@ namespace JourneyTrend
 				ModContent.ItemType<Items.Vanity.Terra.TerraHead1>()
 			});
 			RecipeGroup.RegisterGroup("JourneyTrend:TerraCrowns", TerraCrowns);
+
+			RecipeGroup WorldEvilDemonHeads = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " World Evil Demon's Head", new int[]
+			{
+				ModContent.ItemType<Items.Vanity.ShadowFiend.ShadowFiendHead>(),
+				ModContent.ItemType<Items.Vanity.ShadowFiend.ShadowFiendHead1>()
+			});
+			RecipeGroup.RegisterGroup("JourneyTrend:WorldEvilDemonHeads", WorldEvilDemonHeads);
+
+			RecipeGroup WorldEvilDemonBodies = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " World Evil Demon's Body", new int[]
+			{
+				ModContent.ItemType<Items.Vanity.ShadowFiend.ShadowFiendBody>(),
+				ModContent.ItemType<Items.Vanity.ShadowFiend.ShadowFiendBody1>()
+			});
+			RecipeGroup.RegisterGroup("JourneyTrend:WorldEvilDemonBodies", WorldEvilDemonBodies);
+
+			RecipeGroup WorldEvilDemonLegs = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " World Evil Demon's Legs", new int[]
+			{
+				ModContent.ItemType<Items.Vanity.ShadowFiend.ShadowFiendLegs>(),
+				ModContent.ItemType<Items.Vanity.ShadowFiend.ShadowFiendLegs1>()
+			});
+			RecipeGroup.RegisterGroup("JourneyTrend:WorldEvilDemonLegs", WorldEvilDemonLegs);
 		}
 	}
 }

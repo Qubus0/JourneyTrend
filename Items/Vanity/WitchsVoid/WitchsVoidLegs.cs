@@ -8,8 +8,8 @@ namespace JourneyTrend.Items.Vanity.WitchsVoid
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Void Boots");
-            Tooltip.SetDefault("It will alter the wearers attitude and power\nMade by Hexanne");
+            DisplayName.SetDefault("Void's Boots");
+            Tooltip.SetDefault("The numbers '2416' are etched on each piece...how strange.\nMade by Hexanne");
         }
         
         public override void SetDefaults()

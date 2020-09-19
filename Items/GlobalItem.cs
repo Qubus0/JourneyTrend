@@ -16,6 +16,13 @@ namespace JourneyTrend.Items
 				player.QuickSpawnItem(ItemType<Vanity.MagicGrill.MagicGrillBody>(), 1);
 				player.QuickSpawnItem(ItemType<Vanity.MagicGrill.MagicGrillLegs>(), 1);
 			}
+
+            if (context == "crate" && arg == ItemID.WoodenCrate && Main.rand.Next(40) < 1)
+            {
+				player.QuickSpawnItem(ItemType<Vanity.Treesuit.TreesuitHead>(), 1);
+				player.QuickSpawnItem(ItemType<Vanity.Treesuit.TreesuitBody>(), 1);
+				player.QuickSpawnItem(ItemType<Vanity.Treesuit.TreesuitLegs>(), 1);
+			}
 		}
 	}
 

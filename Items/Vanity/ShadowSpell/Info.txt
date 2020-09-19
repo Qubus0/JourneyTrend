@@ -1,0 +1,26 @@
+Created by Romanov/Ammagon.
+
+tooltip:
+Shadow Spell Hat: Worn by the forgotten clan of the Shadowflame Shamans. Made by Romanov/Ammagon
+Shadow Spell Robes: Worn by the forgotten clan of the Shadowflame Shamans. Made by Romanov/Ammagon
+Shadow Spell Pants: Worn by the forgotten clan of the Shadowflame Shamans. Made by Romanov/Ammagon
+
+some glow masks:
+The purple eye part of the mask should glow in the dark.
+
+how should it look:
+
+Shadow Spell Hat
+Equipable
+Vanity Item
+Worn by the forgotten clan of the Shadowflame Shamans.
+Made by Romanov/Ammagon
+
+RGB for the names
+R: 114
+G: 34
+B: 170
+
+1.1% chance of dropping from Goblin Summoners //made it 1 in 75
+
+https://forums.terraria.org/index.php?threads/journeys-end-vanity-contest-submission-thread.86457/page-222#post-1918825

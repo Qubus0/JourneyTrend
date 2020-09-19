@@ -1,0 +1,44 @@
+This set was created, sprited and animated by CakeBoiii
+
+Shadow Fiend Helmet - Cursed Flames consume you!; Made by CakeBoiii
+Shadow Fiend Breastplate - Cursed Flames consume you!; Made by CakeBoiii
+Shadow Fiend Leggings - Cursed Flames consume you!; Made by CakeBoiii
+
+this set should have a visual effect similar to the meteor armor's trail of flames,
+but the same color as the cursed flames, and with less particles
+
+how should it look:
+	Shadow Fiend Helmet
+	Equipable
+	Vanity Item
+	Cursed Flames consume you!
+	Made by CakeBoiii
+
+1.2% chance of dropping from Clingers and World Feeders
+
+https://forums.terraria.org/index.php?threads/journeys-end-vanity-contest-submission-thread.86457/page-301#post-1934708
+
+
+ALT
+
+
+This set was created, sprited and animated by CakeBoiii
+
+Crimson Scourge Helmet - Ichor flows through you!; Made by CakeBoiii
+Crimson Scourge Breastplate - Ichor flows through you!; Made by CakeBoiii
+Crimson Scourge Leggings - Ichor flows through you!; Made by CakeBoiii
+
+this set should have a visual effect similar to the "slimed" debuff,
+looking like ichor dripping off the body
+
+how should it look:
+	Crimson Scourge Helmet
+	Equipable
+	Vanity Item
+	Ichor flows through you!
+	Made by CakeBoiii
+
+1.5% chance of dropping from Ichor Stickers
+
+(third last line of the post)
+https://forums.terraria.org/index.php?threads/journeys-end-vanity-contest-submission-thread.86457/page-301#post-1934708

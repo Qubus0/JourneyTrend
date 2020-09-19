@@ -1,3 +1,13 @@
+Witch's Void Set
+
+Head - "Void's Eye"
+Torso - "Void's Cloak"
+Legs - "Void's Boots"
+
+1/20 Drop chance - Crimson/Corrupt Mimics 
+
+Tooltip - "The numbers '2416' are etched on each piece...how strange."
 
 
-Hexanne
+(Other note)
+--If possible I had forgot to mention on my sheet that the Eye on the center of the hat has a glowmask--

@@ -114,19 +114,14 @@ namespace JourneyTrend.NPCs
                 Item.NewItem(npc.getRect(), ItemID.ReflectiveMetalDye, 3);
             }
 
-            if (npc.type == NPCID.WyvernHead && Main.rand.Next(20) == 0)
+            if ((npc.type == NPCID.WyvernHead && Main.rand.Next(20) == 0) || (npc.type == NPCID.Harpy && Main.rand.Next(100) == 0))
             {
                 Item.NewItem(npc.getRect(), ItemType<Items.Vanity.StormConqueror.StormConquerorBag>());
             }
-            if (npc.type == NPCID.Harpy && Main.rand.Next(100) == 0)
-            {
-                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.StormConqueror.StormConquerorBag>());
-            }
-            
-            if (Main.LocalPlayer.ZoneSkyHeight && Main.rand.Next(250) == 0)     // if the mob is above certain Y level (sky) ((npc.Center.Y) < (Main.worldSurface * 0.35f) * 16f)
-            {
-                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.StormConqueror.StormConquerorBag>());
-            }
+            //if (Main.LocalPlayer.ZoneSkyHeight && Main.rand.Next(250) == 0)     // if the mob is above certain Y level (sky) ((npc.Center.Y) < (Main.worldSurface * 0.35f) * 16f)
+            //{
+            //    Item.NewItem(npc.getRect(), ItemType<Items.Vanity.StormConqueror.StormConquerorBag>());
+            //}
 
             if ((npc.type == NPCID.MossHornet || npc.type == NPCID.Moth || npc.type == NPCID.WallCreeperWall || npc.type == NPCID.WallCreeper) && Main.rand.Next(200) == 0)
             {
@@ -170,9 +165,37 @@ namespace JourneyTrend.NPCs
                 Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Draugr.DraugrLegs>());
             }
 
-            if ((npc.type == NPCID.ChaosElemental) && Main.rand.Next(20) == 0)
+            if ((npc.type == NPCID.BigMimicCorruption || npc.type == NPCID.BigMimicCrimson) && Main.rand.Next(20) == 0)
             {
                 Item.NewItem(npc.getRect(), ItemType<Items.Vanity.WitchsVoid.WitchsVoidBag>());
+            }
+
+            if ((npc.type == NPCID.Clinger || npc.type == NPCID.SeekerHead) && Main.rand.Next(80) == 0)
+            {
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.ShadowFiend.ShadowFiendHead>());
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.ShadowFiend.ShadowFiendBody>());
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.ShadowFiend.ShadowFiendLegs>());
+            }
+
+            if ((npc.type == NPCID.IchorSticker) && Main.rand.Next(60) == 0)
+            {
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.ShadowFiend.ShadowFiendHead1>());
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.ShadowFiend.ShadowFiendBody1>());
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.ShadowFiend.ShadowFiendLegs1>());
+            }
+
+            if ((npc.type == NPCID.GoblinSummoner) && Main.rand.Next(75) == 0)
+            {
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.ShadowSpell.ShadowSpellHead>());
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.ShadowSpell.ShadowSpellBody>());
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.ShadowSpell.ShadowSpellLegs>());
+            }
+
+            if (((npc.type == NPCID.Paladin) && Main.rand.Next(50) < 3) || ((npc.type == NPCID.BlueArmoredBones) && Main.rand.Next(100) == 0))
+            {
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.KnightOfJudgement.KnightOfJudgementHead>());
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.KnightOfJudgement.KnightOfJudgementBody>());
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.KnightOfJudgement.KnightOfJudgementLegs>());
             }
         }
     }
