@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "meGMfdz14GGJFmKC7GD+4p9CGhICTBibf49J6OEjMDnX8r74LXJj/8NM8Zmccc/5Y2UneVr4QWy3d0xIJr8yEQ==",
+  "dgSpecHash": "lJoj3955/AJpb0QEcwDF4+c/FBm9Y4W8jXnvwrLyts7TbzAWIdDuzgPSwpR+sgKhcAIbO++CQOyX+g8ToPKpZA==",
   "success": true,
-  "projectFilePath": "/Users/kimdreyer/Library/Application Support/Terraria/ModLoader/Mod Sources/JourneyTrend/JourneyTrend.csproj",
+  "projectFilePath": "C:\\Users\\kurti\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\JourneyTrend\\JourneyTrend.csproj",
   "expectedPackageFiles": [
-    "/Users/kimdreyer/.nuget/packages/tmodloader.codeassist/0.1.1/tmodloader.codeassist.0.1.1.nupkg.sha512"
+    "C:\\Users\\kurti\\.nuget\\packages\\tmodloader.codeassist\\0.1.1\\tmodloader.codeassist.0.1.1.nupkg.sha512"
   ],
   "logs": []
 }

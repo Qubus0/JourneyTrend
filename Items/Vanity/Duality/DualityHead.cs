@@ -15,7 +15,9 @@ namespace JourneyTrend.Items.Vanity.Duality
             Tooltip.SetDefault("Good and evil, mind of two worlds.\nMade by Chan");
         }
 
-        public override void ModifyTooltips(List<TooltipLine> tooltips) {
+        public override void ModifyTooltips(List<TooltipLine> tooltips) 
+        {
+            // Custom RGB "Rarity"
             foreach (TooltipLine line2 in tooltips) {
                 if (line2.mod == "Terraria" && line2.Name == "ItemName") {
                     line2.overrideColor = new Color(110, 101, 142);
@@ -29,6 +31,7 @@ namespace JourneyTrend.Items.Vanity.Duality
             item.height = 18;
             item.vanity = true;
             item.rare = ItemRarityID.White;
+            item.value = 0;
         }
 
         public override bool CanBurnInLava()

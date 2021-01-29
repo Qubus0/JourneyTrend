@@ -9,7 +9,6 @@ namespace JourneyTrend.Items.Vanity.PoweredPanoply
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Powered Cuisses");
-            //no extra Tooltip
             Tooltip.SetDefault("Made by Fake_Tank");
         }
 
@@ -19,20 +18,14 @@ namespace JourneyTrend.Items.Vanity.PoweredPanoply
             item.height = 18;
             item.rare = ItemRarityID.Blue;
             item.vanity = true;
+            item.value = 0;
         }
 
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Nanites, 15);
-            recipe.AddIngredient(ItemID.SilverBar, 8);
-            recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
-
-            recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.Nanites, 15);
-            recipe.AddIngredient(ItemID.TungstenBar, 8);
+            recipe.AddRecipeGroup("JourneyTrend:SilverBars", 8);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
             recipe.AddRecipe();

@@ -18,6 +18,7 @@ namespace JourneyTrend.Items.Vanity.CrystalLegacy
             item.height = 18;
             item.rare = ItemRarityID.Orange;
             item.vanity = true;
+            item.value = 0;
         }
         public override void AddRecipes()
         {

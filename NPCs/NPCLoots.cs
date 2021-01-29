@@ -13,6 +13,7 @@ namespace JourneyTrend.NPCs
         {
             if (npc.type == NPCID.BirdBlue && Main.rand.Next(200) == 0)
             {
+                // 1 in 200 from Blue Jay's - Single Item - Common Kingfisher Set
                 var dropChooser = new WeightedRandom<int>();
                 dropChooser.Add(ItemType<Items.Vanity.Kingfisher.KingfisherHead>());
                 dropChooser.Add(ItemType<Items.Vanity.Kingfisher.KingfisherBody>());
@@ -23,12 +24,86 @@ namespace JourneyTrend.NPCs
 
             if (npc.type == NPCID.Shark && Main.rand.Next(100) < 3)
             {
+                // 3 in 100 from Shark - Single Item - Shark Set
                 var dropChooser = new WeightedRandom<int>();
                 dropChooser.Add(ItemType<Items.Vanity.Shark.SharkHead>());
                 dropChooser.Add(ItemType<Items.Vanity.Shark.SharkBody>());
                 dropChooser.Add(ItemType<Items.Vanity.Shark.SharkLegs>());
                 int choice = dropChooser;
                 Item.NewItem(npc.getRect(), choice);
+            }
+
+            if ((npc.type == NPCID.NebulaBeast || npc.type == NPCID.NebulaBrain || npc.type == NPCID.NebulaHeadcrab || npc.type == NPCID.NebulaSoldier) && Main.rand.Next(999) < 1)
+            {
+                // 1 in 999 from Nebula Enemies - Single Item - Cosmic Terror Set
+                var dropChooser = new WeightedRandom<int>();
+                dropChooser.Add(ItemType<Items.Vanity.CosmicTerror.CosmicTerrorHead>());
+                dropChooser.Add(ItemType<Items.Vanity.CosmicTerror.CosmicTerrorBody>());
+                dropChooser.Add(ItemType<Items.Vanity.CosmicTerror.CosmicTerrorLegs>());
+                int choice = dropChooser;
+                Item.NewItem(npc.getRect(), choice);
+            }
+
+            if (npc.type == NPCID.Mothron && Main.rand.Next(25) < 3 && NPC.downedPlantBoss)
+            {
+                // 3 in 25 from Mothron - Full Set (With Vanilla Wings) - Mothron Set
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Mothron.MothronHead>());
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Mothron.MothronBody>());
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Mothron.MothronLegs>());
+                Item.NewItem(npc.getRect(), ItemID.MothronWings);
+            }
+
+            if (npc.type == NPCID.PossessedArmor && Main.rand.Next(200) < 1)
+            {
+                // 1 in 200 from Possessed Armor - Full Set - Knight of the Iron Core Set
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.IronCore.IronCoreHead>());
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.IronCore.IronCoreBody>());
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.IronCore.IronCoreLegs>());
+            }
+
+            if (npc.type == NPCID.DukeFishron && !Main.expertMode && Main.rand.Next(10) < 1)
+            {
+                // 1 in 10 from Duke Fishron - Full Set - Magic Grill Megashark Set
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.MagicGrill.MagicGrillHead>());
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.MagicGrill.MagicGrillBody>());
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.MagicGrill.MagicGrillLegs>());
+            }
+
+            if ((npc.type == NPCID.GreekSkeleton || npc.type == NPCID.Medusa || npc.type == NPCID.GraniteGolem || npc.type == NPCID.GraniteFlyer) && Main.rand.Next(15) == 0)
+            {
+                // 1 in 15 from Granite and Marble Enemies - Full Set - Rookie Set
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Rookie.RookieHead>());
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Rookie.RookieBody>());
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Rookie.RookieLegs>());
+                if ((npc.type == NPCID.GraniteGolem || npc.type == NPCID.GraniteFlyer))
+                {
+                    // If Granite Enemies only, drop 3 Reflective Metal Dye as well
+                    Item.NewItem(npc.getRect(), ItemID.ReflectiveMetalDye, 3);
+                }
+            }
+
+            if (npc.type == NPCID.WyvernHead && !Main.dayTime && !Main.LocalPlayer.ZoneHoly && Main.rand.Next(5) == 0)
+            {
+                // 1 in 5 from Wyvern, Night Time, Not in Hallow - Single - Kuijia Set
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Kuijia.KuijiaHead>());
+            }
+
+            if (npc.type == NPCID.WyvernHead && !Main.dayTime && Main.LocalPlayer.ZoneHoly && Main.rand.Next(2) == 0)
+            {
+                // 1 in 2 from Wyvern, Night Time, in Hallow - Single - Kuijia Set
+                var dropChooser = new WeightedRandom<int>();
+                dropChooser.Add(ItemType<Items.Vanity.Kuijia.KuijiaBody>());
+                dropChooser.Add(ItemType<Items.Vanity.Kuijia.KuijiaLegs>());
+                int choice = dropChooser;
+                Item.NewItem(npc.getRect(), choice);
+            }
+
+            if ((npc.type == NPCID.WyvernHead && Main.rand.Next(20) == 0) || (npc.type == NPCID.Harpy && Main.rand.Next(100) == 0))
+            {
+                // 1 in 20 (5%) from Wyvern - Full Set (Bag) - Storm Conqueror Set
+                // 1 in 100 (1%) from Harpy - Full Set (Bag) - Storm Conqueror Set
+                // (1 in 400 (0.25%) from Anything, in Space - Full Set (Bag) - Storm Conqueror Set) Not possible - too many bugs with other mods
+                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.StormConqueror.StormConquerorBag>());
             }
 
             if (npc.type == NPCID.Mothron && Main.rand.Next(5) == 0)
@@ -39,50 +114,6 @@ namespace JourneyTrend.NPCs
                 dropChooser.Add(ItemType<Items.Vanity.BrokenHero.BrokenHeroLegs>());
                 int choice = dropChooser;
                 Item.NewItem(npc.getRect(), choice);
-            }
-
-            if ((npc.type == NPCID.NebulaBeast || npc.type == NPCID.NebulaBrain || npc.type == NPCID.NebulaHeadcrab || npc.type == NPCID.NebulaSoldier) && Main.rand.Next(999) < 1)
-            {
-                var dropChooser = new WeightedRandom<int>();
-                dropChooser.Add(ItemType<Items.Vanity.CosmicTerror.CosmicTerrorHead>());
-                dropChooser.Add(ItemType<Items.Vanity.CosmicTerror.CosmicTerrorBody>());
-                dropChooser.Add(ItemType<Items.Vanity.CosmicTerror.CosmicTerrorLegs>());
-                int choice = dropChooser;
-                Item.NewItem(npc.getRect(), choice);
-            }
-
-            if (npc.type == NPCID.WyvernHead && !Main.dayTime && Main.LocalPlayer.ZoneHoly && Main.rand.Next(2) == 0)
-            {
-                var dropChooser = new WeightedRandom<int>();
-                dropChooser.Add(ItemType<Items.Vanity.Kuijia.KuijiaBody>());
-                dropChooser.Add(ItemType<Items.Vanity.Kuijia.KuijiaLegs>());
-                int choice = dropChooser;
-                Item.NewItem(npc.getRect(), choice);
-            }
-            if (npc.type == NPCID.WyvernHead && !Main.dayTime && !Main.LocalPlayer.ZoneHoly && Main.rand.Next(5) == 0)
-            {
-                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Kuijia.KuijiaHead>());
-            }
-
-            if (npc.type == NPCID.PossessedArmor && Main.rand.Next(200) < 1)
-            {
-                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.IronCore.IronCoreHead>());
-                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.IronCore.IronCoreBody>());
-                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.IronCore.IronCoreLegs>());
-            }
-
-            if (npc.type == NPCID.DukeFishron && !Main.expertMode && Main.rand.Next(10) < 1)
-            {
-                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.MagicGrill.MagicGrillHead>());
-                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.MagicGrill.MagicGrillBody>());
-                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.MagicGrill.MagicGrillLegs>());
-            }
-
-            if (npc.type == NPCID.Mothron && Main.rand.Next(25) < 3)
-            {
-                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Mothron.MothronHead>());
-                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Mothron.MothronBody>());
-                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Mothron.MothronLegs>());
             }
 
             if (npc.type == NPCID.Mothron && Main.rand.Next(20) == 1)
@@ -98,30 +129,6 @@ namespace JourneyTrend.NPCs
                 Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Terra.TerraBody>());
                 Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Terra.TerraLegs>());
             }
-
-            if ((npc.type == NPCID.GreekSkeleton || npc.type == NPCID.Medusa) && Main.rand.Next(15) == 0)
-            {
-                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Rookie.RookieHead>());
-                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Rookie.RookieBody>());
-                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Rookie.RookieLegs>());
-            }
-
-            if ((npc.type == NPCID.GraniteGolem || npc.type == NPCID.GraniteFlyer) && Main.rand.Next(15) == 0)
-            {
-                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Rookie.RookieHead>());
-                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Rookie.RookieBody>());
-                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.Rookie.RookieLegs>());
-                Item.NewItem(npc.getRect(), ItemID.ReflectiveMetalDye, 3);
-            }
-
-            if ((npc.type == NPCID.WyvernHead && Main.rand.Next(20) == 0) || (npc.type == NPCID.Harpy && Main.rand.Next(100) == 0))
-            {
-                Item.NewItem(npc.getRect(), ItemType<Items.Vanity.StormConqueror.StormConquerorBag>());
-            }
-            //if (Main.LocalPlayer.ZoneSkyHeight && Main.rand.Next(250) == 0)     // if the mob is above certain Y level (sky) ((npc.Center.Y) < (Main.worldSurface * 0.35f) * 16f)
-            //{
-            //    Item.NewItem(npc.getRect(), ItemType<Items.Vanity.StormConqueror.StormConquerorBag>());
-            //}
 
             if ((npc.type == NPCID.MossHornet || npc.type == NPCID.Moth || npc.type == NPCID.WallCreeperWall || npc.type == NPCID.WallCreeper) && Main.rand.Next(200) == 0)
             {

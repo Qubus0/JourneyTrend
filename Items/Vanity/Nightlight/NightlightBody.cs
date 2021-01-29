@@ -19,9 +19,11 @@ namespace JourneyTrend.Items.Vanity.Nightlight
             item.height = 18;
             item.rare = ItemRarityID.Green;
             item.vanity = true;
+            item.value = 0;
         }
-                                                   //and halves it because bright
-        private readonly float adj = 0.00392f/2; //adjusts the rgb value from 0-255 to 0-1 because light is stupid like that
+
+        // Converts RGB 0-255 ==> RGB 0-1 and halves due to brightness (Cause light is stupid like that)
+        private readonly float adj = 0.00392f/2;
         public override void UpdateVanity(Player player, EquipType type)
         {
             Lighting.AddLight(player.Center, 198 * adj, 229 * adj, 10 * adj);

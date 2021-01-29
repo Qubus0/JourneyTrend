@@ -9,7 +9,7 @@ namespace JourneyTrend
 {
     public class JourneyPlayer : ModPlayer
 	{
-		//starting Items
+		// Starting Items
 		public override void SetupStartInventory(IList<Item> items, bool mediumcoreDeath)
 		{
 			Item TravellerHead = new Item();
@@ -29,13 +29,13 @@ namespace JourneyTrend
 		}
 
 
-		//accessory type capes (not idle animated)
+		// Accessory type capes (not idle animated)
 		private static Rectangle playerframe;       //grabs playerframe for all below
 		private bool isIdle;                        //true if not moving
 		private int walkUpShift = 0;       //-2 when the walkcykle has 'up' frames
 
 
-		//Idle Animating Fox Tails
+		// Idle Animating Fox Tails
 		public bool FoxTailsEquipped;
 		private int NineTailedTickToFrame;
 		private int NineTailedFrameUpdater;
@@ -68,10 +68,7 @@ namespace JourneyTrend
 			}
 		});
 
-
-
-
-		public bool StarlightBodyEquipped;        //corresponding equip bool
+		public bool StarlightBodyEquipped;        // Corresponding equip bool
         public static readonly PlayerLayer StarlightDreamScarf = new PlayerLayer("JourneyTrend", "StarlightDreamScarf", PlayerLayer.BackAcc, delegate (PlayerDrawInfo drawInfo)
         {									//name here same as name								here.	Needs correct accesory here as well
             if (!drawInfo.drawPlayer.dead)
@@ -398,13 +395,6 @@ namespace JourneyTrend
 			BubbleheadHeadEquipped = false;
 			isIdle = false;
 		}
-
-
-
-
-
-
-
 
 		//Glowmask business
 		public static readonly PlayerLayer ContainmentSuitHeadGlowmask = new PlayerLayer("JourneyTrend", "ContainmentSuitHeadGlowmask", PlayerLayer.Head, delegate (PlayerDrawInfo drawInfo)

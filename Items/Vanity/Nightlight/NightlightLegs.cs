@@ -17,6 +17,7 @@ namespace JourneyTrend.Items.Vanity.Nightlight
             item.height = 18;
             item.rare = ItemRarityID.Green;
             item.vanity = true;
+            item.value = 0;
         }
         public override void AddRecipes()
         {

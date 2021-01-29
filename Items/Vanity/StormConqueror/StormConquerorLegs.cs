@@ -18,6 +18,7 @@ namespace JourneyTrend.Items.Vanity.StormConqueror
             item.height = 18;
             item.rare = ItemRarityID.Cyan;
             item.vanity = true;
+            item.value = 0;
         }
     }
 }

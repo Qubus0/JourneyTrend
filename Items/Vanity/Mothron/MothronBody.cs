@@ -17,6 +17,7 @@ namespace JourneyTrend.Items.Vanity.Mothron
             item.height = 18;
             item.rare = ItemRarityID.Blue;
             item.vanity = true;
+            item.value = 0;
         }
     }
 }

@@ -18,6 +18,7 @@ namespace JourneyTrend.Items.Vanity.Nexus
             item.height = 18;
             item.rare = ItemRarityID.Green;
             item.vanity = true;
+            item.value = 0;
         }
 
         public override void AddRecipes()

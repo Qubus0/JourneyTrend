@@ -14,7 +14,9 @@ namespace JourneyTrend.Items.Vanity.MagicGrill
             Tooltip.SetDefault("Dw, it's fake shark leather.\nMade by Pepsi");
         }
 
-        public override void ModifyTooltips(List<TooltipLine> tooltips) {
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
+        {
+            // Custom RGB "Rarity"
             foreach (TooltipLine line2 in tooltips) {
                 if (line2.mod == "Terraria" && line2.Name == "ItemName") {
                     line2.overrideColor = new Color(255, 158, 204);
@@ -26,8 +28,9 @@ namespace JourneyTrend.Items.Vanity.MagicGrill
         {
             item.width = 18;
             item.height = 18;
-            item.rare = ItemRarityID.Blue;
+            item.rare = ItemRarityID.White;
             item.vanity = true;
+            item.value = 0;
         }
 
         public override void DrawHands(ref bool drawHands, ref bool drawArms)

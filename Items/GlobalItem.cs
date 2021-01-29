@@ -50,4 +50,17 @@ namespace JourneyTrend.Items
 			}
         }
     }
+
+	public class HarpyWings : GlobalItem
+	{
+		public override void Update(Item item, ref float gravity, ref float maxFallSpeed)
+		{
+			if (item.type == ItemID.HarpyWings && item.lavaWet)
+			{
+				item.TurnToAir();
+				Item.NewItem(item.Hitbox, ItemType<Vanity.Rookie.Hotwings>());
+				return;
+			}
+		}
+	}
 }

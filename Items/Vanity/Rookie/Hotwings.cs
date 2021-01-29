@@ -18,6 +18,7 @@ namespace JourneyTrend.Items.Vanity.Rookie
 			item.rare = ItemRarityID.Red;
 			item.vanity = true;
 			item.accessory = true;
+			item.value = 0;
 		}
 	}
 }

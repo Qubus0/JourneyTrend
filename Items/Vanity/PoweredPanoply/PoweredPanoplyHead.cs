@@ -18,20 +18,14 @@ namespace JourneyTrend.Items.Vanity.PoweredPanoply
             item.height = 18;
             item.rare = ItemRarityID.Blue;
             item.vanity = true;
+            item.value = 0;
         }
 
         public override void AddRecipes()
         {
             ModRecipe recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Nanites, 20);
-            recipe.AddIngredient(ItemID.SilverBar, 6);
-            recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
-
-            recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.Nanites, 20);
-            recipe.AddIngredient(ItemID.TungstenBar, 6);
+            recipe.AddRecipeGroup("JourneyTrend:SilverBars", 6);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);
             recipe.AddRecipe();

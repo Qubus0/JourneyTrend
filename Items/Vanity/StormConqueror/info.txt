@@ -47,3 +47,7 @@ Other means any other mob that is killed in space.
 Also, statues will work for this. Harpy statues count toward Harpy.
 
 Created by Dandandooo
+
+
+*** Note: Balloon and Pack are not going to be added at this point in time, to keep in line with the contest submissions (this may change at a later date, post-release)
+*** Note: Drops from all mobs in space at 0.25% chance is not possible due to bugs, especially with other mods. May be possible to add back at a later date.

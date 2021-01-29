@@ -18,6 +18,7 @@ namespace JourneyTrend.Items.Vanity.Shark
             item.height = 18;
             item.rare = ItemRarityID.Blue;
             item.vanity = true;
+            item.value = 0;
         }
         public override bool DrawHead()
         {

@@ -11,18 +11,11 @@ namespace JourneyTrend.NPCs
         {
             switch (type)
             {
-                case NPCID.DD2Bartender:
-                    shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.SeaBuckthornTea.SeaBuckthornTeaHead>());
-                    nextSlot++;
-                    shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.SeaBuckthornTea.SeaBuckthornTeaBody>());
-                    nextSlot++;
-                    shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.SeaBuckthornTea.SeaBuckthornTeaLegs>());
-                    nextSlot++;
-                    break;
 
                 case NPCID.WitchDoctor:
                     if (Main.player[Main.myPlayer].ZoneJungle && Main.bloodMoon)
                     {
+                        // 5 Gold from Witch Doctor, during Blood Moon, in Jungle - Single Item - Arcane Exosuit Set
                         shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.ArcaneExosuit.ArcaneExosuitLegs>());
                         nextSlot++;
                         shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.ArcaneExosuit.ArcaneExosuitLegs>());
@@ -32,9 +25,20 @@ namespace JourneyTrend.NPCs
                     }
                     break;
 
+                case NPCID.DD2Bartender:
+                    // 25 Gold from Tavernkeep - Single Item - Sea Buckthorn Tea Set
+                    shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.SeaBuckthornTea.SeaBuckthornTeaHead>());
+                    nextSlot++;
+                    shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.SeaBuckthornTea.SeaBuckthornTeaBody>());
+                    nextSlot++;
+                    shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.SeaBuckthornTea.SeaBuckthornTeaLegs>());
+                    nextSlot++;
+                    break;
+
                 case NPCID.Cyborg:
-                    if (Main.player[Main.myPlayer].ZoneJungle && NPC.downedMoonlord && Main.invasionType == 4)  //4 -> martian madness
+                    if (Main.player[Main.myPlayer].ZoneJungle && Main.invasionType == 4)
                     {
+                        // 50 Gold from Cyborg, during Martian Madness, in Jungle - Single Item - Grid's Set
                         shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.Grid.GridHead>());
                         nextSlot++;
                         shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.Grid.GridBody>());
@@ -65,6 +69,7 @@ namespace JourneyTrend.NPCs
                     break;
 
                 case NPCID.Clothier:
+                    // 5 Gold from Clothier (to change to Golfer post 1.4...)
                     shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.Birdie.BirdieHead>());
                     nextSlot++;
                     shop.item[nextSlot].SetDefaults(ItemType<Items.Vanity.Birdie.BirdieBody>());
@@ -101,16 +106,19 @@ namespace JourneyTrend.NPCs
         {
             if (Main.moonPhase == 6)
             {
+                // 15 Gold from Travelling Merchant, First Quarter Moon - Single Item - Journeyman Set
                 shop[nextSlot] = ItemType<Items.Vanity.Journeyman.JourneymanHead>();
                 nextSlot++;
             }
             if (Main.moonPhase == 0)
             {
+                // 15 Gold from Travelling Merchant, Full Moon - Single Item - Journeyman Set
                 shop[nextSlot] = ItemType<Items.Vanity.Journeyman.JourneymanBody>();
                 nextSlot++;
             }
             if (Main.moonPhase == 2)
             {
+                // 15 Gold from Travelling Merchant, Third Quarter Moon - Single Item - Journeyman Set
                 shop[nextSlot] = ItemType<Items.Vanity.Journeyman.JourneymanLegs>();
                 nextSlot++;
             }
