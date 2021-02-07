@@ -1,27 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\kurti\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\JourneyTrend\\JourneyTrend.csproj": {}
+    "/Users/steenuni/Library/Application Support/Terraria/ModLoader/Mod Sources/JourneyTrend/JourneyTrend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\kurti\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\JourneyTrend\\JourneyTrend.csproj": {
+    "/Users/steenuni/Library/Application Support/Terraria/ModLoader/Mod Sources/JourneyTrend/JourneyTrend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\kurti\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\JourneyTrend\\JourneyTrend.csproj",
+        "projectUniqueName": "/Users/steenuni/Library/Application Support/Terraria/ModLoader/Mod Sources/JourneyTrend/JourneyTrend.csproj",
         "projectName": "JourneyTrend",
-        "projectPath": "C:\\Users\\kurti\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\JourneyTrend\\JourneyTrend.csproj",
-        "packagesPath": "C:\\Users\\kurti\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\kurti\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\JourneyTrend\\obj\\",
+        "projectPath": "/Users/steenuni/Library/Application Support/Terraria/ModLoader/Mod Sources/JourneyTrend/JourneyTrend.csproj",
+        "packagesPath": "/Users/steenuni/.nuget/packages/",
+        "outputPath": "/Users/steenuni/Library/Application Support/Terraria/ModLoader/Mod Sources/JourneyTrend/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\kurti\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "/Users/steenuni/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net45"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -40,12 +38,18 @@
         "net45": {
           "targetAlias": "net45",
           "dependencies": {
+            "Microsoft.NETFramework.ReferenceAssemblies": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[1.0.0, )",
+              "autoReferenced": true
+            },
             "tModLoader.CodeAssist": {
               "target": "Package",
               "version": "[0.1.*, )"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/Library/Frameworks/Mono.framework/Versions/6.12.0/lib/mono/msbuild/Current/bin/RuntimeIdentifierGraph.json"
         }
       }
     }

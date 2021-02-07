@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "lJoj3955/AJpb0QEcwDF4+c/FBm9Y4W8jXnvwrLyts7TbzAWIdDuzgPSwpR+sgKhcAIbO++CQOyX+g8ToPKpZA==",
+  "dgSpecHash": "O94dNRZ2cWpENVEygoJqo27R1is5By0CeutPvQT5NkOV/8wjEGuM3VRe0928e8b+/msfVWvkJopcabaYhl9UuA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\kurti\\Documents\\My Games\\Terraria\\ModLoader\\Mod Sources\\JourneyTrend\\JourneyTrend.csproj",
+  "projectFilePath": "/Users/steenuni/Library/Application Support/Terraria/ModLoader/Mod Sources/JourneyTrend/JourneyTrend.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\kurti\\.nuget\\packages\\tmodloader.codeassist\\0.1.1\\tmodloader.codeassist.0.1.1.nupkg.sha512"
+    "/Users/steenuni/.nuget/packages/microsoft.netframework.referenceassemblies/1.0.0/microsoft.netframework.referenceassemblies.1.0.0.nupkg.sha512",
+    "/Users/steenuni/.nuget/packages/microsoft.netframework.referenceassemblies.net45/1.0.0/microsoft.netframework.referenceassemblies.net45.1.0.0.nupkg.sha512",
+    "/Users/steenuni/.nuget/packages/tmodloader.codeassist/0.1.1/tmodloader.codeassist.0.1.1.nupkg.sha512"
   ],
   "logs": []
 }

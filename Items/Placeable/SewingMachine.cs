@@ -7,7 +7,7 @@ namespace JourneyTrend.Items.Placeable
     public class SewingMachine : ModItem
 	{
 		public override void SetStaticDefaults() {
-			Tooltip.SetDefault("Not so fond of that one vanity in particular? \nTry yoursef at the job of a tailor here.");
+			Tooltip.SetDefault("Not so fond of that one vanity in particular? \nTry yourself at the job of a tailor here.");
 		}
 
 		public override void SetDefaults() {

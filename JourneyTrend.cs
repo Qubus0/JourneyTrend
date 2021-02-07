@@ -30,7 +30,7 @@ namespace JourneyTrend
 			});
 			RecipeGroup.RegisterGroup("JourneyTrend:SilverBars", SilverBars);
 
-			// Sewing Maching Variant Recipe Groups
+			// Sewing Machine Variant Recipe Groups
 			RecipeGroup CyberHalos = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " Cyber Halo", new int[]
 			{
 				ModContent.ItemType<Items.Vanity.CyberAngel.CyberAngelHead>(),
