@@ -7,12 +7,14 @@ namespace JourneyTrend.Items.Vanity.CosmicTerror
 {
     public class CosmicTerrorBag : ModItem
     {
-        public override void SetStaticDefaults() {
+        public override void SetStaticDefaults()
+        {
             DisplayName.SetDefault("Cosmic Terror Bag");
             Tooltip.SetDefault("Bag sprite by PeanutSte\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
-        public override void SetDefaults() {
+        public override void SetDefaults()
+        {
             item.maxStack = 999;
             item.consumable = true;
             item.width = 24;
@@ -20,7 +22,8 @@ namespace JourneyTrend.Items.Vanity.CosmicTerror
             item.rare = ItemRarityID.Blue;
         }
 
-        public override bool CanRightClick() {
+        public override bool CanRightClick()
+        {
             return true;
         }
 

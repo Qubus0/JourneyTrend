@@ -1,5 +1,5 @@
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.Pilot
 {
@@ -9,8 +9,10 @@ namespace JourneyTrend.Items.Vanity.Pilot
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Pilot's Cap");
-            Tooltip.SetDefault("Still some wyvern saliva in the goggles,\nbut otherwise surprisingly intact.\nMade by CyrantontheCold");
+            Tooltip.SetDefault(
+                "Still some wyvern saliva in the goggles,\nbut otherwise surprisingly intact.\nMade by CyrantontheCold");
         }
+
         public override void SetDefaults()
         {
             item.width = 18;

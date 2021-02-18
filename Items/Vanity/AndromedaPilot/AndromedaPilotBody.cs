@@ -1,5 +1,5 @@
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.AndromedaPilot
 {
@@ -11,6 +11,7 @@ namespace JourneyTrend.Items.Vanity.AndromedaPilot
             DisplayName.SetDefault("Andromeda Pilot Breastplate");
             Tooltip.SetDefault("Let there be a constellation with your name on it\nMade by Nedrilax");
         }
+
         public override void SetDefaults()
         {
             item.width = 18;

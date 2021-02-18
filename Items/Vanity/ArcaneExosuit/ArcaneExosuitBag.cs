@@ -1,18 +1,20 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
-using Terraria.ID;
 
 namespace JourneyTrend.Items.Vanity.ArcaneExosuit
 {
     public class ArcaneExosuitBag : ModItem
     {
-        public override void SetStaticDefaults() {
+        public override void SetStaticDefaults()
+        {
             DisplayName.SetDefault("Arcane Exosuit Bag");
             Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
         }
 
-        public override void SetDefaults() {
+        public override void SetDefaults()
+        {
             item.maxStack = 999;
             item.consumable = true;
             item.width = 24;
@@ -20,7 +22,8 @@ namespace JourneyTrend.Items.Vanity.ArcaneExosuit
             item.rare = ItemRarityID.Blue;
         }
 
-        public override bool CanRightClick() {
+        public override bool CanRightClick()
+        {
             return true;
         }
 

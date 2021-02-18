@@ -23,7 +23,7 @@ namespace JourneyTrend.Items.Vanity.PoweredPanoply
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            var recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Nanites, 15);
             recipe.AddRecipeGroup("JourneyTrend:SilverBars", 8);
             recipe.AddTile(TileID.Anvils);

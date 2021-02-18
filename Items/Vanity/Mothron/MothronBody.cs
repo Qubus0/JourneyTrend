@@ -11,6 +11,7 @@ namespace JourneyTrend.Items.Vanity.Mothron
             DisplayName.SetDefault("Mothron Shirt");
             Tooltip.SetDefault("Fashioned from the thorax of an ancient Kaiju.\nMade by Drdragonfly");
         }
+
         public override void SetDefaults()
         {
             item.width = 18;

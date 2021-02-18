@@ -1,7 +1,6 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-
 namespace JourneyTrend.Items.Vanity.StormConqueror
 {
     [AutoloadEquip(EquipType.Body)]

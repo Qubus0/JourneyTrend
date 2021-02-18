@@ -11,7 +11,7 @@ namespace JourneyTrend.Items.Vanity.Treesuit
             DisplayName.SetDefault("Tree Crown");
             Tooltip.SetDefault("Made by Drawter");
         }
-        
+
         public override void SetDefaults()
         {
             item.width = 18;
@@ -21,4 +21,3 @@ namespace JourneyTrend.Items.Vanity.Treesuit
         }
     }
 }
-

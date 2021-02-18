@@ -7,6 +7,9 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
     [AutoloadEquip(EquipType.Body)]
     public class KnightwalkerBody : ModItem
     {
+        private readonly float
+            adj = 0.00392f / 2; //adjusts the rgb value from 0-255 to 0-1 because light is stupid like that
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Mantle of the Knightwalker");
@@ -21,7 +24,6 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
             item.vanity = true;
         }
 
-        private readonly float adj = 0.00392f/2; //adjusts the rgb value from 0-255 to 0-1 because light is stupid like that
         public override void UpdateVanity(Player player, EquipType type)
         {
             Lighting.AddLight(player.Center, 204 * adj, 82 * adj, 255 * adj);
@@ -33,7 +35,7 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
         {
             if (WorldGen.crimson)
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                var recipe = new ModRecipe(mod);
                 recipe.AddTile(TileID.Hellforge);
                 recipe.AddIngredient(ItemID.UnicornHorn, 5);
                 recipe.AddIngredient(ItemID.TissueSample, 5);
@@ -44,7 +46,7 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
             }
             else
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                var recipe = new ModRecipe(mod);
                 recipe.AddTile(TileID.Hellforge);
                 recipe.AddIngredient(ItemID.UnicornHorn, 5);
                 recipe.AddIngredient(ItemID.ShadowScale, 5);
@@ -54,7 +56,7 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
                 recipe.AddRecipe();
             }
 
-            ModRecipe alt = new ModRecipe(mod);
+            var alt = new ModRecipe(mod);
             alt.AddTile(mod.GetTile("SewingMachine"));
             alt.AddRecipeGroup("JourneyTrend:KnightwalkerCapes");
             alt.SetResult(this);

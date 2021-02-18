@@ -7,6 +7,9 @@ namespace JourneyTrend.Items.Vanity.Nightlight
     [AutoloadEquip(EquipType.Body)]
     public class NightlightBody : ModItem
     {
+        // Converts RGB 0-255 ==> RGB 0-1 and halves due to brightness (Cause light is stupid like that)
+        private readonly float adj = 0.00392f / 2;
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Nightlight Body");
@@ -22,8 +25,6 @@ namespace JourneyTrend.Items.Vanity.Nightlight
             item.value = 0;
         }
 
-        // Converts RGB 0-255 ==> RGB 0-1 and halves due to brightness (Cause light is stupid like that)
-        private readonly float adj = 0.00392f/2;
         public override void UpdateVanity(Player player, EquipType type)
         {
             Lighting.AddLight(player.Center, 198 * adj, 229 * adj, 10 * adj);
@@ -31,7 +32,7 @@ namespace JourneyTrend.Items.Vanity.Nightlight
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            var recipe = new ModRecipe(mod);
             recipe.AddTile(TileID.Loom);
             recipe.AddIngredient(ItemID.Silk, 15);
             recipe.AddIngredient(ItemID.Moonglow, 15);

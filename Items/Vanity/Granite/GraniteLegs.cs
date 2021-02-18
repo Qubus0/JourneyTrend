@@ -20,9 +20,10 @@ namespace JourneyTrend.Items.Vanity.Granite
             item.rare = ItemRarityID.Blue;
             item.vanity = true;
         }
+
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            var recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Granite, 15);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);

@@ -11,7 +11,7 @@ namespace JourneyTrend.Items.Vanity.Traveller
             DisplayName.SetDefault("Traveller Pants");
             Tooltip.SetDefault("We've come a long way\nMade by Upixel");
         }
-        
+
         public override void SetDefaults()
         {
             item.width = 18;

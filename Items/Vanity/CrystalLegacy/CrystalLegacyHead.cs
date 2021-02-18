@@ -9,7 +9,8 @@ namespace JourneyTrend.Items.Vanity.CrystalLegacy
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Crystal Helmet");
-            Tooltip.SetDefault("A memento of the dangers in the creeping crystal caves...\nMade by Curt 'Bucket Face' Black");
+            Tooltip.SetDefault(
+                "A memento of the dangers in the creeping crystal caves...\nMade by Curt 'Bucket Face' Black");
         }
 
         public override void SetDefaults()
@@ -20,9 +21,10 @@ namespace JourneyTrend.Items.Vanity.CrystalLegacy
             item.vanity = true;
             item.value = 0;
         }
+
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            var recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.CrystalShard, 20);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);

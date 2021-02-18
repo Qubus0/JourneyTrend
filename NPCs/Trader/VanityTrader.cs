@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using JourneyTrend.Items.Placeable;
 using JourneyTrend.Items.Vanity.AndromedaPilot;
 using JourneyTrend.Items.Vanity.ArcaneExosuit;
 using JourneyTrend.Items.Vanity.Birdie;
@@ -51,7 +52,6 @@ using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
-using SewingMachine = JourneyTrend.Items.Placeable.SewingMachine;
 using SewingMachineTile = JourneyTrend.Tiles.SewingMachine;
 
 namespace JourneyTrend.NPCs.Trader
@@ -59,11 +59,11 @@ namespace JourneyTrend.NPCs.Trader
     [AutoloadHead]
     public class VanityTrader : ModNPC
     {
-        const int BagPrice = 50000; // same price for every bag
+        private const int BagPrice = 50000; // same price for every bag
 
         public static List<Item> currentShop = new List<Item>();
 
-        static int[] shopItems =
+        private static readonly int[] shopItems =
         {
             ModContent.ItemType<AndromedaPilotBag>(),
             ModContent.ItemType<ArcaneExosuitBag>(),
@@ -114,32 +114,29 @@ namespace JourneyTrend.NPCs.Trader
             ModContent.ItemType<WyvernRiderBag>()
         };
 
+        public override string Texture => "JourneyTrend/NPCs/Trader/VanityTrader";
+
         public static List<Item> CreateNewShop()
         {
             var itemIdList = new List<int>();
-            for (int shopSlots = 0; shopSlots < Main.rand.Next(10, 20); shopSlots++)
+            for (var shopSlots = 0; shopSlots < Main.rand.Next(10, 20); shopSlots++)
             {
                 var newItem = shopItems[Main.rand.Next(0, shopItems.Length)];
-                while (itemIdList.Contains(newItem))
-                {
-                    newItem = shopItems[Main.rand.Next(0, shopItems.Length)];
-                }
+                while (itemIdList.Contains(newItem)) newItem = shopItems[Main.rand.Next(0, shopItems.Length)];
 
                 itemIdList.Add(newItem);
             }
 
             var items = new List<Item>();
-            foreach (int itemId in itemIdList)
+            foreach (var itemId in itemIdList)
             {
-                Item item = new Item();
+                var item = new Item();
                 item.SetDefaults(itemId);
                 items.Add(item);
             }
 
             return currentShop = items;
         }
-
-        public override string Texture => "JourneyTrend/NPCs/Trader/VanityTrader";
         //public override string[] AltTextures => new[] {"JourneyTrend/NPCs/Trader/VanityTrader_Alt_1"};
 
         public override bool Autoload(ref string name)
@@ -203,32 +200,20 @@ namespace JourneyTrend.NPCs.Trader
 
         public override void HitEffect(int hitDirection, double damage)
         {
-            int num = npc.life > 0 ? 5 : 20;
-            for (int k = 0; k < num; k++)
-            {
-                Dust.NewDust(npc.position, npc.width, npc.height, DustID.Silk);
-            }
+            var num = npc.life > 0 ? 5 : 20;
+            for (var k = 0; k < num; k++) Dust.NewDust(npc.position, npc.width, npc.height, DustID.Silk);
 
-            if (npc.life <= 0)
-            {
-                currentShop.Clear();
-            }
+            if (npc.life <= 0) currentShop.Clear();
         }
 
         public override bool CanTownNPCSpawn(int numTownNPCs, int money)
         {
-            for (int k = 0; k < 255; k++)
+            for (var k = 0; k < 255; k++)
             {
-                Player player = Main.player[k];
-                if (!player.active)
-                {
-                    continue;
-                }
+                var player = Main.player[k];
+                if (!player.active) continue;
 
-                if (NPC.downedMoonlord)
-                {
-                    return true;
-                }
+                if (NPC.downedMoonlord) return true;
             }
 
             return false;
@@ -236,18 +221,14 @@ namespace JourneyTrend.NPCs.Trader
 
         public override bool CheckConditions(int left, int right, int top, int bottom)
         {
-            int score = 0;
-            for (int x = left; x <= right; x++)
+            var score = 0;
+            for (var x = left; x <= right; x++)
+            for (var y = top; y <= bottom; y++)
             {
-                for (int y = top; y <= bottom; y++)
-                {
-                    int type = Main.tile[x, y].type;
-                    if (type == ModContent.TileType<SewingMachineTile>() || type == ItemID.Loom ||
-                        type == ItemID.LivingLoom)
-                    {
-                        score += 10;
-                    }
-                }
+                int type = Main.tile[x, y].type;
+                if (type == ModContent.TileType<SewingMachineTile>() || type == ItemID.Loom ||
+                    type == ItemID.LivingLoom)
+                    score += 10;
             }
 
             return score >= (right - left) * (bottom - top) / 2;
@@ -255,28 +236,22 @@ namespace JourneyTrend.NPCs.Trader
 
         public override string GetChat()
         {
-            int clothier = NPC.FindFirstNPC(NPCID.Clothier);
+            var clothier = NPC.FindFirstNPC(NPCID.Clothier);
             if (clothier >= 0 && Main.rand.NextBool(6))
-            {
                 return "Could you ask if " + Main.npc[clothier].GivenName +
                        " would sow some new outfits for me?";
-            }
 
-            int painter = NPC.FindFirstNPC(NPCID.Painter);
+            var painter = NPC.FindFirstNPC(NPCID.Painter);
             if (painter >= 0 && Main.rand.NextBool(6))
-            {
                 return "Last time I met " + Main.npc[painter].GivenName +
                        " he got his paint all over me. I was barely able to wash it all out.";
-            }
 
-            int dyeTrader = NPC.FindFirstNPC(NPCID.DyeTrader);
+            var dyeTrader = NPC.FindFirstNPC(NPCID.DyeTrader);
             if (dyeTrader >= 0 && Main.rand.NextBool(6))
-            {
                 return Main.npc[dyeTrader].GivenName +
                        " really has the most beautiful colors. But I'm a little concerned about his obsession with strange plants.";
-            }
 
-            int vanityTrader = NPC.FindFirstNPC(ModContent.NPCType<VanityTrader>());
+            var vanityTrader = NPC.FindFirstNPC(ModContent.NPCType<VanityTrader>());
 
             switch (Main.rand.Next(9))
             {
@@ -310,7 +285,7 @@ namespace JourneyTrend.NPCs.Trader
         public override void SetChatButtons(ref string button, ref string button2)
         {
             button = Language.GetTextValue("LegacyInterface.28"); //shop
-            button2 = $"Reroll Bags (10G)";
+            button2 = "Reroll Bags (10G)";
         }
 
         public override void OnChatButtonClicked(bool firstButton, ref bool shop)
@@ -327,7 +302,7 @@ namespace JourneyTrend.NPCs.Trader
                 Main.PlaySound(SoundID.Grab);
                 Main.PlaySound(SoundID.Coins);
                 Main.LocalPlayer.BuyItem(100000);
-                Main.npcChatText = $"";
+                Main.npcChatText = "";
                 CreateNewShop();
                 shop = true;
             }
@@ -335,7 +310,7 @@ namespace JourneyTrend.NPCs.Trader
 
         public override void SetupShop(Chest shop, ref int nextSlot)
         {
-            foreach (Item item in currentShop)
+            foreach (var item in currentShop)
             {
                 // We dont want "empty" items and unloaded items to appear
                 if (item == null || item.type == ItemID.None)

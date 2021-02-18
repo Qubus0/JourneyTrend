@@ -7,12 +7,14 @@ namespace JourneyTrend.Items.Vanity.Journeyman
 {
     public class JourneymanBag : ModItem
     {
-        public override void SetStaticDefaults() {
+        public override void SetStaticDefaults()
+        {
             DisplayName.SetDefault("Journeyman Bag");
             Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
         }
 
-        public override void SetDefaults() {
+        public override void SetDefaults()
+        {
             item.maxStack = 999;
             item.consumable = true;
             item.width = 24;
@@ -20,11 +22,13 @@ namespace JourneyTrend.Items.Vanity.Journeyman
             item.rare = ItemRarityID.Blue;
         }
 
-        public override bool CanRightClick() {
+        public override bool CanRightClick()
+        {
             return true;
         }
 
-        public override void RightClick(Player player) {
+        public override void RightClick(Player player)
+        {
             player.QuickSpawnItem(ItemType<JourneymanLegs>());
             player.QuickSpawnItem(ItemType<JourneymanBody>());
             player.QuickSpawnItem(ItemType<JourneymanHead>());

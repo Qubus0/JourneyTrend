@@ -9,9 +9,10 @@ namespace JourneyTrend.Items.Vanity.Terra
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Terra Crown");
-            Tooltip.SetDefault("A crown powered by the force of nature\nIts said that the powers of light and dark are inside it as well\nFits your hair just right!\nMade by TerraKingCole614");
+            Tooltip.SetDefault(
+                "A crown powered by the force of nature\nIts said that the powers of light and dark are inside it as well\nFits your hair just right!\nMade by TerraKingCole614");
         }
-        
+
         public override void SetDefaults()
         {
             item.width = 18;
@@ -27,7 +28,7 @@ namespace JourneyTrend.Items.Vanity.Terra
 
         public override void AddRecipes()
         {
-            ModRecipe alt = new ModRecipe(mod);
+            var alt = new ModRecipe(mod);
             alt.AddTile(mod.GetTile("SewingMachine"));
             alt.AddRecipeGroup("JourneyTrend:TerraCrowns");
             alt.SetResult(this);
@@ -35,4 +36,3 @@ namespace JourneyTrend.Items.Vanity.Terra
         }
     }
 }
-

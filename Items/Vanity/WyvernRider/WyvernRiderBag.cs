@@ -7,12 +7,14 @@ namespace JourneyTrend.Items.Vanity.WyvernRider
 {
     public class WyvernRiderBag : ModItem
     {
-        public override void SetStaticDefaults() {
+        public override void SetStaticDefaults()
+        {
             DisplayName.SetDefault("Wyvern Rider Bag");
             Tooltip.SetDefault("Bag sprite by PeanutSte\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
-        public override void SetDefaults() {
+        public override void SetDefaults()
+        {
             item.maxStack = 999;
             item.consumable = true;
             item.width = 24;
@@ -20,16 +22,17 @@ namespace JourneyTrend.Items.Vanity.WyvernRider
             item.rare = ItemRarityID.Blue;
         }
 
-        public override bool CanRightClick() {
+        public override bool CanRightClick()
+        {
             return true;
         }
 
-        public override void RightClick(Player player) {
+        public override void RightClick(Player player)
+        {
             player.QuickSpawnItem(ItemType<WyvernRiderWings>());
             player.QuickSpawnItem(ItemType<WyvernRiderLegs>());
             player.QuickSpawnItem(ItemType<WyvernRiderBody>());
             player.QuickSpawnItem(ItemType<WyvernRiderHead>());
         }
-
     }
 }

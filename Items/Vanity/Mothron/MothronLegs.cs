@@ -1,5 +1,5 @@
-﻿using Terraria.ModLoader;
-using Terraria.ID;
+﻿using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.Mothron
 {
@@ -12,6 +12,7 @@ namespace JourneyTrend.Items.Vanity.Mothron
             DisplayName.SetDefault("Mothron Pants");
             Tooltip.SetDefault("The pattern resembles that of Mothron's abdomen.\nMade by Drdragonfly");
         }
+
         public override void SetDefaults()
         {
             item.width = 18;

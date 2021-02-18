@@ -9,8 +9,10 @@ namespace JourneyTrend.Items.Vanity.IronCore
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Helmet of the Iron Core");
-            Tooltip.SetDefault("A rusty iron helmet from a knight long dead.\nIt's heavy, cold, and not very helpful.\nMade by TunaToda & RealStiel");
+            Tooltip.SetDefault(
+                "A rusty iron helmet from a knight long dead.\nIt's heavy, cold, and not very helpful.\nMade by TunaToda & RealStiel");
         }
+
         public override void SetDefaults()
         {
             item.width = 18;
@@ -19,6 +21,7 @@ namespace JourneyTrend.Items.Vanity.IronCore
             item.vanity = true;
             item.value = 0;
         }
+
         public override bool DrawHead()
         {
             return false;

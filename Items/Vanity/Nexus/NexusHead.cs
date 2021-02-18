@@ -11,7 +11,7 @@ namespace JourneyTrend.Items.Vanity.Nexus
             DisplayName.SetDefault("Nexus Helmet");
             Tooltip.SetDefault("100% waterproof\nMade by LazyGhost14");
         }
-        
+
         public override void SetDefaults()
         {
             item.width = 18;
@@ -23,7 +23,7 @@ namespace JourneyTrend.Items.Vanity.Nexus
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            var recipe = new ModRecipe(mod);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.AddRecipeGroup("IronBar", 10);
             recipe.AddIngredient(ItemID.SoulofSight, 3);

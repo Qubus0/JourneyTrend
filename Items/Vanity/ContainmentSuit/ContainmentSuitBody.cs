@@ -11,6 +11,7 @@ namespace JourneyTrend.Items.Vanity.ContainmentSuit
             DisplayName.SetDefault("Containment Chestpiece");
             Tooltip.SetDefault("A traveler's chestpiece for harsh environments.\nMade by MikeLeaArt");
         }
+
         public override void SetDefaults()
         {
             item.width = 18;
@@ -18,9 +19,10 @@ namespace JourneyTrend.Items.Vanity.ContainmentSuit
             item.rare = ItemRarityID.Green;
             item.vanity = true;
         }
+
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            var recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.Silk, 3);
             recipe.AddIngredient(ItemID.Wire, 4);
             recipe.AddRecipeGroup("IronBar", 3);

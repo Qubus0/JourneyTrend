@@ -12,6 +12,7 @@ namespace JourneyTrend.Items.Vanity.Bubblehead
             DisplayName.SetDefault("Bubble Head");
             Tooltip.SetDefault("Literally a Bubble Head.\nMade by Metidigiti");
         }
+
         public override void SetDefaults()
         {
             item.width = 18;
@@ -19,25 +20,28 @@ namespace JourneyTrend.Items.Vanity.Bubblehead
             item.rare = ItemRarityID.LightRed;
             item.vanity = true;
         }
+
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.FishBowl, 1);
-            recipe.AddIngredient(ItemID.SoulofLight, 1);
+            var recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ItemID.FishBowl);
+            recipe.AddIngredient(ItemID.SoulofLight);
             recipe.needWater = true;
             recipe.SetResult(this);
             recipe.AddRecipe();
 
-            ModRecipe alt = new ModRecipe(mod);
+            var alt = new ModRecipe(mod);
             alt.AddTile(mod.GetTile("SewingMachine"));
             alt.AddRecipeGroup("JourneyTrend:BubbleHeads");
             alt.SetResult(this);
             alt.AddRecipe();
         }
+
         public override bool DrawHead()
         {
             return false;
         }
+
         public override void UpdateVanity(Player player, EquipType type)
         {
             player.GetModPlayer<JourneyPlayer>().BubbleheadHeadEquipped = true;

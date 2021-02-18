@@ -1,5 +1,5 @@
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.MushroomAlchemist
 {
@@ -11,15 +11,14 @@ namespace JourneyTrend.Items.Vanity.MushroomAlchemist
             DisplayName.SetDefault("Mushroom Alchemist Cap");
             Tooltip.SetDefault("Everything is blue.\nMade by Galahad");
         }
-        
+
         public override void SetDefaults()
         {
             item.width = 18;
             item.height = 18;
             item.rare = ItemRarityID.Blue;
             item.vanity = true;
-            item.value = 200000;                             //only if sold.
+            item.value = 200000; //only if sold.
         }
     }
 }
-

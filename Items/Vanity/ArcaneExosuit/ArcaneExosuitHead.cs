@@ -1,5 +1,5 @@
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.ArcaneExosuit
 {
@@ -11,6 +11,7 @@ namespace JourneyTrend.Items.Vanity.ArcaneExosuit
             DisplayName.SetDefault("Arcane Exosuit Skull");
             Tooltip.SetDefault("Resembles the skull of a long extinct species\nMade by Faskeon");
         }
+
         public override void SetDefaults()
         {
             item.width = 18;
@@ -19,6 +20,7 @@ namespace JourneyTrend.Items.Vanity.ArcaneExosuit
             item.vanity = true;
             item.value = 50000;
         }
+
         public override bool DrawHead()
         {
             return false;

@@ -22,7 +22,7 @@ namespace JourneyTrend.Items.Vanity.ShadowFiend
 
         public override void AddRecipes()
         {
-            ModRecipe alt = new ModRecipe(mod);
+            var alt = new ModRecipe(mod);
             alt.AddTile(mod.GetTile("SewingMachine"));
             alt.AddRecipeGroup("JourneyTrend:WorldEvilDemonBodies");
             alt.SetResult(this);

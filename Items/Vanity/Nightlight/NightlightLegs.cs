@@ -11,6 +11,7 @@ namespace JourneyTrend.Items.Vanity.Nightlight
             DisplayName.SetDefault("Nightlight Feet");
             Tooltip.SetDefault("No tripping at night with bug feet.\nMade by Metalsquirrel");
         }
+
         public override void SetDefaults()
         {
             item.width = 18;
@@ -19,9 +20,10 @@ namespace JourneyTrend.Items.Vanity.Nightlight
             item.vanity = true;
             item.value = 0;
         }
+
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            var recipe = new ModRecipe(mod);
             recipe.AddTile(TileID.Loom);
             recipe.AddIngredient(ItemID.Silk, 15);
             recipe.AddIngredient(ItemID.Moonglow, 5);

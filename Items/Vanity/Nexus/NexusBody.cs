@@ -23,7 +23,7 @@ namespace JourneyTrend.Items.Vanity.Nexus
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            var recipe = new ModRecipe(mod);
             recipe.AddTile(TileID.MythrilAnvil);
             recipe.AddRecipeGroup("IronBar", 20);
             recipe.AddIngredient(ItemID.SoulofSight, 3);

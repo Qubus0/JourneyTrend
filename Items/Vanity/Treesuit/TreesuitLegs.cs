@@ -11,7 +11,7 @@ namespace JourneyTrend.Items.Vanity.Treesuit
             DisplayName.SetDefault("Tree Stump");
             Tooltip.SetDefault("Made by Drawter");
         }
-        
+
         public override void SetDefaults()
         {
             item.width = 18;

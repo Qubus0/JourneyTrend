@@ -11,6 +11,7 @@ namespace JourneyTrend.Items.Vanity.Bubblehead
             DisplayName.SetDefault("Hydro Tank v3");
             Tooltip.SetDefault("One of the most modern supply tanks!\nMade by Metidigiti");
         }
+
         public override void SetDefaults()
         {
             item.width = 18;
@@ -18,12 +19,13 @@ namespace JourneyTrend.Items.Vanity.Bubblehead
             item.rare = ItemRarityID.LightRed;
             item.vanity = true;
         }
+
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.BottledWater, 1);
-            recipe.AddIngredient(ItemID.Switch, 1);
-            recipe.AddIngredient(ItemID.SoulofNight, 1);
+            var recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ItemID.BottledWater);
+            recipe.AddIngredient(ItemID.Switch);
+            recipe.AddIngredient(ItemID.SoulofNight);
             recipe.AddIngredient(ItemID.Wire, 20);
             recipe.AddRecipeGroup("IronBar", 3);
             recipe.needWater = true;

@@ -14,7 +14,7 @@ namespace JourneyTrend.Items.Vanity.ShadowFiend
             DisplayName.SetDefault("Shadow Fiend Helmet");
             Tooltip.SetDefault("Cursed Flames consume you!\nMade by CakeBoiii");
         }
-        
+
         public override void SetDefaults()
         {
             item.width = 18;
@@ -25,7 +25,7 @@ namespace JourneyTrend.Items.Vanity.ShadowFiend
 
         public override void AddRecipes()
         {
-            ModRecipe alt = new ModRecipe(mod);
+            var alt = new ModRecipe(mod);
             alt.AddTile(mod.GetTile("SewingMachine"));
             alt.AddRecipeGroup("JourneyTrend:WorldEvilDemonHeads");
             alt.SetResult(this);
@@ -40,10 +40,8 @@ namespace JourneyTrend.Items.Vanity.ShadowFiend
         public override void UpdateVanitySet(Player player)
         {
             if (player.velocity != Vector2.Zero && Main.rand.NextFloat() < 0.2f)
-            {
-                Dust.NewDust(player.Center - new Vector2(player.direction * 10 + 5, 20), 10, 40, DustType<ShadowFiendDust>());
-            }
+                Dust.NewDust(player.Center - new Vector2(player.direction * 10 + 5, 20), 10, 40,
+                    DustType<ShadowFiendDust>());
         }
     }
 }
-

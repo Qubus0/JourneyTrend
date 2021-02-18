@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -14,7 +13,7 @@ namespace JourneyTrend.Items.Vanity.ShadowFiend
             DisplayName.SetDefault("Crimson Scourge Helmet");
             Tooltip.SetDefault("Ichor flows through you!\nMade by CakeBoiii");
         }
-        
+
         public override void SetDefaults()
         {
             item.width = 18;
@@ -25,7 +24,7 @@ namespace JourneyTrend.Items.Vanity.ShadowFiend
 
         public override void AddRecipes()
         {
-            ModRecipe alt = new ModRecipe(mod);
+            var alt = new ModRecipe(mod);
             alt.AddTile(mod.GetTile("SewingMachine"));
             alt.AddRecipeGroup("JourneyTrend:WorldEvilDemonHeads");
             alt.SetResult(this);
@@ -40,10 +39,7 @@ namespace JourneyTrend.Items.Vanity.ShadowFiend
         public override void UpdateVanitySet(Player player)
         {
             if (Main.rand.NextFloat() < 0.1f)
-            {
                 Dust.NewDust(player.TopLeft, player.width, player.height, DustType<ShadowFiendDust1>());
-            }
         }
     }
 }
-

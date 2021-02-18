@@ -11,6 +11,7 @@ namespace JourneyTrend.Items.Vanity.Mothron
             DisplayName.SetDefault("Mothron Mask");
             Tooltip.SetDefault("A mask born in the dim light of a solar eclipse.\nMade by Drdragonfly");
         }
+
         public override void SetDefaults()
         {
             item.width = 18;

@@ -1,30 +1,27 @@
-using JourneyTrend.Items.Vanity;
-using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
 
 namespace JourneyTrend.Items.Vanity.NineTailedFox
 {
-	[AutoloadEquip(EquipType.Body)]
-	public class NineTailedFoxBody : ModItem
-	{
-		public override void SetStaticDefaults()
-		{
-			DisplayName.SetDefault("Nine-Tailed Fox Chestplate");
-		}
+    [AutoloadEquip(EquipType.Body)]
+    public class NineTailedFoxBody : ModItem
+    {
+        public override void SetStaticDefaults()
+        {
+            DisplayName.SetDefault("Nine-Tailed Fox Chestplate");
+        }
 
-		public override void SetDefaults()
-		{
-			item.vanity = true;
-			item.value = 50000;
-			item.rare = ItemRarityID.Lime;
-		}
+        public override void SetDefaults()
+        {
+            item.vanity = true;
+            item.value = 50000;
+            item.rare = ItemRarityID.Lime;
+        }
 
-		public override void DrawHands(ref bool drawHands, ref bool drawArms)
-		{
-			drawHands = true;
-			drawArms = true;
-		}
-	}
+        public override void DrawHands(ref bool drawHands, ref bool drawArms)
+        {
+            drawHands = true;
+            drawArms = true;
+        }
+    }
 }

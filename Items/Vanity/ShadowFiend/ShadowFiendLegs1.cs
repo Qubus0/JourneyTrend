@@ -11,7 +11,7 @@ namespace JourneyTrend.Items.Vanity.ShadowFiend
             DisplayName.SetDefault("Crimson Scourge Leggings");
             Tooltip.SetDefault("Ichor flows through you!\nMade by CakeBoiii");
         }
-        
+
         public override void SetDefaults()
         {
             item.width = 18;
@@ -22,7 +22,7 @@ namespace JourneyTrend.Items.Vanity.ShadowFiend
 
         public override void AddRecipes()
         {
-            ModRecipe alt = new ModRecipe(mod);
+            var alt = new ModRecipe(mod);
             alt.AddTile(mod.GetTile("SewingMachine"));
             alt.AddRecipeGroup("JourneyTrend:WorldEvilDemonLegs");
             alt.SetResult(this);

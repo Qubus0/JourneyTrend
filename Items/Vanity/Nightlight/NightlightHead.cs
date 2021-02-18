@@ -23,7 +23,7 @@ namespace JourneyTrend.Items.Vanity.Nightlight
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            var recipe = new ModRecipe(mod);
             recipe.AddTile(TileID.Loom);
             recipe.AddIngredient(ItemID.Silk, 15);
             recipe.AddIngredient(ItemID.Moonglow, 5);

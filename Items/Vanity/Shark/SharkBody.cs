@@ -12,6 +12,7 @@ namespace JourneyTrend.Items.Vanity.Shark
             DisplayName.SetDefault("Shark Shirt");
             Tooltip.SetDefault("An inflated shark costume.\nThose fins are moving on their own!\nMade by Giobun");
         }
+
         public override void SetDefaults()
         {
             item.width = 18;

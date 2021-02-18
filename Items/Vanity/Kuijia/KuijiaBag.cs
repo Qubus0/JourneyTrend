@@ -7,12 +7,14 @@ namespace JourneyTrend.Items.Vanity.Kuijia
 {
     public class KuijiaBag : ModItem
     {
-        public override void SetStaticDefaults() {
+        public override void SetStaticDefaults()
+        {
             DisplayName.SetDefault("Kuijia Bag");
             Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
         }
 
-        public override void SetDefaults() {
+        public override void SetDefaults()
+        {
             item.maxStack = 999;
             item.consumable = true;
             item.width = 24;
@@ -20,7 +22,8 @@ namespace JourneyTrend.Items.Vanity.Kuijia
             item.rare = ItemRarityID.Blue;
         }
 
-        public override bool CanRightClick() {
+        public override bool CanRightClick()
+        {
             return true;
         }
 

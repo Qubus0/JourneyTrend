@@ -9,12 +9,14 @@ namespace JourneyTrend.Items.Vanity.WitchsVoid
 {
     public class WitchsVoidBag : ModItem
     {
-        public override void SetStaticDefaults() {
+        public override void SetStaticDefaults()
+        {
             DisplayName.SetDefault("Witch's Void Bag");
             Tooltip.SetDefault("Spriting assisted by Pyromma{$CommonItemTooltip.RightClickToOpen}");
         }
 
-        public override void SetDefaults() {
+        public override void SetDefaults()
+        {
             item.maxStack = 999;
             item.consumable = true;
             item.width = 24;
@@ -22,19 +24,22 @@ namespace JourneyTrend.Items.Vanity.WitchsVoid
             item.rare = ItemRarityID.Blue;
         }
 
-        public override bool CanRightClick() {
+        public override bool CanRightClick()
+        {
             return true;
         }
 
-        public override void RightClick(Player player) {
+        public override void RightClick(Player player)
+        {
             player.QuickSpawnItem(ItemType<WitchsVoidLegs>());
             player.QuickSpawnItem(ItemType<WitchsVoidBody>());
             player.QuickSpawnItem(ItemType<WitchsVoidHead>());
         }
 
-        public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor, float rotation, float scale, int whoAmI)
+        public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor,
+            float rotation, float scale, int whoAmI)
         {
-            Texture2D texture = mod.GetTexture("Items/Vanity/WitchsVoid/WitchsVoidBag_Glow");
+            var texture = mod.GetTexture("Items/Vanity/WitchsVoid/WitchsVoidBag_Glow");
             spriteBatch.Draw
             (
                 texture,

@@ -17,11 +17,9 @@ namespace JourneyTrend.Items.Vanity.Kuijia
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             // Custom RGB "Rarity"
-            foreach (TooltipLine line2 in tooltips) {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName") {
+            foreach (var line2 in tooltips)
+                if (line2.mod == "Terraria" && line2.Name == "ItemName")
                     line2.overrideColor = new Color(255, 152, 255);
-                }
-            }
         }
 
         public override void SetDefaults()

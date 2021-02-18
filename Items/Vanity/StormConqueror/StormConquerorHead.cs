@@ -32,9 +32,8 @@ namespace JourneyTrend.Items.Vanity.StormConqueror
         public override void UpdateVanitySet(Player player)
         {
             if (player.velocity != Vector2.Zero && Main.rand.NextFloat() < 0.2f)
-            {
-                Dust.NewDust(player.Center - new Vector2(player.direction * 10 + 5, 20), 10, 40, DustType<StormConquerorDust>());
-            }
+                Dust.NewDust(player.Center - new Vector2(player.direction * 10 + 5, 20), 10, 40,
+                    DustType<StormConquerorDust>());
         }
     }
 }

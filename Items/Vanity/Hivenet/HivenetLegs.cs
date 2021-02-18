@@ -11,7 +11,7 @@ namespace JourneyTrend.Items.Vanity.Hivenet
             DisplayName.SetDefault("HiveNet Leggings");
             Tooltip.SetDefault("Complete with 2 bytes of ram.\nMade by Sam Holt");
         }
-        
+
         public override void SetDefaults()
         {
             item.width = 18;
@@ -22,7 +22,7 @@ namespace JourneyTrend.Items.Vanity.Hivenet
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            var recipe = new ModRecipe(mod);
             recipe.AddTile(TileID.Anvils);
             recipe.AddIngredient(ItemID.CopperBar, 10);
             recipe.AddIngredient(ItemID.BeeWax, 5);

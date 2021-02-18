@@ -15,14 +15,12 @@ namespace JourneyTrend.Items.Vanity.Duality
             Tooltip.SetDefault("Past and future, walk the path from one to the other.\nMade by Chan");
         }
 
-        public override void ModifyTooltips(List<TooltipLine> tooltips) 
+        public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             // Custom RGB "Rarity"
-            foreach (TooltipLine line2 in tooltips) {
-                if (line2.mod == "Terraria" && line2.Name == "ItemName") {
+            foreach (var line2 in tooltips)
+                if (line2.mod == "Terraria" && line2.Name == "ItemName")
                     line2.overrideColor = new Color(110, 101, 142);
-                }
-            }
         }
 
         public override void SetDefaults()
@@ -42,9 +40,9 @@ namespace JourneyTrend.Items.Vanity.Duality
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.LightShard, 1);
-            recipe.AddIngredient(ItemID.DarkShard, 1);
+            var recipe = new ModRecipe(mod);
+            recipe.AddIngredient(ItemID.LightShard);
+            recipe.AddIngredient(ItemID.DarkShard);
             recipe.AddTile(TileID.Loom);
             recipe.SetResult(this);
             recipe.AddRecipe();

@@ -7,6 +7,9 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
     [AutoloadEquip(EquipType.Body)]
     public class KnightwalkerBody1 : ModItem
     {
+        private readonly float
+            adj = 0.00392f / 2; //adjusts the rgb value from 0-255 to 0-1 because light is stupid like that
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Mantle of the Knightwalker");
@@ -21,7 +24,6 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
             item.vanity = true;
         }
 
-        private readonly float adj = 0.00392f/2; //adjusts the rgb value from 0-255 to 0-1 because light is stupid like that
         public override void UpdateVanity(Player player, EquipType type)
         {
             Lighting.AddLight(player.Center, 204 * adj, 82 * adj, 255 * adj);
@@ -29,9 +31,9 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
             player.GetModPlayer<JourneyPlayer>().KnightwalkerAlt = true;
         }
 
-        public override void AddRecipes() 
+        public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            var recipe = new ModRecipe(mod);
             recipe.AddTile(mod.GetTile("SewingMachine"));
             recipe.AddRecipeGroup("JourneyTrend:KnightwalkerCapes");
             recipe.SetResult(this);

@@ -12,6 +12,7 @@ namespace JourneyTrend.Items.Vanity.Shark
             DisplayName.SetDefault("Shark Pants");
             Tooltip.SetDefault("A pair of inflated shark pants.\nJust go with the flow.\nMade by Giobun");
         }
+
         public override void SetDefaults()
         {
             item.width = 18;

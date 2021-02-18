@@ -1,5 +1,5 @@
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.Birdie
 {
@@ -11,6 +11,7 @@ namespace JourneyTrend.Items.Vanity.Birdie
             DisplayName.SetDefault("Birdie Headgear");
             Tooltip.SetDefault("Go ahead, dominate this golf course!\nMade by Pyromma");
         }
+
         public override void SetDefaults()
         {
             item.width = 18;

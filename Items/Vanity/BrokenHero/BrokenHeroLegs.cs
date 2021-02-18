@@ -11,7 +11,7 @@ namespace JourneyTrend.Items.Vanity.BrokenHero
             DisplayName.SetDefault("Broken Hero Greaves");
             Tooltip.SetDefault("Eerily fits you perfectly\nMade by Kirichin");
         }
-        
+
         public override void SetDefaults()
         {
             item.width = 18;

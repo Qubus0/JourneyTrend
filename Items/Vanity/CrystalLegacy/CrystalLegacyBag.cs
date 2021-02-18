@@ -1,13 +1,14 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
-using Terraria.ID;
 
 namespace JourneyTrend.Items.Vanity.CrystalLegacy
 {
     public class CrystalLegacyBag : ModItem
     {
-        public override void SetStaticDefaults() {
+        public override void SetStaticDefaults()
+        {
             DisplayName.SetDefault("Crystal Legacy Bag");
             Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
         }

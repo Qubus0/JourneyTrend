@@ -1,18 +1,20 @@
 using Terraria;
+using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
-using Terraria.ID;
 
 namespace JourneyTrend.Items.Vanity.Bounty
 {
     public class BountyBag : ModItem
     {
-        public override void SetStaticDefaults() {
+        public override void SetStaticDefaults()
+        {
             DisplayName.SetDefault("Bounty Hunter's Bag");
             Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
         }
 
-        public override void SetDefaults() {
+        public override void SetDefaults()
+        {
             item.maxStack = 999;
             item.consumable = true;
             item.width = 24;
@@ -21,15 +23,16 @@ namespace JourneyTrend.Items.Vanity.Bounty
             //item.expert = true;
         }
 
-        public override bool CanRightClick() {
+        public override bool CanRightClick()
+        {
             return true;
         }
 
-        public override void RightClick(Player player) {
+        public override void RightClick(Player player)
+        {
             player.QuickSpawnItem(ItemType<BountyLegs>());
             player.QuickSpawnItem(ItemType<BountyBody>());
             player.QuickSpawnItem(ItemType<BountyHead>());
         }
-
     }
 }

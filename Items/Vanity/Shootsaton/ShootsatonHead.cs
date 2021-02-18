@@ -11,7 +11,7 @@ namespace JourneyTrend.Items.Vanity.Shootsaton
             DisplayName.SetDefault("Sire Shootsaton Hooten Mask");
             Tooltip.SetDefault("I love havin' an owl head\nMade by Enembra");
         }
-        
+
         public override void SetDefaults()
         {
             item.width = 18;
@@ -21,4 +21,3 @@ namespace JourneyTrend.Items.Vanity.Shootsaton
         }
     }
 }
-

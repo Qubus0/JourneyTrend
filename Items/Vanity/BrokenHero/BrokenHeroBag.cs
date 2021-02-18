@@ -7,12 +7,14 @@ namespace JourneyTrend.Items.Vanity.BrokenHero
 {
     public class BrokenHeroBag : ModItem
     {
-        public override void SetStaticDefaults() {
+        public override void SetStaticDefaults()
+        {
             DisplayName.SetDefault("Broken Hero's Bag");
             Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
         }
 
-        public override void SetDefaults() {
+        public override void SetDefaults()
+        {
             item.maxStack = 999;
             item.consumable = true;
             item.width = 24;
@@ -20,15 +22,16 @@ namespace JourneyTrend.Items.Vanity.BrokenHero
             item.rare = ItemRarityID.Blue;
         }
 
-        public override bool CanRightClick() {
+        public override bool CanRightClick()
+        {
             return true;
         }
 
-        public override void RightClick(Player player) {
+        public override void RightClick(Player player)
+        {
             player.QuickSpawnItem(ItemType<BrokenHeroLegs>());
             player.QuickSpawnItem(ItemType<BrokenHeroBody>());
             player.QuickSpawnItem(ItemType<BrokenHeroHead>());
         }
-
     }
 }

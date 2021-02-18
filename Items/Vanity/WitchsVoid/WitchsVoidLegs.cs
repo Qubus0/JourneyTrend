@@ -11,7 +11,7 @@ namespace JourneyTrend.Items.Vanity.WitchsVoid
             DisplayName.SetDefault("Void's Boots");
             Tooltip.SetDefault("The numbers '2416' are etched on each piece...how strange.\nMade by Hexanne");
         }
-        
+
         public override void SetDefaults()
         {
             item.width = 18;

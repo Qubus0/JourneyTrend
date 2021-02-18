@@ -11,7 +11,7 @@ namespace JourneyTrend.Items.Vanity.HellWarden
             DisplayName.SetDefault("Hell Warden's Boots");
             Tooltip.SetDefault("Made by Adrian R.A.");
         }
-        
+
         public override void SetDefaults()
         {
             item.width = 18;
@@ -22,10 +22,10 @@ namespace JourneyTrend.Items.Vanity.HellWarden
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            var recipe = new ModRecipe(mod);
             recipe.AddTile(TileID.Hellforge);
             recipe.AddIngredient(ItemID.HellstoneBar, 5);
-            recipe.AddIngredient(ItemID.LavaBucket, 1);
+            recipe.AddIngredient(ItemID.LavaBucket);
             recipe.needLava = true;
             recipe.SetResult(this);
             recipe.AddRecipe();

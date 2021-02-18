@@ -1,5 +1,5 @@
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.Shark
 
@@ -12,6 +12,7 @@ namespace JourneyTrend.Items.Vanity.Shark
             DisplayName.SetDefault("Shark Mask");
             Tooltip.SetDefault("An inflated shark mask.\nDoes not let you breathe underwater.\nMade by Giobun");
         }
+
         public override void SetDefaults()
         {
             item.width = 18;
@@ -20,6 +21,7 @@ namespace JourneyTrend.Items.Vanity.Shark
             item.vanity = true;
             item.value = 0;
         }
+
         public override bool DrawHead()
         {
             return false;

@@ -1,4 +1,6 @@
 using System.Linq;
+using JourneyTrend.Items.Vanity.ForestDruid;
+using JourneyTrend.Items.Vanity.IronCore;
 using JourneyTrend.NPCs.Trader;
 using Terraria;
 using Terraria.ID;
@@ -9,39 +11,37 @@ namespace JourneyTrend.World
 {
     public class JourneyWorld : ModWorld
     {
-        private static NPC FindNPC(int npcType) => Main.npc.FirstOrDefault(npc => npc.type == npcType && npc.active);
+        private static NPC FindNPC(int npcType)
+        {
+            return Main.npc.FirstOrDefault(npc => npc.type == npcType && npc.active);
+        }
 
         public override void PreUpdate()
         {
             // Update the shop if there is a trader and it is a new day, or no shop
-            NPC vanityTrader = FindNPC(ModContent.NPCType<VanityTrader>());
+            var vanityTrader = FindNPC(NPCType<VanityTrader>());
             if (vanityTrader != null && (Main.dayTime && Main.time == 0 || VanityTrader.currentShop.Count <= 0))
-            {
                 VanityTrader.CreateNewShop();
-            }
         }
 
         public override void PostWorldGen()
         {
-            int[] itemsToPlaceInIceChests = {ItemType<Items.Vanity.IronCore.IronCoreBag>()};
-            int itemsToPlaceInIceChestsChoice = 0;
-            int[] itemsToPlaceInLivingChests = {ItemType<Items.Vanity.ForestDruid.ForestDruidBag>()};
-            int itemsToPlaceInLivingChestsChoice = 0;
+            int[] itemsToPlaceInIceChests = {ItemType<IronCoreBag>()};
+            var itemsToPlaceInIceChestsChoice = 0;
+            int[] itemsToPlaceInLivingChests = {ItemType<ForestDruidBag>()};
+            var itemsToPlaceInLivingChestsChoice = 0;
             // For all chests in world on generation
-            for (int chestIndex = 0; chestIndex < 1000; chestIndex++)
+            for (var chestIndex = 0; chestIndex < 1000; chestIndex++)
             {
-                Chest chest = Main.chest[chestIndex];
+                var chest = Main.chest[chestIndex];
                 // If chest type is Ice Chest
                 if (chest != null && Main.tile[chest.x, chest.y].type == TileID.Containers &&
                     Main.tile[chest.x, chest.y].frameX == 11 * 36)
-                {
                     // Sprite for Chests in Tiles_21 -> 12th: Ice Chest, counted from 0 is where 11 comes from. 36 comes from the width of each tile including padding
                     // 1 in 4 chests will have the following
                     if (Main.rand.Next(4) < 1)
-                    {
                         // For each inventory slot in the chest
-                        for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
-                        {
+                        for (var inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
                             // If selected inventory slot is empty
                             if (chest.item[inventoryIndex].type == ItemID.None &&
                                 itemsToPlaceInIceChestsChoice < itemsToPlaceInIceChests.Length)
@@ -51,21 +51,15 @@ namespace JourneyTrend.World
                                     .SetDefaults(itemsToPlaceInIceChests[itemsToPlaceInIceChestsChoice]);
                                 itemsToPlaceInIceChestsChoice++;
                             }
-                        }
-                    }
-                }
 
                 itemsToPlaceInIceChestsChoice = 0;
                 // If chest type is Living Chest
                 if (chest != null && Main.tile[chest.x, chest.y].type == TileID.Containers &&
                     Main.tile[chest.x, chest.y].frameX == 12 * 36)
-                {
                     // 1 in 2 Living Chests will have the following
                     if (Main.rand.Next(2) < 1)
-                    {
                         // For each inventory slot in the chest
-                        for (int inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
-                        {
+                        for (var inventoryIndex = 0; inventoryIndex < 40; inventoryIndex++)
                             // If selected inventory slot is empty
                             if (chest.item[inventoryIndex].type == ItemID.None && itemsToPlaceInLivingChestsChoice <
                                 itemsToPlaceInLivingChests.Length)
@@ -75,9 +69,6 @@ namespace JourneyTrend.World
                                     .SetDefaults(itemsToPlaceInLivingChests[itemsToPlaceInLivingChestsChoice]);
                                 itemsToPlaceInLivingChestsChoice++;
                             }
-                        }
-                    }
-                }
 
                 itemsToPlaceInLivingChestsChoice = 0;
             }

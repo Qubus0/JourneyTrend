@@ -26,9 +26,9 @@ namespace JourneyTrend.Items.Vanity.Invisible
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            var recipe = new ModRecipe(mod);
             recipe.AddTile(mod.GetTile("SewingMachine"));
-            recipe.AddIngredient(ItemID.Glass, 1);
+            recipe.AddIngredient(ItemID.Glass);
             recipe.needWater = true;
             recipe.SetResult(this);
             recipe.AddRecipe();

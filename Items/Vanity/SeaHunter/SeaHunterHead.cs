@@ -1,5 +1,5 @@
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.SeaHunter
 {
@@ -22,7 +22,7 @@ namespace JourneyTrend.Items.Vanity.SeaHunter
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            var recipe = new ModRecipe(mod);
             recipe.AddTile(TileID.Loom);
             recipe.AddIngredient(ItemID.Silk, 10);
             recipe.AddIngredient(ItemID.SharkFin, 5);

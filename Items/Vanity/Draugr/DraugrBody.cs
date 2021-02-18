@@ -1,5 +1,5 @@
-using Terraria.ModLoader;
 using Terraria.ID;
+using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.Draugr
 {
@@ -11,6 +11,7 @@ namespace JourneyTrend.Items.Vanity.Draugr
             DisplayName.SetDefault("Draugr Chestplate");
             Tooltip.SetDefault("Made by tic");
         }
+
         public override void SetDefaults()
         {
             item.width = 18;

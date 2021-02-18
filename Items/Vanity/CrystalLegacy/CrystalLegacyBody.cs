@@ -20,9 +20,10 @@ namespace JourneyTrend.Items.Vanity.CrystalLegacy
             item.vanity = true;
             item.value = 0;
         }
+
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            var recipe = new ModRecipe(mod);
             recipe.AddIngredient(ItemID.CrystalShard, 25);
             recipe.AddTile(TileID.Anvils);
             recipe.SetResult(this);

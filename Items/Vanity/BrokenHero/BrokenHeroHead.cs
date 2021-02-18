@@ -11,7 +11,7 @@ namespace JourneyTrend.Items.Vanity.BrokenHero
             DisplayName.SetDefault("Broken Hero Helmet");
             Tooltip.SetDefault("Smells of rust and mold\nMade by Kirichin");
         }
-        
+
         public override void SetDefaults()
         {
             item.width = 18;

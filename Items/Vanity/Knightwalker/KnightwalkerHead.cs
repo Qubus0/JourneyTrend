@@ -12,7 +12,7 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
             DisplayName.SetDefault("Helmet of the Knightwalker");
             Tooltip.SetDefault("Made by Dusk Ealain");
         }
-        
+
         public override void SetDefaults()
         {
             item.width = 18;
@@ -35,7 +35,7 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
         {
             if (WorldGen.crimson)
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                var recipe = new ModRecipe(mod);
                 recipe.AddTile(TileID.Hellforge);
                 recipe.AddIngredient(ItemID.UnicornHorn, 5);
                 recipe.AddIngredient(ItemID.TissueSample, 5);
@@ -46,7 +46,7 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
             }
             else
             {
-                ModRecipe recipe = new ModRecipe(mod);
+                var recipe = new ModRecipe(mod);
                 recipe.AddTile(TileID.Hellforge);
                 recipe.AddIngredient(ItemID.UnicornHorn, 5);
                 recipe.AddIngredient(ItemID.ShadowScale, 5);
@@ -58,4 +58,3 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
         }
     }
 }
-

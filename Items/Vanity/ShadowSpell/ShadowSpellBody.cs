@@ -24,13 +24,9 @@ namespace JourneyTrend.Items.Vanity.ShadowSpell
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
-            foreach (TooltipLine line2 in tooltips)
-            {
+            foreach (var line2 in tooltips)
                 if (line2.mod == "Terraria" && line2.Name == "ItemName")
-                {
                     line2.overrideColor = new Color(114, 34, 170);
-                }
-            }
         }
     }
 }

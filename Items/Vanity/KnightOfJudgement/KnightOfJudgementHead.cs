@@ -11,7 +11,7 @@ namespace JourneyTrend.Items.Vanity.KnightOfJudgement
             DisplayName.SetDefault("Knight of Judgement's Helmet");
             Tooltip.SetDefault("Made by Silvrsterlng");
         }
-        
+
         public override void SetDefaults()
         {
             item.width = 18;
@@ -21,4 +21,3 @@ namespace JourneyTrend.Items.Vanity.KnightOfJudgement
         }
     }
 }
-

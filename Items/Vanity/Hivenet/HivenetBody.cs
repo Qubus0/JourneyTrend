@@ -22,7 +22,7 @@ namespace JourneyTrend.Items.Vanity.Hivenet
 
         public override void AddRecipes()
         {
-            ModRecipe recipe = new ModRecipe(mod);
+            var recipe = new ModRecipe(mod);
             recipe.AddTile(TileID.Anvils);
             recipe.AddIngredient(ItemID.CopperBar, 10);
             recipe.AddIngredient(ItemID.BeeWax, 8);
