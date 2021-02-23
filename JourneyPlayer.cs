@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using JourneyTrend.Items.Vanity.Traveller;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -8,6 +9,7 @@ using Terraria.ModLoader;
 
 namespace JourneyTrend
 {
+    [SuppressMessage("ReSharper", "UseObjectOrCollectionInitializer")]
     public class JourneyPlayer : ModPlayer
     {
         // Accessory type capes (not idle animated)
@@ -47,13 +49,13 @@ namespace JourneyTrend
         public static readonly PlayerLayer StarlightDreamScarf = new PlayerLayer("JourneyTrend", "StarlightDreamScarf",
             PlayerLayer.BackAcc, delegate(PlayerDrawInfo drawInfo)
             {
-                //name here same as name								here.	Needs correct accesory here as well
+                //name here same as name								here.	Needs correct accessory here as well
                 if (!drawInfo.drawPlayer.dead)
                 {
                     var drawPlayer = drawInfo.drawPlayer;
                     var mod = ModLoader.GetMod("JourneyTrend");
                     var modPlayer = drawPlayer.GetModPlayer<JourneyPlayer>();
-                    if (modPlayer.StarlightBodyEquipped) //needs coorect equip bool
+                    if (modPlayer.StarlightBodyEquipped) //needs corect equip bool
                     {
                         Rectangle? rectangle = playerframe; //updates rect here
                         var newColor = Lighting.GetColor((int) ((drawInfo.position.X + drawPlayer.width / 2f) / 16f),
@@ -80,13 +82,13 @@ namespace JourneyTrend
         public static readonly PlayerLayer StarlightDreamScarfGlow = new PlayerLayer("JourneyTrend",
             "StarlightDreamScarfGlow", PlayerLayer.BackAcc, delegate(PlayerDrawInfo drawInfo)
             {
-                //name here same as name								here.	Needs correct accesory here as well
+                //name here same as name								here.	Needs correct accessory here as well
                 if (!drawInfo.drawPlayer.dead)
                 {
                     var drawPlayer = drawInfo.drawPlayer;
                     var mod = ModLoader.GetMod("JourneyTrend");
                     var modPlayer = drawPlayer.GetModPlayer<JourneyPlayer>();
-                    if (modPlayer.StarlightBodyEquipped) //needs coorect equip bool
+                    if (modPlayer.StarlightBodyEquipped) //needs corect equip bool
                     {
                         Rectangle? rectangle = playerframe; //updates rect here
                         var newColor = Color.White;
@@ -142,13 +144,13 @@ namespace JourneyTrend
         public static readonly PlayerLayer KnightwalkerBodyAddons = new PlayerLayer("JourneyTrend",
             "KnightwalkerBodyAddons", PlayerLayer.BackAcc, delegate(PlayerDrawInfo drawInfo)
             {
-                //name here same as name								here.	Needs correct accesory here as well
+                //name here same as name								here.	Needs correct accessory here as well
                 if (!drawInfo.drawPlayer.dead)
                 {
                     var drawPlayer = drawInfo.drawPlayer;
                     var mod = ModLoader.GetMod("JourneyTrend");
                     var modPlayer = drawPlayer.GetModPlayer<JourneyPlayer>();
-                    if (modPlayer.KnightwalkerBodyEquipped) //needs coorect equip bool
+                    if (modPlayer.KnightwalkerBodyEquipped) //needs corect equip bool
                     {
                         var texture =
                             mod.GetTexture(
@@ -171,7 +173,7 @@ namespace JourneyTrend
                         Main.playerDrawData.Add(item);
                     }
 
-                    if (modPlayer.KnightwalkerBodyEquipped) //needs coorect equip bool
+                    if (modPlayer.KnightwalkerBodyEquipped) //needs corect equip bool
                     {
                         Rectangle? rectangle = playerframe; //updates rect here
                         var color = Lighting.GetColor(
@@ -196,7 +198,7 @@ namespace JourneyTrend
                         Main.playerDrawData.Add(item);
                     }
 
-                    if (modPlayer.KnightwalkerBodyEquipped) //needs coorect equip bool
+                    if (modPlayer.KnightwalkerBodyEquipped) //needs corect equip bool
                     {
                         Texture2D texture;
                         if (!modPlayer.KnightwalkerAlt)
@@ -826,7 +828,7 @@ namespace JourneyTrend
 
         public bool StarlightBodyEquipped; // Corresponding equip bool
 
-        private int walkUpShift; //-2 when the walkcykle has 'up' frames
+        private int walkUpShift; //-2 when the walk cykle has 'up' frames
 
         // Starting Items
         public override void SetupStartInventory(IList<Item> items, bool mediumcoreDeath)
@@ -955,7 +957,7 @@ namespace JourneyTrend
             }
         }
 
-        public override void ResetEffects() //reset all the equip type bools
+        public override void ResetEffects() //reset all the equip type booleans
         {
             FoxTailsEquipped = false;
             NinetailedFlying = false;

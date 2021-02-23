@@ -285,7 +285,7 @@ namespace JourneyTrend.NPCs.Trader
         public override void SetChatButtons(ref string button, ref string button2)
         {
             button = Language.GetTextValue("LegacyInterface.28"); //shop
-            button2 = "Reroll Bags (10G)";
+            button2 = "Re-roll Bags (10G)";
         }
 
         public override void OnChatButtonClicked(bool firstButton, ref bool shop)

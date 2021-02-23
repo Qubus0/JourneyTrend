@@ -10,7 +10,7 @@ namespace JourneyTrend.Items.Vanity.ArcaneExosuit
         {
             DisplayName.SetDefault("Arcane Exosuit Femora");
             Tooltip.SetDefault(
-                "The armor shines a dull gold that could be enchanced with a solar coating\nMade by Faskeon");
+                "The armor shines a dull gold that could be enhanced with a solar coating\nMade by Faskeon");
         }
 
         public override void SetDefaults()
