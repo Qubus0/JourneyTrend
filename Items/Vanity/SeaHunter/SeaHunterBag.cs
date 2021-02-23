@@ -10,7 +10,7 @@ namespace JourneyTrend.Items.Vanity.SeaHunter
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Sea Hunter Bag");
-            Tooltip.SetDefault("Sprinting assisted by Faskeon\n{$CommonItemTooltip.RightClickToOpen}");
+            Tooltip.SetDefault("Spriting assisted by Faskeon\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()

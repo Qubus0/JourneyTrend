@@ -11,7 +11,7 @@ namespace JourneyTrend.Items.Vanity.Terra
         {
             DisplayName.SetDefault("Terra Bag");
             Tooltip.SetDefault(
-                "Sprinting assisted by Chan, Lotaru and Cakeboiii\n{$CommonItemTooltip.RightClickToOpen}");
+                "Spriting assisted by Chan, Lotaru and Cakeboiii\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()

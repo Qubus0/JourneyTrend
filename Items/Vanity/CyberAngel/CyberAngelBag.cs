@@ -11,7 +11,7 @@ namespace JourneyTrend.Items.Vanity.CyberAngel
         {
             DisplayName.SetDefault("Cyber Angel Bag");
             Tooltip.SetDefault(
-                "Sprinting assisted by Faskeon\nBag sprite by Polish_Soap\n{$CommonItemTooltip.RightClickToOpen}");
+                "Spriting assisted by Faskeon\nBag sprite by Polish_Soap\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()

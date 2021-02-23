@@ -10,7 +10,7 @@ namespace JourneyTrend.Items.Vanity.SwampHorror
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Swamp Horror Bag");
-            Tooltip.SetDefault("Sprinting assisted by Drdragonfly\n{$CommonItemTooltip.RightClickToOpen}");
+            Tooltip.SetDefault("Spriting assisted by Drdragonfly\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()

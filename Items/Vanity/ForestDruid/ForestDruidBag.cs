@@ -11,7 +11,7 @@ namespace JourneyTrend.Items.Vanity.ForestDruid
         {
             DisplayName.SetDefault("Forest Druid's Bag");
             Tooltip.SetDefault(
-                "Sprinting assisted by Drdragonfly\nBag sprite by Curt 'Bucket Face' Black\n{$CommonItemTooltip.RightClickToOpen}");
+                "Spriting assisted by Drdragonfly\nBag sprite by Curt 'Bucket Face' Black\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()

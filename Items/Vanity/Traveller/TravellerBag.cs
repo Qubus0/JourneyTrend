@@ -10,7 +10,7 @@ namespace JourneyTrend.Items.Vanity.Traveller
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("The Traveller's Bag");
-            Tooltip.SetDefault("Sprinting assisted by VaeloroK\n{$CommonItemTooltip.RightClickToOpen}");
+            Tooltip.SetDefault("Spriting assisted by VaeloroK\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()

@@ -10,7 +10,7 @@ namespace JourneyTrend.Items.Vanity.MagicGrill
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Magic Grill Megashark Bag");
-            Tooltip.SetDefault("Sprinting assisted by Faskeon\n{$CommonItemTooltip.RightClickToOpen}");
+            Tooltip.SetDefault("Spriting assisted by Faskeon\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()

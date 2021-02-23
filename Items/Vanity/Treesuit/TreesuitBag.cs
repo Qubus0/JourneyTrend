@@ -10,7 +10,7 @@ namespace JourneyTrend.Items.Vanity.Treesuit
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Treesuit Bag");
-            Tooltip.SetDefault("Sprinting assisted by Curt 'Bucket Face' Black\n{$CommonItemTooltip.RightClickToOpen}");
+            Tooltip.SetDefault("Spriting assisted by Curt 'Bucket Face' Black\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()
