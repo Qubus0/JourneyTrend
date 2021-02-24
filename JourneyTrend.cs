@@ -25,8 +25,8 @@ namespace JourneyTrend
             // Will show up in client.log under the JourneyTrend name
             Logger.InfoFormat("{0} Logs: ", Name);
             if (!Main.dedServ)
-                AddEquipTexture(null, EquipType.Legs, "PilotBody_Legs",
-                    "JourneyTrend/Items/Vanity/Pilot/PilotBody_Legs");
+                AddEquipTexture(null, EquipType.Legs, "PilotLegs_Legs",
+                    "JourneyTrend/Items/Vanity/Pilot/PilotLegs_Legs");
         }
 
         public override void Unload()
