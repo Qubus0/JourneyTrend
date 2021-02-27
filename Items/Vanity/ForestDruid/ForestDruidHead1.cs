@@ -22,11 +22,11 @@ namespace JourneyTrend.Items.Vanity.ForestDruid
 
         public override void AddRecipes()
         {
-            var recipe = new ModRecipe(mod);
-            recipe.AddTile(mod.GetTile("SewingMachine"));
-            recipe.AddRecipeGroup("JourneyTrend:DruidMasks");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            var alt = new ModRecipe(mod);
+            alt.AddTile(mod.GetTile("SewingMachine"));
+            alt.AddRecipeGroup("JourneyTrend:DruidMasks");
+            alt.SetResult(this);
+            alt.AddRecipe();
         }
     }
 }

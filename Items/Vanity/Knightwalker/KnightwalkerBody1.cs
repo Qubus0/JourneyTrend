@@ -33,11 +33,11 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
 
         public override void AddRecipes()
         {
-            var recipe = new ModRecipe(mod);
-            recipe.AddTile(mod.GetTile("SewingMachine"));
-            recipe.AddRecipeGroup("JourneyTrend:KnightwalkerCapes");
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            var alt = new ModRecipe(mod);
+            alt.AddTile(mod.GetTile("SewingMachine"));
+            alt.AddRecipeGroup("JourneyTrend:KnightwalkerCapes");
+            alt.SetResult(this);
+            alt.AddRecipe();
         }
     }
 }
