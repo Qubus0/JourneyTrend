@@ -25,9 +25,9 @@ namespace JourneyTrend.NPCs
                     if (Main.player[Main.myPlayer].ZoneJungle && Main.bloodMoon)
                     {
                         // 5 Gold from Witch Doctor, during Blood Moon, in Jungle - Single Item - Arcane Exosuit Set
-                        shop.item[nextSlot].SetDefaults(ItemType<ArcaneExosuitLegs>());
+                        shop.item[nextSlot].SetDefaults(ItemType<ArcaneExosuitHead>());
                         nextSlot++;
-                        shop.item[nextSlot].SetDefaults(ItemType<ArcaneExosuitLegs>());
+                        shop.item[nextSlot].SetDefaults(ItemType<ArcaneExosuitBody>());
                         nextSlot++;
                         shop.item[nextSlot].SetDefaults(ItemType<ArcaneExosuitLegs>());
                         nextSlot++;
@@ -70,8 +70,6 @@ namespace JourneyTrend.NPCs
                     if (Main.dayTime)
                     {
                         shop.item[nextSlot].SetDefaults(ItemType<CyberAngelHead>());
-                        nextSlot++;
-                        shop.item[nextSlot].SetDefaults(ItemType<CyberAngelHead1>());
                         nextSlot++;
                         shop.item[nextSlot].SetDefaults(ItemType<CyberAngelBody>());
                         nextSlot++;
