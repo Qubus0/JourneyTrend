@@ -161,10 +161,11 @@ namespace JourneyTrend.NPCs
 
             if (npc.type == NPCID.WyvernHead && Main.rand.Next(3) == 0)
             {
-                if (Main.rand.Next(2) == 0)
-                    Item.NewItem(npc.getRect(), ItemType<PilotHead>());
-                else
-                    Item.NewItem(npc.getRect(), ItemType<PilotBody>());
+                var dropChooser = new WeightedRandom<int>();
+                dropChooser.Add(ItemType<PilotHead>());
+                dropChooser.Add(ItemType<PilotBody>());
+                int choice = dropChooser;
+                Item.NewItem(npc.getRect(), choice);
             }
 
             for (var i = 3; i < 9; i++) //loops through armor slots 3 to 9 (non vanity accessories)
