@@ -53,8 +53,26 @@ namespace JourneyTrend.NPCs
                 Item.NewItem(npc.getRect(), choice);
             }
 
-            if ((npc.type == NPCID.NebulaBeast || npc.type == NPCID.NebulaBrain || npc.type == NPCID.NebulaHeadcrab ||
-                 npc.type == NPCID.NebulaSoldier) && Main.rand.Next(999) < 1)
+            if ((npc.type == NPCID.MoonLordCore ||
+                 npc.type == NPCID.NebulaBeast ||
+                 npc.type == NPCID.NebulaBrain ||
+                 npc.type == NPCID.NebulaHeadcrab ||
+                 npc.type == NPCID.NebulaSoldier ||
+                 npc.type == NPCID.StardustWormHead ||
+                 npc.type == NPCID.StardustCellBig ||
+                 npc.type == NPCID.StardustJellyfishBig ||
+                 npc.type == NPCID.StardustSpiderBig ||
+                 npc.type == NPCID.StardustSoldier ||
+                 npc.type == NPCID.SolarCrawltipedeHead ||
+                 npc.type == NPCID.SolarDrakomire ||
+                 npc.type == NPCID.SolarDrakomireRider ||
+                 npc.type == NPCID.SolarSpearman ||
+                 npc.type == NPCID.SolarSroller ||
+                 npc.type == NPCID.SolarCorite ||
+                 npc.type == NPCID.SolarSolenian ||
+                 npc.type == NPCID.VortexRifleman ||
+                 npc.type == NPCID.VortexHornetQueen ||
+                 npc.type == NPCID.VortexSoldier) && Main.rand.Next(999) < 1)
             {
                 // 1 in 999 from Nebula Enemies - Single Item - Cosmic Terror Set
                 var dropChooser = new WeightedRandom<int>();
@@ -133,14 +151,8 @@ namespace JourneyTrend.NPCs
                 Item.NewItem(npc.getRect(), choice);
             }
 
-            if (npc.type == NPCID.Mothron && Main.rand.Next(20) == 1)
-            {
-                Item.NewItem(npc.getRect(), ItemType<TerraHead>());
-                Item.NewItem(npc.getRect(), ItemType<TerraBody>());
-                Item.NewItem(npc.getRect(), ItemType<TerraLegs>());
-            }
-
-            if ((npc.type == NPCID.Eyezor || npc.type == NPCID.Nailhead || npc.type == NPCID.Reaper) &&
+            if (npc.type == NPCID.Mothron && Main.rand.Next(20) == 1 ||
+                (npc.type == NPCID.Eyezor || npc.type == NPCID.Nailhead || npc.type == NPCID.Reaper) &&
                 Main.rand.Next(40) == 1)
             {
                 Item.NewItem(npc.getRect(), ItemType<TerraHead>());
