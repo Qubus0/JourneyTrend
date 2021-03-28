@@ -12,7 +12,7 @@ namespace JourneyTrend.Items.Vanity.WitchsVoid
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Witch's Void Bag");
-            Tooltip.SetDefault("Spriting assisted by Pyromma{$CommonItemTooltip.RightClickToOpen}");
+            Tooltip.SetDefault("Spriting assisted by Pyromma\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()
