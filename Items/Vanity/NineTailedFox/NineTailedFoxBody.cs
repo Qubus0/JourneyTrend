@@ -9,6 +9,7 @@ namespace JourneyTrend.Items.Vanity.NineTailedFox
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Nine-Tailed Fox Chestplate");
+            Tooltip.SetDefault("Made by Invalid");
         }
 
         public override void SetDefaults()

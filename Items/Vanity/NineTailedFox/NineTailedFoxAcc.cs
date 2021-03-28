@@ -10,7 +10,7 @@ namespace JourneyTrend.Items.Vanity.NineTailedFox
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Nine-Tailed Fox Tails");
-            Tooltip.SetDefault("Why does the inventory sprite only show 7 tails? Is this a scam?");
+            Tooltip.SetDefault("Why does the inventory sprite only show 7 tails? Is this a scam?\nMade by Invalid");
         }
 
         public override void SetDefaults()
