@@ -259,6 +259,114 @@ namespace JourneyTrend
                 }
             }); //don't forget to change ModifyDrawlayers at the bottom
 
+
+        public bool PlanetaryHeadEquipped;
+        private int PlanetaryHeadRingTickToFrame;
+        private int PlanetaryHeadRingFrameUpdater;
+        private int PlanetaryHeadRingFrameCounter = 0;
+        private int PlanetaryHeadWaterTickToFrame;
+        private int PlanetaryHeadWaterFrameUpdater;
+        private int PlanetaryHeadWaterFrameCounter = 0;
+
+        public static readonly PlayerLayer PlanetaryHeadAddons = new PlayerLayer("JourneyTrend", "PlanetaryHeadAddons",
+            PlayerLayer.Head, delegate(PlayerDrawInfo drawInfo)
+            {
+                if (!drawInfo.drawPlayer.dead)
+                {
+                    Player drawPlayer = drawInfo.drawPlayer;
+                    Mod mod = ModLoader.GetMod("JourneyTrend");
+                    JourneyPlayer modPlayer = drawPlayer.GetModPlayer<JourneyPlayer>();
+                    if (modPlayer.PlanetaryHeadEquipped)
+                    {
+                        Texture2D texture =
+                            mod.GetTexture(
+                                "Items/Vanity/Planetary/PlanetaryHeadRingBack_Idle"); //needs correct sprite path
+                        int num = texture.Height / 4; //4 -> number of frames
+                        Rectangle? rectangle = new Rectangle(0, modPlayer.PlanetaryHeadRingFrameUpdater * num,
+                            texture.Width, num); //frame updater
+                        Color color = Lighting.GetColor(
+                            (int) ((drawInfo.position.X + drawPlayer.width / 2f) / 16f), // ) replace these 3 lines
+                            (int) ((drawInfo.position.Y + drawPlayer.height / 2f) /
+                                   16f)); // ) with Color color = Color.White;
+                        color = new Color(color.R, color.B, color.G,
+                            (int) ((1 - drawPlayer.shadow) * 255)); // ) for glowmask
+                        int num2 = (int) (drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X +
+                                          drawPlayer.direction);
+                        int num3 = (int) (drawInfo.position.Y + drawPlayer.height / 2f - Main.screenPosition.Y - 11f +
+                                          modPlayer.walkUpShift);
+                        DrawData item = new DrawData(texture, new Vector2(num2, num3), rectangle,
+                            color, 0f, new Vector2(texture.Width / 2f, num / 2f), 1f, drawInfo.spriteEffects, 0)
+                        {
+                            shader = drawPlayer.cHead //use correct shader (c...)
+                        };
+                        Main.playerDrawData.Add(item);
+                    }
+
+                    if (modPlayer.PlanetaryHeadEquipped)
+                    {
+                        Texture2D texture =
+                            mod.GetTexture(
+                                "Items/Vanity/Planetary/PlanetaryHeadWater_Idle"); //needs correct sprite path
+                        int num = texture.Height / 4; //4 -> number of frames
+                        Rectangle? rectangle = new Rectangle(0, modPlayer.PlanetaryHeadWaterFrameUpdater * num,
+                            texture.Width, num); //frame updater
+                        Color color = Lighting.GetColor(
+                            (int) ((drawInfo.position.X + drawPlayer.width / 2f) / 16f), // ) replace these 3 lines
+                            (int) ((drawInfo.position.Y + drawPlayer.height / 2f) /
+                                   16f)); // ) with Color color = Color.White;
+                        color = new Color(color.R, color.B, color.G,
+                            (int) ((1 - drawPlayer.shadow) * 255)); // ) for glowmask
+                        int num2 = (int) (drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X +
+                                          drawPlayer.direction);
+                        int num3 = (int) (drawInfo.position.Y + drawPlayer.height / 2f - Main.screenPosition.Y - 11f +
+                                          modPlayer.walkUpShift);
+                        DrawData item = new DrawData(texture, new Vector2(num2, num3), rectangle,
+                            color, 0f, new Vector2(texture.Width / 2f, num / 2f), 1f, drawInfo.spriteEffects, 0)
+                        {
+                            shader = drawPlayer.cHead //use correct shader (c...)
+                        };
+                        Main.playerDrawData.Add(item);
+                    }
+                }
+            }); //don't forget to change ModifyDrawlayers at the bottom
+
+        public static readonly PlayerLayer PlanetaryHeadAddonsFront = new PlayerLayer("JourneyTrend",
+            "PlanetaryHeadAddonsFront", PlayerLayer.Head, delegate(PlayerDrawInfo drawInfo)
+            {
+                if (!drawInfo.drawPlayer.dead)
+                {
+                    Player drawPlayer = drawInfo.drawPlayer;
+                    Mod mod = ModLoader.GetMod("JourneyTrend");
+                    JourneyPlayer modPlayer = drawPlayer.GetModPlayer<JourneyPlayer>();
+                    if (modPlayer.PlanetaryHeadEquipped)
+                    {
+                        Texture2D texture =
+                            mod.GetTexture(
+                                "Items/Vanity/Planetary/PlanetaryHeadRingFront_Idle"); //needs correct sprite path
+                        int num = texture.Height / 4; //4 -> number of frames
+                        Rectangle? rectangle = new Rectangle(0, modPlayer.PlanetaryHeadRingFrameUpdater * num,
+                            texture.Width, num); //frame updater
+                        Color color = Lighting.GetColor(
+                            (int) ((drawInfo.position.X + drawPlayer.width / 2f) / 16f), // ) replace these 3 lines
+                            (int) ((drawInfo.position.Y + drawPlayer.height / 2f) /
+                                   16f)); // ) with Color color = Color.White;
+                        color = new Color(color.R, color.B, color.G,
+                            (int) ((1 - drawPlayer.shadow) * 255)); // ) for glowmask
+                        int num2 = (int) (drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X +
+                                          drawPlayer.direction);
+                        int num3 = (int) (drawInfo.position.Y + drawPlayer.height / 2f - Main.screenPosition.Y - 11f +
+                                          modPlayer.walkUpShift);
+                        DrawData item = new DrawData(texture, new Vector2(num2, num3), rectangle,
+                            color, 0f, new Vector2(texture.Width / 2f, num / 2f), 1f, drawInfo.spriteEffects, 0)
+                        {
+                            shader = drawPlayer.cHead //use correct shader (c...)
+                        };
+                        Main.playerDrawData.Add(item);
+                    }
+                }
+            });
+
+
         //Glowmask business
         public static readonly PlayerLayer ContainmentSuitHeadGlowmask = new PlayerLayer("JourneyTrend",
             "ContainmentSuitHeadGlowmask", PlayerLayer.Head, delegate(PlayerDrawInfo drawInfo)
@@ -805,6 +913,7 @@ namespace JourneyTrend
         // Idle Animating Fox Tails
         public bool FoxTailsEquipped;
         private bool isIdle; //true if not moving
+        private bool isJumping; //true if the 6th player frame (jump) is used
         public bool KnightwalkerAlt;
 
 
@@ -859,6 +968,8 @@ namespace JourneyTrend
 
             //0,frameNum * frame hei, width, height
             var pl = player.bodyFrame.Y / 56;
+            if (pl == 5)
+                isJumping = true;
             if (pl == 7 || pl == 8 || pl == 9 || pl == 14 || pl == 15 || pl == 16)
                 walkUpShift = -2;
             else
@@ -955,6 +1066,46 @@ namespace JourneyTrend
                 else
                     NineTailedFrameUpdater = 10;
             }
+
+            //Planetary Head
+            if (PlanetaryHeadEquipped)
+            {
+                //Water (Idle)
+                if (isIdle || isJumping || player.grapCount > 0)
+                {
+                    PlanetaryHeadWaterTickToFrame++;
+                    if (PlanetaryHeadWaterTickToFrame == 8) //every 5 ticks update
+                    {
+                        PlanetaryHeadWaterFrameCounter++; //next frame
+                        if (PlanetaryHeadWaterFrameCounter >= 4) //loop all frames from 0 to 3
+                        {
+                            PlanetaryHeadWaterFrameCounter = 0; //reset to first frame
+                        }
+
+                        PlanetaryHeadWaterTickToFrame = 0; //reset tick counter
+                    }
+                }
+                else
+                {
+                    PlanetaryHeadWaterFrameCounter = 5; //set to empty frame if not idle
+                }
+
+                //Ring (Always)
+                PlanetaryHeadRingTickToFrame++;
+                if (PlanetaryHeadRingTickToFrame == 10) //every 5 ticks update
+                {
+                    PlanetaryHeadRingFrameCounter++; //next frame
+                    if (PlanetaryHeadRingFrameCounter >= 4) //loop all frames from 0 to 3
+                    {
+                        PlanetaryHeadRingFrameCounter = 0; //reset to first frame
+                    }
+
+                    PlanetaryHeadRingTickToFrame = 0; //reset tick counter
+                }
+            }
+
+            PlanetaryHeadWaterFrameUpdater = PlanetaryHeadWaterFrameCounter;
+            PlanetaryHeadRingFrameUpdater = PlanetaryHeadRingFrameCounter;
         }
 
         public override void ResetEffects() //reset all the equip type booleans
@@ -965,7 +1116,9 @@ namespace JourneyTrend
             KnightwalkerBodyEquipped = false;
             KnightwalkerHeadEquipped = false;
             BubbleheadHeadEquipped = false;
+            PlanetaryHeadEquipped = false;
             isIdle = false;
+            isJumping = false;
         }
 
         //don't forget to add the layer below
@@ -974,6 +1127,7 @@ namespace JourneyTrend
         {
             var legsIndex = layers.IndexOf(PlayerLayer.Skin);
             var headIndex = layers.IndexOf(PlayerLayer.Head);
+            int armsIndex = layers.IndexOf(PlayerLayer.Arms);
             if (StarlightBodyEquipped)
             {
                 layers.Insert(legsIndex - 1, StarlightDreamScarfGlow);
@@ -985,6 +1139,12 @@ namespace JourneyTrend
             if (KnightwalkerBodyEquipped) layers.Insert(legsIndex - 1, KnightwalkerBodyAddons);
 
             if (BubbleheadHeadEquipped) layers.Insert(headIndex + 1, BubbleheadHeadAddons);
+
+            if (PlanetaryHeadEquipped)
+            {
+                layers.Insert(armsIndex + 1, PlanetaryHeadAddonsFront);
+                layers.Insert(headIndex + 1, PlanetaryHeadAddons);
+            }
 
             if (FoxTailsEquipped) layers.Insert(legsIndex - 1, NineTailedFoxTail);
 

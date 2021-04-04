@@ -1,0 +1,20 @@
+Planetary Hat: TBD
+Planetary Shirt: TBD
+Planetary Pants: TBD
+
+Credited as: "Goddigger3_1" 
+
+Method of obtaining:
+
+1 in 4 sky island chests
+- Head: TBD
+- Torso: TBD
+- Legs: TBD
+
+Rarity Colour: TBD
+Blue
+
+Additional Info:
+
+- Idle SpriteSheet "Head Water" is to be played only when the player is still (and while grappling if possible?)
+- Idle SpriteSheet "Head Ring" is to be continually played.
