@@ -12,6 +12,14 @@ namespace JourneyTrend.Items.Vanity.SeaHunter
             Tooltip.SetDefault("May the hunt commence\nMade by Authon");
         }
 
+        public override void SetDefaults()
+        {
+            item.width = 18;
+            item.height = 18;
+            item.rare = ItemRarityID.Blue;
+            item.vanity = true;
+        }
+
         public override void AddRecipes()
         {
             var recipe = new ModRecipe(mod);
@@ -20,14 +28,6 @@ namespace JourneyTrend.Items.Vanity.SeaHunter
             recipe.AddIngredient(ItemID.SharkFin, 5);
             recipe.SetResult(this);
             recipe.AddRecipe();
-        }
-
-        public override void SetDefaults()
-        {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Blue;
-            item.vanity = true;
         }
     }
 }
