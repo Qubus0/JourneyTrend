@@ -14,16 +14,16 @@ namespace JourneyTrend.Items.Vanity.Pilot
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 14;
-            item.rare = ItemRarityID.LightRed;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 14;
+            Item.rare = ItemRarityID.LightRed;
+            Item.vanity = true;
         }
 
         public override void SetMatch(bool male, ref int equipSlot, ref bool robes)
         {
             robes = true;
-            equipSlot = mod.GetEquipSlot("PilotLegs_Legs", EquipType.Legs);
+            equipSlot = Mod.GetEquipSlot("PilotLegs_Legs", EquipType.Legs);
         }
     }
 }

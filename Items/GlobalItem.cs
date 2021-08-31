@@ -42,7 +42,7 @@ namespace JourneyTrend.Items
 
     public class Offset : GlobalItem
     {
-        public override void UseStyle(Item item, Player player)
+        public override void UseStyle(Item item, Player player, Rectangle rectangle)
         {
             if (player.GetModPlayer<JourneyPlayer>().doOffset) //updated in RookieBody.cs
             {

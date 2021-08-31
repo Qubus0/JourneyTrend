@@ -14,21 +14,20 @@ namespace JourneyTrend.Items.Vanity.ContainmentSuit
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Green;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Green;
+            Item.vanity = true;
         }
 
         public override void AddRecipes()
         {
-            var recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.Silk, 3);
-            recipe.AddIngredient(ItemID.Wire, 4);
-            recipe.AddRecipeGroup("IronBar", 3);
-            recipe.AddTile(TileID.HeavyWorkBench);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            CreateRecipe()
+                .AddIngredient(ItemID.Silk, 3)
+                .AddIngredient(ItemID.Wire, 4)
+                .AddRecipeGroup("IronBar", 3)
+                .AddTile(TileID.HeavyWorkBench)
+                .Register();
         }
     }
 }

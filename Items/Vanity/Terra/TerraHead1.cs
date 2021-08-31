@@ -15,10 +15,10 @@ namespace JourneyTrend.Items.Vanity.Terra
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Lime;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Lime;
+            Item.vanity = true;
         }
 
         public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
@@ -28,11 +28,10 @@ namespace JourneyTrend.Items.Vanity.Terra
 
         public override void AddRecipes()
         {
-            var alt = new ModRecipe(mod);
-            alt.AddTile(mod.GetTile("SewingMachine"));
-            alt.AddRecipeGroup("JourneyTrend:TerraCrowns");
-            alt.SetResult(this);
-            alt.AddRecipe();
+            CreateRecipe()
+            .AddTile<Tiles.SewingMachine>()
+            .AddRecipeGroup("JourneyTrend:TerraCrowns")
+            .Register();
         }
     }
 }

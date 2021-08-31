@@ -48,6 +48,7 @@ using JourneyTrend.Items.Vanity.Treesuit;
 using JourneyTrend.Items.Vanity.WitchsVoid;
 using JourneyTrend.Items.Vanity.WyvernRider;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
@@ -61,9 +62,9 @@ namespace JourneyTrend.NPCs.Trader
     {
         private const int BagPrice = 50000; // same price for every bag
 
-        public static List<Item> currentShop = new List<Item>();
+        public static List<Item> currentShop;
 
-        private static readonly int[] shopItems =
+        private static readonly int[] ShopItems =
         {
             ModContent.ItemType<AndromedaPilotBag>(),
             ModContent.ItemType<ArcaneExosuitBag>(),
@@ -121,8 +122,8 @@ namespace JourneyTrend.NPCs.Trader
             var itemIdList = new List<int>();
             for (var shopSlots = 0; shopSlots < Main.rand.Next(10, 20); shopSlots++)
             {
-                var newItem = shopItems[Main.rand.Next(0, shopItems.Length)];
-                while (itemIdList.Contains(newItem)) newItem = shopItems[Main.rand.Next(0, shopItems.Length)];
+                var newItem = ShopItems[Main.rand.Next(0, ShopItems.Length)];
+                while (itemIdList.Contains(newItem)) newItem = ShopItems[Main.rand.Next(0, ShopItems.Length)];
 
                 itemIdList.Add(newItem);
             }
@@ -139,39 +140,33 @@ namespace JourneyTrend.NPCs.Trader
         }
         //public override string[] AltTextures => new[] {"JourneyTrend/NPCs/Trader/VanityTrader_Alt_1"};
 
-        public override bool Autoload(ref string name)
-        {
-            name = "Vanity Trader";
-            return mod.Properties.Autoload;
-        }
-
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Vanity Trader");
-            Main.npcFrameCount[npc.type] = 25;
-            NPCID.Sets.ExtraFramesCount[npc.type] = 9;
-            NPCID.Sets.AttackFrameCount[npc.type] = 4;
-            NPCID.Sets.DangerDetectRange[npc.type] = 700;
-            NPCID.Sets.AttackType[npc.type] = 0;
-            NPCID.Sets.AttackTime[npc.type] = 90;
-            NPCID.Sets.AttackAverageChance[npc.type] = 30;
-            NPCID.Sets.HatOffsetY[npc.type] = -8;
+            Main.npcFrameCount[NPC.type] = 25;
+            NPCID.Sets.ExtraFramesCount[NPC.type] = 9;
+            NPCID.Sets.AttackFrameCount[NPC.type] = 4;
+            NPCID.Sets.DangerDetectRange[NPC.type] = 700;
+            NPCID.Sets.AttackType[NPC.type] = 0;
+            NPCID.Sets.AttackTime[NPC.type] = 90;
+            NPCID.Sets.AttackAverageChance[NPC.type] = 30;
+            NPCID.Sets.HatOffsetY[NPC.type] = -8;
         }
 
         public override void SetDefaults()
         {
-            npc.townNPC = true;
-            npc.friendly = true;
-            npc.width = 18;
-            npc.height = 40;
-            npc.aiStyle = 7;
-            npc.damage = 10;
-            npc.defense = 15;
-            npc.lifeMax = 250;
-            npc.HitSound = SoundID.NPCHit1;
-            npc.DeathSound = SoundID.NPCDeath1;
-            npc.knockBackResist = 0.5f;
-            animationType = NPCID.Guide;
+            NPC.townNPC = true;
+            NPC.friendly = true;
+            NPC.width = 18;
+            NPC.height = 40;
+            NPC.aiStyle = 7;
+            NPC.damage = 10;
+            NPC.defense = 15;
+            NPC.lifeMax = 250;
+            NPC.HitSound = SoundID.NPCHit1;
+            NPC.DeathSound = SoundID.NPCDeath1;
+            NPC.knockBackResist = 0.5f;
+            AnimationType = NPCID.Guide;
         }
 
         public static TagCompound Save()
@@ -200,10 +195,10 @@ namespace JourneyTrend.NPCs.Trader
 
         public override void HitEffect(int hitDirection, double damage)
         {
-            var num = npc.life > 0 ? 5 : 20;
-            for (var k = 0; k < num; k++) Dust.NewDust(npc.position, npc.width, npc.height, DustID.Silk);
+            var num = NPC.life > 0 ? 5 : 20;
+            for (var k = 0; k < num; k++) Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Silk);
 
-            if (npc.life <= 0) currentShop.Clear();
+            if (NPC.life <= 0) currentShop.Clear();
         }
 
         public override bool CanTownNPCSpawn(int numTownNPCs, int money)
@@ -259,11 +254,6 @@ namespace JourneyTrend.NPCs.Trader
                     return "What? Oh, that. No I don't have a face.";
                 case 1:
                     return "So you've never bought second hand before?";
-                // {
-                //     // Main.npcChatCornerItem shows a single item in the corner, like the Angler Quest chat.
-                //     Main.npcChatCornerItem = ItemID.HiveBackpack;
-                //     return $"Hey, if you find a [i:{ItemID.HiveBackpack}], I can upgrade it for you.";
-                // }
                 case 2:
                     return "What do you mean by »cosplay«?";
                 case 3:
@@ -299,8 +289,8 @@ namespace JourneyTrend.NPCs.Trader
             }
             else
             {
-                Main.PlaySound(SoundID.Grab);
-                Main.PlaySound(SoundID.Coins);
+                SoundEngine.PlaySound(SoundID.Grab);
+                SoundEngine.PlaySound(SoundID.Coins);
                 Main.LocalPlayer.BuyItem(100000);
                 Main.npcChatText = "";
                 CreateNewShop();

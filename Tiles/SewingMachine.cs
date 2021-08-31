@@ -14,7 +14,7 @@ namespace JourneyTrend.Tiles
     {
         private new readonly int animationFrameHeight = 20;
 
-        public override void SetDefaults()
+        public override void SetStaticDefaults()
         {
             Main.tileFrameImportant[Type] = true;
             Main.tileNoAttach[Type] = true;
@@ -31,8 +31,7 @@ namespace JourneyTrend.Tiles
             var name = CreateMapEntryName();
             name.SetDefault("Sewing Machine");
             AddMapEntry(new Color(200, 200, 200), name);
-            disableSmartCursor = true;
-            adjTiles = new int[] {TileID.WorkBenches};
+            AdjTiles = new int[] {TileID.WorkBenches};
             AddMapEntry(new Color(200, 200, 200), name);
         }
 

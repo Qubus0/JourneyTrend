@@ -19,11 +19,11 @@ namespace JourneyTrend.Items.Vanity.DeepDiver
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Blue;
-            item.vanity = true;
-            item.value = 100000; //only if sold.
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Blue;
+            Item.vanity = true;
+            Item.value = 100000; //only if sold.
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -33,7 +33,7 @@ namespace JourneyTrend.Items.Vanity.DeepDiver
                     line2.overrideColor = new Color(15, 4, 68);
         }
 
-        public override void UpdateVanity(Player player, EquipType type)
+        public override void UpdateVanity(Player player)
         {
             Lighting.AddLight(player.Center, 226 * adj, 255 * adj, 88 * adj);
         }

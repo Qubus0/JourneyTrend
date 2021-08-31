@@ -14,11 +14,11 @@ namespace JourneyTrend.Items.Vanity.Birdie
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.LightRed;
-            item.vanity = true;
-            item.value = 50000;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.LightRed;
+            Item.vanity = true;
+            Item.value = 50000;
         }
 
         public override void DrawHands(ref bool drawHands, ref bool drawArms)

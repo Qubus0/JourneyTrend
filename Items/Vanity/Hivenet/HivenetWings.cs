@@ -17,25 +17,24 @@ namespace JourneyTrend.Items.Vanity.Hivenet
 
         public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 20;
-            item.rare = ItemRarityID.Green;
-            item.vanity = true;
-            item.accessory = true;
+            Item.width = 22;
+            Item.height = 20;
+            Item.rare = ItemRarityID.Green;
+            Item.vanity = true;
+            Item.accessory = true;
         }
 
         public override void AddRecipes()
         {
-            var recipe = new ModRecipe(mod);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.AddIngredient(ItemID.BeeWax, 5);
-            recipe.AddIngredient(ItemID.SoulofFlight, 5);
-            recipe.AddIngredient(ItemID.Wire, 15);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            CreateRecipe()
+                .AddTile(TileID.MythrilAnvil)
+                .AddIngredient(ItemID.BeeWax, 5)
+                .AddIngredient(ItemID.SoulofFlight, 5)
+                .AddIngredient(ItemID.Wire, 15)
+                .Register();
         }
 
-        public override void UpdateVanity(Player player, EquipType type)
+        public override void UpdateVanity(Player player)
         {
             //if (Main.rand.NextFloat() < 0.02f)		//for random particle spawns
 

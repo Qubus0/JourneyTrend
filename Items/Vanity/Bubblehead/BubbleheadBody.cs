@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -14,23 +15,22 @@ namespace JourneyTrend.Items.Vanity.Bubblehead
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.LightRed;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.LightRed;
+            Item.vanity = true;
         }
 
         public override void AddRecipes()
         {
-            var recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.BottledWater);
-            recipe.AddIngredient(ItemID.Switch);
-            recipe.AddIngredient(ItemID.SoulofNight);
-            recipe.AddIngredient(ItemID.Wire, 20);
-            recipe.AddRecipeGroup("IronBar", 3);
-            recipe.needWater = true;
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            CreateRecipe()
+                .AddIngredient(ItemID.BottledWater)
+                .AddIngredient(ItemID.Switch)
+                .AddIngredient(ItemID.SoulofNight)
+                .AddIngredient(ItemID.Wire, 20)
+                .AddRecipeGroup("IronBar", 3)
+                .AddCondition(Recipe.Condition.NearWater)
+                .Register();
         }
     }
 }

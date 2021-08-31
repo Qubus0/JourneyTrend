@@ -15,20 +15,19 @@ namespace JourneyTrend.Items.Vanity.CyberAngel
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Cyan;
-            item.vanity = true;
-            item.value = 250000; //only if sold.
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Cyan;
+            Item.vanity = true;
+            Item.value = 250000; //only if sold.
         }
 
         public override void AddRecipes()
         {
-            var alt = new ModRecipe(mod);
-            alt.AddTile(mod.GetTile("SewingMachine"));
-            alt.AddRecipeGroup("JourneyTrend:CyberHalos");
-            alt.SetResult(this);
-            alt.AddRecipe();
+            CreateRecipe()
+            .AddTile<Tiles.SewingMachine>()
+            .AddRecipeGroup("JourneyTrend:CyberHalos")
+            .Register();
         }
     }
 }

@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -14,10 +15,10 @@ namespace JourneyTrend.Items.Vanity.HellWarden
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.LightRed;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.LightRed;
+            Item.vanity = true;
         }
 
         public override void DrawHands(ref bool drawHands, ref bool drawArms)
@@ -28,13 +29,12 @@ namespace JourneyTrend.Items.Vanity.HellWarden
 
         public override void AddRecipes()
         {
-            var recipe = new ModRecipe(mod);
-            recipe.AddTile(TileID.Hellforge);
-            recipe.AddIngredient(ItemID.HellstoneBar, 5);
-            recipe.AddIngredient(ItemID.LavaBucket);
-            recipe.needLava = true;
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            CreateRecipe()
+                .AddTile(TileID.Hellforge)
+                .AddIngredient(ItemID.HellstoneBar, 5)
+                .AddIngredient(ItemID.LavaBucket)
+                .AddCondition(Recipe.Condition.NearLava)
+                .Register();
         }
     }
 }

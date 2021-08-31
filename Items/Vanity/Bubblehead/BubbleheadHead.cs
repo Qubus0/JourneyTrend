@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -15,26 +16,24 @@ namespace JourneyTrend.Items.Vanity.Bubblehead
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.LightRed;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.LightRed;
+            Item.vanity = true;
         }
 
         public override void AddRecipes()
         {
-            var recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.FishBowl);
-            recipe.AddIngredient(ItemID.SoulofLight);
-            recipe.needWater = true;
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            CreateRecipe()
+                .AddIngredient(ItemID.FishBowl)
+                .AddIngredient(ItemID.SoulofLight)
+                .AddCondition(Recipe.Condition.NearWater)
+                .Register();
 
-            var alt = new ModRecipe(mod);
-            alt.AddTile(mod.GetTile("SewingMachine"));
-            alt.AddRecipeGroup("JourneyTrend:BubbleHeads");
-            alt.SetResult(this);
-            alt.AddRecipe();
+            CreateRecipe()
+                .AddTile<Tiles.SewingMachine>()
+                .AddRecipeGroup("JourneyTrend:BubbleHeads")
+                .Register();
         }
 
         public override bool DrawHead()
@@ -42,7 +41,7 @@ namespace JourneyTrend.Items.Vanity.Bubblehead
             return false;
         }
 
-        public override void UpdateVanity(Player player, EquipType type)
+        public override void UpdateVanity(Player player)
         {
             player.GetModPlayer<JourneyPlayer>().BubbleheadHeadEquipped = true;
         }

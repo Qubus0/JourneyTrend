@@ -17,24 +17,23 @@ namespace JourneyTrend.Items.Vanity.WyvernRider
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Cyan;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Cyan;
+            Item.vanity = true;
         }
 
         public override void AddRecipes()
         {
-            var recipe = new ModRecipe(mod);
-            recipe.AddTile(TileID.SkyMill);
-            recipe.AddIngredient(ItemID.Silk, 5);
-            recipe.AddIngredient(ItemID.Cloud, 8);
-            recipe.AddIngredient(ItemID.SoulofFlight);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            CreateRecipe()
+                .AddTile(TileID.SkyMill)
+                .AddIngredient(ItemID.Silk, 5)
+                .AddIngredient(ItemID.Cloud, 8)
+                .AddIngredient(ItemID.SoulofFlight)
+                .Register();
         }
 
-        public override void UpdateVanity(Player player, EquipType type)
+        public override void UpdateVanity(Player player)
         {
             if (player.velocity != Vector2.Zero && Main.rand.NextBool(5))
                 Dust.NewDust(player.Center + new Vector2(-5 + player.direction * -10, 16), 10, 2,

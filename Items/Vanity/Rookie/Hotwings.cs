@@ -15,12 +15,12 @@ namespace JourneyTrend.Items.Vanity.Rookie
 
         public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 20;
-            item.rare = ItemRarityID.Red;
-            item.vanity = true;
-            item.accessory = true;
-            item.value = 0;
+            Item.width = 22;
+            Item.height = 20;
+            Item.rare = ItemRarityID.Red;
+            Item.vanity = true;
+            Item.accessory = true;
+            Item.value = 0;
         }
     }
 }

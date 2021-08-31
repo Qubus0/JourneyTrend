@@ -25,26 +25,25 @@ namespace JourneyTrend.Items.Vanity.Duality
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.vanity = true;
-            item.rare = ItemRarityID.White;
-            item.value = 0;
+            Item.width = 18;
+            Item.height = 18;
+            Item.vanity = true;
+            Item.rare = ItemRarityID.White;
+            Item.value = 0;
         }
 
-        public override bool CanBurnInLava()
+        public override bool? CanBurnInLava()
         {
             return false;
         }
 
         public override void AddRecipes()
         {
-            var recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.LightShard);
-            recipe.AddIngredient(ItemID.DarkShard);
-            recipe.AddTile(TileID.Loom);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            CreateRecipe()
+                .AddIngredient(ItemID.LightShard)
+                .AddIngredient(ItemID.DarkShard)
+                .AddTile(TileID.Loom)
+                .Register();
         }
 
         public override bool DrawHead()

@@ -14,21 +14,20 @@ namespace JourneyTrend.Items.Vanity.WyvernRider
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Cyan;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Cyan;
+            Item.vanity = true;
         }
 
         public override void AddRecipes()
         {
-            var recipe = new ModRecipe(mod);
-            recipe.AddTile(TileID.SkyMill);
-            recipe.AddIngredient(ItemID.Silk, 5);
-            recipe.AddIngredient(ItemID.Cloud, 2);
-            recipe.AddIngredient(ItemID.SoulofFlight, 2);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            CreateRecipe()
+                .AddTile(TileID.SkyMill)
+                .AddIngredient(ItemID.Silk, 5)
+                .AddIngredient(ItemID.Cloud, 2)
+                .AddIngredient(ItemID.SoulofFlight, 2)
+                .Register();
         }
 
         public override void DrawHair(ref bool drawHair, ref bool drawAltHair)

@@ -17,21 +17,20 @@ namespace JourneyTrend.Items.Vanity.WyvernRider
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Cyan;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Cyan;
+            Item.vanity = true;
         }
 
         public override void AddRecipes()
         {
-            var recipe = new ModRecipe(mod);
-            recipe.AddTile(TileID.SkyMill);
-            recipe.AddIngredient(ItemID.Silk, 8);
-            recipe.AddIngredient(ItemID.Cloud, 10);
-            recipe.AddIngredient(ItemID.SoulofFlight);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            CreateRecipe()
+                .AddTile(TileID.SkyMill)
+                .AddIngredient(ItemID.Silk, 8)
+                .AddIngredient(ItemID.Cloud, 10)
+                .AddIngredient(ItemID.SoulofFlight)
+                .Register();
         }
 
         public override void DrawHands(ref bool drawHands, ref bool drawArms)
@@ -39,7 +38,7 @@ namespace JourneyTrend.Items.Vanity.WyvernRider
             drawHands = true;
         }
 
-        public override void UpdateVanity(Player player, EquipType type)
+        public override void UpdateVanity(Player player)
         {
             if (player.velocity != Vector2.Zero && Main.rand.NextBool(3))
                 Dust.NewDust(player.Center + new Vector2(-10 + player.direction * -15, -7), 20, 8,

@@ -14,19 +14,18 @@ namespace JourneyTrend.Items.Vanity.ForestDruid
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Green;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Green;
+            Item.vanity = true;
         }
 
         public override void AddRecipes()
         {
-            var alt = new ModRecipe(mod);
-            alt.AddTile(mod.GetTile("SewingMachine"));
-            alt.AddRecipeGroup("JourneyTrend:DruidMasks");
-            alt.SetResult(this);
-            alt.AddRecipe();
+            CreateRecipe()
+                .AddTile<Tiles.SewingMachine>()
+                .AddRecipeGroup("JourneyTrend:DruidMasks")
+                .Register();
         }
     }
 }

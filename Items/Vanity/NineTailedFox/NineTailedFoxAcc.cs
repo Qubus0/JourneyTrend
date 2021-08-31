@@ -15,10 +15,10 @@ namespace JourneyTrend.Items.Vanity.NineTailedFox
 
         public override void SetDefaults()
         {
-            item.accessory = true;
-            item.vanity = true;
-            item.value = 50000;
-            item.rare = ItemRarityID.Lime;
+            Item.accessory = true;
+            Item.vanity = true;
+            Item.value = 50000;
+            Item.rare = ItemRarityID.Lime;
         }
 
         public override bool WingUpdate(Player player, bool inUse)
@@ -27,7 +27,7 @@ namespace JourneyTrend.Items.Vanity.NineTailedFox
             return false;
         }
 
-        public override void UpdateVanity(Player player, EquipType type)
+        public override void UpdateVanity(Player player)
         {
             player.GetModPlayer<JourneyPlayer>().FoxTailsEquipped = true;
         }

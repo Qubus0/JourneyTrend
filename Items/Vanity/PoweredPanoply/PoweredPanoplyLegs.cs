@@ -14,21 +14,20 @@ namespace JourneyTrend.Items.Vanity.PoweredPanoply
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Blue;
-            item.vanity = true;
-            item.value = 0;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Blue;
+            Item.vanity = true;
+            Item.value = 0;
         }
 
         public override void AddRecipes()
         {
-            var recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.Nanites, 15);
-            recipe.AddRecipeGroup("JourneyTrend:SilverBars", 8);
-            recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            CreateRecipe()
+                .AddIngredient(ItemID.Nanites, 15)
+                .AddRecipeGroup("JourneyTrend:SilverBars", 8)
+                .AddTile(TileID.Anvils)
+                .Register();
         }
     }
 }

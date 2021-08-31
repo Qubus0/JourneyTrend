@@ -10,14 +10,14 @@ using static Terraria.ModLoader.ModContent;
 
 namespace JourneyTrend.World
 {
-    public class JourneyWorld : ModWorld
+    public class JourneyWorld : ModSystem
     {
         private static NPC FindNPC(int npcType)
         {
             return Main.npc.FirstOrDefault(npc => npc.type == npcType && npc.active);
         }
 
-        public override void PreUpdate()
+        public override void PreUpdateNPCs()
         {
             // Update the shop if there is a trader and it is a new day, or no shop
             var vanityTrader = FindNPC(NPCType<VanityTrader>());

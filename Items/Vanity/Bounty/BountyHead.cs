@@ -15,11 +15,11 @@ namespace JourneyTrend.Items.Vanity.Bounty
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Yellow;
-            item.vanity = true;
-            item.value = 50000; //only if sold.
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Yellow;
+            Item.vanity = true;
+            Item.value = 50000; //only if sold.
         }
 
         public override bool DrawHead()

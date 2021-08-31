@@ -25,11 +25,11 @@ namespace JourneyTrend.Items.Vanity.Grid
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.White;
-            item.vanity = true;
-            item.value = 500000;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.White;
+            Item.vanity = true;
+            Item.value = 500000;
         }
 
         public override bool DrawHead()

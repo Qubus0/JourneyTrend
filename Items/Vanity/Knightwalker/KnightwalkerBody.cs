@@ -18,13 +18,13 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Purple;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Purple;
+            Item.vanity = true;
         }
 
-        public override void UpdateVanity(Player player, EquipType type)
+        public override void UpdateVanity(Player player)
         {
             Lighting.AddLight(player.Center, 204 * adj, 82 * adj, 255 * adj);
             player.GetModPlayer<JourneyPlayer>().KnightwalkerBodyEquipped = true;
@@ -35,32 +35,29 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
         {
             if (WorldGen.crimson)
             {
-                var recipe = new ModRecipe(mod);
-                recipe.AddTile(TileID.Hellforge);
-                recipe.AddIngredient(ItemID.UnicornHorn, 5);
-                recipe.AddIngredient(ItemID.TissueSample, 5);
-                recipe.AddIngredient(ItemID.Ichor, 5);
-                recipe.AddRecipeGroup("IronBar", 20);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                CreateRecipe()
+                    .AddTile(TileID.Hellforge)
+                    .AddIngredient(ItemID.UnicornHorn, 5)
+                    .AddIngredient(ItemID.TissueSample, 5)
+                    .AddIngredient(ItemID.Ichor, 5)
+                    .AddRecipeGroup("IronBar", 20)
+                    .Register();
             }
             else
             {
-                var recipe = new ModRecipe(mod);
-                recipe.AddTile(TileID.Hellforge);
-                recipe.AddIngredient(ItemID.UnicornHorn, 5);
-                recipe.AddIngredient(ItemID.ShadowScale, 5);
-                recipe.AddIngredient(ItemID.CursedFlame, 5);
-                recipe.AddRecipeGroup("IronBar", 20);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                CreateRecipe()
+                    .AddTile(TileID.Hellforge)
+                    .AddIngredient(ItemID.UnicornHorn, 5)
+                    .AddIngredient(ItemID.ShadowScale, 5)
+                    .AddIngredient(ItemID.CursedFlame, 5)
+                    .AddRecipeGroup("IronBar", 20)
+                    .Register();
             }
 
-            var alt = new ModRecipe(mod);
-            alt.AddTile(mod.GetTile("SewingMachine"));
-            alt.AddRecipeGroup("JourneyTrend:KnightwalkerCapes");
-            alt.SetResult(this);
-            alt.AddRecipe();
+            CreateRecipe()
+            .AddTile<Tiles.SewingMachine>()
+            .AddRecipeGroup("JourneyTrend:KnightwalkerCapes")
+            .Register();
         }
     }
 }

@@ -15,12 +15,12 @@ namespace JourneyTrend.Items.Vanity.NineTailedFox
 
         public override void SetDefaults()
         {
-            item.maxStack = 999;
-            item.consumable = true;
-            item.width = 24;
-            item.height = 24;
-            item.value = 200000;
-            item.rare = ItemRarityID.Blue;
+            Item.maxStack = 999;
+            Item.consumable = true;
+            Item.width = 24;
+            Item.height = 24;
+            Item.value = 200000;
+            Item.rare = ItemRarityID.Blue;
         }
 
         public override bool CanRightClick()

@@ -17,10 +17,10 @@ namespace JourneyTrend.Items.Vanity.StarlightDream
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Cyan;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Cyan;
+            Item.vanity = true;
         }
 
         public override void DrawHands(ref bool drawHands, ref bool drawArms)
@@ -28,7 +28,7 @@ namespace JourneyTrend.Items.Vanity.StarlightDream
             drawHands = true;
         }
 
-        public override void UpdateVanity(Player player, EquipType type)
+        public override void UpdateVanity(Player player)
         {
             player.GetModPlayer<JourneyPlayer>().StarlightBodyEquipped = true;
             Lighting.AddLight(player.Center, 241 * adj, 215 * adj, 108 * adj);

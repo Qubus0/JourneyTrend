@@ -6,35 +6,35 @@ using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace JourneyTrend
 {
-    [SuppressMessage("ReSharper", "UseObjectOrCollectionInitializer")]
     public class JourneyPlayer : ModPlayer
     {
         // Accessory type capes (not idle animated)
-        private static Rectangle playerframe; //grabs playerframe for all below
+        private static Rectangle _playerFrame; //grabs player frame for all below
 
         public static readonly PlayerLayer NineTailedFoxTail = new PlayerLayer("JourneyTrend", "NineTailedFoxTail",
-            PlayerLayer.WaistAcc, delegate(PlayerDrawInfo drawInfo)
+            PlayerLayer.WaistAcc, delegate(PlayerDrawSet drawInfo)
             {
                 if (!drawInfo.drawPlayer.dead)
                 {
                     var drawPlayer = drawInfo.drawPlayer;
-                    var mod = ModLoader.GetMod("JourneyTrend");
+                    ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                     var modPlayer = drawPlayer.GetModPlayer<JourneyPlayer>();
                     if (modPlayer.FoxTailsEquipped)
                     {
                         Rectangle? rectangle =
                             new Rectangle(0, modPlayer.NineTailedFrameUpdater * 56, 46, 56); //frame updater
-                        var newColor = Lighting.GetColor((int) ((drawInfo.position.X + drawPlayer.width / 2f) / 16f),
-                            (int) ((drawInfo.position.Y + drawPlayer.height / 2f) / 16f));
+                        var newColor = Lighting.GetColor((int) ((drawInfo.Position.X + drawPlayer.width / 2f) / 16f),
+                            (int) ((drawInfo.Position.Y + drawPlayer.height / 2f) / 16f));
                         newColor = new Color(newColor.R, newColor.B, newColor.G, (int) ((1 - drawPlayer.shadow) * 255));
-                        var texture = mod.GetTexture("Items/Vanity/NineTailedFox/NineTailedFoxAcc_Tails");
+                        var texture = Request<Texture2D>("Items/Vanity/NineTailedFox/NineTailedFoxAcc_Tails").Value;
                         var num = texture.Height / 11;
-                        var num2 = (int) (drawInfo.position.X + drawPlayer.width / 2f - Main.screenPosition.X -
+                        var num2 = (int) (drawInfo.Position.X + drawPlayer.width / 2f - Main.screenPosition.X -
                                           3 * drawPlayer.direction); //has offset of -3 px
-                        var num3 = (int) (drawInfo.position.Y + drawPlayer.height / 2f - Main.screenPosition.Y - 3f +
+                        var num3 = (int) (drawInfo.Position.Y + drawPlayer.height / 2f - Main.screenPosition.Y - 3f +
                                           modPlayer.walkUpShift);
                         var item = new DrawData(texture, new Vector2(num2, num3), rectangle,
                             newColor, 0f, new Vector2(texture.Width / 2f, num / 2f), 1f, drawInfo.spriteEffects, 0)
@@ -47,30 +47,29 @@ namespace JourneyTrend
             });
 
         public static readonly PlayerLayer StarlightDreamScarf = new PlayerLayer("JourneyTrend", "StarlightDreamScarf",
-            PlayerLayer.BackAcc, delegate(PlayerDrawInfo drawInfo)
+            PlayerLayer.BackAcc, delegate(PlayerDrawSet drawInfo)
             {
-                //name here same as name								here.	Needs correct accessory here as well
                 if (!drawInfo.drawPlayer.dead)
                 {
                     var drawPlayer = drawInfo.drawPlayer;
-                    var mod = ModLoader.GetMod("JourneyTrend");
+                    ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                     var modPlayer = drawPlayer.GetModPlayer<JourneyPlayer>();
-                    if (modPlayer.StarlightBodyEquipped) //needs corect equip bool
+                    if (modPlayer.StarlightBodyEquipped) //needs correct equip bool
                     {
-                        Rectangle? rectangle = playerframe; //updates rect here
-                        var newColor = Lighting.GetColor((int) ((drawInfo.position.X + drawPlayer.width / 2f) / 16f),
-                            (int) ((drawInfo.position.Y + drawPlayer.height / 2f) / 16f));
+                        Rectangle? rectangle = _playerFrame; //updates rect here
+                        var newColor = Lighting.GetColor((int) ((drawInfo.Position.X + drawPlayer.width / 2f) / 16f),
+                            (int) ((drawInfo.Position.Y + drawPlayer.height / 2f) / 16f));
                         newColor = new Color(newColor.R, newColor.B, newColor.G, (int) ((1 - drawPlayer.shadow) * 255));
                         var texture =
-                            mod.GetTexture(
-                                "Items/Vanity/StarlightDream/StarlightDreamAcc_Back"); //needs correct sprite path
+                            Request<Texture2D>(
+                                "Items/Vanity/StarlightDream/StarlightDreamAcc_Back").Value; //needs correct sprite path
                         var num = texture.Height / 20; //20 -> number of frames
-                        var num2 = (int) (drawInfo.position.X + drawPlayer.width / 2f -
+                        var num2 = (int) (drawInfo.Position.X + drawPlayer.width / 2f -
                                           Main.screenPosition.X); //no offset from player rect
-                        var num3 = (int) (drawInfo.position.Y + drawPlayer.height / 2f - Main.screenPosition.Y - 3f +
+                        var num3 = (int) (drawInfo.Position.Y + drawPlayer.height / 2f - Main.screenPosition.Y - 3f +
                                           modPlayer.walkUpShift);
                         var item = new DrawData(texture, new Vector2(num2, num3), rectangle,
-                            newColor, 0f, new Vector2(texture.Width / 2f, num / 2f), 1f, drawInfo.spriteEffects, 0)
+                            newColor, 0f, new Vector2(texture.Width/ 2f, num / 2f), 1f, drawInfo.spriteEffects, 0)
                         {
                             shader = drawPlayer.cBody //part of body -> body shader (c...)
                         };
@@ -80,25 +79,25 @@ namespace JourneyTrend
             }); //don't forget to change ModifyDrawlayers at the bottom
 
         public static readonly PlayerLayer StarlightDreamScarfGlow = new PlayerLayer("JourneyTrend",
-            "StarlightDreamScarfGlow", PlayerLayer.BackAcc, delegate(PlayerDrawInfo drawInfo)
+            "StarlightDreamScarfGlow", PlayerLayer.BackAcc, delegate(PlayerDrawSet drawInfo)
             {
                 //name here same as name								here.	Needs correct accessory here as well
                 if (!drawInfo.drawPlayer.dead)
                 {
                     var drawPlayer = drawInfo.drawPlayer;
-                    var mod = ModLoader.GetMod("JourneyTrend");
+                    ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                     var modPlayer = drawPlayer.GetModPlayer<JourneyPlayer>();
-                    if (modPlayer.StarlightBodyEquipped) //needs corect equip bool
+                    if (modPlayer.StarlightBodyEquipped) //needs correct equip bool
                     {
-                        Rectangle? rectangle = playerframe; //updates rect here
+                        Rectangle? rectangle = _playerFrame; //updates rect here
                         var newColor = Color.White;
                         var texture =
-                            mod.GetTexture(
-                                "Items/Vanity/StarlightDream/StarlightDreamAcc_Glow"); //needs correct sprite path
+                            Request<Texture2D>(
+                                "Items/Vanity/StarlightDream/StarlightDreamAcc_Glow").Value; //needs correct sprite path
                         var num = texture.Height / 20; //20 -> number of frames
-                        var num2 = (int) (drawInfo.position.X + drawPlayer.width / 2f -
+                        var num2 = (int) (drawInfo.Position.X + drawPlayer.width / 2f -
                                           Main.screenPosition.X); //no offset from player rect
-                        var num3 = (int) (drawInfo.position.Y + drawPlayer.height / 2f - Main.screenPosition.Y - 3f +
+                        var num3 = (int) (drawInfo.Position.Y + drawPlayer.height / 2f - Main.screenPosition.Y - 3f +
                                           modPlayer.walkUpShift);
                         var item = new DrawData(texture, new Vector2(num2, num3), rectangle,
                             newColor, 0f, new Vector2(texture.Width / 2f, num / 2f), 1f, drawInfo.spriteEffects, 0)
@@ -111,18 +110,18 @@ namespace JourneyTrend
             }); //don't forget to change ModifyDrawlayers at the bottom
 
         public static readonly PlayerLayer KnightwalkerHeadAddons = new PlayerLayer("JourneyTrend",
-            "KnightwalkerHeadAddons", PlayerLayer.Head, delegate(PlayerDrawInfo drawInfo)
+            "KnightwalkerHeadAddons", PlayerLayer.Head, delegate(PlayerDrawSet drawInfo)
             {
                 if (!drawInfo.drawPlayer.dead)
                 {
                     var drawPlayer = drawInfo.drawPlayer;
-                    var mod = ModLoader.GetMod("JourneyTrend");
+                    ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                     var modPlayer = drawPlayer.GetModPlayer<JourneyPlayer>();
                     if (modPlayer.KnightwalkerHeadEquipped)
                     {
                         var texture =
-                            mod.GetTexture(
-                                "Items/Vanity/Knightwalker/KnightwalkerHeadflame_Idle"); //needs correct sprite path
+                            Request<Texture2D>(
+                                "Items/Vanity/Knightwalker/KnightwalkerHeadflame_Idle").Value; //needs correct sprite path
                         var num = texture.Height / 8; //8 -> number of frames
                         Rectangle? rectangle = new Rectangle(0, modPlayer.KnightwalkerHeadFrameUpdater * num,
                             texture.Width, num); //frame updater
@@ -142,19 +141,19 @@ namespace JourneyTrend
             });
 
         public static readonly PlayerLayer KnightwalkerBodyAddons = new PlayerLayer("JourneyTrend",
-            "KnightwalkerBodyAddons", PlayerLayer.BackAcc, delegate(PlayerDrawInfo drawInfo)
+            "KnightwalkerBodyAddons", PlayerLayer.BackAcc, delegate(PlayerDrawSet drawInfo)
             {
                 //name here same as name								here.	Needs correct accessory here as well
                 if (!drawInfo.drawPlayer.dead)
                 {
                     var drawPlayer = drawInfo.drawPlayer;
-                    var mod = ModLoader.GetMod("JourneyTrend");
+                    ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                     var modPlayer = drawPlayer.GetModPlayer<JourneyPlayer>();
-                    if (modPlayer.KnightwalkerBodyEquipped) //needs corect equip bool
+                    if (modPlayer.KnightwalkerBodyEquipped) //needs correct equip bool
                     {
                         var texture =
-                            mod.GetTexture(
-                                "Items/Vanity/Knightwalker/KnightwalkerCape_Idle"); //needs correct sprite path
+                            Request<Texture2D>(
+                                "Items/Vanity/Knightwalker/KnightwalkerCape_Idle").Value; //needs correct sprite path
                         var num = texture.Height / 21; //21 -> number of frames
                         Rectangle? rectangle = new Rectangle(0, modPlayer.KnightwalkerCapeFrameUpdater * num,
                             texture.Width, num); //frame updater
@@ -173,9 +172,9 @@ namespace JourneyTrend
                         Main.playerDrawData.Add(item);
                     }
 
-                    if (modPlayer.KnightwalkerBodyEquipped) //needs corect equip bool
+                    if (modPlayer.KnightwalkerBodyEquipped) //needs correct equip bool
                     {
-                        Rectangle? rectangle = playerframe; //updates rect here
+                        Rectangle? rectangle = _playerFrame; //updates rect here
                         var color = Lighting.GetColor(
                             (int) ((drawInfo.position.X + drawPlayer.width / 2f) / 16f), // ) replace these 3 lines
                             (int) ((drawInfo.position.Y + drawPlayer.height / 2f) /
@@ -183,8 +182,8 @@ namespace JourneyTrend
                         color = new Color(color.R, color.B, color.G,
                             (int) ((1 - drawPlayer.shadow) * 255)); // ) for glowmask
                         var texture =
-                            mod.GetTexture(
-                                "Items/Vanity/Knightwalker/KnightwalkerBodyAcc_Back"); //needs correct sprite path
+                            Request<Texture2D>(
+                                "Items/Vanity/Knightwalker/KnightwalkerBodyAcc_Back").Value; //needs correct sprite path
                         var num = texture.Height / 20; //20 -> number of frames
                         var num2 = (int) (drawInfo.position.X + drawPlayer.width / 2f -
                                           Main.screenPosition.X); //no offset from player rect
@@ -198,14 +197,14 @@ namespace JourneyTrend
                         Main.playerDrawData.Add(item);
                     }
 
-                    if (modPlayer.KnightwalkerBodyEquipped) //needs corect equip bool
+                    if (modPlayer.KnightwalkerBodyEquipped) //needs correct equip bool
                     {
                         Texture2D texture;
                         if (!modPlayer.KnightwalkerAlt)
-                            texture = mod.GetTexture(
-                                "Items/Vanity/Knightwalker/KnightwalkerBodyflame_Idle"); //needs correct sprite path
+                            texture = Request<Texture2D>(
+                                "Items/Vanity/Knightwalker/KnightwalkerBodyflame_Idle").Value; //needs correct sprite path
                         else
-                            texture = mod.GetTexture("Items/Vanity/Knightwalker/KnightwalkerBodyflame_Idle1");
+                            texture = Request<Texture2D>("Items/Vanity/Knightwalker/KnightwalkerBodyflame_Idle1").Value;
                         var num = texture.Height / 8; //8 -> number of frames
                         Rectangle? rectangle = new Rectangle(0, modPlayer.KnightwalkerFlameFrameUpdater * num,
                             texture.Width, num); //frame updater
@@ -225,17 +224,17 @@ namespace JourneyTrend
             }); //don't forget to change ModifyDrawlayers at the bottom
 
         public static readonly PlayerLayer BubbleheadHeadAddons = new PlayerLayer("JourneyTrend",
-            "BubbleheadHeadAddons", PlayerLayer.Head, delegate(PlayerDrawInfo drawInfo)
+            "BubbleheadHeadAddons", PlayerLayer.Head, delegate(PlayerDrawSet drawInfo)
             {
                 if (!drawInfo.drawPlayer.dead)
                 {
                     var drawPlayer = drawInfo.drawPlayer;
-                    var mod = ModLoader.GetMod("JourneyTrend");
+                    ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                     var modPlayer = drawPlayer.GetModPlayer<JourneyPlayer>();
                     if (modPlayer.BubbleheadHeadEquipped)
                     {
                         var texture =
-                            mod.GetTexture("Items/Vanity/Bubblehead/BubbleheadHead_Idle"); //needs correct sprite path
+                            Request<Texture2D>("Items/Vanity/Bubblehead/BubbleheadHead_Idle").Value; //needs correct sprite path
                         var num = texture.Height / 14; //14 -> number of frames
                         Rectangle? rectangle = new Rectangle(0, modPlayer.BubbleheadHeadFrameUpdater * num,
                             texture.Width, num); //frame updater
@@ -269,18 +268,18 @@ namespace JourneyTrend
         private int PlanetaryHeadWaterFrameCounter = 0;
 
         public static readonly PlayerLayer PlanetaryHeadAddons = new PlayerLayer("JourneyTrend", "PlanetaryHeadAddons",
-            PlayerLayer.Head, delegate(PlayerDrawInfo drawInfo)
+            PlayerLayer.Head, delegate(PlayerDrawSet drawInfo)
             {
                 if (!drawInfo.drawPlayer.dead)
                 {
                     Player drawPlayer = drawInfo.drawPlayer;
-                    Mod mod = ModLoader.GetMod("JourneyTrend");
+                    Mod mod = ModLoader.ModLoader.TryGetMod("JourneyTrend", out Mod mod);("JourneyTrend");
                     JourneyPlayer modPlayer = drawPlayer.GetModPlayer<JourneyPlayer>();
                     if (modPlayer.PlanetaryHeadEquipped)
                     {
                         Texture2D texture =
-                            mod.GetTexture(
-                                "Items/Vanity/Planetary/PlanetaryHeadRingBack_Idle"); //needs correct sprite path
+                            Request<Texture2D>(
+                                "Items/Vanity/Planetary/PlanetaryHeadRingBack_Idle").Value; //needs correct sprite path
                         int num = texture.Height / 4; //4 -> number of frames
                         Rectangle? rectangle = new Rectangle(0, modPlayer.PlanetaryHeadRingFrameUpdater * num,
                             texture.Width, num); //frame updater
@@ -305,8 +304,8 @@ namespace JourneyTrend
                     if (modPlayer.PlanetaryHeadEquipped)
                     {
                         Texture2D texture =
-                            mod.GetTexture(
-                                "Items/Vanity/Planetary/PlanetaryHeadWater_Idle"); //needs correct sprite path
+                            Request<Texture2D>(
+                                "Items/Vanity/Planetary/PlanetaryHeadWater_Idle").Value; //needs correct sprite path
                         int num = texture.Height / 4; //4 -> number of frames
                         Rectangle? rectangle = new Rectangle(0, modPlayer.PlanetaryHeadWaterFrameUpdater * num,
                             texture.Width, num); //frame updater
@@ -331,18 +330,18 @@ namespace JourneyTrend
             }); //don't forget to change ModifyDrawlayers at the bottom
 
         public static readonly PlayerLayer PlanetaryHeadAddonsFront = new PlayerLayer("JourneyTrend",
-            "PlanetaryHeadAddonsFront", PlayerLayer.Head, delegate(PlayerDrawInfo drawInfo)
+            "PlanetaryHeadAddonsFront", PlayerLayer.Head, delegate(PlayerDrawSet drawInfo)
             {
                 if (!drawInfo.drawPlayer.dead)
                 {
                     Player drawPlayer = drawInfo.drawPlayer;
-                    Mod mod = ModLoader.GetMod("JourneyTrend");
+                    Mod mod = ModLoader.ModLoader.TryGetMod("JourneyTrend", out Mod mod);("JourneyTrend");
                     JourneyPlayer modPlayer = drawPlayer.GetModPlayer<JourneyPlayer>();
                     if (modPlayer.PlanetaryHeadEquipped)
                     {
                         Texture2D texture =
-                            mod.GetTexture(
-                                "Items/Vanity/Planetary/PlanetaryHeadRingFront_Idle"); //needs correct sprite path
+                            Request<Texture2D>(
+                                "Items/Vanity/Planetary/PlanetaryHeadRingFront_Idle").Value; //needs correct sprite path
                         int num = texture.Height / 4; //4 -> number of frames
                         Rectangle? rectangle = new Rectangle(0, modPlayer.PlanetaryHeadRingFrameUpdater * num,
                             texture.Width, num); //frame updater
@@ -369,13 +368,13 @@ namespace JourneyTrend
 
         //Glowmask business
         public static readonly PlayerLayer ContainmentSuitHeadGlowmask = new PlayerLayer("JourneyTrend",
-            "ContainmentSuitHeadGlowmask", PlayerLayer.Head, delegate(PlayerDrawInfo drawInfo)
+            "ContainmentSuitHeadGlowmask", PlayerLayer.Head, delegate(PlayerDrawSet drawInfo)
             {
                 if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead) return;
                 var drawPlayer = drawInfo.drawPlayer;
-                var mod = ModLoader.GetMod("JourneyTrend");
+                ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                 if (drawPlayer.head != mod.GetEquipSlot("ContainmentSuitHead", EquipType.Head)) return;
-                var texture = mod.GetTexture("Items/Vanity/ContainmentSuit/ContainmentSuitHead_Glowmask");
+                var texture = Request<Texture2D>("Items/Vanity/ContainmentSuit/ContainmentSuitHead_Glowmask").Value;
                 float drawX = (int) drawInfo.position.X + drawPlayer.width / 2;
                 var drawY = (int) drawInfo.position.Y + drawPlayer.height - drawPlayer.headFrame.Height / 2 + 4f - 34f;
                 var origin = drawInfo.headOrigin;
@@ -392,13 +391,13 @@ namespace JourneyTrend
             });
 
         public static readonly PlayerLayer ContainmentSuitBodyGlowmask = new PlayerLayer("JourneyTrend",
-            "ContainmentSuitBodyGlowmask", PlayerLayer.Body, delegate(PlayerDrawInfo drawInfo)
+            "ContainmentSuitBodyGlowmask", PlayerLayer.Body, delegate(PlayerDrawSet drawInfo)
             {
                 if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead) return;
                 var drawPlayer = drawInfo.drawPlayer;
-                var mod = ModLoader.GetMod("JourneyTrend");
+                ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                 if (drawPlayer.body != mod.GetEquipSlot("ContainmentSuitBody", EquipType.Body)) return;
-                var texture = mod.GetTexture("Items/Vanity/ContainmentSuit/ContainmentSuitBody_Glowmask");
+                var texture = Request<Texture2D>("Items/Vanity/ContainmentSuit/ContainmentSuitBody_Glowmask").Value;
                 float drawX = (int) drawInfo.position.X + drawPlayer.width / 2;
                 var drawY = (int) drawInfo.position.Y + drawPlayer.height - drawPlayer.bodyFrame.Height / 2 + 4f;
                 var origin = drawInfo.bodyOrigin;
@@ -415,14 +414,14 @@ namespace JourneyTrend
             });
 
         public static readonly PlayerLayer CyberAngelHeadGlowmask = new PlayerLayer("JourneyTrend",
-            "CyberAngelHeadGlowmask", PlayerLayer.Head, delegate(PlayerDrawInfo drawInfo)
+            "CyberAngelHeadGlowmask", PlayerLayer.Head, delegate(PlayerDrawSet drawInfo)
             {
                 if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead) return;
                 var drawPlayer = drawInfo.drawPlayer;
-                var mod = ModLoader.GetMod("JourneyTrend");
+                ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                 if (drawPlayer.head != mod.GetEquipSlot("CyberAngelHead", EquipType.Head) &&
                     drawPlayer.head != mod.GetEquipSlot("CyberAngelHead1", EquipType.Head)) return;
-                var texture = mod.GetTexture("Items/Vanity/CyberAngel/CyberAngelHead_Glow");
+                var texture = Request<Texture2D>("Items/Vanity/CyberAngel/CyberAngelHead_Glow").Value;
                 float drawX = (int) drawInfo.position.X + drawPlayer.width / 2;
                 var drawY = (int) drawInfo.position.Y + drawPlayer.height - drawPlayer.headFrame.Height / 2 + 4f - 34f;
                 var origin = drawInfo.headOrigin;
@@ -439,13 +438,13 @@ namespace JourneyTrend
             });
 
         public static readonly PlayerLayer CyberAngelBodyGlowmask = new PlayerLayer("JourneyTrend",
-            "CyberAngelBodyGlowmask", PlayerLayer.Body, delegate(PlayerDrawInfo drawInfo)
+            "CyberAngelBodyGlowmask", PlayerLayer.Body, delegate(PlayerDrawSet drawInfo)
             {
                 if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead) return;
                 var drawPlayer = drawInfo.drawPlayer;
-                var mod = ModLoader.GetMod("JourneyTrend");
+                ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                 if (drawPlayer.body != mod.GetEquipSlot("CyberAngelBody", EquipType.Body)) return;
-                var texture = mod.GetTexture("Items/Vanity/CyberAngel/CyberAngelBody_Glow");
+                var texture = Request<Texture2D>("Items/Vanity/CyberAngel/CyberAngelBody_Glow").Value;
                 float drawX = (int) drawInfo.position.X + drawPlayer.width / 2;
                 var drawY = (int) drawInfo.position.Y + drawPlayer.height - drawPlayer.bodyFrame.Height / 2 + 4f;
                 var origin = drawInfo.bodyOrigin;
@@ -462,13 +461,13 @@ namespace JourneyTrend
             });
 
         public static readonly PlayerLayer CyberAngelLegsGlowmask = new PlayerLayer("JourneyTrend",
-            "CyberAngelLegsGlowmask", PlayerLayer.Legs, delegate(PlayerDrawInfo drawInfo)
+            "CyberAngelLegsGlowmask", PlayerLayer.Legs, delegate(PlayerDrawSet drawInfo)
             {
                 if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead) return;
                 var drawPlayer = drawInfo.drawPlayer;
-                var mod = ModLoader.GetMod("JourneyTrend");
+                ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                 if (drawPlayer.legs != mod.GetEquipSlot("CyberAngelLegs", EquipType.Legs)) return;
-                var texture = mod.GetTexture("Items/Vanity/CyberAngel/CyberAngelLegs_Glow");
+                var texture = Request<Texture2D>("Items/Vanity/CyberAngel/CyberAngelLegs_Glow").Value;
                 float drawX = (int) drawInfo.position.X + drawPlayer.width / 2;
                 var drawY = (int) drawInfo.position.Y + drawPlayer.height - drawPlayer.legFrame.Height / 2 + 4f + 14f;
                 var origin = drawInfo.legOrigin;
@@ -485,13 +484,13 @@ namespace JourneyTrend
             });
 
         public static readonly PlayerLayer MushroomHeadGlowmask = new PlayerLayer("JourneyTrend",
-            "MushroomHeadGlowmask", PlayerLayer.Head, delegate(PlayerDrawInfo drawInfo)
+            "MushroomHeadGlowmask", PlayerLayer.Head, delegate(PlayerDrawSet drawInfo)
             {
                 if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead) return;
                 var drawPlayer = drawInfo.drawPlayer;
-                var mod = ModLoader.GetMod("JourneyTrend");
+                ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                 if (drawPlayer.head != mod.GetEquipSlot("MushroomAlchemistHead", EquipType.Head)) return;
-                var texture = mod.GetTexture("Items/Vanity/MushroomAlchemist/MushroomAlchemistHead_Glow");
+                var texture = Request<Texture2D>("Items/Vanity/MushroomAlchemist/MushroomAlchemistHead_Glow").Value;
                 float drawX = (int) drawInfo.position.X + drawPlayer.width / 2;
                 var drawY = (int) drawInfo.position.Y + drawPlayer.height - drawPlayer.headFrame.Height / 2 + 4f - 34f;
                 var origin = drawInfo.headOrigin;
@@ -508,13 +507,13 @@ namespace JourneyTrend
             });
 
         public static readonly PlayerLayer MushroomBodyGlowmask = new PlayerLayer("JourneyTrend",
-            "MushroomBodyGlowmask", PlayerLayer.Body, delegate(PlayerDrawInfo drawInfo)
+            "MushroomBodyGlowmask", PlayerLayer.Body, delegate(PlayerDrawSet drawInfo)
             {
                 if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead) return;
                 var drawPlayer = drawInfo.drawPlayer;
-                var mod = ModLoader.GetMod("JourneyTrend");
+                ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                 if (drawPlayer.body != mod.GetEquipSlot("MushroomAlchemistBody", EquipType.Body)) return;
-                var texture = mod.GetTexture("Items/Vanity/MushroomAlchemist/MushroomAlchemistBody_Glow");
+                var texture = Request<Texture2D>("Items/Vanity/MushroomAlchemist/MushroomAlchemistBody_Glow").Value;
                 float drawX = (int) drawInfo.position.X + drawPlayer.width / 2;
                 var drawY = (int) drawInfo.position.Y + drawPlayer.height - drawPlayer.bodyFrame.Height / 2 + 4f;
                 var origin = drawInfo.bodyOrigin;
@@ -531,13 +530,13 @@ namespace JourneyTrend
             });
 
         public static readonly PlayerLayer MushroomLegsGlowmask = new PlayerLayer("JourneyTrend",
-            "MushroomLegsGlowmask", PlayerLayer.Legs, delegate(PlayerDrawInfo drawInfo)
+            "MushroomLegsGlowmask", PlayerLayer.Legs, delegate(PlayerDrawSet drawInfo)
             {
                 if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead) return;
                 var drawPlayer = drawInfo.drawPlayer;
-                var mod = ModLoader.GetMod("JourneyTrend");
+                ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                 if (drawPlayer.legs != mod.GetEquipSlot("MushroomAlchemistLegs", EquipType.Legs)) return;
-                var texture = mod.GetTexture("Items/Vanity/MushroomAlchemist/MushroomAlchemistLegs_Glow");
+                var texture = Request<Texture2D>("Items/Vanity/MushroomAlchemist/MushroomAlchemistLegs_Glow").Value;
                 float drawX = (int) drawInfo.position.X + drawPlayer.width / 2;
                 var drawY = (int) drawInfo.position.Y + drawPlayer.height - drawPlayer.legFrame.Height / 2 + 4f + 14f;
                 var origin = drawInfo.legOrigin;
@@ -554,13 +553,13 @@ namespace JourneyTrend
             });
 
         public static readonly PlayerLayer MushroomArmsGlowmask = new PlayerLayer("JourneyTrend",
-            "MushroomArmsGlowmask", PlayerLayer.Arms, delegate(PlayerDrawInfo drawInfo)
+            "MushroomArmsGlowmask", PlayerLayer.Arms, delegate(PlayerDrawSet drawInfo)
             {
                 if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead) return;
                 var drawPlayer = drawInfo.drawPlayer;
-                var mod = ModLoader.GetMod("JourneyTrend");
+                ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                 if (drawPlayer.body != mod.GetEquipSlot("MushroomAlchemistBody", EquipType.Body)) return;
-                var texture = mod.GetTexture("Items/Vanity/MushroomAlchemist/MushroomAlchemistBody_ArmsGlow");
+                var texture = Request<Texture2D>("Items/Vanity/MushroomAlchemist/MushroomAlchemistBody_ArmsGlow").Value;
                 float drawX = (int) drawInfo.position.X + drawPlayer.width / 2;
                 var drawY = (int) drawInfo.position.Y + drawPlayer.height - drawPlayer.bodyFrame.Height / 2 + 4f;
                 var origin = drawInfo.bodyOrigin;
@@ -577,13 +576,13 @@ namespace JourneyTrend
             });
 
         public static readonly PlayerLayer NexusHeadGlowmask = new PlayerLayer("JourneyTrend", "NexusHeadGlowmask",
-            PlayerLayer.Head, delegate(PlayerDrawInfo drawInfo)
+            PlayerLayer.Head, delegate(PlayerDrawSet drawInfo)
             {
                 if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead) return;
                 var drawPlayer = drawInfo.drawPlayer;
-                var mod = ModLoader.GetMod("JourneyTrend");
+                ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                 if (drawPlayer.head != mod.GetEquipSlot("NexusHead", EquipType.Head)) return;
-                var texture = mod.GetTexture("Items/Vanity/Nexus/NexusHead_Glow");
+                var texture = Request<Texture2D>("Items/Vanity/Nexus/NexusHead_Glow").Value;
                 float drawX = (int) drawInfo.position.X + drawPlayer.width / 2;
                 var drawY = (int) drawInfo.position.Y + drawPlayer.height - drawPlayer.headFrame.Height / 2 + 4f - 34f;
                 var origin = drawInfo.headOrigin;
@@ -600,14 +599,14 @@ namespace JourneyTrend
             });
 
         public static readonly PlayerLayer NexusBodyGlowmask = new PlayerLayer("JourneyTrend", "NexusBodyGlowmask",
-            PlayerLayer.Body, delegate(PlayerDrawInfo drawInfo)
+            PlayerLayer.Body, delegate(PlayerDrawSet drawInfo)
             {
                 if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead) return;
                 var drawPlayer = drawInfo.drawPlayer;
-                var mod = ModLoader.GetMod("JourneyTrend");
+                ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                 if (drawPlayer.body != mod.GetEquipSlot("NexusBody", EquipType.Body)) return;
-                var texture = mod.GetTexture("Items/Vanity/Nexus/NexusBody_Glow");
-                if (!drawPlayer.Male) texture = mod.GetTexture("Items/Vanity/Nexus/NexusBody_FemaleGlow");
+                var texture = Request<Texture2D>("Items/Vanity/Nexus/NexusBody_Glow").Value;
+                if (!drawPlayer.Male) texture = Request<Texture2D>("Items/Vanity/Nexus/NexusBody_FemaleGlow").Value;
                 float drawX = (int) drawInfo.position.X + drawPlayer.width / 2;
                 var drawY = (int) drawInfo.position.Y + drawPlayer.height - drawPlayer.bodyFrame.Height / 2 + 4f;
                 var origin = drawInfo.bodyOrigin;
@@ -624,13 +623,13 @@ namespace JourneyTrend
             });
 
         public static readonly PlayerLayer NexusLegsGlowmask = new PlayerLayer("JourneyTrend", "NexusLegsGlowmask",
-            PlayerLayer.Legs, delegate(PlayerDrawInfo drawInfo)
+            PlayerLayer.Legs, delegate(PlayerDrawSet drawInfo)
             {
                 if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead) return;
                 var drawPlayer = drawInfo.drawPlayer;
-                var mod = ModLoader.GetMod("JourneyTrend");
+                ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                 if (drawPlayer.legs != mod.GetEquipSlot("NexusLegs", EquipType.Legs)) return;
-                var texture = mod.GetTexture("Items/Vanity/Nexus/NexusLegs_Glow");
+                var texture = Request<Texture2D>("Items/Vanity/Nexus/NexusLegs_Glow").Value;
                 float drawX = (int) drawInfo.position.X + drawPlayer.width / 2;
                 var drawY = (int) drawInfo.position.Y + drawPlayer.height - drawPlayer.legFrame.Height / 2 + 4f + 14f;
                 var origin = drawInfo.legOrigin;
@@ -647,13 +646,13 @@ namespace JourneyTrend
             });
 
         public static readonly PlayerLayer NexusArmsGlowmask = new PlayerLayer("JourneyTrend", "NexusArmsGlowmask",
-            PlayerLayer.Arms, delegate(PlayerDrawInfo drawInfo)
+            PlayerLayer.Arms, delegate(PlayerDrawSet drawInfo)
             {
                 if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead) return;
                 var drawPlayer = drawInfo.drawPlayer;
-                var mod = ModLoader.GetMod("JourneyTrend");
+                ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                 if (drawPlayer.body != mod.GetEquipSlot("NexusBody", EquipType.Body)) return;
-                var texture = mod.GetTexture("Items/Vanity/Nexus/NexusBody_ArmsGlow");
+                var texture = Request<Texture2D>("Items/Vanity/Nexus/NexusBody_ArmsGlow").Value;
                 float drawX = (int) drawInfo.position.X + drawPlayer.width / 2;
                 var drawY = (int) drawInfo.position.Y + drawPlayer.height - drawPlayer.bodyFrame.Height / 2 + 4f;
                 var origin = drawInfo.bodyOrigin;
@@ -670,13 +669,13 @@ namespace JourneyTrend
             });
 
         public static readonly PlayerLayer NightlightBodyGlowmask = new PlayerLayer("JourneyTrend",
-            "NightlightBodyGlowmask", PlayerLayer.Body, delegate(PlayerDrawInfo drawInfo)
+            "NightlightBodyGlowmask", PlayerLayer.Body, delegate(PlayerDrawSet drawInfo)
             {
                 if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead) return;
                 var drawPlayer = drawInfo.drawPlayer;
-                var mod = ModLoader.GetMod("JourneyTrend");
+                ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                 if (drawPlayer.body != mod.GetEquipSlot("NightlightBody", EquipType.Body)) return;
-                var texture = mod.GetTexture("Items/Vanity/Nightlight/NightlightBody_Glow");
+                var texture = Request<Texture2D>("Items/Vanity/Nightlight/NightlightBody_Glow").Value;
                 float drawX = (int) drawInfo.position.X + drawPlayer.width / 2;
                 var drawY = (int) drawInfo.position.Y + drawPlayer.height - drawPlayer.bodyFrame.Height / 2 + 4f;
                 var origin = drawInfo.bodyOrigin;
@@ -693,14 +692,14 @@ namespace JourneyTrend
             });
 
         public static readonly PlayerLayer CosmicTerrorBodyGlowmask = new PlayerLayer("JourneyTrend",
-            "CosmicTerrorBodyGlowmask", PlayerLayer.Body, delegate(PlayerDrawInfo drawInfo)
+            "CosmicTerrorBodyGlowmask", PlayerLayer.Body, delegate(PlayerDrawSet drawInfo)
             {
                 if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead) return;
                 var drawPlayer = drawInfo.drawPlayer;
-                var mod = ModLoader.GetMod("JourneyTrend");
+                ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                 if (drawPlayer.body != mod.GetEquipSlot("CosmicTerrorBody", EquipType.Body)) return;
-                var texture = mod.GetTexture("Items/Vanity/CosmicTerror/CosmicTerrorBody_Glow");
-                if (!drawPlayer.Male) texture = mod.GetTexture("Items/Vanity/CosmicTerror/CosmicTerrorBody_FemaleGlow");
+                var texture = Request<Texture2D>("Items/Vanity/CosmicTerror/CosmicTerrorBody_Glow").Value;
+                if (!drawPlayer.Male) texture = Request<Texture2D>("Items/Vanity/CosmicTerror/CosmicTerrorBody_FemaleGlow").Value;
                 float drawX = (int) drawInfo.position.X + drawPlayer.width / 2;
                 var drawY = (int) drawInfo.position.Y + drawPlayer.height - drawPlayer.bodyFrame.Height / 2 + 4f;
                 var origin = drawInfo.bodyOrigin;
@@ -717,13 +716,13 @@ namespace JourneyTrend
             });
 
         public static readonly PlayerLayer CosmicTerrorArmsGlowmask = new PlayerLayer("JourneyTrend",
-            "CosmicTerrorArmsGlowmask", PlayerLayer.Arms, delegate(PlayerDrawInfo drawInfo)
+            "CosmicTerrorArmsGlowmask", PlayerLayer.Arms, delegate(PlayerDrawSet drawInfo)
             {
                 if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead) return;
                 var drawPlayer = drawInfo.drawPlayer;
-                var mod = ModLoader.GetMod("JourneyTrend");
+                ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                 if (drawPlayer.body != mod.GetEquipSlot("CosmicTerrorBody", EquipType.Body)) return;
-                var texture = mod.GetTexture("Items/Vanity/CosmicTerror/CosmicTerrorBody_ArmsGlow");
+                var texture = Request<Texture2D>("Items/Vanity/CosmicTerror/CosmicTerrorBody_ArmsGlow").Value;
                 float drawX = (int) drawInfo.position.X + drawPlayer.width / 2;
                 var drawY = (int) drawInfo.position.Y + drawPlayer.height - drawPlayer.bodyFrame.Height / 2 + 4f;
                 var origin = drawInfo.bodyOrigin;
@@ -740,13 +739,13 @@ namespace JourneyTrend
             });
 
         public static readonly PlayerLayer CosmicTerrorHeadGlowmask = new PlayerLayer("JourneyTrend",
-            "CosmicTerrorHeadGlowmask", PlayerLayer.Head, delegate(PlayerDrawInfo drawInfo)
+            "CosmicTerrorHeadGlowmask", PlayerLayer.Head, delegate(PlayerDrawSet drawInfo)
             {
                 if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead) return;
                 var drawPlayer = drawInfo.drawPlayer;
-                var mod = ModLoader.GetMod("JourneyTrend");
+                ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                 if (drawPlayer.head != mod.GetEquipSlot("CosmicTerrorHead", EquipType.Head)) return;
-                var texture = mod.GetTexture("Items/Vanity/CosmicTerror/CosmicTerrorHead_Glow");
+                var texture = Request<Texture2D>("Items/Vanity/CosmicTerror/CosmicTerrorHead_Glow").Value;
                 float drawX = (int) drawInfo.position.X + drawPlayer.width / 2;
                 var drawY = (int) drawInfo.position.Y + drawPlayer.height - drawPlayer.headFrame.Height / 2 + 4f - 34f;
                 var origin = drawInfo.headOrigin;
@@ -763,13 +762,13 @@ namespace JourneyTrend
             });
 
         public static readonly PlayerLayer KnighwalkerHeadGlowmask = new PlayerLayer("JourneyTrend",
-            "KnighwalkerHeadGlowmask", PlayerLayer.Head, delegate(PlayerDrawInfo drawInfo)
+            "KnighwalkerHeadGlowmask", PlayerLayer.Head, delegate(PlayerDrawSet drawInfo)
             {
                 if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead) return;
                 var drawPlayer = drawInfo.drawPlayer;
-                var mod = ModLoader.GetMod("JourneyTrend");
+                ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                 if (drawPlayer.head != mod.GetEquipSlot("KnightwalkerHead", EquipType.Head)) return;
-                var texture = mod.GetTexture("Items/Vanity/Knightwalker/KnightwalkerHead_Glow");
+                var texture = Request<Texture2D>("Items/Vanity/Knightwalker/KnightwalkerHead_Glow").Value;
                 float drawX = (int) drawInfo.position.X + drawPlayer.width / 2;
                 var drawY = (int) drawInfo.position.Y + drawPlayer.height - drawPlayer.headFrame.Height / 2 + 4f - 34f;
                 var origin = drawInfo.headOrigin;
@@ -786,13 +785,13 @@ namespace JourneyTrend
             });
 
         public static readonly PlayerLayer DeepDiverHeadGlowmask = new PlayerLayer("JourneyTrend",
-            "DeepDiverHeadGlowmask", PlayerLayer.Head, delegate(PlayerDrawInfo drawInfo)
+            "DeepDiverHeadGlowmask", PlayerLayer.Head, delegate(PlayerDrawSet drawInfo)
             {
                 if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead) return;
                 var drawPlayer = drawInfo.drawPlayer;
-                var mod = ModLoader.GetMod("JourneyTrend");
+                ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                 if (drawPlayer.head != mod.GetEquipSlot("DeepDiverHead", EquipType.Head)) return;
-                var texture = mod.GetTexture("Items/Vanity/DeepDiver/DeepDiverHead_Glow");
+                var texture = Request<Texture2D>("Items/Vanity/DeepDiver/DeepDiverHead_Glow").Value;
                 float drawX = (int) drawInfo.position.X + drawPlayer.width / 2;
                 var drawY = (int) drawInfo.position.Y + drawPlayer.height - drawPlayer.headFrame.Height / 2 + 4f - 34f;
                 var origin = drawInfo.headOrigin;
@@ -809,13 +808,13 @@ namespace JourneyTrend
             });
 
         public static readonly PlayerLayer BountyHeadGlowmask = new PlayerLayer("JourneyTrend", "BountyHeadGlowmask",
-            PlayerLayer.Head, delegate(PlayerDrawInfo drawInfo)
+            PlayerLayer.Head, delegate(PlayerDrawSet drawInfo)
             {
                 if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead) return;
                 var drawPlayer = drawInfo.drawPlayer;
-                var mod = ModLoader.GetMod("JourneyTrend");
+                ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                 if (drawPlayer.head != mod.GetEquipSlot("BountyHead", EquipType.Head)) return;
-                var texture = mod.GetTexture("Items/Vanity/Bounty/BountyHead_Glow");
+                var texture = Request<Texture2D>("Items/Vanity/Bounty/BountyHead_Glow").Value;
                 float drawX = (int) drawInfo.position.X + drawPlayer.width / 2;
                 var drawY = (int) drawInfo.position.Y + drawPlayer.height - drawPlayer.headFrame.Height / 2 + 4f - 34f;
                 var origin = drawInfo.headOrigin;
@@ -832,13 +831,13 @@ namespace JourneyTrend
             });
 
         public static readonly PlayerLayer StarlightDreamHeadGlowmask = new PlayerLayer("JourneyTrend",
-            "StarlightDreamHeadGlowmask", PlayerLayer.Head, delegate(PlayerDrawInfo drawInfo)
+            "StarlightDreamHeadGlowmask", PlayerLayer.Head, delegate(PlayerDrawSet drawInfo)
             {
                 if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead) return;
                 var drawPlayer = drawInfo.drawPlayer;
-                var mod = ModLoader.GetMod("JourneyTrend");
+                ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                 if (drawPlayer.head != mod.GetEquipSlot("StarlightDreamHead", EquipType.Head)) return;
-                var texture = mod.GetTexture("Items/Vanity/StarlightDream/StarlightDreamHead_Glow");
+                var texture = Request<Texture2D>("Items/Vanity/StarlightDream/StarlightDreamHead_Glow").Value;
                 float drawX = (int) drawInfo.position.X + drawPlayer.width / 2;
                 var drawY = (int) drawInfo.position.Y + drawPlayer.height - drawPlayer.headFrame.Height / 2 + 4f - 34f;
                 var origin = drawInfo.headOrigin;
@@ -855,13 +854,13 @@ namespace JourneyTrend
             });
 
         public static readonly PlayerLayer WitchsVoidHeadGlowmask = new PlayerLayer("JourneyTrend",
-            "WitchsVoidHeadGlowmask", PlayerLayer.Head, delegate(PlayerDrawInfo drawInfo)
+            "WitchsVoidHeadGlowmask", PlayerLayer.Head, delegate(PlayerDrawSet drawInfo)
             {
                 if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead) return;
                 var drawPlayer = drawInfo.drawPlayer;
-                var mod = ModLoader.GetMod("JourneyTrend");
+                ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                 if (drawPlayer.head != mod.GetEquipSlot("WitchsVoidHead", EquipType.Head)) return;
-                var texture = mod.GetTexture("Items/Vanity/WitchsVoid/WitchsVoidHead_Glow");
+                var texture = Request<Texture2D>("Items/Vanity/WitchsVoid/WitchsVoidHead_Glow").Value;
                 float drawX = (int) drawInfo.position.X + drawPlayer.width / 2;
                 var drawY = (int) drawInfo.position.Y + drawPlayer.height - drawPlayer.headFrame.Height / 2 + 4f - 34f;
                 var origin = drawInfo.headOrigin;
@@ -878,13 +877,13 @@ namespace JourneyTrend
             });
 
         public static readonly PlayerLayer ShadowSpellHeadGlowmask = new PlayerLayer("JourneyTrend",
-            "ShadowSpellHeadGlowmask", PlayerLayer.Head, delegate(PlayerDrawInfo drawInfo)
+            "ShadowSpellHeadGlowmask", PlayerLayer.Head, delegate(PlayerDrawSet drawInfo)
             {
                 if (drawInfo.shadow != 0f || drawInfo.drawPlayer.dead) return;
                 var drawPlayer = drawInfo.drawPlayer;
-                var mod = ModLoader.GetMod("JourneyTrend");
+                ModLoader.TryGetMod("JourneyTrend", out Mod mod);
                 if (drawPlayer.head != mod.GetEquipSlot("ShadowSpellHead", EquipType.Head)) return;
-                var texture = mod.GetTexture("Items/Vanity/ShadowSpell/ShadowSpellHead_Glow");
+                var texture = Request<Texture2D>("Items/Vanity/ShadowSpell/ShadowSpellHead_Glow").Value;
                 float drawX = (int) drawInfo.position.X + drawPlayer.width / 2;
                 var drawY = (int) drawInfo.position.Y + drawPlayer.height - drawPlayer.headFrame.Height / 2 + 4f - 34f;
                 var origin = drawInfo.headOrigin;
@@ -937,23 +936,23 @@ namespace JourneyTrend
 
         public bool StarlightBodyEquipped; // Corresponding equip bool
 
-        private int walkUpShift; //-2 when the walk cykle has 'up' frames
+        private int walkUpShift; //-2 when the walk cycle has 'up' frames
 
         // Starting Items
         public override void SetupStartInventory(IList<Item> items, bool mediumcoreDeath)
         {
             var TravellerHead = new Item();
-            TravellerHead.SetDefaults(ModContent.ItemType<TravellerHead>());
+            TravellerHead.SetDefaults(ItemType<TravellerHead>());
             TravellerHead.stack = 1;
             items.Add(TravellerHead);
 
             var TravellerBody = new Item();
-            TravellerBody.SetDefaults(ModContent.ItemType<TravellerBody>());
+            TravellerBody.SetDefaults(ItemType<TravellerBody>());
             TravellerBody.stack = 1;
             items.Add(TravellerBody);
 
             var TravellerLegs = new Item();
-            TravellerLegs.SetDefaults(ModContent.ItemType<TravellerLegs>());
+            TravellerLegs.SetDefaults(ItemType<TravellerLegs>());
             TravellerLegs.stack = 1;
             items.Add(TravellerLegs);
         }
@@ -976,15 +975,15 @@ namespace JourneyTrend
                 walkUpShift = 0;
 
 
-            if (StarlightBodyEquipped) playerframe = player.bodyFrame; //grabs player rect
+            if (StarlightBodyEquipped) _playerFrame = player.bodyFrame; //grabs player rect
 
             if (KnightwalkerBodyEquipped)
             {
                 if (player.grapCount > 0 && !isIdle) //when grappling and not not moving (grappled still)
                     //0,frameNum * frame hei, width, height 
-                    playerframe = new Rectangle(0, 6 * (1120 / 20), 40, 1120 / 20);
+                    _playerFrame = new Rectangle(0, 6 * (1120 / 20), 40, 1120 / 20);
                 else
-                    playerframe = player.bodyFrame; //grabs player rect
+                    _playerFrame = player.bodyFrame; //grabs player rect
             }
 
 

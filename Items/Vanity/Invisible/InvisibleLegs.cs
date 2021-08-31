@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -13,10 +14,10 @@ namespace JourneyTrend.Items.Vanity.Invisible
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.White;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.White;
+            Item.vanity = true;
         }
 
         public override bool DrawLegs()
@@ -26,12 +27,11 @@ namespace JourneyTrend.Items.Vanity.Invisible
 
         public override void AddRecipes()
         {
-            var recipe = new ModRecipe(mod);
-            recipe.AddTile(mod.GetTile("SewingMachine"));
-            recipe.AddIngredient(ItemID.Glass);
-            recipe.needWater = true;
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            CreateRecipe()
+                .AddTile<Tiles.SewingMachine>()
+                .AddIngredient(ItemID.Glass)
+                .AddCondition(Recipe.Condition.NearWater)
+                .Register();
         }
     }
 }

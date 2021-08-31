@@ -18,26 +18,25 @@ namespace JourneyTrend.Items.Vanity.Nightlight
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Green;
-            item.vanity = true;
-            item.value = 0;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Green;
+            Item.vanity = true;
+            Item.value = 0;
         }
 
-        public override void UpdateVanity(Player player, EquipType type)
+        public override void UpdateVanity(Player player)
         {
             Lighting.AddLight(player.Center, 198 * adj, 229 * adj, 10 * adj);
         }
 
         public override void AddRecipes()
         {
-            var recipe = new ModRecipe(mod);
-            recipe.AddTile(TileID.Loom);
-            recipe.AddIngredient(ItemID.Silk, 15);
-            recipe.AddIngredient(ItemID.Moonglow, 15);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            CreateRecipe()
+                .AddTile(TileID.Loom)
+                .AddIngredient(ItemID.Silk, 15)
+                .AddIngredient(ItemID.Moonglow, 15)
+                .Register();
         }
     }
 }

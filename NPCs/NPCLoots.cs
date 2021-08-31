@@ -27,9 +27,9 @@ using static Terraria.ModLoader.ModContent;
 
 namespace JourneyTrend.NPCs
 {
-    internal class NPCLoots : GlobalNPC
+    internal class NpcLoots : GlobalNPC
     {
-        public override void NPCLoot(NPC npc)
+        public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
         {
             if (npc.type == NPCID.BirdBlue && Main.rand.Next(200) == 0)
             {
@@ -120,11 +120,11 @@ namespace JourneyTrend.NPCs
                     Item.NewItem(npc.getRect(), ItemID.ReflectiveMetalDye, 3);
             }
 
-            if (npc.type == NPCID.WyvernHead && !Main.dayTime && !Main.LocalPlayer.ZoneHoly && Main.rand.Next(5) == 0)
+            if (npc.type == NPCID.WyvernHead && !Main.dayTime && !Main.LocalPlayer.ZoneHallow && Main.rand.Next(5) == 0)
                 // 1 in 5 from Wyvern, Night Time, Not in Hallow - Single - Kuijia Set
                 Item.NewItem(npc.getRect(), ItemType<KuijiaHead>());
 
-            if (npc.type == NPCID.WyvernHead && !Main.dayTime && Main.LocalPlayer.ZoneHoly && Main.rand.Next(2) == 0)
+            if (npc.type == NPCID.WyvernHead && !Main.dayTime && Main.LocalPlayer.ZoneHallow && Main.rand.Next(2) == 0)
             {
                 // 1 in 2 from Wyvern, Night Time, in Hallow - Single - Kuijia Set
                 var dropChooser = new WeightedRandom<int>();

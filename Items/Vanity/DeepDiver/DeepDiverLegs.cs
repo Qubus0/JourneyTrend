@@ -16,11 +16,11 @@ namespace JourneyTrend.Items.Vanity.DeepDiver
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Blue;
-            item.vanity = true;
-            item.value = 100000; //only if sold.
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Blue;
+            Item.vanity = true;
+            Item.value = 100000; //only if sold.
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

@@ -15,10 +15,10 @@ namespace JourneyTrend.Items.Vanity.Terra
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Lime;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Lime;
+            Item.vanity = true;
         }
     }
 }

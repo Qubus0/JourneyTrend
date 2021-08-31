@@ -14,9 +14,9 @@ namespace JourneyTrend.Items.Vanity.NineTailedFox
 
         public override void SetDefaults()
         {
-            item.vanity = true;
-            item.value = 50000;
-            item.rare = ItemRarityID.Lime;
+            Item.vanity = true;
+            Item.value = 50000;
+            Item.rare = ItemRarityID.Lime;
         }
 
         public override void DrawHands(ref bool drawHands, ref bool drawArms)

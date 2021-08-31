@@ -14,14 +14,14 @@ namespace JourneyTrend.Items.Vanity.Journeyman
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.value = 150000;
-            item.rare = ItemRarityID.Gray;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.value = 150000;
+            Item.rare = ItemRarityID.Gray;
+            Item.vanity = true;
         }
 
-        public override bool CanBurnInLava()
+        public override bool? CanBurnInLava()
         {
             return false;
         }

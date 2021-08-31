@@ -14,11 +14,11 @@ namespace JourneyTrend.Items.Vanity.SeaBuckthornTea
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Blue;
-            item.vanity = true;
-            item.value = 250000;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Blue;
+            Item.vanity = true;
+            Item.value = 250000;
         }
     }
 }

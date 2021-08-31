@@ -14,10 +14,10 @@ namespace JourneyTrend.Items.Vanity.Draugr
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Orange;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Orange;
+            Item.vanity = true;
         }
     }
 }

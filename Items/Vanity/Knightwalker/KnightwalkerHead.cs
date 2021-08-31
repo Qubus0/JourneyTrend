@@ -15,10 +15,10 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Purple;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Purple;
+            Item.vanity = true;
         }
 
         public override bool DrawHead()
@@ -26,7 +26,7 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
             return false;
         }
 
-        public override void UpdateVanity(Player player, EquipType type)
+        public override void UpdateVanity(Player player)
         {
             player.GetModPlayer<JourneyPlayer>().KnightwalkerHeadEquipped = true;
         }
@@ -35,25 +35,23 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
         {
             if (WorldGen.crimson)
             {
-                var recipe = new ModRecipe(mod);
-                recipe.AddTile(TileID.Hellforge);
-                recipe.AddIngredient(ItemID.UnicornHorn, 5);
-                recipe.AddIngredient(ItemID.TissueSample, 5);
-                recipe.AddIngredient(ItemID.Ichor, 5);
-                recipe.AddRecipeGroup("IronBar", 10);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                CreateRecipe()
+                    .AddTile(TileID.Hellforge)
+                    .AddIngredient(ItemID.UnicornHorn, 5)
+                    .AddIngredient(ItemID.TissueSample, 5)
+                    .AddIngredient(ItemID.Ichor, 5)
+                    .AddRecipeGroup("IronBar", 10)
+                    .Register();
             }
             else
             {
-                var recipe = new ModRecipe(mod);
-                recipe.AddTile(TileID.Hellforge);
-                recipe.AddIngredient(ItemID.UnicornHorn, 5);
-                recipe.AddIngredient(ItemID.ShadowScale, 5);
-                recipe.AddIngredient(ItemID.CursedFlame, 5);
-                recipe.AddRecipeGroup("IronBar", 10);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                CreateRecipe()
+                    .AddTile(TileID.Hellforge)
+                    .AddIngredient(ItemID.UnicornHorn, 5)
+                    .AddIngredient(ItemID.ShadowScale, 5)
+                    .AddIngredient(ItemID.CursedFlame, 5)
+                    .AddRecipeGroup("IronBar", 10)
+                    .Register();
             }
         }
     }

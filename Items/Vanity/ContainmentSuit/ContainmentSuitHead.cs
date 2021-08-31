@@ -17,24 +17,23 @@ namespace JourneyTrend.Items.Vanity.ContainmentSuit
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Green;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Green;
+            Item.vanity = true;
         }
 
         public override void AddRecipes()
         {
-            var recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.Glass, 2);
-            recipe.AddIngredient(ItemID.Wire, 3);
-            recipe.AddIngredient(ItemID.Topaz);
-            recipe.AddTile(TileID.HeavyWorkBench);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            CreateRecipe()
+                .AddIngredient(ItemID.Glass, 2)
+                .AddIngredient(ItemID.Wire, 3)
+                .AddIngredient(ItemID.Topaz)
+                .AddTile(TileID.HeavyWorkBench)
+                .Register();
         }
 
-        public override void UpdateVanity(Player player, EquipType type)
+        public override void UpdateVanity(Player player)
         {
             Lighting.AddLight(player.Center, 255 * adj, 210 * adj, 159 * adj);
         }

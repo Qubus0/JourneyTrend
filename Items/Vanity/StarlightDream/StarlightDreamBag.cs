@@ -20,11 +20,11 @@ namespace JourneyTrend.Items.Vanity.StarlightDream
 
         public override void SetDefaults()
         {
-            item.maxStack = 999;
-            item.consumable = true;
-            item.width = 24;
-            item.height = 24;
-            item.rare = ItemRarityID.Blue;
+            Item.maxStack = 999;
+            Item.consumable = true;
+            Item.width = 24;
+            Item.height = 24;
+            Item.rare = ItemRarityID.Blue;
         }
 
         public override bool CanRightClick()
@@ -34,11 +34,11 @@ namespace JourneyTrend.Items.Vanity.StarlightDream
 
         public override void Update(ref float gravity, ref float maxFallSpeed)
         {
-            Lighting.AddLight(item.Center, 241 * adj, 215 * adj, 108 * adj);
+            Lighting.AddLight(Item.Center, 241 * adj, 215 * adj, 108 * adj);
             if (Main.dayTime && Main.time == 0)
             {
-                item.TurnToAir();
-                for (var i = 0; i < 20; i++) Dust.NewDust(item.Center, 20, 8, 15);
+                Item.TurnToAir();
+                for (var i = 0; i < 20; i++) Dust.NewDust(Item.Center, 20, 8, 15);
             }
         }
 
@@ -46,14 +46,14 @@ namespace JourneyTrend.Items.Vanity.StarlightDream
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor,
             float rotation, float scale, int whoAmI)
         {
-            var texture = mod.GetTexture("Items/Vanity/StarlightDream/StarlightDreamBag_Glow");
+            var texture = ModContent.Request<Texture2D>("Items/Vanity/StarlightDream/StarlightDreamBag_Glow").Value;
             spriteBatch.Draw
             (
                 texture,
                 new Vector2
                 (
-                    item.position.X - Main.screenPosition.X + item.width * 0.5f,
-                    item.position.Y - Main.screenPosition.Y + item.height - texture.Height * 0.5f + 2f
+                    Item.position.X - Main.screenPosition.X + Item.width * 0.5f,
+                    Item.position.Y - Main.screenPosition.Y + Item.height - texture.Height * 0.5f + 2f
                 ),
                 new Rectangle(0, 0, texture.Width, texture.Height),
                 Color.White,
