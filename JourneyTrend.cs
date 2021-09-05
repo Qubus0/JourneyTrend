@@ -1,11 +1,14 @@
+using System.Linq;
 using JourneyTrend.Items.Vanity.Bubblehead;
 using JourneyTrend.Items.Vanity.CyberAngel;
 using JourneyTrend.Items.Vanity.ForestDruid;
 using JourneyTrend.Items.Vanity.Knightwalker;
+using JourneyTrend.Items.Vanity.Pilot;
 using JourneyTrend.Items.Vanity.ShadowFiend;
 using JourneyTrend.Items.Vanity.Terra;
 using JourneyTrend.NPCs.Trader;
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -24,9 +27,10 @@ namespace JourneyTrend
         {
             // Will show up in client.log under the JourneyTrend name
             Logger.InfoFormat("{0} Logs: ", Name);
-            if (!Main.dedServ)
-                AddEquipTexture(null, EquipType.Legs,
-                    "JourneyTrend/Items/Vanity/Pilot/PilotLegs_Legs");
+            
+            // todo fix pilot legs
+            // if (!Main.dedServ)
+            //     AddEquipTexture(null, EquipType.Legs, "JourneyTrend/Items/Vanity/Pilot/PilotLegs_Legs");
         }
 
         public override void Unload()
@@ -37,9 +41,12 @@ namespace JourneyTrend
             // }
 
             // Unload static references
-            // You need to clear static references to assets (Texture2D, SoundEffects, Effects). 
+            // You need to clear static references to assets (Texture2D, SoundEffects, Effects).
             // In addition to that, if you want your mod to completely unload during unload, you need to clear static references to anything referencing your Mod class
-            VanityTrader.currentShop.Clear();
+            if (VanityTrader.currentShop?.Any() == true)
+            {
+                VanityTrader.currentShop.Clear();
+            }
         }
 
         public override void AddRecipeGroups()

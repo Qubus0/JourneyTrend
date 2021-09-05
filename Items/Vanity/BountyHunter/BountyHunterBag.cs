@@ -3,9 +3,9 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
 
-namespace JourneyTrend.Items.Vanity.Bounty
+namespace JourneyTrend.Items.Vanity.BountyHunter
 {
-    public class BountyBag : ModItem
+    public class BountyHunterBag : ModItem
     {
         public override void SetStaticDefaults()
         {
@@ -30,9 +30,9 @@ namespace JourneyTrend.Items.Vanity.Bounty
 
         public override void RightClick(Player player)
         {
-            player.QuickSpawnItem(ItemType<BountyLegs>());
-            player.QuickSpawnItem(ItemType<BountyBody>());
-            player.QuickSpawnItem(ItemType<BountyHead>());
+            player.QuickSpawnItem(ItemType<BountyHunterLegs>());
+            player.QuickSpawnItem(ItemType<BountyHunterBody>());
+            player.QuickSpawnItem(ItemType<BountyHunterHead>());
         }
     }
 }

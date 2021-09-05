@@ -1,16 +1,16 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace JourneyTrend.Items.Vanity.Bounty
+namespace JourneyTrend.Items.Vanity.BountyHunter
 {
-    [AutoloadEquip(EquipType.Head)]
-    public class BountyHead : ModItem
+    [AutoloadEquip(EquipType.Legs)]
+    public class BountyHunterLegs : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bounty Hunter Mask");
+            DisplayName.SetDefault("Bounty Hunter Greaves");
             Tooltip.SetDefault(
-                "A high-tech battle armour developed by Dr. Tobopolis.\nSome Accidental Disintegrations.\nMade by Tobopolis");
+                "A high-tech battle armour developed by Dr. Tobopolis.\nIt's strictly business.\nMade by Tobopolis");
         }
 
         public override void SetDefaults()
@@ -20,11 +20,6 @@ namespace JourneyTrend.Items.Vanity.Bounty
             Item.rare = ItemRarityID.Yellow;
             Item.vanity = true;
             Item.value = 50000; //only if sold.
-        }
-
-        public override bool DrawHead()
-        {
-            return false;
         }
     }
 }

@@ -3,7 +3,7 @@ using JourneyTrend.Items.Placeable;
 using JourneyTrend.Items.Vanity.AndromedaPilot;
 using JourneyTrend.Items.Vanity.ArcaneExosuit;
 using JourneyTrend.Items.Vanity.Birdie;
-using JourneyTrend.Items.Vanity.Bounty;
+using JourneyTrend.Items.Vanity.BountyHunter;
 using JourneyTrend.Items.Vanity.BrokenHero;
 using JourneyTrend.Items.Vanity.Bubblehead;
 using JourneyTrend.Items.Vanity.ContainmentSuit;
@@ -69,7 +69,7 @@ namespace JourneyTrend.NPCs.Trader
             ModContent.ItemType<AndromedaPilotBag>(),
             ModContent.ItemType<ArcaneExosuitBag>(),
             ModContent.ItemType<BirdieBag>(),
-            ModContent.ItemType<BountyBag>(),
+            ModContent.ItemType<BountyHunterBag>(),
             ModContent.ItemType<BrokenHeroBag>(),
             ModContent.ItemType<BubbleheadBag>(),
             ModContent.ItemType<ContainmentSuitBag>(),

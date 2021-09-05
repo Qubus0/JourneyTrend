@@ -1,6 +1,6 @@
 ﻿using JourneyTrend.Items.Vanity.ArcaneExosuit;
 using JourneyTrend.Items.Vanity.Birdie;
-using JourneyTrend.Items.Vanity.Bounty;
+using JourneyTrend.Items.Vanity.BountyHunter;
 using JourneyTrend.Items.Vanity.CyberAngel;
 using JourneyTrend.Items.Vanity.DeepDiver;
 using JourneyTrend.Items.Vanity.Grid;
@@ -59,11 +59,11 @@ namespace JourneyTrend.NPCs
 
                     if (!Main.dayTime && NPC.downedMartians)
                     {
-                        shop.item[nextSlot].SetDefaults(ItemType<BountyHead>());
+                        shop.item[nextSlot].SetDefaults(ItemType<BountyHunterHead>());
                         nextSlot++;
-                        shop.item[nextSlot].SetDefaults(ItemType<BountyBody>());
+                        shop.item[nextSlot].SetDefaults(ItemType<BountyHunterBody>());
                         nextSlot++;
-                        shop.item[nextSlot].SetDefaults(ItemType<BountyLegs>());
+                        shop.item[nextSlot].SetDefaults(ItemType<BountyHunterLegs>());
                         nextSlot++;
                     }
 

@@ -1,16 +1,16 @@
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace JourneyTrend.Items.Vanity.Bounty
+namespace JourneyTrend.Items.Vanity.BountyHunter
 {
-    [AutoloadEquip(EquipType.Legs)]
-    public class BountyLegs : ModItem
+    [AutoloadEquip(EquipType.Body)]
+    public class BountyHunterBody : ModItem
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Bounty Hunter Greaves");
+            DisplayName.SetDefault("Bounty Hunter Chestplate");
             Tooltip.SetDefault(
-                "A high-tech battle armour developed by Dr. Tobopolis.\nIt's strictly business.\nMade by Tobopolis");
+                "A high-tech battle armour developed by Dr. Tobopolis.\nWatch out for space dragons!\nMade by Tobopolis");
         }
 
         public override void SetDefaults()

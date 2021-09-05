@@ -9,6 +9,8 @@ namespace JourneyTrend.Items.Vanity.WitchsVoid
 {
     public class WitchsVoidBag : ModItem
     {
+        private const float Adj = 0.00392f / 2; //adjusts the rgb value from 0-255 to 0-1 because light is stupid
+
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Witch's Void Bag");
@@ -28,6 +30,7 @@ namespace JourneyTrend.Items.Vanity.WitchsVoid
         {
             return true;
         }
+        
 
         public override void RightClick(Player player)
         {
@@ -36,10 +39,15 @@ namespace JourneyTrend.Items.Vanity.WitchsVoid
             player.QuickSpawnItem(ItemType<WitchsVoidHead>());
         }
 
+        public override void Update(ref float gravity, ref float maxFallSpeed)
+        {
+            Lighting.AddLight(Item.Center, 255 * Adj, 145 * Adj, 244 * Adj);
+        }
+        
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor,
             float rotation, float scale, int whoAmI)
         {
-            var texture = ModContent.Request<Texture2D>("Items/Vanity/WitchsVoid/WitchsVoidBag_Glow").Value;
+            var texture = ModContent.Request<Texture2D>("JourneyTrend/Items/Vanity/WitchsVoid/WitchsVoidBag_Glow").Value;
             spriteBatch.Draw
             (
                 texture,
