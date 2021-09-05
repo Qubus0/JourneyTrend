@@ -939,22 +939,14 @@ namespace JourneyTrend
         private int walkUpShift; //-2 when the walk cycle has 'up' frames
 
         // Starting Items
-        public override void SetupStartInventory(IList<Item> items, bool mediumcoreDeath)
+        public override IEnumerable<Item> AddStartingItems(bool mediumcoreDeath)
         {
-            var TravellerHead = new Item();
-            TravellerHead.SetDefaults(ItemType<TravellerHead>());
-            TravellerHead.stack = 1;
-            items.Add(TravellerHead);
+            return new[] {
+                new Item(ModContent.ItemType<TravellerHead>()),
+                new Item(ModContent.ItemType<TravellerBody>()),
+                new Item(ModContent.ItemType<TravellerLegs>())
+            };
 
-            var TravellerBody = new Item();
-            TravellerBody.SetDefaults(ItemType<TravellerBody>());
-            TravellerBody.stack = 1;
-            items.Add(TravellerBody);
-
-            var TravellerLegs = new Item();
-            TravellerLegs.SetDefaults(ItemType<TravellerLegs>());
-            TravellerLegs.stack = 1;
-            items.Add(TravellerLegs);
         }
 
 
