@@ -7,7 +7,7 @@ namespace JourneyTrend.Items.Vanity.ContainmentSuit
     public class ContainmentSuitHeadGlowDrawLayer : GlowDrawLayer
     {
         public ContainmentSuitHeadGlowDrawLayer() : base(
-            "JourneyTrend/Items/Vanity/ContainmentSuit/ContainmentSuitHead_Glowmask")
+            "JourneyTrend/Items/Vanity/ContainmentSuit/ContainmentSuitHead_Glow")
         {
         }
 
