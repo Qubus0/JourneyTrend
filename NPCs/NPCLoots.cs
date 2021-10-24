@@ -151,9 +151,9 @@ namespace JourneyTrend.NPCs
                 Item.NewItem(npc.getRect(), choice);
             }
 
-            if (npc.type == NPCID.Mothron && Main.rand.Next(20) == 1 ||
+            if (npc.type == NPCID.Mothron && Main.rand.Next(20) == 0 ||
                 (npc.type == NPCID.Eyezor || npc.type == NPCID.Nailhead || npc.type == NPCID.Reaper) &&
-                Main.rand.Next(40) == 1)
+                Main.rand.Next(40) == 0)
             {
                 Item.NewItem(npc.getRect(), ItemType<TerraHead>());
                 Item.NewItem(npc.getRect(), ItemType<TerraBody>());
@@ -182,12 +182,16 @@ namespace JourneyTrend.NPCs
 
             for (var i = 3; i < 9; i++) //loops through armor slots 3 to 9 (non vanity accessories)
                 if (Main.LocalPlayer.armor[i].type == ItemID.HermesBoots) //if one is hermes boots
-                    if (npc.type == NPCID.DukeFishron && Main.rand.Next(3) == 0)
+                    if (npc.type == NPCID.Medusa)
                     {
                         Item.NewItem(npc.getRect(), ItemType<AndromedaPilotHead>());
                         Item.NewItem(npc.getRect(), ItemType<AndromedaPilotBody>());
-                        Item.NewItem(npc.getRect(), ItemType<AndromedaPilotLegs>());
                     }
+
+            if (npc.type == NPCID.DukeFishron && Main.rand.Next(3) == 0)
+            {
+                Item.NewItem(npc.getRect(), ItemType<AndromedaPilotLegs>());
+            }
 
             if ((npc.type == NPCID.UndeadViking || npc.type == NPCID.ArmoredViking) && Main.rand.Next(20) == 0)
             {
