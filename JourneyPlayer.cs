@@ -367,10 +367,27 @@ namespace JourneyTrend
         private int KnightwalkerHeadFrameUpdater;
         private int KnightwalkerHeadTickToFrame;
 
+<<<<<<< HEAD
         public bool NineTailedFoxAccEquipped;
         private int NineTailedFoxFrameCounter;
         public int NineTailedFoxFrameIndex;
         private int NineTailedFoxTickCounter;
+=======
+        public bool StarlightBodyEquipped; // Corresponding equip bool
+
+        private int walkUpShift; //-2 when the walk cycle has 'up' frames
+
+        // Starting Items
+        public override IEnumerable<Item> AddStartingItems(bool mediumcoreDeath)
+        {
+            return new[] {
+                new Item(ModContent.ItemType<TravellerHead>()),
+                new Item(ModContent.ItemType<TravellerBody>()),
+                new Item(ModContent.ItemType<TravellerLegs>())
+            };
+
+        }
+>>>>>>> de52f131032681c579f6e408edf54738d2c2b681
 
         public bool StarlightBodyEquipped;
 
