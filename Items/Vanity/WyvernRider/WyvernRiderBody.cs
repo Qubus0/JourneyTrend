@@ -13,6 +13,8 @@ namespace JourneyTrend.Items.Vanity.WyvernRider
         {
             DisplayName.SetDefault("Wyvern Rider Shirt");
             Tooltip.SetDefault("It doesn't allow you to ride wyverns, sorry\nMade by manzXja");
+
+            ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false;
         }
 
         public override void SetDefaults()
@@ -31,11 +33,6 @@ namespace JourneyTrend.Items.Vanity.WyvernRider
                 .AddIngredient(ItemID.Cloud, 10)
                 .AddIngredient(ItemID.SoulofFlight)
                 .Register();
-        }
-
-        public override void DrawHands(ref bool drawHands, ref bool drawArms)
-        {
-            drawHands = true;
         }
 
         public override void UpdateVanity(Player player)

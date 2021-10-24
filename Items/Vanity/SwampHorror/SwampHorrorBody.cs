@@ -10,6 +10,9 @@ namespace JourneyTrend.Items.Vanity.SwampHorror
         {
             DisplayName.SetDefault("Swamp Horror Shirt");
             Tooltip.SetDefault("Made by Outerwar");
+
+            ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = true;
+            ArmorIDs.Body.Sets.HidesTopSkin[Item.bodySlot] = true;
         }
 
         public override void SetDefaults()
@@ -18,11 +21,6 @@ namespace JourneyTrend.Items.Vanity.SwampHorror
             Item.height = 18;
             Item.rare = ItemRarityID.Blue;
             Item.vanity = true;
-        }
-
-        public override bool DrawBody()
-        {
-            return false;
         }
     }
 }

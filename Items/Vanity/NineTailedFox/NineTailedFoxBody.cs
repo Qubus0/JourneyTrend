@@ -10,6 +10,8 @@ namespace JourneyTrend.Items.Vanity.NineTailedFox
         {
             DisplayName.SetDefault("Nine-Tailed Fox Chestplate");
             Tooltip.SetDefault("Made by Invalid");
+
+            ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = false;
         }
 
         public override void SetDefaults()
@@ -17,12 +19,6 @@ namespace JourneyTrend.Items.Vanity.NineTailedFox
             Item.vanity = true;
             Item.value = 50000;
             Item.rare = ItemRarityID.Lime;
-        }
-
-        public override void DrawHands(ref bool drawHands, ref bool drawArms)
-        {
-            drawHands = true;
-            drawArms = true;
         }
     }
 }

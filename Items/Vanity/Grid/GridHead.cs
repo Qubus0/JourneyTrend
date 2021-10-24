@@ -13,6 +13,8 @@ namespace JourneyTrend.Items.Vanity.Grid
         {
             DisplayName.SetDefault("Grid's Facemask");
             Tooltip.SetDefault("A legendary piece of armor.\nMade by Grid");
+
+            ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -30,11 +32,6 @@ namespace JourneyTrend.Items.Vanity.Grid
             Item.rare = ItemRarityID.White;
             Item.vanity = true;
             Item.value = 500000;
-        }
-
-        public override bool DrawHead()
-        {
-            return false;
         }
     }
 }

@@ -11,6 +11,8 @@ namespace JourneyTrend.Items.Vanity.CyberAngel
             DisplayName.SetDefault("Cyber Coat");
             Tooltip.SetDefault(
                 "The energy is used to purify the corruption and the crimson of the world.\nMade by Rariaz");
+
+            ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false;
         }
 
         public override void SetDefaults()
@@ -20,11 +22,6 @@ namespace JourneyTrend.Items.Vanity.CyberAngel
             Item.rare = ItemRarityID.Cyan;
             Item.vanity = true;
             Item.value = 250000; //only if sold.
-        }
-
-        public override void DrawHands(ref bool drawHands, ref bool drawArms)
-        {
-            drawHands = true;
         }
     }
 }

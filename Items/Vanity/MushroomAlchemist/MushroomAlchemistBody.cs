@@ -10,6 +10,8 @@ namespace JourneyTrend.Items.Vanity.MushroomAlchemist
         {
             DisplayName.SetDefault("Mushroom Alchemist Shirt");
             Tooltip.SetDefault("Makes you feel a little fungi.\nMade by Galahad");
+
+            ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = false;
         }
 
         public override void SetDefaults()
@@ -19,12 +21,6 @@ namespace JourneyTrend.Items.Vanity.MushroomAlchemist
             Item.rare = ItemRarityID.Blue;
             Item.vanity = true;
             Item.value = 200000; //only if sold.
-        }
-
-        public override void DrawHands(ref bool drawHands, ref bool drawArms)
-        {
-            drawHands = true;
-            drawArms = true;
         }
     }
 }

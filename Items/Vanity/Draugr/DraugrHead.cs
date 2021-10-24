@@ -10,6 +10,8 @@ namespace JourneyTrend.Items.Vanity.Draugr
         {
             DisplayName.SetDefault("Draugr Horned Helmet");
             Tooltip.SetDefault("Made by tic");
+
+            ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = true;
         }
 
         public override void SetDefaults()
@@ -18,11 +20,6 @@ namespace JourneyTrend.Items.Vanity.Draugr
             Item.height = 18;
             Item.rare = ItemRarityID.Orange;
             Item.vanity = true;
-        }
-
-        public override bool DrawHead()
-        {
-            return false;
         }
     }
 }

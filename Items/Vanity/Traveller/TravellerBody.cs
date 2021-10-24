@@ -10,6 +10,8 @@ namespace JourneyTrend.Items.Vanity.Traveller
         {
             DisplayName.SetDefault("Traveller Shirt");
             Tooltip.SetDefault("We've come a long way\nMade by Upixel");
+
+            ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false;
         }
 
         public override void SetDefaults()
@@ -18,11 +20,6 @@ namespace JourneyTrend.Items.Vanity.Traveller
             Item.height = 18;
             Item.rare = ItemRarityID.Green;
             Item.vanity = true;
-        }
-
-        public override void DrawHands(ref bool drawHands, ref bool drawArms)
-        {
-            drawHands = true;
         }
     }
 }

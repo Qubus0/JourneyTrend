@@ -12,6 +12,9 @@ namespace JourneyTrend.Items.Vanity.Rookie
         {
             DisplayName.SetDefault("Rookie Body");
             Tooltip.SetDefault("Life is never just black and white\nMade by PeanutSte");
+
+            ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = true;
+            ArmorIDs.Body.Sets.HidesTopSkin[Item.bodySlot] = true;
         }
 
         public override void SetDefaults()
@@ -21,11 +24,6 @@ namespace JourneyTrend.Items.Vanity.Rookie
             Item.rare = ItemRarityID.Blue;
             Item.vanity = true;
             Item.value = 0;
-        }
-
-        public override bool DrawBody()
-        {
-            return false;
         }
 
         public override void UpdateVanity(Player player)

@@ -13,6 +13,8 @@ namespace JourneyTrend.Items.Vanity.StarlightDream
         {
             DisplayName.SetDefault("Starlight Dream Hood");
             Tooltip.SetDefault("Made by Golditale");
+
+            ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true;
         }
 
         public override void SetDefaults()
@@ -21,11 +23,6 @@ namespace JourneyTrend.Items.Vanity.StarlightDream
             Item.height = 18;
             Item.rare = ItemRarityID.Cyan;
             Item.vanity = true;
-        }
-
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
-        {
-            drawAltHair = true;
         }
 
         public override void UpdateVanity(Player player)

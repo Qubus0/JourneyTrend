@@ -10,6 +10,8 @@ namespace JourneyTrend.Items.Vanity.Journeyman
         {
             DisplayName.SetDefault("Journeyman Shirt");
             Tooltip.SetDefault("A fancy jacket worn by journeymen.\nMade by poiuygfd");
+
+            ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false;
         }
 
         public override void SetDefaults()
@@ -24,11 +26,6 @@ namespace JourneyTrend.Items.Vanity.Journeyman
         public override bool? CanBurnInLava()
         {
             return false;
-        }
-
-        public override void DrawHands(ref bool drawHands, ref bool drawArms)
-        {
-            drawHands = true;
         }
     }
 }

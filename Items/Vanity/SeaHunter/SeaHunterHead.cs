@@ -10,6 +10,8 @@ namespace JourneyTrend.Items.Vanity.SeaHunter
         {
             DisplayName.SetDefault("Sea Hunter's Trifold Hat");
             Tooltip.SetDefault("May the hunt commence\nMade by Authon");
+
+            ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true;
         }
 
         public override void SetDefaults()
@@ -27,11 +29,6 @@ namespace JourneyTrend.Items.Vanity.SeaHunter
                 .AddIngredient(ItemID.Silk, 10)
                 .AddIngredient(ItemID.SharkFin, 5)
                 .Register();
-        }
-
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
-        {
-            drawAltHair = true;
         }
     }
 }

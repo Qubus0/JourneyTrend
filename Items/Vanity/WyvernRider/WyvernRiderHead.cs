@@ -10,6 +10,8 @@ namespace JourneyTrend.Items.Vanity.WyvernRider
         {
             DisplayName.SetDefault("Wyvern Rider Hat");
             Tooltip.SetDefault("It doesn't allow you to ride wyverns, sorry\nMade by manzXja");
+
+            ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true;
         }
 
         public override void SetDefaults()
@@ -28,11 +30,6 @@ namespace JourneyTrend.Items.Vanity.WyvernRider
                 .AddIngredient(ItemID.Cloud, 2)
                 .AddIngredient(ItemID.SoulofFlight, 2)
                 .Register();
-        }
-
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
-        {
-            drawAltHair = true;
         }
     }
 }

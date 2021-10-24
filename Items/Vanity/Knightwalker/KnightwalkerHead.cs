@@ -11,6 +11,8 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
         {
             DisplayName.SetDefault("Helmet of the Knightwalker");
             Tooltip.SetDefault("Made by Dusk Ealain");
+
+            ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }
 
         public override void SetDefaults()
@@ -19,11 +21,6 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
             Item.height = 18;
             Item.rare = ItemRarityID.Purple;
             Item.vanity = true;
-        }
-
-        public override bool DrawHead()
-        {
-            return false;
         }
 
         public override void UpdateVanity(Player player)

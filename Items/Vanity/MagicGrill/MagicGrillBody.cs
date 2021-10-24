@@ -12,6 +12,8 @@ namespace JourneyTrend.Items.Vanity.MagicGrill
         {
             DisplayName.SetDefault("Magic Grill Megashark Top");
             Tooltip.SetDefault("Dw, it's fake shark leather.\nMade by Pepsi");
+
+            ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = false;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -29,12 +31,6 @@ namespace JourneyTrend.Items.Vanity.MagicGrill
             Item.rare = ItemRarityID.White;
             Item.vanity = true;
             Item.value = 0;
-        }
-
-        public override void DrawHands(ref bool drawHands, ref bool drawArms)
-        {
-            drawHands = true;
-            drawArms = true;
         }
     }
 }

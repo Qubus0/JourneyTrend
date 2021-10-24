@@ -10,6 +10,8 @@ namespace JourneyTrend.Items.Vanity.SeaBuckthornTea
         {
             DisplayName.SetDefault("A Cup of Tea");
             Tooltip.SetDefault("It smells like Sea Buckthorn Tea!\nMade by VaeloroK");
+
+            ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }
 
         public override void SetDefaults()
@@ -19,11 +21,6 @@ namespace JourneyTrend.Items.Vanity.SeaBuckthornTea
             Item.rare = ItemRarityID.Blue;
             Item.vanity = true;
             Item.value = 250000;
-        }
-
-        public override bool DrawHead()
-        {
-            return false;
         }
     }
 }

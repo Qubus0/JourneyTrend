@@ -13,6 +13,8 @@ namespace JourneyTrend.Items.Vanity.Duality
         {
             DisplayName.SetDefault("Duality Pants");
             Tooltip.SetDefault("Past and future, walk the path from one to the other.\nMade by Chan");
+
+            ArmorIDs.Legs.Sets.OverridesLegs[Item.legSlot] = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
@@ -45,11 +47,6 @@ namespace JourneyTrend.Items.Vanity.Duality
                 .AddIngredient(ItemID.DarkShard)
                 .AddTile(TileID.Loom)
                 .Register();
-        }
-
-        public override bool DrawLegs()
-        {
-            return false;
         }
     }
 }

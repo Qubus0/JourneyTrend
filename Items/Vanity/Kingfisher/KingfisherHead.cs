@@ -11,6 +11,8 @@ namespace JourneyTrend.Items.Vanity.Kingfisher
             DisplayName.SetDefault("Common Kingfisher Mask");
             Tooltip.SetDefault(
                 "The kingfisher rises out of the black wave like a blue flower.\nIn his beak, he carries a silver leaf.\nAlcedo atthis Approved!\nMade by Squidcrane");
+
+            ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }
 
         public override void SetDefaults()
@@ -20,11 +22,6 @@ namespace JourneyTrend.Items.Vanity.Kingfisher
             Item.rare = ItemRarityID.Blue;
             Item.vanity = true;
             Item.value = 0;
-        }
-
-        public override bool DrawHead()
-        {
-            return false;
         }
     }
 }

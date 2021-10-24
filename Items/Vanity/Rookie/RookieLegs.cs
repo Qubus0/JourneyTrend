@@ -11,6 +11,8 @@ namespace JourneyTrend.Items.Vanity.Rookie
         {
             DisplayName.SetDefault("Rookie Base");
             Tooltip.SetDefault("Stay Grounded\nMade by PeanutSte");
+
+            ArmorIDs.Legs.Sets.OverridesLegs[Item.legSlot] = true;
         }
 
         public override void SetDefaults()
@@ -20,11 +22,6 @@ namespace JourneyTrend.Items.Vanity.Rookie
             Item.rare = ItemRarityID.Blue;
             Item.vanity = true;
             Item.value = 0;
-        }
-
-        public override bool DrawLegs()
-        {
-            return false;
         }
     }
 }
