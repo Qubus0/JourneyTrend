@@ -21,7 +21,7 @@ namespace JourneyTrend.Items.Vanity.ShadowSpell
 
         public override bool GetDefaultVisibility(PlayerDrawSet drawInfo)
         {
-            return drawInfo.drawPlayer.head == Mod.GetEquipSlot("ShadowSpellHead", EquipType.Head)
+            return drawInfo.drawPlayer.head == EquipLoader.GetEquipSlot(Mod, "ShadowSpellHead", EquipType.Head)
                    && !drawInfo.drawPlayer.dead;
         }
     }

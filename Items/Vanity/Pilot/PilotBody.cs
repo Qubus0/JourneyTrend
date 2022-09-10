@@ -23,7 +23,7 @@ namespace JourneyTrend.Items.Vanity.Pilot
         public override void SetMatch(bool male, ref int equipSlot, ref bool robes)
         {
             robes = true;
-            equipSlot = Mod.GetEquipSlot("PilotLegs_Legs", EquipType.Legs);
+            equipSlot = EquipLoader.GetEquipSlot(Mod, "PilotLegs_Legs", EquipType.Legs);
         }
     }
 }

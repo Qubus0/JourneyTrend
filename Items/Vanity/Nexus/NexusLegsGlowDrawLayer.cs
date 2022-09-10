@@ -18,7 +18,7 @@ namespace JourneyTrend.Items.Vanity.Nexus
         
         public override bool GetDefaultVisibility(PlayerDrawSet drawInfo)
         {
-            return drawInfo.drawPlayer.legs == Mod.GetEquipSlot("NexusLegs", EquipType.Legs)
+            return drawInfo.drawPlayer.legs == EquipLoader.GetEquipSlot(Mod, "NexusLegs", EquipType.Legs)
                    && !drawInfo.drawPlayer.dead;
         }
     }

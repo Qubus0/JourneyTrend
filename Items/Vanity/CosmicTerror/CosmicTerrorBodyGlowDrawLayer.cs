@@ -18,7 +18,7 @@ namespace JourneyTrend.Items.Vanity.CosmicTerror
 
         public override bool GetDefaultVisibility(PlayerDrawSet drawInfo)
         {
-            return drawInfo.drawPlayer.body == Mod.GetEquipSlot("CosmicTerrorBody", EquipType.Body)
+            return drawInfo.drawPlayer.body == EquipLoader.GetEquipSlot(Mod, "CosmicTerrorBody", EquipType.Body)
                    && !drawInfo.drawPlayer.dead;
         }
     }

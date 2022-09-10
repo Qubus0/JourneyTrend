@@ -21,7 +21,7 @@ namespace JourneyTrend.Items.Vanity.StarlightDream
 
         public override bool GetDefaultVisibility(PlayerDrawSet drawInfo)
         {
-            return drawInfo.drawPlayer.head == Mod.GetEquipSlot("StarlightDreamHead", EquipType.Head)
+            return drawInfo.drawPlayer.head == EquipLoader.GetEquipSlot(Mod, "StarlightDreamHead", EquipType.Head)
                    && !drawInfo.drawPlayer.dead;
         }
     }

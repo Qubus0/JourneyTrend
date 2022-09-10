@@ -18,7 +18,7 @@ namespace JourneyTrend.Items.Vanity.Nightlight
 
         public override bool GetDefaultVisibility(PlayerDrawSet drawInfo)
         {
-            return drawInfo.drawPlayer.body == Mod.GetEquipSlot("NightlightBody", EquipType.Body)
+            return drawInfo.drawPlayer.body == EquipLoader.GetEquipSlot(Mod, "NightlightBody", EquipType.Body)
                    && !drawInfo.drawPlayer.dead;
         }
     }

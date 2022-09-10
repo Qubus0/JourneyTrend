@@ -21,7 +21,7 @@ namespace JourneyTrend.Items.Vanity.Nexus
 
         public override bool GetDefaultVisibility(PlayerDrawSet drawInfo)
         {
-            return drawInfo.drawPlayer.head == Mod.GetEquipSlot("NexusHead", EquipType.Head)
+            return drawInfo.drawPlayer.head == EquipLoader.GetEquipSlot(Mod, "NexusHead", EquipType.Head)
                    && !drawInfo.drawPlayer.dead;
         }
     }

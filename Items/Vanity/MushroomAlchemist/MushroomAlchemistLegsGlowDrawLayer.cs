@@ -18,7 +18,7 @@ namespace JourneyTrend.Items.Vanity.MushroomAlchemist
         
         public override bool GetDefaultVisibility(PlayerDrawSet drawInfo)
         {
-            return drawInfo.drawPlayer.legs == Mod.GetEquipSlot("MushroomAlchemistLegs", EquipType.Legs)
+            return drawInfo.drawPlayer.legs == EquipLoader.GetEquipSlot(Mod, "MushroomAlchemistLegs", EquipType.Legs)
                    && !drawInfo.drawPlayer.dead;
         }
     }

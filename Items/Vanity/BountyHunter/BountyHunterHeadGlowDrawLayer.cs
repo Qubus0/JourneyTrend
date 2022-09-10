@@ -21,7 +21,7 @@ namespace JourneyTrend.Items.Vanity.BountyHunter
 
         public override bool GetDefaultVisibility(PlayerDrawSet drawInfo)
         {
-            return drawInfo.drawPlayer.head == Mod.GetEquipSlot("BountyHunterHead", EquipType.Head)
+            return drawInfo.drawPlayer.head == EquipLoader.GetEquipSlot(Mod, "BountyHunterHead", EquipType.Head)
                    && !drawInfo.drawPlayer.dead;
         }
     }

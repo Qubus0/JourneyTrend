@@ -182,7 +182,7 @@ namespace JourneyTrend.NPCs.Trader
             currentShop = tag.Get<List<Item>>("currentShop");
         }
 
-        public override string TownNPCName()
+        public override List<string> SetNPCNameList()/* tModPorter Suggestion: Return a list of names */
         {
             switch (WorldGen.genRand.Next(2))
             {
@@ -220,7 +220,7 @@ namespace JourneyTrend.NPCs.Trader
             for (var x = left; x <= right; x++)
             for (var y = top; y <= bottom; y++)
             {
-                int type = Main.tile[x, y].type;
+                int type = Main.tile[x, y].TileType;
                 if (type == ModContent.TileType<SewingMachineTile>() || type == ItemID.Loom ||
                     type == ItemID.LivingLoom)
                     score += 10;
@@ -255,7 +255,7 @@ namespace JourneyTrend.NPCs.Trader
                 case 1:
                     return "So you've never bought second hand before?";
                 case 2:
-                    return "What do you mean by Â»cosplayÂ«?";
+                    return "What do you mean by ¯cosplay®?";
                 case 3:
                     return "Majora? No, I don't know any Majora, why do you ask?";
                 case 4:

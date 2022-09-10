@@ -21,7 +21,7 @@ namespace JourneyTrend.Items.Vanity.WitchsVoid
 
         public override bool GetDefaultVisibility(PlayerDrawSet drawInfo)
         {
-            return drawInfo.drawPlayer.head == Mod.GetEquipSlot("WitchsVoidHead", EquipType.Head)
+            return drawInfo.drawPlayer.head == EquipLoader.GetEquipSlot(Mod, "WitchsVoidHead", EquipType.Head)
                    && !drawInfo.drawPlayer.dead;
         }
     }

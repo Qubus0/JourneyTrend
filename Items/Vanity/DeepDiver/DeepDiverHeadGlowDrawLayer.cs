@@ -21,7 +21,7 @@ namespace JourneyTrend.Items.Vanity.DeepDiver
 
         public override bool GetDefaultVisibility(PlayerDrawSet drawInfo)
         {
-            return drawInfo.drawPlayer.head == Mod.GetEquipSlot("DeepDiverHead", EquipType.Head)
+            return drawInfo.drawPlayer.head == EquipLoader.GetEquipSlot(Mod, "DeepDiverHead", EquipType.Head)
                    && !drawInfo.drawPlayer.dead;
         }
     }

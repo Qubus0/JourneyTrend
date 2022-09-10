@@ -21,7 +21,7 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
 
         public override bool GetDefaultVisibility(PlayerDrawSet drawInfo)
         {
-            return drawInfo.drawPlayer.head == Mod.GetEquipSlot("KnightwalkerHead", EquipType.Head)
+            return drawInfo.drawPlayer.head == EquipLoader.GetEquipSlot(Mod, "KnightwalkerHead", EquipType.Head)
                    && !drawInfo.drawPlayer.dead;
         }
     }

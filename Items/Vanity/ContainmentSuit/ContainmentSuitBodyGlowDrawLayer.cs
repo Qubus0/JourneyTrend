@@ -18,7 +18,7 @@ namespace JourneyTrend.Items.Vanity.ContainmentSuit
 
         public override bool GetDefaultVisibility(PlayerDrawSet drawInfo)
         {
-            return drawInfo.drawPlayer.body == Mod.GetEquipSlot("ContainmentSuitBody", EquipType.Body)
+            return drawInfo.drawPlayer.body == EquipLoader.GetEquipSlot(Mod, "ContainmentSuitBody", EquipType.Body)
                    && !drawInfo.drawPlayer.dead;
         }
     }

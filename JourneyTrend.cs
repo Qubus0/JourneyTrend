@@ -49,7 +49,7 @@ namespace JourneyTrend
             }
         }
 
-        public override void AddRecipeGroups()
+        public override void AddRecipeGroups()/* tModPorter Note: Removed. Use ModSystem.AddRecipeGroups */
         {
             // Crafting Recipe Groups
             var SilverBars = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " Silver Bar",

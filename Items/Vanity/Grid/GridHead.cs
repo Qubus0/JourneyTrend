@@ -21,8 +21,8 @@ namespace JourneyTrend.Items.Vanity.Grid
         {
             // Custom RGB "Rarity"
             foreach (var line2 in tooltips)
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
-                    line2.overrideColor = new Color(85, 0, 0);
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
+                    line2.OverrideColor = new Color(85, 0, 0);
         }
 
         public override void SetDefaults()

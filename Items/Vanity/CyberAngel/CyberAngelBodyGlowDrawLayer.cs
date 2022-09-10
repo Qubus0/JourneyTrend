@@ -18,7 +18,7 @@ namespace JourneyTrend.Items.Vanity.CyberAngel
 
         public override bool GetDefaultVisibility(PlayerDrawSet drawInfo)
         {
-            return drawInfo.drawPlayer.body == Mod.GetEquipSlot("CyberAngelBody", EquipType.Body)
+            return drawInfo.drawPlayer.body == EquipLoader.GetEquipSlot(Mod, "CyberAngelBody", EquipType.Body)
                    && !drawInfo.drawPlayer.dead;
         }
     }

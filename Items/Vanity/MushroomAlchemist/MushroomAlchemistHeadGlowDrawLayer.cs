@@ -21,7 +21,7 @@ namespace JourneyTrend.Items.Vanity.MushroomAlchemist
 
         public override bool GetDefaultVisibility(PlayerDrawSet drawInfo)
         {
-            return drawInfo.drawPlayer.head == Mod.GetEquipSlot("MushroomAlchemistHead", EquipType.Head)
+            return drawInfo.drawPlayer.head == EquipLoader.GetEquipSlot(Mod, "MushroomAlchemistHead", EquipType.Head)
                    && !drawInfo.drawPlayer.dead;
         }
     }
