@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.DeepDiver
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<DeepDiverLegs>());
-            player.QuickSpawnItem(ItemType<DeepDiverBody>());
-            player.QuickSpawnItem(ItemType<DeepDiverHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<DeepDiverLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<DeepDiverBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<DeepDiverHead>()));
         }
     }
 }

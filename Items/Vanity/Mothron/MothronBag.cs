@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,12 +27,12 @@ namespace JourneyTrend.Items.Vanity.Mothron
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<MothronLegs>());
-            player.QuickSpawnItem(ItemType<MothronBody>());
-            player.QuickSpawnItem(ItemType<MothronHead>());
-            player.QuickSpawnItem(ItemID.MothronWings);
+            itemLoot.Add(ItemDropRule.Common(ItemType<MothronLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<MothronBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<MothronHead>()));
+            itemLoot.Add(ItemDropRule.Common(ItemID.MothronWings));
         }
     }
 }

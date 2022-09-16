@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -28,11 +28,11 @@ namespace JourneyTrend.Items.Vanity.Terra
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<TerraLegs>());
-            player.QuickSpawnItem(ItemType<TerraBody>());
-            player.QuickSpawnItem(ItemType<TerraHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<TerraLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<TerraBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<TerraHead>()));
         }
     }
 }

@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.Rookie
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<RookieLegs>());
-            player.QuickSpawnItem(ItemType<RookieBody>());
-            player.QuickSpawnItem(ItemType<RookieHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<RookieLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<RookieBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<RookieHead>()));
         }
     }
 }

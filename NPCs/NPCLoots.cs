@@ -18,10 +18,11 @@ using JourneyTrend.Items.Vanity.StormConqueror;
 using JourneyTrend.Items.Vanity.SwampHorror;
 using JourneyTrend.Items.Vanity.Terra;
 using JourneyTrend.Items.Vanity.WitchsVoid;
+using JourneyTrend.World.ItemDropRules.DropConditions;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.Utilities;
 using static Terraria.ModLoader.ModContent;
 
 
@@ -31,205 +32,260 @@ namespace JourneyTrend.NPCs
     {
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
         {
-            if (npc.type == NPCID.BirdBlue && Main.rand.Next(200) == 0)
+            switch (npc.type)
             {
-                // 1 in 200 from Blue Jay's - Single Item - Common Kingfisher Set
-                var dropChooser = new WeightedRandom<int>();
-                dropChooser.Add(ItemType<KingfisherHead>());
-                dropChooser.Add(ItemType<KingfisherBody>());
-                dropChooser.Add(ItemType<KingfisherLegs>());
-                int choice = dropChooser;
-                Item.NewItem(npc.getRect(), choice);
-            }
+                case NPCID.BirdBlue: // tested
+                    // 1/50 from Blue Jays - Single Item - Common Kingfisher Set // tested
+                    npcLoot.Add(
+                        ItemDropRule.OneFromOptions(
+                            50, 
+                            ItemType<KingfisherHead>(),
+                            ItemType<KingfisherBody>(),
+                            ItemType<KingfisherLegs>()
+                        )
+                    );
+                    break;
+                case NPCID.Shark: // tested
+                    // 1/33 from Shark - Single Item - Shark Set
+                    npcLoot.Add(
+                        ItemDropRule.OneFromOptions(
+                            33,
+                            ItemType<SharkHead>(),
+                            ItemType<SharkBody>(),
+                            ItemType<SharkLegs>()
+                        )
+                    );
+                    break;
+                case NPCID.MoonLordCore:
+                case NPCID.NebulaBeast:
+                case NPCID.NebulaBrain:
+                case NPCID.NebulaHeadcrab:
+                case NPCID.NebulaSoldier:
+                case NPCID.StardustWormHead:
+                case NPCID.StardustCellBig:
+                case NPCID.StardustJellyfishBig:
+                case NPCID.StardustSpiderBig:
+                case NPCID.StardustSoldier:
+                case NPCID.SolarCrawltipedeHead:
+                case NPCID.SolarDrakomire:
+                case NPCID.SolarDrakomireRider:
+                case NPCID.SolarSpearman:
+                case NPCID.SolarSroller:
+                case NPCID.SolarCorite:
+                case NPCID.SolarSolenian:
+                case NPCID.VortexRifleman:
+                case NPCID.VortexHornetQueen:
+                case NPCID.VortexSoldier:
+                    // 1/666 from Pillar Enemies and MoonLord - Single Item - Cosmic Terror Set // tested
+                    npcLoot.Add(
+                        ItemDropRule.OneFromOptions(
+                            666,
+                            ItemType<CosmicTerrorHead>(),
+                            ItemType<CosmicTerrorBody>(),
+                            ItemType<CosmicTerrorLegs>()
+                        )
+                    );
+                    break;
+                case NPCID.Mothron:
+                {
+                    // 1/8 from Mothron, after Plantera - Full Set (+ Vanilla Wings) - Mothron Set // tested
+                    var planteraCondition = new LeadingConditionRule(new Conditions.DownedPlantera());
+                
+                    var armorSetRule = ItemDropRule.Common(ItemType<MothronHead>(), 8);
+                    armorSetRule.OnSuccess(ItemDropRule.Common(ItemType<MothronBody>()));
+                    armorSetRule.OnSuccess(ItemDropRule.Common(ItemType<MothronLegs>()));
+                    armorSetRule.OnSuccess(ItemDropRule.Common(ItemID.MothronWings));
+                    planteraCondition.OnSuccess(armorSetRule);
+                    npcLoot.Add(planteraCondition);
+                    
+                    // 1/5 from Mothron - Single - Broken Hero Set // tested
+                    npcLoot.Add(
+                        ItemDropRule.OneFromOptions(
+                            5, 
+                            ItemType<BrokenHeroHead>(),
+                            ItemType<BrokenHeroBody>(),
+                            ItemType<BrokenHeroLegs>()
+                        )
+                    );
 
-            if (npc.type == NPCID.Shark && Main.rand.Next(100) < 3)
-            {
-                // 3 in 100 from Shark - Single Item - Shark Set
-                var dropChooser = new WeightedRandom<int>();
-                dropChooser.Add(ItemType<SharkHead>());
-                dropChooser.Add(ItemType<SharkBody>());
-                dropChooser.Add(ItemType<SharkLegs>());
-                int choice = dropChooser;
-                Item.NewItem(npc.getRect(), choice);
-            }
+                    // 1/20 from Mothron - Full Set - Terra Set // tested
+                    armorSetRule = ItemDropRule.Common(ItemType<TerraHead>(), 20);
+                    armorSetRule.OnSuccess(ItemDropRule.Common(ItemType<TerraBody>()));
+                    armorSetRule.OnSuccess(ItemDropRule.Common(ItemType<TerraLegs>()));
+                    npcLoot.Add(armorSetRule);
+                    break;
+                }
+                case NPCID.Eyezor:
+                case NPCID.Nailhead:
+                case NPCID.Reaper:
+                {
+                    // 1/40 from Eclipse Enemies - Full Set - Terra Set // tested
+                    var armorSetRule = ItemDropRule.Common(ItemType<TerraHead>(), 40);
+                    armorSetRule.OnSuccess(ItemDropRule.Common(ItemType<TerraBody>()));
+                    armorSetRule.OnSuccess(ItemDropRule.Common(ItemType<TerraLegs>()));
+                    npcLoot.Add(armorSetRule);
+                    break;
+                }
+                case NPCID.PossessedArmor:
+                {
+                    // 1/200 from Possessed Armor - Full Set - Knight of the Iron Core Set // tested
+                    var armorSetRule = ItemDropRule.Common(ItemType<IronCoreHead>(), 200);
+                    armorSetRule.OnSuccess(ItemDropRule.Common(ItemType<IronCoreBody>()));
+                    armorSetRule.OnSuccess(ItemDropRule.Common(ItemType<IronCoreLegs>()));
+                    npcLoot.Add(armorSetRule);
+                    break;
+                }
+                case NPCID.Medusa:
+                {
+                    // always from Medusa when wearing Hermes boots - Head and Body - Andromeda Pilot Set // tested
+                    var wearingHermesBootsCondition = new LeadingConditionRule(new PlayerWearingHermesBootsDropCondition());
+                
+                    var armorSetRule = ItemDropRule.Common(ItemType<AndromedaPilotHead>());
+                    armorSetRule.OnSuccess(ItemDropRule.Common(ItemType<AndromedaPilotBody>()));
+                    wearingHermesBootsCondition.OnSuccess(armorSetRule);
+                    npcLoot.Add(wearingHermesBootsCondition);
+                    
+                    goto case NPCID.GreekSkeleton; // tested (Rookie also drops from Medusa)
+                }
+                case NPCID.GreekSkeleton:
+                case NPCID.GraniteGolem:
+                case NPCID.GraniteFlyer:
+                {
+                    // 1/15 from Granite and Marble Enemies - Full Set - Rookie Set // tested
+                    var armorSetRule = ItemDropRule.Common(ItemType<RookieHead>(), 15);
+                    armorSetRule.OnSuccess(ItemDropRule.Common(ItemType<RookieBody>()));
+                    armorSetRule.OnSuccess(ItemDropRule.Common(ItemType<RookieLegs>()));
 
-            if ((npc.type == NPCID.MoonLordCore ||
-                 npc.type == NPCID.NebulaBeast ||
-                 npc.type == NPCID.NebulaBrain ||
-                 npc.type == NPCID.NebulaHeadcrab ||
-                 npc.type == NPCID.NebulaSoldier ||
-                 npc.type == NPCID.StardustWormHead ||
-                 npc.type == NPCID.StardustCellBig ||
-                 npc.type == NPCID.StardustJellyfishBig ||
-                 npc.type == NPCID.StardustSpiderBig ||
-                 npc.type == NPCID.StardustSoldier ||
-                 npc.type == NPCID.SolarCrawltipedeHead ||
-                 npc.type == NPCID.SolarDrakomire ||
-                 npc.type == NPCID.SolarDrakomireRider ||
-                 npc.type == NPCID.SolarSpearman ||
-                 npc.type == NPCID.SolarSroller ||
-                 npc.type == NPCID.SolarCorite ||
-                 npc.type == NPCID.SolarSolenian ||
-                 npc.type == NPCID.VortexRifleman ||
-                 npc.type == NPCID.VortexHornetQueen ||
-                 npc.type == NPCID.VortexSoldier) && Main.rand.Next(999) < 1)
-            {
-                // 1 in 999 from Nebula Enemies - Single Item - Cosmic Terror Set
-                var dropChooser = new WeightedRandom<int>();
-                dropChooser.Add(ItemType<CosmicTerrorHead>());
-                dropChooser.Add(ItemType<CosmicTerrorBody>());
-                dropChooser.Add(ItemType<CosmicTerrorLegs>());
-                int choice = dropChooser;
-                Item.NewItem(npc.getRect(), choice);
-            }
+                    if (npc.type == NPCID.GraniteGolem || npc.type == NPCID.GraniteFlyer)
+                        // Granite Enemies only, drop 3 Reflective Metal Dye as well // tested
+                        armorSetRule.OnSuccess(new CommonDrop(ItemID.ReflectiveMetalDye, 1, 3, 3));
 
-            if (npc.type == NPCID.Mothron && Main.rand.Next(25) < 3 && NPC.downedPlantBoss)
-            {
-                // 3 in 25 from Mothron - Full Set (With Vanilla Wings) - Mothron Set
-                Item.NewItem(npc.getRect(), ItemType<MothronHead>());
-                Item.NewItem(npc.getRect(), ItemType<MothronBody>());
-                Item.NewItem(npc.getRect(), ItemType<MothronLegs>());
-                Item.NewItem(npc.getRect(), ItemID.MothronWings);
-            }
+                    npcLoot.Add(armorSetRule);
+                    break;
+                }
+                case NPCID.WyvernHead:
+                {
+                    // 1/5 from Wyvern, Night Time, Not in Hallow - Head - Kuijia Set // tested
+                    var notHallowNight = new LeadingConditionRule(new NotZoneHallowNightDropCondition());
+                    notHallowNight.OnSuccess(ItemDropRule.Common(ItemType<KuijiaHead>(), 5));
+                    npcLoot.Add(notHallowNight);
 
-            if (npc.type == NPCID.PossessedArmor && Main.rand.Next(200) < 1)
-            {
-                // 1 in 200 from Possessed Armor - Full Set - Knight of the Iron Core Set
-                Item.NewItem(npc.getRect(), ItemType<IronCoreHead>());
-                Item.NewItem(npc.getRect(), ItemType<IronCoreBody>());
-                Item.NewItem(npc.getRect(), ItemType<IronCoreLegs>());
-            }
+                    // 1/2 from Wyvern, Night Time, in Hallow - Single Body, Legs - Kuijia Set // tested
+                    var hallowNight = new LeadingConditionRule(new ZoneHallowNightDropCondition());
+                    hallowNight.OnSuccess(ItemDropRule.OneFromOptions(2, ItemType<KuijiaBody>(), ItemType<KuijiaLegs>()));
+                    npcLoot.Add(hallowNight);
 
-            if (npc.type == NPCID.DukeFishron && !Main.expertMode && Main.rand.Next(10) < 1)
-            {
-                // 1 in 10 from Duke Fishron - Full Set - Magic Grill Megashark Set
-                Item.NewItem(npc.getRect(), ItemType<MagicGrillHead>());
-                Item.NewItem(npc.getRect(), ItemType<MagicGrillBody>());
-                Item.NewItem(npc.getRect(), ItemType<MagicGrillLegs>());
-            }
+                    // 1/20 from Wyvern - Full Set (Bag) - Storm Conqueror Set // tested
+                    npcLoot.Add(ItemDropRule.Common(ItemType<StormConquerorBag>(), 20));
 
-            if ((npc.type == NPCID.GreekSkeleton || npc.type == NPCID.Medusa || npc.type == NPCID.GraniteGolem ||
-                 npc.type == NPCID.GraniteFlyer) && Main.rand.Next(15) == 0)
-            {
-                // 1 in 15 from Granite and Marble Enemies - Full Set - Rookie Set
-                Item.NewItem(npc.getRect(), ItemType<RookieHead>());
-                Item.NewItem(npc.getRect(), ItemType<RookieBody>());
-                Item.NewItem(npc.getRect(), ItemType<RookieLegs>());
-                if (npc.type == NPCID.GraniteGolem || npc.type == NPCID.GraniteFlyer)
-                    // If Granite Enemies only, drop 3 Reflective Metal Dye as well
-                    Item.NewItem(npc.getRect(), ItemID.ReflectiveMetalDye, 3);
-            }
-
-            if (npc.type == NPCID.WyvernHead && !Main.dayTime && !Main.LocalPlayer.ZoneHallow && Main.rand.Next(5) == 0)
-                // 1 in 5 from Wyvern, Night Time, Not in Hallow - Single - Kuijia Set
-                Item.NewItem(npc.getRect(), ItemType<KuijiaHead>());
-
-            if (npc.type == NPCID.WyvernHead && !Main.dayTime && Main.LocalPlayer.ZoneHallow && Main.rand.Next(2) == 0)
-            {
-                // 1 in 2 from Wyvern, Night Time, in Hallow - Single - Kuijia Set
-                var dropChooser = new WeightedRandom<int>();
-                dropChooser.Add(ItemType<KuijiaBody>());
-                dropChooser.Add(ItemType<KuijiaLegs>());
-                int choice = dropChooser;
-                Item.NewItem(npc.getRect(), choice);
-            }
-
-            if (npc.type == NPCID.WyvernHead && Main.rand.Next(20) == 0 ||
-                npc.type == NPCID.Harpy && Main.rand.Next(100) == 0)
-                // 1 in 20 (5%) from Wyvern - Full Set (Bag) - Storm Conqueror Set
-                // 1 in 100 (1%) from Harpy - Full Set (Bag) - Storm Conqueror Set
-                // (1 in 400 (0.25%) from Anything, in Space - Full Set (Bag) - Storm Conqueror Set) Not possible - too many bugs with other mods
-                Item.NewItem(npc.getRect(), ItemType<StormConquerorBag>());
-
-            if (npc.type == NPCID.Mothron && Main.rand.Next(5) == 0)
-            {
-                var dropChooser = new WeightedRandom<int>();
-                dropChooser.Add(ItemType<BrokenHeroHead>());
-                dropChooser.Add(ItemType<BrokenHeroBody>());
-                dropChooser.Add(ItemType<BrokenHeroLegs>());
-                int choice = dropChooser;
-                Item.NewItem(npc.getRect(), choice);
-            }
-
-            if (npc.type == NPCID.Mothron && Main.rand.Next(20) == 0 ||
-                (npc.type == NPCID.Eyezor || npc.type == NPCID.Nailhead || npc.type == NPCID.Reaper) &&
-                Main.rand.Next(40) == 0)
-            {
-                Item.NewItem(npc.getRect(), ItemType<TerraHead>());
-                Item.NewItem(npc.getRect(), ItemType<TerraBody>());
-                Item.NewItem(npc.getRect(), ItemType<TerraLegs>());
-            }
-
-            if ((npc.type == NPCID.MossHornet || npc.type == NPCID.Moth || npc.type == NPCID.WallCreeperWall ||
-                 npc.type == NPCID.WallCreeper) && Main.rand.Next(200) == 0)
-            {
-                Item.NewItem(npc.getRect(), ItemType<SwampHorrorHead>());
-                Item.NewItem(npc.getRect(), ItemType<SwampHorrorBody>());
-                Item.NewItem(npc.getRect(), ItemType<SwampHorrorLegs>());
-            }
-
-            if (npc.type == NPCID.DD2Bartender && Main.rand.Next(4) == 0)
-                Item.NewItem(npc.getRect(), ItemType<ShootsatonBag>());
-
-            if (npc.type == NPCID.WyvernHead && Main.rand.Next(3) == 0)
-            {
-                var dropChooser = new WeightedRandom<int>();
-                dropChooser.Add(ItemType<PilotHead>());
-                dropChooser.Add(ItemType<PilotBody>());
-                int choice = dropChooser;
-                Item.NewItem(npc.getRect(), choice);
-            }
-
-            for (var i = 3; i < 9; i++) //loops through armor slots 3 to 9 (non vanity accessories)
-                if (Main.LocalPlayer.armor[i].type == ItemID.HermesBoots) //if one is hermes boots
-                    if (npc.type == NPCID.Medusa)
-                    {
-                        Item.NewItem(npc.getRect(), ItemType<AndromedaPilotHead>());
-                        Item.NewItem(npc.getRect(), ItemType<AndromedaPilotBody>());
-                    }
-
-            if (npc.type == NPCID.DukeFishron && Main.rand.Next(3) == 0)
-            {
-                Item.NewItem(npc.getRect(), ItemType<AndromedaPilotLegs>());
-            }
-
-            if ((npc.type == NPCID.UndeadViking || npc.type == NPCID.ArmoredViking) && Main.rand.Next(20) == 0)
-            {
-                Item.NewItem(npc.getRect(), ItemType<DraugrHead>());
-                Item.NewItem(npc.getRect(), ItemType<DraugrBody>());
-                Item.NewItem(npc.getRect(), ItemType<DraugrLegs>());
-            }
-
-            if ((npc.type == NPCID.BigMimicCorruption || npc.type == NPCID.BigMimicCrimson) && Main.rand.Next(20) == 0)
-                Item.NewItem(npc.getRect(), ItemType<WitchsVoidBag>());
-
-            if ((npc.type == NPCID.Clinger || npc.type == NPCID.SeekerHead) && Main.rand.Next(80) == 0)
-            {
-                Item.NewItem(npc.getRect(), ItemType<ShadowFiendHead>());
-                Item.NewItem(npc.getRect(), ItemType<ShadowFiendBody>());
-                Item.NewItem(npc.getRect(), ItemType<ShadowFiendLegs>());
-            }
-
-            if (npc.type == NPCID.IchorSticker && Main.rand.Next(60) == 0)
-            {
-                Item.NewItem(npc.getRect(), ItemType<ShadowFiendHead1>());
-                Item.NewItem(npc.getRect(), ItemType<ShadowFiendBody1>());
-                Item.NewItem(npc.getRect(), ItemType<ShadowFiendLegs1>());
-            }
-
-            if (npc.type == NPCID.GoblinSummoner && Main.rand.Next(75) == 0)
-            {
-                Item.NewItem(npc.getRect(), ItemType<ShadowSpellHead>());
-                Item.NewItem(npc.getRect(), ItemType<ShadowSpellBody>());
-                Item.NewItem(npc.getRect(), ItemType<ShadowSpellLegs>());
-            }
-
-            if (npc.type == NPCID.Paladin && Main.rand.Next(50) < 3 ||
-                npc.type == NPCID.BlueArmoredBones && Main.rand.Next(100) == 0)
-            {
-                Item.NewItem(npc.getRect(), ItemType<KnightOfJudgementHead>());
-                Item.NewItem(npc.getRect(), ItemType<KnightOfJudgementBody>());
-                Item.NewItem(npc.getRect(), ItemType<KnightOfJudgementLegs>());
+                    // 1/3 from Wyvern - Single Item - Pilot Set // tested
+                    npcLoot.Add(
+                        ItemDropRule.OneFromOptions(
+                            3,
+                            ItemType<PilotHead>(),
+                            ItemType<PilotBody>()
+                        )
+                    );
+                    break;
+                }
+                case NPCID.Harpy:
+                    // 1/100 from Harpy - Full Set (Bag) - Storm Conqueror Set // tested
+                    npcLoot.Add(ItemDropRule.Common(ItemType<StormConquerorBag>(), 100));
+                    break;
+                case NPCID.GiantMossHornet:
+                case NPCID.BigMossHornet:
+                case NPCID.MossHornet:
+                case NPCID.LittleMossHornet:
+                case NPCID.TinyMossHornet:
+                case NPCID.Moth:
+                case NPCID.WallCreeperWall:
+                case NPCID.WallCreeper:
+                {
+                    // 1/200 from Jungle Enemies - Full Set - Swamp Horror Set // tested
+                    var armorSetRule = ItemDropRule.Common(ItemType<SwampHorrorHead>(), 200);
+                    armorSetRule.OnSuccess(ItemDropRule.Common(ItemType<SwampHorrorBody>()));
+                    armorSetRule.OnSuccess(ItemDropRule.Common(ItemType<SwampHorrorLegs>()));
+                    npcLoot.Add(armorSetRule);
+                    break;
+                }
+                case NPCID.DD2Bartender:
+                    // 1/4 from Tavernkeep - Full Set (Bag) - Shootsaton Set // tested
+                    npcLoot.Add(ItemDropRule.Common(ItemType<ShootsatonBag>(), 4));
+                    break;
+                case NPCID.DukeFishron:
+                {
+                    // 1/3 from Duke Fishron - Legs - Andromeda Pilot Set // tested 
+                    npcLoot.Add(ItemDropRule.Common(ItemType<AndromedaPilotLegs>(), 3));
+                    
+                    // 1/10 from Duke Fishron - Full Set - Magic Grill Megashark Set (expert included in boss bag) // tested
+                    var notExpertCondition = new LeadingConditionRule(new Conditions.NotExpert());
+                
+                    var armorSetRule = ItemDropRule.Common(ItemType<MagicGrillHead>(), 10);
+                    armorSetRule.OnSuccess(ItemDropRule.Common(ItemType<MagicGrillBody>()));
+                    armorSetRule.OnSuccess(ItemDropRule.Common(ItemType<MagicGrillLegs>()));
+                    notExpertCondition.OnSuccess(armorSetRule);
+                    npcLoot.Add(notExpertCondition);
+                    break;
+                }
+                case NPCID.UndeadViking:
+                case NPCID.ArmoredViking:
+                {
+                    // 1/20 from Duke Vikings - Full Set - Draugr Set // tested
+                    var armorSetRule = ItemDropRule.Common(ItemType<DraugrHead>(), 20);
+                    armorSetRule.OnSuccess(ItemDropRule.Common(ItemType<DraugrBody>()));
+                    armorSetRule.OnSuccess(ItemDropRule.Common(ItemType<DraugrLegs>()));
+                    npcLoot.Add(armorSetRule);
+                    break;
+                }
+                case NPCID.BigMimicCorruption:
+                case NPCID.BigMimicCrimson:
+                    // 1/10 from Big Evil Mimics - Full Set (Bag) - Witchs Void Set // tested
+                    npcLoot.Add(ItemDropRule.Common(ItemType<WitchsVoidBag>(), 10));
+                    break;
+                case NPCID.Clinger:
+                case NPCID.SeekerHead:
+                {
+                    // 1/80 from Hardmode Corruption Enemies - Full Set - Shadow Fiend Set // tested
+                    var armorSetRule = ItemDropRule.Common(ItemType<ShadowFiendHead>(), 80);
+                    armorSetRule.OnSuccess(ItemDropRule.Common(ItemType<ShadowFiendBody>()));
+                    armorSetRule.OnSuccess(ItemDropRule.Common(ItemType<ShadowFiendLegs>()));
+                    npcLoot.Add(armorSetRule);
+                    break;
+                }
+                case NPCID.IchorSticker:
+                {
+                    // 1/60 from Hardmode Crimson Enemies - Full Set - Shadow Fiend Set (alt) // tested
+                    var armorSetRule = ItemDropRule.Common(ItemType<ShadowFiendHead1>(), 60);
+                    armorSetRule.OnSuccess(ItemDropRule.Common(ItemType<ShadowFiendBody1>()));
+                    armorSetRule.OnSuccess(ItemDropRule.Common(ItemType<ShadowFiendLegs1>()));
+                    npcLoot.Add(armorSetRule);
+                    break;
+                }
+                case NPCID.GoblinSummoner:
+                {
+                    // 1/25 from Goblin Summoner - Full Set - Shadow Spell Set // tested
+                    var armorSetRule = ItemDropRule.Common(ItemType<ShadowSpellHead>(), 25);
+                    armorSetRule.OnSuccess(ItemDropRule.Common(ItemType<ShadowSpellBody>()));
+                    armorSetRule.OnSuccess(ItemDropRule.Common(ItemType<ShadowSpellLegs>()));
+                    npcLoot.Add(armorSetRule);
+                    break;
+                }
+                case NPCID.Paladin:
+                case NPCID.BlueArmoredBones:
+                case NPCID.BlueArmoredBonesMace:
+                case NPCID.BlueArmoredBonesSword:
+                case NPCID.BlueArmoredBonesNoPants:
+                {
+                    // 1/16 from Paladin, 1/100 from Blue Armored Bones - Full Set - Knight of Judgement Set // tested
+                    var chanceDenominator = 100;
+                    if (npc.type == NPCID.Paladin) chanceDenominator = 16;
+                
+                    var armorSetRule = ItemDropRule.Common(ItemType<KnightOfJudgementHead>(), chanceDenominator);
+                    armorSetRule.OnSuccess(ItemDropRule.Common(ItemType<KnightOfJudgementBody>()));
+                    armorSetRule.OnSuccess(ItemDropRule.Common(ItemType<KnightOfJudgementLegs>()));
+                    npcLoot.Add(armorSetRule);
+                    break;
+                }
             }
         }
     }

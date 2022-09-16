@@ -1,12 +1,8 @@
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
 using JourneyTrend.Items.Vanity.Traveller;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
-using Terraria.DataStructures;
 using Terraria.ModLoader;
-using static Terraria.ModLoader.ModContent;
 
 namespace JourneyTrend
 {

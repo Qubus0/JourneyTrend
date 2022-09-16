@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,10 +27,10 @@ namespace JourneyTrend.Items.Vanity.Pilot
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<PilotHead>());
-            player.QuickSpawnItem(ItemType<PilotBody>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<PilotBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<PilotHead>()));
         }
     }
 }

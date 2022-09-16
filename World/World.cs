@@ -12,16 +12,16 @@ namespace JourneyTrend.World
 {
     public class JourneyWorld : ModSystem
     {
-        private static NPC FindNPC(int npcType)
+        private static NPC FindNpc(int npcType)
         {
             return Main.npc.FirstOrDefault(npc => npc.type == npcType && npc.active);
         }
 
         public override void PreUpdateNPCs()
         {
-            // Update the shop if there is a trader and it is a new day, or no shop
-            var vanityTrader = FindNPC(NPCType<VanityTrader>());
-            if (vanityTrader != null && (Main.dayTime && Main.time == 0 || VanityTrader.currentShop.Count <= 0))
+            // Update the shop if there is a trader and it is a new day, or no shop is set up yet
+            var vanityTrader = FindNpc(NPCType<VanityTrader>());
+            if (vanityTrader != null && (Main.dayTime && Main.time == 0 || VanityTrader.CurrentShop.Count <= 0))
                 VanityTrader.CreateNewShop();
         }
 

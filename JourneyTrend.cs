@@ -3,12 +3,10 @@ using JourneyTrend.Items.Vanity.Bubblehead;
 using JourneyTrend.Items.Vanity.CyberAngel;
 using JourneyTrend.Items.Vanity.ForestDruid;
 using JourneyTrend.Items.Vanity.Knightwalker;
-using JourneyTrend.Items.Vanity.Pilot;
 using JourneyTrend.Items.Vanity.ShadowFiend;
 using JourneyTrend.Items.Vanity.Terra;
 using JourneyTrend.NPCs.Trader;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -43,9 +41,9 @@ namespace JourneyTrend
             // Unload static references
             // You need to clear static references to assets (Texture2D, SoundEffects, Effects).
             // In addition to that, if you want your mod to completely unload during unload, you need to clear static references to anything referencing your Mod class
-            if (VanityTrader.currentShop?.Any() == true)
+            if (VanityTrader.CurrentShop?.Any() == true)
             {
-                VanityTrader.currentShop.Clear();
+                VanityTrader.CurrentShop.Clear();
             }
         }
 

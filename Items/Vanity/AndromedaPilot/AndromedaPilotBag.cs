@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.AndromedaPilot
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<AndromedaPilotHead>());
-            player.QuickSpawnItem(ItemType<AndromedaPilotBody>());
-            player.QuickSpawnItem(ItemType<AndromedaPilotLegs>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<AndromedaPilotLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<AndromedaPilotBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<AndromedaPilotHead>()));
         }
     }
 }

@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,12 +27,12 @@ namespace JourneyTrend.Items.Vanity.WyvernRider
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<WyvernRiderWings>());
-            player.QuickSpawnItem(ItemType<WyvernRiderLegs>());
-            player.QuickSpawnItem(ItemType<WyvernRiderBody>());
-            player.QuickSpawnItem(ItemType<WyvernRiderHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<WyvernRiderWings>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<WyvernRiderLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<WyvernRiderBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<WyvernRiderHead>()));
         }
     }
 }

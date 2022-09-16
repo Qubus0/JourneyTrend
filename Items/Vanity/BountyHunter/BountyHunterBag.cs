@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -28,11 +28,11 @@ namespace JourneyTrend.Items.Vanity.BountyHunter
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<BountyHunterLegs>());
-            player.QuickSpawnItem(ItemType<BountyHunterBody>());
-            player.QuickSpawnItem(ItemType<BountyHunterHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<BountyHunterLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<BountyHunterBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<BountyHunterHead>()));
         }
     }
 }

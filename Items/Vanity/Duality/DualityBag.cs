@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.Duality
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<DualityLegs>());
-            player.QuickSpawnItem(ItemType<DualityBody>());
-            player.QuickSpawnItem(ItemType<DualityHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<DualityLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<DualityBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<DualityHead>()));
         }
     }
 }

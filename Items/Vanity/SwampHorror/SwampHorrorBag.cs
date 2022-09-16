@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.SwampHorror
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<SwampHorrorLegs>());
-            player.QuickSpawnItem(ItemType<SwampHorrorBody>());
-            player.QuickSpawnItem(ItemType<SwampHorrorHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<SwampHorrorLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<SwampHorrorBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<SwampHorrorHead>()));
         }
     }
 }

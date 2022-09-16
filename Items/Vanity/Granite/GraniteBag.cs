@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.Granite
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<GraniteLegs>());
-            player.QuickSpawnItem(ItemType<GraniteBody>());
-            player.QuickSpawnItem(ItemType<GraniteHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<GraniteLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<GraniteBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<GraniteHead>()));
         }
     }
 }

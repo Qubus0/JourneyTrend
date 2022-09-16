@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.CosmicTerror
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<CosmicTerrorLegs>());
-            player.QuickSpawnItem(ItemType<CosmicTerrorBody>());
-            player.QuickSpawnItem(ItemType<CosmicTerrorHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<CosmicTerrorLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<CosmicTerrorBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<CosmicTerrorHead>()));
         }
     }
 }

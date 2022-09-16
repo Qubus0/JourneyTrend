@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.Shark
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<SharkLegs>());
-            player.QuickSpawnItem(ItemType<SharkBody>());
-            player.QuickSpawnItem(ItemType<SharkHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<SharkLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<SharkBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<SharkHead>()));
         }
     }
 }

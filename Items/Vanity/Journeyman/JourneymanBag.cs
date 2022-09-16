@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.Journeyman
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<JourneymanLegs>());
-            player.QuickSpawnItem(ItemType<JourneymanBody>());
-            player.QuickSpawnItem(ItemType<JourneymanHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<JourneymanLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<JourneymanBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<JourneymanHead>()));
         }
     }
 }

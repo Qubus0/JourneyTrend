@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -32,11 +33,11 @@ namespace JourneyTrend.Items.Vanity.WitchsVoid
         }
         
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<WitchsVoidLegs>());
-            player.QuickSpawnItem(ItemType<WitchsVoidBody>());
-            player.QuickSpawnItem(ItemType<WitchsVoidHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<WitchsVoidLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<WitchsVoidBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<WitchsVoidHead>()));
         }
 
         public override void Update(ref float gravity, ref float maxFallSpeed)

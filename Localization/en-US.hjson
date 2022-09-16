@@ -1,0 +1,64 @@
+# .hjson files contain translations for the language specified in the filename. (Make sure this file is UTF-8 encoded only.)
+# The possible languages are: English ("en-US"), German ("de-DE"), Italian ("it-IT"), French ("fr-FR"), Spanish ("es-ES"), Russian ("ru-RU"), Chinese ("zh-Hans"), Portuguese ("pt-BR"), and Polish ("pl-PL")
+
+Mods: {
+	JourneyTrend: {
+	    MapObject: {
+	        SewingMachine: Sewing Machine
+	    }
+	
+		NPCName: {
+			VanityTrader: Vanity Trader
+		}
+		
+		Bestiary: {
+			VanityTrader: Finally free to roam this world, now that their otherworldly captor has been vanquished, this trader can offer you a variety of outfits for any occasion. Where they got them from? Well, why do you think they were held captive?
+		}
+
+		# This is what displays during all of an NPC's happiness levels. Note that the localization key for these should always be "TownNPCMood.*NPCName*.*Mood*" or else it won't display properly.
+		TownNPCMood: {
+			VanityTrader: {
+				Content: I feel pretty fine right now.
+				NoHome: Hey, do you have a house with a sewing machine? If not, any loom will also do.
+				LoveSpace: Lovely, I finally have enough space to display all these pretty outfits.
+				FarFromHome: Could you please get me back to my house?
+				DislikeCrowded: So many people here... I hope nobody steals my bags.
+				HateCrowded: There are more people here than I can fit in my backpack. That's too many!
+				LikeBiome: "{BiomeName} is nice to present my outfits. But the sand always gets everywhere."
+				LoveBiome: "I love being in {BiomeName}. It has the perfect neutral lighting to show off my outfits!"
+				DislikeBiome: "Everything is blue in {BiomeName}... How are you supposed to see all the pretty colors like this?"
+				HateBiome: "Yuck! There are too many disgusting monsters making all the clothes dirty in  {BiomeName}."
+				LikeNPC: "{NPCName} knows how to make their outfit look good. I can respect that."
+				LoveNPC: ""
+				DislikeNPC: ""
+				HateNPC: ""
+			}
+		}
+
+		# This is used to display the NPC's dialogues.
+		Dialogue: {
+			VanityTrader: {
+				ClothierDialogue: "Could you ask if {0} would sow some new outfits for me?"
+				PainterDialogue: "Last time I met them, {0} spilled paint all over me. I was barely able to wash it all out."
+				DyeTraderDialogue: "{0} really has the most beautiful colors. But I'm a little concerned about his obsession with strange plants."
+				NamedCarl1: I do not kill people. That is my least favourite thing to do.
+				NamedCarl2: I have the best hat.
+				SewingMachine: "Have you ever worked with a sewing machine [i:{0}] before? It's perfect if you want to give your familiar outfits a little variation."
+				RareDialogue: Have you tried fried harpy wing before? Delicious.
+				SelfDialogue: "{0} has wears if you have coin."
+				StandardDialogue1: What? Oh, that. No, I don't have a face.
+				StandardDialogue2: So you've never bought second hand before?
+				StandardDialogue3: What do you mean by 'cosplay'?
+				StandardDialogue4: Majora? No, I don't know any Majora, why do you ask?
+				StandardDialogue5: Shirts? Armors? Fish bowls? It's yours, my friend, as long as you have enough coins!
+				StandardDialogue6: Got some rare things on sale, stranger!
+			}
+		}
+		
+		NpcShopButtons: {
+		    VanityTrader: {
+		        button2: "Restock Bags ({0}G)"
+		    }
+		}
+	}
+}

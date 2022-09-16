@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -31,11 +32,11 @@ namespace JourneyTrend.Items.Vanity.StarlightDream
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<StarlightDreamLegs>());
-            player.QuickSpawnItem(ItemType<StarlightDreamBody>());
-            player.QuickSpawnItem(ItemType<StarlightDreamHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<StarlightDreamLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<StarlightDreamBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<StarlightDreamHead>()));
         }
         
         public override void Update(ref float gravity, ref float maxFallSpeed)

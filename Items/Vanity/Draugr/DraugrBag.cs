@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.Draugr
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<DraugrHead>());
-            player.QuickSpawnItem(ItemType<DraugrBody>());
-            player.QuickSpawnItem(ItemType<DraugrLegs>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<DraugrLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<DraugrBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<DraugrHead>()));
         }
     }
 }

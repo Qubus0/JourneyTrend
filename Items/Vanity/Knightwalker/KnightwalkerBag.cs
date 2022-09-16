@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<KnightwalkerLegs>());
-            player.QuickSpawnItem(ItemType<KnightwalkerBody>());
-            player.QuickSpawnItem(ItemType<KnightwalkerHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<KnightwalkerLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<KnightwalkerBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<KnightwalkerHead>()));
         }
     }
 }

@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -28,11 +28,11 @@ namespace JourneyTrend.Items.Vanity.ContainmentSuit
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<ContainmentSuitHead>());
-            player.QuickSpawnItem(ItemType<ContainmentSuitBody>());
-            player.QuickSpawnItem(ItemType<ContainmentSuitLegs>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<ContainmentSuitLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<ContainmentSuitBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<ContainmentSuitHead>()));
         }
     }
 }
