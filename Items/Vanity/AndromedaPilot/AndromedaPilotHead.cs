@@ -1,5 +1,5 @@
-using Terraria.ID;
 using Terraria.ModLoader;
+using Terraria.ID;
 
 namespace JourneyTrend.Items.Vanity.AndromedaPilot
 {
@@ -10,6 +10,9 @@ namespace JourneyTrend.Items.Vanity.AndromedaPilot
         {
             DisplayName.SetDefault("Andromeda Pilot Helmet");
             Tooltip.SetDefault("Let there be a constellation with your name on it\nMade by Nedrilax");
+
+            // Old drawHead() method is now this (?)
+            ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }
 
         public override void SetDefaults()
@@ -18,11 +21,6 @@ namespace JourneyTrend.Items.Vanity.AndromedaPilot
             Item.height = 18;
             Item.rare = ItemRarityID.Lime;
             Item.vanity = true;
-        }
-
-        public override bool DrawHead()
-        {
-            return false;
         }
     }
 }

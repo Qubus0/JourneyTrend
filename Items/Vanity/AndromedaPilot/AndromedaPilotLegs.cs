@@ -8,7 +8,7 @@ namespace JourneyTrend.Items.Vanity.AndromedaPilot
     {
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Cetus");
+            DisplayName.SetDefault("Andromeda Pilot Cetus");
             Tooltip.SetDefault("Those chains really don't suit you\nMade by Nedrilax");
         }
 

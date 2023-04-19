@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.PoweredPanoply
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<PoweredPanoplyLegs>());
-            player.QuickSpawnItem(ItemType<PoweredPanoplyBody>());
-            player.QuickSpawnItem(ItemType<PoweredPanoplyHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<PoweredPanoplyLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<PoweredPanoplyBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<PoweredPanoplyHead>()));
         }
     }
 }

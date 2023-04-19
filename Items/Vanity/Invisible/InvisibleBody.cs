@@ -10,6 +10,9 @@ namespace JourneyTrend.Items.Vanity.Invisible
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("See");
+
+            ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = true;
+            ArmorIDs.Body.Sets.HidesTopSkin[Item.bodySlot] = true;
         }
 
         public override void SetDefaults()
@@ -18,11 +21,6 @@ namespace JourneyTrend.Items.Vanity.Invisible
             Item.height = 18;
             Item.rare = ItemRarityID.White;
             Item.vanity = true;
-        }
-
-        public override bool DrawBody()
-        {
-            return false;
         }
 
         public override void AddRecipes()

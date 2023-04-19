@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.HellWarden
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<HellWardenLegs>());
-            player.QuickSpawnItem(ItemType<HellWardenBody>());
-            player.QuickSpawnItem(ItemType<HellWardenHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<HellWardenLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<HellWardenBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<HellWardenHead>()));
         }
     }
 }

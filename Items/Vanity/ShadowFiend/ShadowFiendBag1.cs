@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.ShadowFiend
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<ShadowFiendLegs1>());
-            player.QuickSpawnItem(ItemType<ShadowFiendBody1>());
-            player.QuickSpawnItem(ItemType<ShadowFiendHead1>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<ShadowFiendLegs1>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<ShadowFiendBody1>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<ShadowFiendHead1>()));
         }
     }
 }

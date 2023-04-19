@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.Nightlight
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<NightlightLegs>());
-            player.QuickSpawnItem(ItemType<NightlightBody>());
-            player.QuickSpawnItem(ItemType<NightlightHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<NightlightLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<NightlightBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<NightlightHead>()));
         }
     }
 }

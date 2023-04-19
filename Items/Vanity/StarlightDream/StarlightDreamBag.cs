@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -9,8 +10,7 @@ namespace JourneyTrend.Items.Vanity.StarlightDream
 {
     public class StarlightDreamBag : ModItem
     {
-        private readonly float
-            adj = 0.00392f / 2; //adjusts the rgb value from 0-255 to 0-1 because light is stupid like that
+        private const float Adj = 0.00392f / 2; //adjusts the rgb value from 0-255 to 0-1 because light is stupid
 
         public override void SetStaticDefaults()
         {
@@ -32,9 +32,16 @@ namespace JourneyTrend.Items.Vanity.StarlightDream
             return true;
         }
 
+        public override void ModifyItemLoot(ItemLoot itemLoot)
+        {
+            itemLoot.Add(ItemDropRule.Common(ItemType<StarlightDreamLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<StarlightDreamBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<StarlightDreamHead>()));
+        }
+        
         public override void Update(ref float gravity, ref float maxFallSpeed)
         {
-            Lighting.AddLight(Item.Center, 241 * adj, 215 * adj, 108 * adj);
+            Lighting.AddLight(Item.Center, 241 * Adj, 215 * Adj, 108 * Adj);
             if (Main.dayTime && Main.time == 0)
             {
                 Item.TurnToAir();
@@ -42,11 +49,10 @@ namespace JourneyTrend.Items.Vanity.StarlightDream
             }
         }
 
-
         public override void PostDrawInWorld(SpriteBatch spriteBatch, Color lightColor, Color alphaColor,
             float rotation, float scale, int whoAmI)
         {
-            var texture = ModContent.Request<Texture2D>("Items/Vanity/StarlightDream/StarlightDreamBag_Glow").Value;
+            var texture = ModContent.Request<Texture2D>("JourneyTrend/Items/Vanity/StarlightDream/StarlightDreamBag_Glow").Value;
             spriteBatch.Draw
             (
                 texture,
@@ -63,13 +69,6 @@ namespace JourneyTrend.Items.Vanity.StarlightDream
                 SpriteEffects.None,
                 0f
             );
-        }
-
-        public override void RightClick(Player player)
-        {
-            player.QuickSpawnItem(ItemType<StarlightDreamLegs>());
-            player.QuickSpawnItem(ItemType<StarlightDreamBody>());
-            player.QuickSpawnItem(ItemType<StarlightDreamHead>());
         }
     }
 }

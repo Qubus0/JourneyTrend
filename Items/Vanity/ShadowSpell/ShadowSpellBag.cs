@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.ShadowSpell
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<ShadowSpellLegs>());
-            player.QuickSpawnItem(ItemType<ShadowSpellBody>());
-            player.QuickSpawnItem(ItemType<ShadowSpellHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<ShadowSpellLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<ShadowSpellBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<ShadowSpellHead>()));
         }
     }
 }

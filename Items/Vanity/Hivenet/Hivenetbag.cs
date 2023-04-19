@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,12 +27,12 @@ namespace JourneyTrend.Items.Vanity.Hivenet
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<HivenetLegs>());
-            player.QuickSpawnItem(ItemType<HivenetBody>());
-            player.QuickSpawnItem(ItemType<HivenetHead>());
-            player.QuickSpawnItem(ItemType<HivenetWings>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<HivenetLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<HivenetBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<HivenetHead>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<HivenetWings>()));
         }
     }
 }

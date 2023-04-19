@@ -10,6 +10,8 @@ namespace JourneyTrend.Items.Vanity.Birdie
         {
             DisplayName.SetDefault("Birdie Sweater");
             Tooltip.SetDefault("It's not stylish anymore...\nMade by Pyromma");
+
+            ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = false;
         }
 
         public override void SetDefaults()
@@ -19,11 +21,6 @@ namespace JourneyTrend.Items.Vanity.Birdie
             Item.rare = ItemRarityID.LightRed;
             Item.vanity = true;
             Item.value = 50000;
-        }
-
-        public override void DrawHands(ref bool drawHands, ref bool drawArms)
-        {
-            drawHands = true;
         }
     }
 }

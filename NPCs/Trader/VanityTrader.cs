@@ -3,7 +3,7 @@ using JourneyTrend.Items.Placeable;
 using JourneyTrend.Items.Vanity.AndromedaPilot;
 using JourneyTrend.Items.Vanity.ArcaneExosuit;
 using JourneyTrend.Items.Vanity.Birdie;
-using JourneyTrend.Items.Vanity.Bounty;
+using JourneyTrend.Items.Vanity.BountyHunter;
 using JourneyTrend.Items.Vanity.BrokenHero;
 using JourneyTrend.Items.Vanity.Bubblehead;
 using JourneyTrend.Items.Vanity.ContainmentSuit;
@@ -47,12 +47,18 @@ using JourneyTrend.Items.Vanity.Traveller;
 using JourneyTrend.Items.Vanity.Treesuit;
 using JourneyTrend.Items.Vanity.WitchsVoid;
 using JourneyTrend.Items.Vanity.WyvernRider;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
 using Terraria;
 using Terraria.Audio;
+using Terraria.GameContent;
+using Terraria.GameContent.Bestiary;
+using Terraria.GameContent.Personalities;
 using Terraria.ID;
 using Terraria.Localization;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
+using Terraria.Utilities;
 using SewingMachineTile = JourneyTrend.Tiles.SewingMachine;
 
 namespace JourneyTrend.NPCs.Trader
@@ -60,16 +66,18 @@ namespace JourneyTrend.NPCs.Trader
     [AutoloadHead]
     public class VanityTrader : ModNPC
     {
-        private const int BagPrice = 50000; // same price for every bag
+        private const int BagPriceGold = 5; // same price for every bag
+        private const int RestockPriceGold = 10;
+        private string LastDialogue = "";
 
-        public static List<Item> currentShop;
+        public static List<Item> CurrentShop;
 
         private static readonly int[] ShopItems =
         {
             ModContent.ItemType<AndromedaPilotBag>(),
             ModContent.ItemType<ArcaneExosuitBag>(),
             ModContent.ItemType<BirdieBag>(),
-            ModContent.ItemType<BountyBag>(),
+            ModContent.ItemType<BountyHunterBag>(),
             ModContent.ItemType<BrokenHeroBag>(),
             ModContent.ItemType<BubbleheadBag>(),
             ModContent.ItemType<ContainmentSuitBag>(),
@@ -112,10 +120,8 @@ namespace JourneyTrend.NPCs.Trader
             ModContent.ItemType<TravellerBag>(),
             ModContent.ItemType<TreesuitBag>(),
             ModContent.ItemType<WitchsVoidBag>(),
-            ModContent.ItemType<WyvernRiderBag>()
+            ModContent.ItemType<WyvernRiderBag>(),
         };
-
-        public override string Texture => "JourneyTrend/NPCs/Trader/VanityTrader";
 
         public static List<Item> CreateNewShop()
         {
@@ -136,13 +142,12 @@ namespace JourneyTrend.NPCs.Trader
                 items.Add(item);
             }
 
-            return currentShop = items;
+            return CurrentShop = items;
         }
         //public override string[] AltTextures => new[] {"JourneyTrend/NPCs/Trader/VanityTrader_Alt_1"};
 
         public override void SetStaticDefaults()
         {
-            DisplayName.SetDefault("Vanity Trader");
             Main.npcFrameCount[NPC.type] = 25;
             NPCID.Sets.ExtraFramesCount[NPC.type] = 9;
             NPCID.Sets.AttackFrameCount[NPC.type] = 4;
@@ -151,6 +156,17 @@ namespace JourneyTrend.NPCs.Trader
             NPCID.Sets.AttackTime[NPC.type] = 90;
             NPCID.Sets.AttackAverageChance[NPC.type] = 30;
             NPCID.Sets.HatOffsetY[NPC.type] = -8;
+
+            NPC.Happiness
+                .SetBiomeAffection<ForestBiome>(AffectionLevel.Love)
+                .SetBiomeAffection<OceanBiome>(AffectionLevel.Like)
+                .SetBiomeAffection<MushroomBiome>(AffectionLevel.Dislike)
+                .SetBiomeAffection<CrimsonBiome>(AffectionLevel.Hate)
+                .SetBiomeAffection<CorruptionBiome>(AffectionLevel.Hate)
+                .SetNPCAffection(NPCID.Clothier, AffectionLevel.Like)
+                .SetNPCAffection(NPCID.Stylist, AffectionLevel.Like)
+                .SetNPCAffection(NPCID.DyeTrader, AffectionLevel.Like)
+                ;
         }
 
         public override void SetDefaults()
@@ -167,30 +183,43 @@ namespace JourneyTrend.NPCs.Trader
             NPC.DeathSound = SoundID.NPCDeath1;
             NPC.knockBackResist = 0.5f;
             AnimationType = NPCID.Guide;
+            CreateNewShop();
         }
 
-        public static TagCompound Save()
+        public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry) {
+            // We can use AddRange instead of calling Add multiple times in order to add multiple items at once
+            bestiaryEntry.Info.AddRange(new IBestiaryInfoElement[] {
+                // Sets the preferred biomes of this town NPC listed in the bestiary.
+                BestiaryDatabaseNPCsPopulator.CommonTags.SpawnConditions.Biomes.Surface,
+                new FlavorTextBestiaryInfoElement("Mods.JourneyTrend.Bestiary.VanityTrader"),
+            });
+        }
+
+        public override void SaveData(TagCompound tag)
         {
-            return new TagCompound
-            {
-                ["currentShop"] = currentShop
+            tag["CurrentShop"] = CurrentShop;
+        }
+
+        public override void LoadData(TagCompound tag)
+        {
+            CurrentShop = tag.Get<List<Item>>("CurrentShop");
+        }
+
+        public override ITownNPCProfile TownNPCProfile() {
+        	return new VanityTraderProfile();
+        }
+
+        public override List<string> SetNPCNameList()
+        {
+            return new List<string> {
+                "Landry",
+                "Bilbo Baggins",
+                "Mad Hat Vendor",
+                "Happy Bag Salesman",
+                "Carl",
+                "Joe",
+                "Bagton",
             };
-        }
-
-        public static void Load(TagCompound tag)
-        {
-            currentShop = tag.Get<List<Item>>("currentShop");
-        }
-
-        public override string TownNPCName()
-        {
-            switch (WorldGen.genRand.Next(2))
-            {
-                case 0:
-                    return "Landry";
-                default:
-                    return "Bilbo Baggins";
-            }
         }
 
         public override void HitEffect(int hitDirection, double damage)
@@ -198,10 +227,10 @@ namespace JourneyTrend.NPCs.Trader
             var num = NPC.life > 0 ? 5 : 20;
             for (var k = 0; k < num; k++) Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Silk);
 
-            if (NPC.life <= 0) currentShop.Clear();
+            if (NPC.life <= 0) CurrentShop.Clear();
         }
 
-        public override bool CanTownNPCSpawn(int numTownNPCs, int money)
+        public override bool CanTownNPCSpawn(int numTownNpcs, int money)
         {
             for (var k = 0; k < 255; k++)
             {
@@ -216,66 +245,65 @@ namespace JourneyTrend.NPCs.Trader
 
         public override bool CheckConditions(int left, int right, int top, int bottom)
         {
-            var score = 0;
             for (var x = left; x <= right; x++)
             for (var y = top; y <= bottom; y++)
             {
-                int type = Main.tile[x, y].type;
-                if (type == ModContent.TileType<SewingMachineTile>() || type == ItemID.Loom ||
-                    type == ItemID.LivingLoom)
-                    score += 10;
+                int tileType = Main.tile[x, y].TileType;
+                if (tileType == ModContent.TileType<SewingMachineTile>() || tileType == TileID.Loom || tileType == TileID.LivingLoom)
+                    return true;
             }
 
-            return score >= (right - left) * (bottom - top) / 2;
+            return false;
         }
 
         public override string GetChat()
         {
+            WeightedRandom<string> dialogue = new WeightedRandom<string>();
+
             var clothier = NPC.FindFirstNPC(NPCID.Clothier);
-            if (clothier >= 0 && Main.rand.NextBool(6))
-                return "Could you ask if " + Main.npc[clothier].GivenName +
-                       " would sow some new outfits for me?";
+            if (clothier >= 0)
+                dialogue.Add(Language.GetTextValue("Mods.JourneyTrend.Dialogue.VanityTrader.ClothierDialogue", Main.npc[clothier].GivenName));
 
             var painter = NPC.FindFirstNPC(NPCID.Painter);
-            if (painter >= 0 && Main.rand.NextBool(6))
-                return "Last time I met " + Main.npc[painter].GivenName +
-                       " he got his paint all over me. I was barely able to wash it all out.";
+            if (painter >= 0)
+                dialogue.Add(Language.GetTextValue("Mods.JourneyTrend.Dialogue.VanityTrader.PainterDialogue", Main.npc[painter].GivenName));
 
             var dyeTrader = NPC.FindFirstNPC(NPCID.DyeTrader);
-            if (dyeTrader >= 0 && Main.rand.NextBool(6))
-                return Main.npc[dyeTrader].GivenName +
-                       " really has the most beautiful colors. But I'm a little concerned about his obsession with strange plants.";
+            if (dyeTrader >= 0)
+                dialogue.Add(Language.GetTextValue("Mods.JourneyTrend.Dialogue.VanityTrader.DyeTraderDialogue", Main.npc[dyeTrader].GivenName));
 
             var vanityTrader = NPC.FindFirstNPC(ModContent.NPCType<VanityTrader>());
-
-            switch (Main.rand.Next(9))
+            if (Main.npc[vanityTrader].GivenName == "Carl")
             {
-                case 0:
-                    return "What? Oh, that. No I don't have a face.";
-                case 1:
-                    return "So you've never bought second hand before?";
-                case 2:
-                    return "What do you mean by »cosplay«?";
-                case 3:
-                    return "Majora? No, I don't know any Majora, why do you ask?";
-                case 4:
-                    return "Shirts? Armors? Fish bowls? It's yours, my friend, as long as you have enough coins!";
-                case 5:
-                    return "Got some rare things on sale, stranger!";
-                case 6:
-                    return Main.npc[vanityTrader].GivenName + " has wears if you have coin.";
-                case 7:
-                    return "Have you tried fried harpy wing before? Delicious.";
-                default:
-                    return
-                        $"Have you ever worked with a sewing machine [i:{ModContent.ItemType<SewingMachine>()}] before?";
+                dialogue.Add(Language.GetTextValue("Mods.JourneyTrend.Dialogue.VanityTrader.NamedCarl1"), 0.5);
+                dialogue.Add(Language.GetTextValue("Mods.JourneyTrend.Dialogue.VanityTrader.NamedCarl2"), 0.5);
             }
+
+            dialogue.Add(Language.GetTextValue("Mods.JourneyTrend.Dialogue.VanityTrader.SewingMachine" , ModContent.ItemType<SewingMachine>()), 1.5);
+            dialogue.Add(Language.GetTextValue("Mods.JourneyTrend.Dialogue.VanityTrader.RareDialogue"), 0.2);
+            dialogue.Add( Language.GetTextValue("Mods.JourneyTrend.Dialogue.VanityTrader.SelfDialogue", Main.npc[vanityTrader].GivenName));
+            
+            dialogue.Add(Language.GetTextValue("Mods.JourneyTrend.Dialogue.VanityTrader.StandardDialogue1"));
+            dialogue.Add(Language.GetTextValue("Mods.JourneyTrend.Dialogue.VanityTrader.StandardDialogue2"));
+            dialogue.Add(Language.GetTextValue("Mods.JourneyTrend.Dialogue.VanityTrader.StandardDialogue3"));
+            dialogue.Add(Language.GetTextValue("Mods.JourneyTrend.Dialogue.VanityTrader.StandardDialogue4"));
+            dialogue.Add(Language.GetTextValue("Mods.JourneyTrend.Dialogue.VanityTrader.StandardDialogue5"));
+            dialogue.Add(Language.GetTextValue("Mods.JourneyTrend.Dialogue.VanityTrader.StandardDialogue6"));
+
+            var chosenDialogue = (string)dialogue;
+            if (chosenDialogue != LastDialogue) // don't say the same thing twice in a row
+            {
+                LastDialogue = chosenDialogue;
+                return chosenDialogue;
+            }
+
+            return GetChat(); 
         }
 
         public override void SetChatButtons(ref string button, ref string button2)
         {
-            button = Language.GetTextValue("LegacyInterface.28"); //shop
-            button2 = "Re-roll Bags (10G)";
+            button = Language.GetTextValue("LegacyInterface.28"); // shop
+            button2 = Language.GetTextValue("Mods.JourneyTrend.NpcShopButtons.VanityTrader.button2", RestockPriceGold);
         }
 
         public override void OnChatButtonClicked(bool firstButton, ref bool shop)
@@ -291,7 +319,7 @@ namespace JourneyTrend.NPCs.Trader
             {
                 SoundEngine.PlaySound(SoundID.Grab);
                 SoundEngine.PlaySound(SoundID.Coins);
-                Main.LocalPlayer.BuyItem(100000);
+                Main.LocalPlayer.BuyItem(RestockPriceGold * 10000);
                 Main.npcChatText = "";
                 CreateNewShop();
                 shop = true;
@@ -300,14 +328,14 @@ namespace JourneyTrend.NPCs.Trader
 
         public override void SetupShop(Chest shop, ref int nextSlot)
         {
-            foreach (var item in currentShop)
+            foreach (var item in CurrentShop)
             {
                 // We dont want "empty" items and unloaded items to appear
                 if (item == null || item.type == ItemID.None)
                     continue;
 
                 shop.item[nextSlot].SetDefaults(item.type);
-                shop.item[nextSlot].shopCustomPrice = BagPrice;
+                shop.item[nextSlot].shopCustomPrice = BagPriceGold * 10000;
                 nextSlot++;
             }
         }
@@ -340,6 +368,24 @@ namespace JourneyTrend.NPCs.Trader
         {
             multiplier = 6f;
             randomOffset = 2f;
+        }
+
+        private class VanityTraderProfile : ITownNPCProfile
+        {
+            public int RollVariation() => 0;
+            public string GetNameForVariant(NPC npc) => npc.getNewNPCName();
+
+            public Asset<Texture2D> GetTextureNPCShouldUse(NPC npc) {
+                // if (npc.IsABestiaryIconDummy && !npc.ForcePartyHatOn)
+                //     return ModContent.Request<Texture2D>("JourneyTrend/NPCs/Trader/VanityTrader");
+                //
+                // if (npc.altTexture == 1)
+                //     return ModContent.Request<Texture2D>("JourneyTrend/NPCs/Trader/VanityTrader");
+
+                return ModContent.Request<Texture2D>("JourneyTrend/NPCs/Trader/VanityTrader");
+            }
+
+            public int GetHeadTextureIndex(NPC npc) => ModContent.GetModHeadSlot("JourneyTrend/NPCs/Trader/VanityTrader_Head");
         }
     }
 }

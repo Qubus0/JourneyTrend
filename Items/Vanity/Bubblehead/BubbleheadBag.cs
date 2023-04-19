@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.Bubblehead
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<BubbleheadLegs>());
-            player.QuickSpawnItem(ItemType<BubbleheadBody>());
-            player.QuickSpawnItem(ItemType<BubbleheadHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<BubbleheadLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<BubbleheadBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<BubbleheadHead>()));
         }
     }
 }

@@ -11,6 +11,8 @@ namespace JourneyTrend.Items.Vanity.CyberAngel
             DisplayName.SetDefault("Cyber Halo");
             Tooltip.SetDefault(
                 "This armor was designed to restrict,\ncontrol and extract the power and energy of gods,\nangels and powerful beings.\nMade by Rariaz");
+
+            ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
         }
 
         public override void SetDefaults()
@@ -20,11 +22,6 @@ namespace JourneyTrend.Items.Vanity.CyberAngel
             Item.rare = ItemRarityID.Cyan;
             Item.vanity = true;
             Item.value = 250000; //only if sold.
-        }
-
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
-        {
-            drawHair = true;
         }
 
         public override void AddRecipes()

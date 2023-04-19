@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.SeaBuckthornTea
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<SeaBuckthornTeaLegs>());
-            player.QuickSpawnItem(ItemType<SeaBuckthornTeaBody>());
-            player.QuickSpawnItem(ItemType<SeaBuckthornTeaHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<SeaBuckthornTeaLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<SeaBuckthornTeaBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<SeaBuckthornTeaHead>()));
         }
     }
 }

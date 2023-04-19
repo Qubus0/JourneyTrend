@@ -1,4 +1,3 @@
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -12,6 +11,8 @@ namespace JourneyTrend.Items.Vanity.Bubblehead
         {
             DisplayName.SetDefault("Bubble Head");
             Tooltip.SetDefault("Literally a Bubble Head.\nMade by Metidigiti");
+
+            ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }
 
         public override void SetDefaults()
@@ -34,11 +35,6 @@ namespace JourneyTrend.Items.Vanity.Bubblehead
                 .AddTile<Tiles.SewingMachine>()
                 .AddRecipeGroup("JourneyTrend:BubbleHeads")
                 .Register();
-        }
-
-        public override bool DrawHead()
-        {
-            return false;
         }
 
         public override void UpdateVanity(Player player)

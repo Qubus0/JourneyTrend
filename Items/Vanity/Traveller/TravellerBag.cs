@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.Traveller
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<TravellerLegs>());
-            player.QuickSpawnItem(ItemType<TravellerBody>());
-            player.QuickSpawnItem(ItemType<TravellerHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<TravellerLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<TravellerBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<TravellerHead>()));
         }
     }
 }

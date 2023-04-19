@@ -10,6 +10,8 @@ namespace JourneyTrend.Items.Vanity.ForestDruid
         {
             DisplayName.SetDefault("Forest Druid's Horns");
             Tooltip.SetDefault("Like animal horns, branches have grown in your head\nMade by Kohi_aue");
+
+            ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
         }
 
         public override void SetDefaults()
@@ -18,11 +20,6 @@ namespace JourneyTrend.Items.Vanity.ForestDruid
             Item.height = 18;
             Item.rare = ItemRarityID.Green;
             Item.vanity = true;
-        }
-
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
-        {
-            drawHair = true;
         }
 
         public override void AddRecipes()

@@ -13,6 +13,8 @@ namespace JourneyTrend.Items.Vanity.StarlightDream
         {
             DisplayName.SetDefault("Starlight Dream Shirt");
             Tooltip.SetDefault("Made by Golditale");
+
+            ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false;
         }
 
         public override void SetDefaults()
@@ -21,11 +23,6 @@ namespace JourneyTrend.Items.Vanity.StarlightDream
             Item.height = 18;
             Item.rare = ItemRarityID.Cyan;
             Item.vanity = true;
-        }
-
-        public override void DrawHands(ref bool drawHands, ref bool drawArms)
-        {
-            drawHands = true;
         }
 
         public override void UpdateVanity(Player player)

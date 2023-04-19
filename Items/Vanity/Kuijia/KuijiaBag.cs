@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.Kuijia
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<KuijiaLegs>());
-            player.QuickSpawnItem(ItemType<KuijiaBody>());
-            player.QuickSpawnItem(ItemType<KuijiaHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<KuijiaLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<KuijiaBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<KuijiaHead>()));
         }
     }
 }

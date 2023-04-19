@@ -12,14 +12,16 @@ namespace JourneyTrend.Items.Vanity.MagicGrill
         {
             DisplayName.SetDefault("Magic Grill Megashark Hood");
             Tooltip.SetDefault("Boss may be proud!\nMade by Pepsi");
+
+            ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             // Custom RGB "Rarity"
             foreach (var line2 in tooltips)
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
-                    line2.overrideColor = new Color(255, 158, 204);
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
+                    line2.OverrideColor = new Color(255, 158, 204);
         }
 
         public override void SetDefaults()
@@ -29,11 +31,6 @@ namespace JourneyTrend.Items.Vanity.MagicGrill
             Item.rare = ItemRarityID.White;
             Item.vanity = true;
             Item.value = 0;
-        }
-
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
-        {
-            drawAltHair = true;
         }
     }
 }

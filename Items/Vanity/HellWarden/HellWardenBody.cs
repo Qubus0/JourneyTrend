@@ -11,6 +11,8 @@ namespace JourneyTrend.Items.Vanity.HellWarden
         {
             DisplayName.SetDefault("Hell Warden's Chestplate");
             Tooltip.SetDefault("Made by Adrian R.A.");
+
+            ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = true;
         }
 
         public override void SetDefaults()
@@ -19,12 +21,6 @@ namespace JourneyTrend.Items.Vanity.HellWarden
             Item.height = 18;
             Item.rare = ItemRarityID.LightRed;
             Item.vanity = true;
-        }
-
-        public override void DrawHands(ref bool drawHands, ref bool drawArms)
-        {
-            drawHands = false;
-            drawArms = false;
         }
 
         public override void AddRecipes()

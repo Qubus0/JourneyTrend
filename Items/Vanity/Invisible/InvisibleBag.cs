@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.Invisible
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<InvisibleHead>());
-            player.QuickSpawnItem(ItemType<InvisibleBody>());
-            player.QuickSpawnItem(ItemType<InvisibleLegs>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<InvisibleLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<InvisibleBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<InvisibleHead>()));
         }
     }
 }

@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -28,12 +28,12 @@ namespace JourneyTrend.Items.Vanity.NineTailedFox
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<NineTailedFoxHead>());
-            player.QuickSpawnItem(ItemType<NineTailedFoxBody>());
-            player.QuickSpawnItem(ItemType<NineTailedFoxLegs>());
-            player.QuickSpawnItem(ItemType<NineTailedFoxAcc>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<NineTailedFoxAcc>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<NineTailedFoxLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<NineTailedFoxBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<NineTailedFoxHead>()));
         }
     }
 }

@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.IronCore
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<IronCoreLegs>());
-            player.QuickSpawnItem(ItemType<IronCoreBody>());
-            player.QuickSpawnItem(ItemType<IronCoreHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<IronCoreLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<IronCoreBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<IronCoreHead>()));
         }
     }
 }

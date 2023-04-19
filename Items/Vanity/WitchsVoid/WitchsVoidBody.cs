@@ -10,6 +10,8 @@ namespace JourneyTrend.Items.Vanity.WitchsVoid
         {
             DisplayName.SetDefault("Void's Cloak");
             Tooltip.SetDefault("The numbers '2416' are etched on each piece...how strange.\nMade by Hexanne");
+
+            ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false;
         }
 
         public override void SetDefaults()
@@ -18,11 +20,6 @@ namespace JourneyTrend.Items.Vanity.WitchsVoid
             Item.height = 18;
             Item.rare = ItemRarityID.Pink;
             Item.vanity = true;
-        }
-
-        public override void DrawHands(ref bool drawHands, ref bool drawArms)
-        {
-            drawHands = true;
         }
     }
 }

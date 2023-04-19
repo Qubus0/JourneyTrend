@@ -10,6 +10,8 @@ namespace JourneyTrend.Items.Vanity.Invisible
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Me");
+
+            ArmorIDs.Legs.Sets.OverridesLegs[Item.legSlot] = true;
         }
 
         public override void SetDefaults()
@@ -18,11 +20,6 @@ namespace JourneyTrend.Items.Vanity.Invisible
             Item.height = 18;
             Item.rare = ItemRarityID.White;
             Item.vanity = true;
-        }
-
-        public override bool DrawLegs()
-        {
-            return false;
         }
 
         public override void AddRecipes()

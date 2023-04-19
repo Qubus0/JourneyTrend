@@ -13,14 +13,16 @@ namespace JourneyTrend.Items.Vanity.Duality
         {
             DisplayName.SetDefault("Duality Mask");
             Tooltip.SetDefault("Good and evil, mind of two worlds.\nMade by Chan");
+
+            ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             // Custom RGB "Rarity"
             foreach (var line2 in tooltips)
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
-                    line2.overrideColor = new Color(110, 101, 142);
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
+                    line2.OverrideColor = new Color(110, 101, 142);
         }
 
         public override void SetDefaults()
@@ -44,11 +46,6 @@ namespace JourneyTrend.Items.Vanity.Duality
                 .AddIngredient(ItemID.DarkShard)
                 .AddTile(TileID.Loom)
                 .Register();
-        }
-
-        public override bool DrawHead()
-        {
-            return false;
         }
     }
 }

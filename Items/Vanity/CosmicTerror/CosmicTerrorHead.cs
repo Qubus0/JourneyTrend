@@ -11,6 +11,8 @@ namespace JourneyTrend.Items.Vanity.CosmicTerror
             DisplayName.SetDefault("Cosmic Terror's Head");
             Tooltip.SetDefault(
                 "From the beginning of time, primordial beings rise\n from the endless fear and suffering,\n  to torment this plane of existence.\nMade by RegMeow");
+
+            ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }
 
         public override void SetDefaults()
@@ -20,11 +22,6 @@ namespace JourneyTrend.Items.Vanity.CosmicTerror
             Item.rare = ItemRarityID.Blue;
             Item.vanity = true;
             Item.value = 0;
-        }
-
-        public override bool DrawHead()
-        {
-            return false;
         }
     }
 }

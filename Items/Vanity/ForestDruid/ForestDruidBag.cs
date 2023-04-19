@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -28,10 +28,10 @@ namespace JourneyTrend.Items.Vanity.ForestDruid
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<ForestDruidBody>());
-            player.QuickSpawnItem(ItemType<ForestDruidHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<ForestDruidBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<ForestDruidHead>()));
         }
     }
 }

@@ -11,6 +11,8 @@ namespace JourneyTrend.Items.Vanity.Rookie
         {
             DisplayName.SetDefault("Rookie Steepletop");
             Tooltip.SetDefault("Created by an aspiring artist\nMade by PeanutSte");
+
+            ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }
 
         public override void SetDefaults()
@@ -20,11 +22,6 @@ namespace JourneyTrend.Items.Vanity.Rookie
             Item.rare = ItemRarityID.Blue;
             Item.vanity = true;
             Item.value = 0;
-        }
-
-        public override bool DrawHead()
-        {
-            return false;
         }
     }
 }

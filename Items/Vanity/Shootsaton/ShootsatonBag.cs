@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -28,11 +28,11 @@ namespace JourneyTrend.Items.Vanity.Shootsaton
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<ShootsatonLegs>());
-            player.QuickSpawnItem(ItemType<ShootsatonBody>());
-            player.QuickSpawnItem(ItemType<ShootsatonHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<ShootsatonLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<ShootsatonBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<ShootsatonHead>()));
         }
     }
 }

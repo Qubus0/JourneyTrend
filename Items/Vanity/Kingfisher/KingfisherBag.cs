@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.Kingfisher
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<KingfisherLegs>());
-            player.QuickSpawnItem(ItemType<KingfisherBody>());
-            player.QuickSpawnItem(ItemType<KingfisherHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<KingfisherLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<KingfisherBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<KingfisherHead>()));
         }
     }
 }

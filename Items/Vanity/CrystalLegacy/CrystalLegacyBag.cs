@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.CrystalLegacy
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<CrystalLegacyLegs>());
-            player.QuickSpawnItem(ItemType<CrystalLegacyBody>());
-            player.QuickSpawnItem(ItemType<CrystalLegacyHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<CrystalLegacyLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<CrystalLegacyBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<CrystalLegacyHead>()));
         }
     }
 }

@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.Nexus
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<NexusLegs>());
-            player.QuickSpawnItem(ItemType<NexusBody>());
-            player.QuickSpawnItem(ItemType<NexusHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<NexusLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<NexusBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<NexusHead>()));
         }
     }
 }

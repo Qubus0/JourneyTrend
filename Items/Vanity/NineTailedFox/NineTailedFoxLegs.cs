@@ -10,6 +10,8 @@ namespace JourneyTrend.Items.Vanity.NineTailedFox
         {
             DisplayName.SetDefault("Nine-Tailed Fox Leggings");
             Tooltip.SetDefault("Made by Invalid");
+
+            ArmorIDs.Legs.Sets.OverridesLegs[Item.legSlot] = true;
         }
 
         public override void SetDefaults()
@@ -17,11 +19,6 @@ namespace JourneyTrend.Items.Vanity.NineTailedFox
             Item.vanity = true;
             Item.value = 50000;
             Item.rare = ItemRarityID.Lime;
-        }
-
-        public override bool DrawLegs()
-        {
-            return false;
         }
     }
 }

@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -28,11 +28,11 @@ namespace JourneyTrend.Items.Vanity.CyberAngel
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<CyberAngelLegs>());
-            player.QuickSpawnItem(ItemType<CyberAngelBody>());
-            player.QuickSpawnItem(ItemType<CyberAngelHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<CyberAngelLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<CyberAngelBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<CyberAngelHead>()));
         }
     }
 }

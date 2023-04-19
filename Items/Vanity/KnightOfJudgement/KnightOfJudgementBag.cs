@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.KnightOfJudgement
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<KnightOfJudgementLegs>());
-            player.QuickSpawnItem(ItemType<KnightOfJudgementBody>());
-            player.QuickSpawnItem(ItemType<KnightOfJudgementHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<KnightOfJudgementLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<KnightOfJudgementBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<KnightOfJudgementHead>()));
         }
     }
 }

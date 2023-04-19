@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.ArcaneExosuit
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<ArcaneExosuitLegs>());
-            player.QuickSpawnItem(ItemType<ArcaneExosuitBody>());
-            player.QuickSpawnItem(ItemType<ArcaneExosuitHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<ArcaneExosuitLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<ArcaneExosuitBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<ArcaneExosuitHead>()));
         }
     }
 }

@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.MagicGrill
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<MagicGrillLegs>());
-            player.QuickSpawnItem(ItemType<MagicGrillBody>());
-            player.QuickSpawnItem(ItemType<MagicGrillHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<MagicGrillLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<MagicGrillBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<MagicGrillHead>()));
         }
     }
 }

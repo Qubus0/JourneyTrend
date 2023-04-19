@@ -10,6 +10,8 @@ namespace JourneyTrend.Items.Vanity.Journeyman
         {
             DisplayName.SetDefault("Journeyman Hat");
             Tooltip.SetDefault("The snazzy hat worn by journeymen.\nMade by poiuygfd");
+
+            ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true;
         }
 
         public override void SetDefaults()
@@ -24,11 +26,6 @@ namespace JourneyTrend.Items.Vanity.Journeyman
         public override bool? CanBurnInLava()
         {
             return false;
-        }
-
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
-        {
-            drawAltHair = true;
         }
     }
 }

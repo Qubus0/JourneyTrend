@@ -11,6 +11,8 @@ namespace JourneyTrend.Items.Vanity.Shark
         {
             DisplayName.SetDefault("Shark Mask");
             Tooltip.SetDefault("An inflated shark mask.\nDoes not let you breathe underwater.\nMade by Giobun");
+
+            ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }
 
         public override void SetDefaults()
@@ -20,11 +22,6 @@ namespace JourneyTrend.Items.Vanity.Shark
             Item.rare = ItemRarityID.Blue;
             Item.vanity = true;
             Item.value = 0;
-        }
-
-        public override bool DrawHead()
-        {
-            return false;
         }
     }
 }

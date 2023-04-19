@@ -1,6 +1,6 @@
 ﻿using JourneyTrend.Items.Vanity.ArcaneExosuit;
 using JourneyTrend.Items.Vanity.Birdie;
-using JourneyTrend.Items.Vanity.Bounty;
+using JourneyTrend.Items.Vanity.BountyHunter;
 using JourneyTrend.Items.Vanity.CyberAngel;
 using JourneyTrend.Items.Vanity.DeepDiver;
 using JourneyTrend.Items.Vanity.Grid;
@@ -59,16 +59,18 @@ namespace JourneyTrend.NPCs
 
                     if (!Main.dayTime && NPC.downedMartians)
                     {
-                        shop.item[nextSlot].SetDefaults(ItemType<BountyHead>());
+                        // 5 Gold from Cyborg after Martian Madness is defeated - Single Item - Bounty Hunter Set
+                        shop.item[nextSlot].SetDefaults(ItemType<BountyHunterHead>());
                         nextSlot++;
-                        shop.item[nextSlot].SetDefaults(ItemType<BountyBody>());
+                        shop.item[nextSlot].SetDefaults(ItemType<BountyHunterBody>());
                         nextSlot++;
-                        shop.item[nextSlot].SetDefaults(ItemType<BountyLegs>());
+                        shop.item[nextSlot].SetDefaults(ItemType<BountyHunterLegs>());
                         nextSlot++;
                     }
 
                     if (Main.dayTime)
                     {
+                        // 25 Gold from Cyborg during day time - Single Item - Cyber Angel Set
                         shop.item[nextSlot].SetDefaults(ItemType<CyberAngelHead>());
                         nextSlot++;
                         shop.item[nextSlot].SetDefaults(ItemType<CyberAngelBody>());
@@ -79,8 +81,8 @@ namespace JourneyTrend.NPCs
 
                     break;
 
-                case NPCID.Clothier:
-                    // 5 Gold from Clothier (to change to Golfer post 1.4...)
+                case NPCID.Golfer:
+                    // 5 Gold from Golfer - Single Item - Birdie Set
                     shop.item[nextSlot].SetDefaults(ItemType<BirdieHead>());
                     nextSlot++;
                     shop.item[nextSlot].SetDefaults(ItemType<BirdieBody>());
@@ -92,6 +94,7 @@ namespace JourneyTrend.NPCs
                 case NPCID.Pirate:
                     if (Main.raining)
                     {
+                        // 10 Gold from Pirate during Rain - Single Item - Deep Diver Set
                         shop.item[nextSlot].SetDefaults(ItemType<DeepDiverHead>());
                         nextSlot++;
                         shop.item[nextSlot].SetDefaults(ItemType<DeepDiverBody>());
@@ -103,6 +106,7 @@ namespace JourneyTrend.NPCs
                     break;
 
                 case NPCID.Truffle:
+                    // 20 Gold from Truffle - Single Item - Mushroom Alchemist Set
                     shop.item[nextSlot].SetDefaults(ItemType<MushroomAlchemistHead>());
                     nextSlot++;
                     shop.item[nextSlot].SetDefaults(ItemType<MushroomAlchemistBody>());
@@ -136,6 +140,7 @@ namespace JourneyTrend.NPCs
                 nextSlot++;
             }
 
+            // 5 Gold from Travelling Merchant - Single Item - Nine Tailed Fox Set
             shop[nextSlot] = ItemType<NineTailedFoxHead>();
             nextSlot++;
             shop[nextSlot] = ItemType<NineTailedFoxBody>();

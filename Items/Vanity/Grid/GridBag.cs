@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.Grid
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<GridLegs>());
-            player.QuickSpawnItem(ItemType<GridBody>());
-            player.QuickSpawnItem(ItemType<GridHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<GridLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<GridBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<GridHead>()));
         }
     }
 }

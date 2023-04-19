@@ -1,4 +1,4 @@
-using Terraria;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -27,11 +27,11 @@ namespace JourneyTrend.Items.Vanity.Birdie
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<BirdieLegs>());
-            player.QuickSpawnItem(ItemType<BirdieBody>());
-            player.QuickSpawnItem(ItemType<BirdieHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<BirdieLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<BirdieBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<BirdieHead>()));
         }
     }
 }

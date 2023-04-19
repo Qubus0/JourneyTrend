@@ -21,15 +21,9 @@ namespace JourneyTrend.Items.Vanity.NineTailedFox
             Item.rare = ItemRarityID.Lime;
         }
 
-        public override bool WingUpdate(Player player, bool inUse)
-        {
-            if (inUse) player.GetModPlayer<JourneyPlayer>().NinetailedFlying = true;
-            return false;
-        }
-
         public override void UpdateVanity(Player player)
         {
-            player.GetModPlayer<JourneyPlayer>().FoxTailsEquipped = true;
+            player.GetModPlayer<JourneyPlayer>().NineTailedFoxAccEquipped = true;
         }
     }
 }

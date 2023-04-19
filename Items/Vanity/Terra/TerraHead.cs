@@ -11,6 +11,8 @@ namespace JourneyTrend.Items.Vanity.Terra
             DisplayName.SetDefault("Terra Crown");
             Tooltip.SetDefault(
                 "A crown powered by the force of nature\nIts said that the powers of light and dark are inside it as well\nFits just right!\nMade by TerraKingCole614");
+
+            ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true;
         }
 
         public override void SetDefaults()
@@ -19,11 +21,6 @@ namespace JourneyTrend.Items.Vanity.Terra
             Item.height = 18;
             Item.rare = ItemRarityID.Lime;
             Item.vanity = true;
-        }
-
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
-        {
-            drawAltHair = true;
         }
 
         public override void AddRecipes()

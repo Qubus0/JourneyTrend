@@ -10,6 +10,8 @@ namespace JourneyTrend.Items.Vanity.Invisible
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Can't");
+
+            ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }
 
         public override void SetDefaults()
@@ -18,11 +20,6 @@ namespace JourneyTrend.Items.Vanity.Invisible
             Item.height = 18;
             Item.rare = ItemRarityID.White;
             Item.vanity = true;
-        }
-
-        public override bool DrawHead()
-        {
-            return false;
         }
 
         public override void AddRecipes()
