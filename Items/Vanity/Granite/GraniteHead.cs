@@ -11,6 +11,8 @@ namespace JourneyTrend.Items.Vanity.Granite
         {
             DisplayName.SetDefault("Granite Golem Greathelm");
             Tooltip.SetDefault("Made by EpicCrownKing");
+            
+            ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }
 
         public override void SetDefaults()

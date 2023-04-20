@@ -37,7 +37,7 @@ namespace JourneyTrend.Items.Vanity.Bubblehead
                 .Register();
         }
 
-        public override void UpdateVanity(Player player)
+        public override void EquipFrameEffects(Player player, EquipType type)
         {
             player.GetModPlayer<JourneyPlayer>().BubbleheadHeadEquipped = true;
         }

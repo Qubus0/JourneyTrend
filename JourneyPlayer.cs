@@ -1,6 +1,7 @@
-using System.Collections.Generic;
-using JourneyTrend.Items.Vanity.Traveller;
-using Microsoft.Xna.Framework;
+using JourneyTrend.Items.Vanity.Bubblehead;
+using JourneyTrend.Items.Vanity.Knightwalker;
+using JourneyTrend.Items.Vanity.NineTailedFox;
+using JourneyTrend.Items.Vanity.Planetary;
 using Terraria;
 using Terraria.ModLoader;
 
@@ -8,99 +9,116 @@ namespace JourneyTrend
 {
     public class JourneyPlayer : ModPlayer
     {
-        // Starting Items
-        public override IEnumerable<Item> AddStartingItems(bool mediumcoreDeath)
-        {
-            return new[] {
-                new Item(ModContent.ItemType<TravellerHead>()),
-                new Item(ModContent.ItemType<TravellerBody>()),
-                new Item(ModContent.ItemType<TravellerLegs>())
-            };
+        public bool DoOffset; // used for the rookie hand offset (because it is lower than normal)
 
-        }
-
-        public int walkUpShift; //-2 when the walk cycle has 'up' frames
-        private bool isIdle; //true if not moving
-        private bool isJumping; //true if the 6th player frame (jump) is used
-        public bool doOffset; //used for the rookie hand offset (because it is lower than normal)
+        public bool StarlightDreamBodyEquipped;
+        // no frame counter needed, it's in sync with the player's body frame
 
         public bool BubbleheadHeadEquipped;
-        private int BubbleheadHeadFrameCounter;
-        private int BubbleheadHeadFrameUpdater;
-        private int BubbleheadHeadTickToFrame;
+        public readonly AnimationFrameCounter BubbleheadHeadAnimationFrameCounter = 
+            new(BubbleheadHeadAnimatedDrawLayerAlwaysBubbles.FrameCount, 10);
 
+        
         public bool PlanetaryHeadEquipped;
-        private int PlanetaryHeadRingTickToFrame;
-        private int PlanetaryHeadRingFrameUpdater;
-        private int PlanetaryHeadRingFrameCounter = 0;
-        private int PlanetaryHeadWaterTickToFrame;
-        private int PlanetaryHeadWaterFrameUpdater;
-        private int PlanetaryHeadWaterFrameCounter = 0;
+        public readonly AnimationFrameCounter PlanetaryHeadAlwaysRingFrameCounter =
+            new(PlanetaryHeadAnimatedDrawLayerAlwaysRingFront.FrameCount, 6);
+        
+        public readonly AnimationFrameCounter PlanetaryHeadAlwaysStarsFrameCounter = 
+            new(PlanetaryHeadAnimatedDrawLayerAlwaysStars.FrameCount, 30);
 
-        public bool KnightwalkerBodyEquipped; //corresponding equip bool
-        private int KnightwalkerCapeFrameCounter;
-        private int KnightwalkerCapeFrameUpdater;
-        private int KnightwalkerCapeTickToFrame;
-        private int KnightwalkerFlameFrameCounter;
-        private int KnightwalkerFlameFrameUpdater;
-        private int KnightwalkerFlameTickToFrame;
+        public readonly AnimationFrameCounter PlanetaryHeadIdleWaterFrameCounter =
+            new(PlanetaryHeadAnimatedDrawLayerIdleWater.FrameCount, 8);
 
-        public bool KnightwalkerAlt;
+        
+        public bool KnightwalkerBodyEquipped;
+        public readonly AnimationFrameCounter KnightwalkerBodyIdleCapeAnimationFrameCounter = 
+            new(KnightwalkerBodyAnimatedDrawLayerIdleCape.FrameCount, 8);
+        
+        public readonly AnimationFrameCounter KnightwalkerBodyIdleFlameAnimationFrameCounter = 
+            new(KnightwalkerBodyAnimatedDrawLayerIdleFlameFront.FrameCount, 6);
 
         public bool KnightwalkerHeadEquipped;
-        private int KnightwalkerHeadFrameCounter;
-        private int KnightwalkerHeadFrameUpdater;
-        private int KnightwalkerHeadTickToFrame;
+        public readonly AnimationFrameCounter KnightwalkerHeadAlwaysFlameAnimationFrameCounter = 
+            new(KnightwalkerHeadAnimatedDrawLayerAlwaysFlame.FrameCount, 6);
 
-        public bool NineTailedFoxAccEquipped;
-        private int NineTailedFoxFrameCounter;
-        public int NineTailedFoxFrameIndex;
-        private int NineTailedFoxTickCounter;
+
+        public bool NineTailedFoxAccBackEquipped;
+        public readonly AnimationFrameCounter NineTailedFoxAccBackAnimationFrameCounter = 
+            new(NineTailedFoxAccBackAnimatedDrawLayerAlwaysTails.FrameCount -1, 8);
+
         
-        public bool StarlightBodyEquipped; // Corresponding equip bool
-
-        public override void PreUpdate()
+        public int GetPlayerBodyFrameYIndex()
         {
-            if (Player.velocity == Vector2.Zero)
-                isIdle = true;
-            else
-                isIdle = false;
-
-            //0,frameNum * frame hei, width, height
-            var pl = Player.bodyFrame.Y / 56;
-            if (pl == 5)
-                isJumping = true;
-            if (pl == 7 || pl == 8 || pl == 9 || pl == 14 || pl == 15 || pl == 16)
-                walkUpShift = -2;
-            else
-                walkUpShift = 0;
-
-
-            if (NineTailedFoxAccEquipped)
-            {
-                NineTailedFoxTickCounter++;
-                if (NineTailedFoxTickCounter == 8) //every 8 ticks update
-                {
-                    NineTailedFoxTickCounter = 0;
-                    NineTailedFoxFrameCounter++; //next frame
-                    if (NineTailedFoxFrameCounter >= 10) //loop all frames from 0 to 9
-                        NineTailedFoxFrameCounter = 0; //reset to first frame
-                }
-
-                NineTailedFoxFrameIndex = isJumping ? 10 : NineTailedFoxFrameCounter;
-            }
+            return Player.bodyFrame.Y / 56;
         }
 
-        public override void ResetEffects() //reset all the equip type booleans
+        public int GetWalkUpShift()
         {
-            isIdle = false;
-            isJumping = false;
-            NineTailedFoxAccEquipped = false;
-            StarlightBodyEquipped = false;
+            if (GetPlayerBodyFrameYIndex() is 7 or 8 or 9 or 14 or 15 or 16)
+                return -2;
+            return 0;
+        }
+
+        public bool IsJumping()
+        {
+            // true if the 6th player frame (jump) is used
+            return GetPlayerBodyFrameYIndex() == 5;
+        }
+
+        public bool IsIdle()
+        {
+            // true if not moving
+            return Player.velocity.Length() < 0.1f;
+        }
+
+        public override void ResetEffects() // reset all the equip type booleans
+        {
+            NineTailedFoxAccBackEquipped = false;
+            StarlightDreamBodyEquipped = false;
             KnightwalkerBodyEquipped = false;
             KnightwalkerHeadEquipped = false;
             BubbleheadHeadEquipped = false;
             PlanetaryHeadEquipped = false;
+        }
+    }
+    
+    public class AnimationFrameCounter
+    {
+        private readonly int AnimationFrameCount;
+        private int FrameIndex;
+        private readonly int FrameTickDuration;
+        private int TickIndex;
+
+        public AnimationFrameCounter(int animationFrameCount, int frameTickDuration)
+        {
+            AnimationFrameCount = animationFrameCount;
+            FrameTickDuration = frameTickDuration;
+        }
+        
+        public int GetFrameIndex()
+        {
+            return FrameIndex;
+        }
+
+        public void NextFrame()
+        {
+            TickIndex++;
+            if (TickIndex == FrameTickDuration)
+                IncrementAndWrapFrame();
+            WrapTick();
+        }
+
+        private void IncrementAndWrapFrame()
+        {
+            FrameIndex++;
+            if (FrameIndex >= AnimationFrameCount)
+                FrameIndex = 0;
+        }
+        
+        private void WrapTick()
+        {
+            if (TickIndex >= FrameTickDuration)
+                TickIndex = 0;
         }
     }
 }

@@ -23,11 +23,6 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
             Item.vanity = true;
         }
 
-        public override void UpdateVanity(Player player)
-        {
-            player.GetModPlayer<JourneyPlayer>().KnightwalkerHeadEquipped = true;
-        }
-
         public override void AddRecipes()
         {
             if (WorldGen.crimson)
@@ -50,6 +45,11 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
                     .AddRecipeGroup("IronBar", 10)
                     .Register();
             }
+        }
+
+        public override void EquipFrameEffects(Player player, EquipType type)
+        {
+            player.GetModPlayer<JourneyPlayer>().KnightwalkerHeadEquipped = true;
         }
     }
 }

@@ -34,10 +34,8 @@ namespace JourneyTrend.Items.Vanity.Hivenet
                 .Register();
         }
 
-        public override void UpdateVanity(Player player)
+        public override void EquipFrameEffects(Player player, EquipType type)
         {
-            //if (Main.rand.NextFloat() < 0.02f)		//for random particle spawns
-
             if (Main.GameUpdateCount % 20 == 0)
             {
                 //big wing

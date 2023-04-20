@@ -33,7 +33,7 @@ namespace JourneyTrend.Items.Vanity.WyvernRider
                 .Register();
         }
 
-        public override void UpdateVanity(Player player)
+        public override void EquipFrameEffects(Player player, EquipType type)
         {
             if (player.velocity != Vector2.Zero && Main.rand.NextBool(5))
                 Dust.NewDust(player.Center + new Vector2(-5 + player.direction * -10, 16), 10, 2,

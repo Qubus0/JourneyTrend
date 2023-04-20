@@ -25,9 +25,9 @@ namespace JourneyTrend.Items.Vanity.StarlightDream
             Item.vanity = true;
         }
 
-        public override void UpdateVanity(Player player)
+        public override void EquipFrameEffects(Player player, EquipType type)
         {
-            player.GetModPlayer<JourneyPlayer>().StarlightBodyEquipped = true;
+            player.GetModPlayer<JourneyPlayer>().StarlightDreamBodyEquipped = true;
             Lighting.AddLight(player.Center, 241 * adj, 215 * adj, 108 * adj);
         }
     }

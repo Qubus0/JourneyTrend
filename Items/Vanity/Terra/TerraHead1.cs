@@ -12,7 +12,7 @@ namespace JourneyTrend.Items.Vanity.Terra
             Tooltip.SetDefault(
                 "A crown powered by the force of nature\nIts said that the powers of light and dark are inside it as well\nFits your hair just right!\nMade by TerraKingCole614");
 
-            ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true;
+            ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
         }
 
         public override void SetDefaults()

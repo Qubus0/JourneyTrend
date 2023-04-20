@@ -26,9 +26,9 @@ namespace JourneyTrend.Items.Vanity.Rookie
             Item.value = 0;
         }
 
-        public override void UpdateVanity(Player player)
+        public override void EquipFrameEffects(Player player, EquipType type)
         {
-            player.GetModPlayer<JourneyPlayer>().doOffset = true;
+            player.GetModPlayer<JourneyPlayer>().DoOffset = true;
         }
     }
 }

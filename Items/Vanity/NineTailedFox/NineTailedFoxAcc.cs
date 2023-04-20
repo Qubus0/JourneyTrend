@@ -21,9 +21,9 @@ namespace JourneyTrend.Items.Vanity.NineTailedFox
             Item.rare = ItemRarityID.Lime;
         }
 
-        public override void UpdateVanity(Player player)
+        public override void EquipFrameEffects(Player player, EquipType type)
         {
-            player.GetModPlayer<JourneyPlayer>().NineTailedFoxAccEquipped = true;
+            player.GetModPlayer<JourneyPlayer>().NineTailedFoxAccBackEquipped = true;
         }
     }
 }

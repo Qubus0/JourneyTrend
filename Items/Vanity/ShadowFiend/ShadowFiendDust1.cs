@@ -4,25 +4,35 @@ using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.ShadowFiend
 {
-    public class ShadowFiendDust1 : ModDust
+    public class ShadowFiendDust1 : AbstractDust
     {
-        public override void OnSpawn(Dust dust)
+        private const float Glow = 1f;
+        private const int FrameCount = 2;
+        
+        public ShadowFiendDust1() : base(Glow, FrameCount)
         {
-            dust.frame = new Rectangle(0, Main.rand.Next(2) * 8, 8, 8);
-            //								  num frames^ height^, width, height
+        }
+
+        protected override int GetFrameIndex()
+        {
+            return Main.rand.Next(FrameCount);
+        }
+        
+        protected override void SpawnEffects(Dust dust)
+        {
+            dust.noGravity = false;
+            dust.scale = 0.8f;
+            dust.velocity = new Vector2(0, 0.003f); 
         }
 
         public override bool Update(Dust dust)
         {
-            //dust.velocity.Y += 0.3f;
+            dust.position += dust.velocity;
+            dust.velocity.Y += 0.003f;
+            
             dust.scale -= 0.01f;
             if (dust.scale < 0.2f) dust.active = false;
             return false;
-        }
-
-        public override Color? GetAlpha(Dust dust, Color lightColor)
-        {
-            return new Color(255, 255, 255);
         }
     }
 }

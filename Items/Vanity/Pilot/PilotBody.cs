@@ -1,3 +1,4 @@
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -6,6 +7,16 @@ namespace JourneyTrend.Items.Vanity.Pilot
     [AutoloadEquip(EquipType.Body)]
     public class PilotBody : ModItem
     {
+        public override void Load() {
+            // The code below runs only if we're not loading on a server
+            if (Main.netMode == NetmodeID.Server) {
+                return;
+            }
+
+            // By passing this (the ModItem) into the item parameter we can reference it later in GetEquipSlot with just the item's name
+            EquipLoader.AddEquipTexture(Mod, $"{Texture}_{EquipType.Legs}", EquipType.Legs, this);
+        }
+        
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("Pilot's Jumpsuit");
@@ -23,7 +34,7 @@ namespace JourneyTrend.Items.Vanity.Pilot
         public override void SetMatch(bool male, ref int equipSlot, ref bool robes)
         {
             robes = true;
-            equipSlot = EquipLoader.GetEquipSlot(Mod, "PilotLegs_Legs", EquipType.Legs);
+            equipSlot = EquipLoader.GetEquipSlot(Mod, Name, EquipType.Legs);
         }
     }
 }

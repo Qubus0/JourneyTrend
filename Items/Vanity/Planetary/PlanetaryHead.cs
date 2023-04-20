@@ -21,7 +21,7 @@ namespace JourneyTrend.Items.Vanity.Planetary
             Item.vanity = true;
         }
 
-        public override void UpdateVanity(Player player)
+        public override void EquipFrameEffects(Player player, EquipType type)
         {
             player.GetModPlayer<JourneyPlayer>().PlanetaryHeadEquipped = true;
         }

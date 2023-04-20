@@ -6,7 +6,6 @@ using JourneyTrend.Items.Vanity.Knightwalker;
 using JourneyTrend.Items.Vanity.ShadowFiend;
 using JourneyTrend.Items.Vanity.Terra;
 using JourneyTrend.NPCs.Trader;
-using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.Localization;
@@ -16,19 +15,10 @@ namespace JourneyTrend
 {
     public class JourneyTrend : Mod
     {
-        public static Vector2 ScalePoint(Vector2 a, Vector2 c, float t)
-        {
-            return new Vector2(c.X + t * (a.X - c.X), c.Y + t * (a.Y - c.Y));
-        }
-
         public override void Load()
         {
             // Will show up in client.log under the JourneyTrend name
             Logger.InfoFormat("{0} Logs: ", Name);
-            
-            // todo fix pilot legs
-            // if (!Main.dedServ)
-            //     AddEquipTexture(null, EquipType.Legs, "JourneyTrend/Items/Vanity/Pilot/PilotLegs_Legs");
         }
 
         public override void Unload()
@@ -64,10 +54,10 @@ namespace JourneyTrend
                 ModContent.ItemType<ForestDruidHead2>());
             RecipeGroup.RegisterGroup("JourneyTrend:DruidMasks", DruidMasks);
 
-            var KnightwalkerCapes = new RecipeGroup(
-                () => Language.GetTextValue("LegacyMisc.37") + " Cape of the Knightwalker",
-                ModContent.ItemType<KnightwalkerBody>(), ModContent.ItemType<KnightwalkerBody1>());
-            RecipeGroup.RegisterGroup("JourneyTrend:KnightwalkerCapes", KnightwalkerCapes);
+            // var KnightwalkerCapes = new RecipeGroup(
+            //     () => Language.GetTextValue("LegacyMisc.37") + " Cape of the Knightwalker",
+            //     ModContent.ItemType<KnightwalkerBody>(), ModContent.ItemType<KnightwalkerBody1>());
+            // RecipeGroup.RegisterGroup("JourneyTrend:KnightwalkerCapes", KnightwalkerCapes);
 
             var BubbleHeads = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " Bubblehead",
                 ModContent.ItemType<BubbleheadHead>(), ModContent.ItemType<BubbleheadHead1>(),
