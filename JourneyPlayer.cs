@@ -16,7 +16,7 @@ namespace JourneyTrend
 
         public bool BubbleheadHeadEquipped;
         public readonly AnimationFrameCounter BubbleheadHeadAnimationFrameCounter = 
-            new(BubbleheadHeadAnimatedDrawLayerAlwaysBubbles.FrameCount, 6);
+            new(BubbleheadHeadAnimatedDrawLayerAlwaysBubbles.FrameCount, 10);
 
         
         public bool PlanetaryHeadEquipped;

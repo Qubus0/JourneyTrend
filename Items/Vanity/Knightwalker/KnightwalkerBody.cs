@@ -1,6 +1,8 @@
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace JourneyTrend.Items.Vanity.Knightwalker
 {
@@ -26,8 +28,26 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
 
         public override void EquipFrameEffects(Player player, EquipType type)
         {
-            Lighting.AddLight(player.Center, 204 * adj, 82 * adj, 255 * adj);
             player.GetModPlayer<JourneyPlayer>().KnightwalkerBodyEquipped = true;
+
+            Lighting.AddLight(player.Center, 204 * adj, 82 * adj, 255 * adj);
+
+            var walkUpShift = player.GetModPlayer<JourneyPlayer>().GetWalkUpShift();
+
+            if (player.GetModPlayer<JourneyPlayer>().IsIdle()) return;
+            switch (Main.GameUpdateCount % 4)
+            {
+                case 0:
+                    Dust.NewDustPerfect(player.Center + new Vector2(player.direction * 9, -2 + walkUpShift),
+                        DustType<KnightwalkerDust>());
+                    Dust.NewDustPerfect(player.Center + new Vector2(-player.direction * 9, -2 + walkUpShift),
+                        DustType<KnightwalkerDust>());
+                    break;
+                case 2:
+                    Dust.NewDustPerfect(player.Center + new Vector2(-player.direction * 11, -2 + walkUpShift),
+                        DustType<KnightwalkerDust>());
+                    break;
+            }
         }
 
         public override void AddRecipes()

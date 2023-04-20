@@ -5,7 +5,6 @@ using ReLogic.Content;
 using Terraria;
 using Terraria.DataStructures;
 using Terraria.ModLoader;
-using ColorSlidersSet = On.Terraria.DataStructures.ColorSlidersSet;
 
 namespace JourneyTrend
 {
@@ -50,32 +49,21 @@ namespace JourneyTrend
                 new Vector2(drawInfo.Center.X, drawInfo.Center.Y + modPlayer.GetWalkUpShift())
                 + new Vector2(SpritePositionOffsetX * drawInfo.drawPlayer.direction, SpritePositionOffsetY)
                 - Main.screenPosition;
-            
+
             // round to ints to avoid quivering.
-            renderPosition = new Vector2((int)renderPosition.X, (int)renderPosition.Y); 
+            renderPosition = new Vector2((int)renderPosition.X, (int)renderPosition.Y);
 
             var flipHorizontally =
                 drawInfo.drawPlayer.direction == 1 ? SpriteEffects.None : SpriteEffects.FlipHorizontally;
             var flipVertically =
                 (int)drawInfo.drawPlayer.gravDir == 1 ? SpriteEffects.None : SpriteEffects.FlipVertically;
 
-
-            // if full glow, use white color
-            // if some glow, use the brighter color between either shaded or glow color
-            // else, use the shaded color
-            var drawInfoColor =
-                Glow >= 1f ? Color.White
-                : Glow > 0f ? GetColorBrightness(Color.White * Glow) > GetColorBrightness(drawInfo.colorArmorBody)
-                    ? Color.White * Glow
-                    : drawInfo.colorArmorBody
-                : drawInfo.colorArmorBody;
-
             drawInfo.DrawDataCache.Add(
                 new DrawData(
                     PartTexture.Value, // The texture to render.
                     renderPosition,
                     currentFrame,
-                    drawInfoColor,
+                    ApplyGlowToColor(Glow, drawInfo.colorArmorBody),
                     0f, // Rotation.
                     new Vector2(PartTexture.Width() * 0.5f, 0), // Origin. Uses the width center.
                     1f, // Scale.
@@ -84,7 +72,21 @@ namespace JourneyTrend
                 ));
         }
 
-        private int GetColorBrightness(Color color)
+        private Color ApplyGlowToColor(float glow, Color baseColor)
+        {
+            // if full glow, use white color
+            if (glow >= 1f)
+                return Color.White;
+
+            // if some glow and white glow is brighter than the base color, use white color
+            if (glow > 0f && GetColorBrightness(Color.White * glow) > GetColorBrightness(baseColor))
+                return Color.White * glow;
+
+            // else, use the shaded color
+            return baseColor;
+        }
+
+        private static int GetColorBrightness(Color color)
         {
             // https://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color
             return (int)Math.Sqrt(

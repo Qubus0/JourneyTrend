@@ -37,7 +37,7 @@ namespace JourneyTrend.Items.Vanity.ShadowFiend
 
         public override void EquipFrameEffects(Player player, EquipType type)
         {
-            if (Main.rand.NextFloat() < 0.1f)
+            if (Main.rand.NextFloat() < 0.05f)
                 Dust.NewDust(player.TopLeft, player.width, player.height, DustType<ShadowFiendDust1>());
         }
     }
