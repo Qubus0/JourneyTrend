@@ -65,11 +65,11 @@ namespace JourneyTrend.Items
     {
         public override void UseStyle(Item item, Player player, Rectangle rectangle)
         {
-            if (player.GetModPlayer<JourneyPlayer>().doOffset) //updated in RookieBody.cs
+            if (player.GetModPlayer<JourneyPlayer>().DoOffset) //updated in RookieBody.cs
             {
                 player.itemLocation.X += 2;
                 player.itemLocation.Y += 8;
-                player.GetModPlayer<JourneyPlayer>().doOffset = false;
+                player.GetModPlayer<JourneyPlayer>().DoOffset = false;
             }
         }
     }

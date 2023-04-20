@@ -23,7 +23,7 @@ namespace JourneyTrend.Items.Vanity.WitchsVoid
             Item.vanity = true;
         }
 
-        public override void UpdateVanity(Player player)
+        public override void EquipFrameEffects(Player player, EquipType type)
         {
             Lighting.AddLight(player.Center, 240 * adj, 152 * adj, 239 * adj);
         }

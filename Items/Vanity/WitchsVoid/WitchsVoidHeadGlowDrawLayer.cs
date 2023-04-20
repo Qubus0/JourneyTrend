@@ -11,7 +11,7 @@ namespace JourneyTrend.Items.Vanity.WitchsVoid
         {
         }
 
-        // // if it will be rendered on the minimap. probably needs to be parented to head. might be bugged in tml
+        // // if it will be rendered on the minimap. needs to be parented to head.
         public override bool IsHeadLayer => true;
 
         // before/after from back to front - behind/in front

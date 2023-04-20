@@ -35,7 +35,7 @@ namespace JourneyTrend.Items.Vanity.ShadowFiend
             return body.type == ItemType<ShadowFiendBody1>() && legs.type == ItemType<ShadowFiendLegs1>();
         }
 
-        public override void UpdateVanitySet(Player player)
+        public override void EquipFrameEffects(Player player, EquipType type)
         {
             if (Main.rand.NextFloat() < 0.1f)
                 Dust.NewDust(player.TopLeft, player.width, player.height, DustType<ShadowFiendDust1>());

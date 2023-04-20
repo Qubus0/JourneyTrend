@@ -33,7 +33,7 @@ namespace JourneyTrend.Items.Vanity.DeepDiver
                     line2.OverrideColor = new Color(15, 4, 68);
         }
 
-        public override void UpdateVanity(Player player)
+        public override void EquipFrameEffects(Player player, EquipType type)
         {
             Lighting.AddLight(player.Center, 226 * adj, 255 * adj, 88 * adj);
         }

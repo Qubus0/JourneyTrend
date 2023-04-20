@@ -24,11 +24,10 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
             Item.vanity = true;
         }
 
-        public override void UpdateVanity(Player player)
+        public override void EquipFrameEffects(Player player, EquipType type)
         {
             Lighting.AddLight(player.Center, 204 * adj, 82 * adj, 255 * adj);
             player.GetModPlayer<JourneyPlayer>().KnightwalkerBodyEquipped = true;
-            player.GetModPlayer<JourneyPlayer>().KnightwalkerAlt = false;
         }
 
         public override void AddRecipes()
@@ -53,11 +52,6 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
                     .AddRecipeGroup("IronBar", 20)
                     .Register();
             }
-
-            CreateRecipe()
-            .AddTile<Tiles.SewingMachine>()
-            .AddRecipeGroup("JourneyTrend:KnightwalkerCapes")
-            .Register();
         }
     }
 }

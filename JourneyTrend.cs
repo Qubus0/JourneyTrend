@@ -64,10 +64,10 @@ namespace JourneyTrend
                 ModContent.ItemType<ForestDruidHead2>());
             RecipeGroup.RegisterGroup("JourneyTrend:DruidMasks", DruidMasks);
 
-            var KnightwalkerCapes = new RecipeGroup(
-                () => Language.GetTextValue("LegacyMisc.37") + " Cape of the Knightwalker",
-                ModContent.ItemType<KnightwalkerBody>(), ModContent.ItemType<KnightwalkerBody1>());
-            RecipeGroup.RegisterGroup("JourneyTrend:KnightwalkerCapes", KnightwalkerCapes);
+            // var KnightwalkerCapes = new RecipeGroup(
+            //     () => Language.GetTextValue("LegacyMisc.37") + " Cape of the Knightwalker",
+            //     ModContent.ItemType<KnightwalkerBody>(), ModContent.ItemType<KnightwalkerBody1>());
+            // RecipeGroup.RegisterGroup("JourneyTrend:KnightwalkerCapes", KnightwalkerCapes);
 
             var BubbleHeads = new RecipeGroup(() => Language.GetTextValue("LegacyMisc.37") + " Bubblehead",
                 ModContent.ItemType<BubbleheadHead>(), ModContent.ItemType<BubbleheadHead1>(),

@@ -42,7 +42,7 @@ namespace JourneyTrend.Items.Vanity.Nightlight
             Item.value = 0;
         }
 
-        public override void UpdateVanity(Player player)
+        public override void EquipFrameEffects(Player player, EquipType type)
         {
             Lighting.AddLight(player.Center, 198 * adj, 229 * adj, 10 * adj);
         }
