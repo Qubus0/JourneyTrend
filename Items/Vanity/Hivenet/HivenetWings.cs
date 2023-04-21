@@ -1,5 +1,6 @@
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -13,6 +14,9 @@ namespace JourneyTrend.Items.Vanity.Hivenet
         {
             DisplayName.SetDefault("HiveNet Digital Wings");
             Tooltip.SetDefault("Cloud-based Engineering.\nMade by Sam Holt");
+            
+            // These wings use the same values as the fledgling wings
+            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(25, 2.5f, 1.5f);
         }
 
         public override void SetDefaults()

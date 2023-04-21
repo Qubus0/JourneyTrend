@@ -1,3 +1,4 @@
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -10,6 +11,9 @@ namespace JourneyTrend.Items.Vanity.WyvernRider
         {
             DisplayName.SetDefault("Wyvern Rider Tail");
             Tooltip.SetDefault("It doesn't allow you to ride wyverns, sorry\nMade by manzXja");
+            
+            // These wings use the same values as the fledgling wings
+            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(25, 2.5f, 1.5f);
         }
 
         public override void SetDefaults()
