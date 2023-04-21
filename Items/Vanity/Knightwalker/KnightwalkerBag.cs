@@ -10,7 +10,7 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
         public override void SetStaticDefaults()
         {
             DisplayName.SetDefault("The Knightwalker's Bag");
-            Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+            Tooltip.SetDefault("Spriting assisted by Curt 'Bucket Face' Black\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()
