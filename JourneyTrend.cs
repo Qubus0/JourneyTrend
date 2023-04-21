@@ -1,4 +1,5 @@
 using System.Linq;
+using JourneyTrend.Items.Placeable;
 using JourneyTrend.NPCs.Trader;
 using Terraria.ModLoader;
 
@@ -26,6 +27,12 @@ namespace JourneyTrend
             {
                 VanityTrader.CurrentShop.Clear();
             }
+        }
+        
+        public override void PostSetupContent()
+        {
+            ModLoader.TryGetMod("Census", out Mod censusMod);
+            censusMod?.Call("TownNPCCondition", ModContent.NPCType<VanityTrader>(), $"Defeat the Moonlord and build a house with a [i:{ModContent.ItemType<SewingMachine>()}] Sewing Machine, Loom or Living Loom.");
         }
     }
 }
