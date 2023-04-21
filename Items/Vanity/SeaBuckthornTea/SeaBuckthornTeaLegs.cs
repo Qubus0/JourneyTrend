@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,6 +9,7 @@ namespace JourneyTrend.Items.Vanity.SeaBuckthornTea
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Butler's Pants and Shoes");
             Tooltip.SetDefault("Cleaned-ironed-polished!\nMade by VaeloroK");
         }

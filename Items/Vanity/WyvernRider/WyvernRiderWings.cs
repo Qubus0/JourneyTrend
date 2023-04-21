@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,6 +10,7 @@ namespace JourneyTrend.Items.Vanity.WyvernRider
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Wyvern Rider Tail");
             Tooltip.SetDefault("It doesn't allow you to ride wyverns, sorry\nMade by manzXja");
             

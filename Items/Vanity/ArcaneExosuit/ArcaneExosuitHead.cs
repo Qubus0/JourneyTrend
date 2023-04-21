@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,6 +9,7 @@ namespace JourneyTrend.Items.Vanity.ArcaneExosuit
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Arcane Exosuit Skull");
             Tooltip.SetDefault("Resembles the skull of a long extinct species\nMade by Faskeon");
 

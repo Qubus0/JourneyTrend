@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
@@ -10,6 +11,7 @@ namespace JourneyTrend.Items.Vanity.MagicGrill
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Magic Grill Megashark Hood");
             Tooltip.SetDefault("Boss may be proud!\nMade by Pepsi");
 

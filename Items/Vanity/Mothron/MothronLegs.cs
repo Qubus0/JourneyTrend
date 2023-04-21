@@ -1,4 +1,5 @@
-﻿using Terraria.ID;
+﻿using Terraria.GameContent.Creative;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.Mothron
@@ -8,6 +9,7 @@ namespace JourneyTrend.Items.Vanity.Mothron
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             base.SetStaticDefaults();
             DisplayName.SetDefault("Mothron Pants");
             Tooltip.SetDefault("The pattern resembles that of Mothron's abdomen.\nMade by Drdragonfly");

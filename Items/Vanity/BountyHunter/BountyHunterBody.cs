@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,6 +9,7 @@ namespace JourneyTrend.Items.Vanity.BountyHunter
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Bounty Hunter Chestplate");
             Tooltip.SetDefault(
                 "A high-tech battle armour developed by Dr. Tobopolis.\nWatch out for space dragons!\nMade by Tobopolis");

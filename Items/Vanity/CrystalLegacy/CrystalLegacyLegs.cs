@@ -1,4 +1,5 @@
-﻿using Terraria.ID;
+﻿using Terraria.GameContent.Creative;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.CrystalLegacy
@@ -8,6 +9,7 @@ namespace JourneyTrend.Items.Vanity.CrystalLegacy
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Crystal Greaves");
             Tooltip.SetDefault("Greaves burdened by crystal growths...\nMade by Curt 'Bucket Face' Black");
         }

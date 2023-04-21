@@ -1,4 +1,5 @@
-﻿using Terraria.ID;
+﻿using Terraria.GameContent.Creative;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.Rookie
@@ -9,6 +10,7 @@ namespace JourneyTrend.Items.Vanity.Rookie
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Rookie Base");
             Tooltip.SetDefault("Stay Grounded\nMade by PeanutSte");
 

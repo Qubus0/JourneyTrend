@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,6 +9,7 @@ namespace JourneyTrend.Items.Vanity.ShadowFiend
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Crimson Scourge Leggings");
             Tooltip.SetDefault("Ichor flows through you!\nMade by CakeBoiii");
         }

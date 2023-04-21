@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
@@ -10,6 +11,7 @@ namespace JourneyTrend.Items.Vanity.ShadowSpell
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Shadow Spell Robes");
             Tooltip.SetDefault("Worn by the forgotten clan of the Shadowflame Shamans.\nMade by Romanov/Ammagon");
         }

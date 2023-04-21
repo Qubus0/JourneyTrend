@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,6 +10,7 @@ namespace JourneyTrend.Items.Vanity.BountyHunter
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Bounty Hunter's Bag");
             Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
         }

@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,6 +9,7 @@ namespace JourneyTrend.Items.Vanity.Kingfisher
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Common Kingfisher Pants");
             Tooltip.SetDefault(
                 "Hunger is the only story he has ever heard in his life.\nReligiously, he swallows the silver leaf.\nAlcedo atthis Approved!\nMade by Squidcrane");

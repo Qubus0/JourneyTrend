@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
@@ -11,6 +12,7 @@ namespace JourneyTrend.Items.Vanity.Duality
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Duality Shirt");
             Tooltip.SetDefault("Light and dark, perfectly balanced as all things should be.\nMade by Chan");
 

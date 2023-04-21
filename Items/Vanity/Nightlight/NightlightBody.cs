@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -22,6 +23,7 @@ namespace JourneyTrend.Items.Vanity.Nightlight
 
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Nightlight Body");
             Tooltip.SetDefault("A bright friendly glow in the night.\nMade by Metalsquirrel");
 

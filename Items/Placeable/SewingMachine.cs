@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -8,6 +9,7 @@ namespace JourneyTrend.Items.Placeable
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             Tooltip.SetDefault(
                 "Not so fond of that one vanity in particular? \nTry yourself at the job of a tailor here.");
         }

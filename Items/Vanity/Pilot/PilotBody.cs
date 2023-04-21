@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -19,6 +20,7 @@ namespace JourneyTrend.Items.Vanity.Pilot
         
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Pilot's Jumpsuit");
             Tooltip.SetDefault("Parachute not included.\nMade by CyrantontheCold");
         }

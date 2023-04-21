@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,6 +10,7 @@ namespace JourneyTrend.Items.Vanity.Invisible
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Can't");
 
             ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;

@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -11,6 +12,7 @@ namespace JourneyTrend.Items.Vanity.StormConqueror
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Storm Conqueror's Visage");
             Tooltip.SetDefault("Wow, so shiny!\nMade by Dandandooo");
         }

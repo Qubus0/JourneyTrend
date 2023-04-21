@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -14,6 +15,7 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
 
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Mantle of the Knightwalker");
             Tooltip.SetDefault("Burning Hot\nMade by Dusk Ealain");
         }

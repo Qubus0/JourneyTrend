@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -20,6 +21,7 @@ namespace JourneyTrend.Items.Vanity.ShadowFiend
         
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Crimson Scourge Breastplate");
             Tooltip.SetDefault("Ichor flows through you!\nMade by CakeBoiii");
 

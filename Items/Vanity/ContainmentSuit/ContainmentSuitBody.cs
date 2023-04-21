@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -18,6 +19,7 @@ namespace JourneyTrend.Items.Vanity.ContainmentSuit
         }
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Containment Chestpiece");
             Tooltip.SetDefault("A traveler's chestpiece for harsh environments.\nMade by MikeLeaArt");
             

@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.DataStructures;
@@ -12,6 +13,7 @@ namespace JourneyTrend.Items.Vanity.Hivenet
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("HiveNet Digital Wings");
             Tooltip.SetDefault("Cloud-based Engineering.\nMade by Sam Holt");
             

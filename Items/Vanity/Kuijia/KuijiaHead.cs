@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
@@ -10,6 +11,7 @@ namespace JourneyTrend.Items.Vanity.Kuijia
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Dragonhat");
             Tooltip.SetDefault("Used as a hat to protect from the sun and the rain.\nMade by PatisNow");
         }

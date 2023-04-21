@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
@@ -10,6 +11,7 @@ namespace JourneyTrend.Items.Vanity.DeepDiver
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Deep Diver Pants");
             Tooltip.SetDefault("Great for long walks on the beach below water level.\nMade by Nick T.");
         }

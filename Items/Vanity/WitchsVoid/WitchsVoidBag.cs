@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Terraria;
@@ -14,6 +15,7 @@ namespace JourneyTrend.Items.Vanity.WitchsVoid
 
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Witch's Void Bag");
             Tooltip.SetDefault("Spriting assisted by Pyromma\n{$CommonItemTooltip.RightClickToOpen}");
         }

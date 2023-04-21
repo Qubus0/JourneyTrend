@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,6 +9,7 @@ namespace JourneyTrend.Items.Vanity.Kingfisher
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Common Kingfisher Mask");
             Tooltip.SetDefault(
                 "The kingfisher rises out of the black wave like a blue flower.\nIn his beak, he carries a silver leaf.\nAlcedo atthis Approved!\nMade by Squidcrane");

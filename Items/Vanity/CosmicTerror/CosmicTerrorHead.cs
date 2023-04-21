@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,6 +9,7 @@ namespace JourneyTrend.Items.Vanity.CosmicTerror
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Cosmic Terror's Head");
             Tooltip.SetDefault(
                 "From the beginning of time, primordial beings rise\n from the endless fear and suffering,\n  to torment this plane of existence.\nMade by RegMeow");

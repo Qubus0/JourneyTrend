@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,6 +9,7 @@ namespace JourneyTrend.Items.Vanity.CyberAngel
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Cyber Halo");
             Tooltip.SetDefault(
                 "This armor was designed to restrict,\ncontrol and extract the power and energy of gods,\nangels and powerful beings.\nMade by Rariaz");
