@@ -19,8 +19,9 @@ namespace JourneyTrend.NPCs.Trader
     [AutoloadHead]
     public partial class VanityTrader : ModNPC
     {
-        private const int BagPriceGold = 5 * 10000; // same price for every bag
-        private const int RestockPriceGold = 10 * 10000;
+        private const int BagPricePlat = 1; // same price for every bag
+        private const int RestockPricePlat = 3;
+        private const int PlatMultiplier = 1_000_000;
         private string LastDialogue = "";
 
         public static List<Item> CurrentShop;
@@ -208,7 +209,7 @@ namespace JourneyTrend.NPCs.Trader
         public override void SetChatButtons(ref string button, ref string button2)
         {
             button = Language.GetTextValue("LegacyInterface.28"); // shop
-            button2 = Language.GetTextValue("Mods.JourneyTrend.NpcShopButtons.VanityTrader.button2", RestockPriceGold);
+            button2 = Language.GetTextValue("Mods.JourneyTrend.NpcShopButtons.VanityTrader.button2", RestockPricePlat);
         }
 
         public override void OnChatButtonClicked(bool firstButton, ref bool shop)
@@ -224,7 +225,7 @@ namespace JourneyTrend.NPCs.Trader
             {
                 SoundEngine.PlaySound(SoundID.Grab);
                 SoundEngine.PlaySound(SoundID.Coins);
-                Main.LocalPlayer.BuyItem(RestockPriceGold);
+                Main.LocalPlayer.BuyItem(RestockPricePlat * PlatMultiplier);
                 Main.npcChatText = "";
                 CreateNewShop();
                 shop = true;
@@ -240,7 +241,7 @@ namespace JourneyTrend.NPCs.Trader
                     continue;
 
                 shop.item[nextSlot].SetDefaults(item.type);
-                shop.item[nextSlot].shopCustomPrice = BagPriceGold;
+                shop.item[nextSlot].shopCustomPrice = BagPricePlat * PlatMultiplier;
                 nextSlot++;
             }
         }

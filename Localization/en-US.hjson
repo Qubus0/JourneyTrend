@@ -57,7 +57,7 @@ Mods: {
 		
 		NpcShopButtons: {
 		    VanityTrader: {
-		        button2: "Restock Bags ({0}G)"
+		        button2: "Restock Bags ({0}Plt)"
 		    }
 		}
 	}

@@ -59,7 +59,7 @@ namespace JourneyTrend.NPCs
 
                     if (!Main.dayTime && NPC.downedMartians)
                     {
-                        // 5 Gold from Cyborg after Martian Madness is defeated - Single Item - Bounty Hunter Set
+                        // 5 Gold from Cyborg after Martian Madness is defeated, at night - Single Item - Bounty Hunter Set
                         shop.item[nextSlot].SetDefaults(ItemType<BountyHunterHead>());
                         nextSlot++;
                         shop.item[nextSlot].SetDefaults(ItemType<BountyHunterBody>());
