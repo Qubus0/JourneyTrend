@@ -24,3 +24,5 @@ Credits:
 * Our Coders: Lobster2 and Ste
 * And our Spriting helpers: Faskeon, Curt 'Bucket Face' Black (Massive thanks for porting almost every set to 1.4!), Drdragonfly, Lotaru, Squidcrane, Cakeboiii, Fake_Tank, VaeloroK, Pyromma, Chan, poiuygfd, GIO, Polish_Soap
 
+Wiki/Vanity Set List:
+https://github.com/Qubus0/JourneyTrend/wiki/Vanity-Set-Catalog
