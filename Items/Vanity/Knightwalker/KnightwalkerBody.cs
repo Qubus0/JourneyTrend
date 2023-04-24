@@ -1,6 +1,9 @@
+using Terraria.GameContent.Creative;
+using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using static Terraria.ModLoader.ModContent;
 
 namespace JourneyTrend.Items.Vanity.Knightwalker
 {
@@ -12,55 +15,65 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
 
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Mantle of the Knightwalker");
             Tooltip.SetDefault("Burning Hot\nMade by Dusk Ealain");
         }
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Purple;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Purple;
+            Item.vanity = true;
         }
 
-        public override void UpdateVanity(Player player, EquipType type)
+        public override void EquipFrameEffects(Player player, EquipType type)
         {
-            Lighting.AddLight(player.Center, 204 * adj, 82 * adj, 255 * adj);
             player.GetModPlayer<JourneyPlayer>().KnightwalkerBodyEquipped = true;
-            player.GetModPlayer<JourneyPlayer>().KnightwalkerAlt = false;
+
+            Lighting.AddLight(player.Center, 204 * adj, 82 * adj, 255 * adj);
+
+            var walkUpShift = player.GetModPlayer<JourneyPlayer>().GetWalkUpShift();
+
+            if (player.GetModPlayer<JourneyPlayer>().IsIdle()) return;
+            switch (Main.GameUpdateCount % 4)
+            {
+                case 0:
+                    Dust.NewDustPerfect(player.Center + new Vector2(player.direction * 9, -2 + walkUpShift),
+                        DustType<KnightwalkerDust>());
+                    Dust.NewDustPerfect(player.Center + new Vector2(-player.direction * 9, -2 + walkUpShift),
+                        DustType<KnightwalkerDust>());
+                    break;
+                case 2:
+                    Dust.NewDustPerfect(player.Center + new Vector2(-player.direction * 11, -2 + walkUpShift),
+                        DustType<KnightwalkerDust>());
+                    break;
+            }
         }
 
         public override void AddRecipes()
         {
             if (WorldGen.crimson)
             {
-                var recipe = new ModRecipe(mod);
-                recipe.AddTile(TileID.Hellforge);
-                recipe.AddIngredient(ItemID.UnicornHorn, 5);
-                recipe.AddIngredient(ItemID.TissueSample, 5);
-                recipe.AddIngredient(ItemID.Ichor, 5);
-                recipe.AddRecipeGroup("IronBar", 20);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                CreateRecipe()
+                    .AddTile(TileID.Hellforge)
+                    .AddIngredient(ItemID.UnicornHorn, 5)
+                    .AddIngredient(ItemID.TissueSample, 5)
+                    .AddIngredient(ItemID.Ichor, 5)
+                    .AddRecipeGroup("IronBar", 20)
+                    .Register();
             }
             else
             {
-                var recipe = new ModRecipe(mod);
-                recipe.AddTile(TileID.Hellforge);
-                recipe.AddIngredient(ItemID.UnicornHorn, 5);
-                recipe.AddIngredient(ItemID.ShadowScale, 5);
-                recipe.AddIngredient(ItemID.CursedFlame, 5);
-                recipe.AddRecipeGroup("IronBar", 20);
-                recipe.SetResult(this);
-                recipe.AddRecipe();
+                CreateRecipe()
+                    .AddTile(TileID.Hellforge)
+                    .AddIngredient(ItemID.UnicornHorn, 5)
+                    .AddIngredient(ItemID.ShadowScale, 5)
+                    .AddIngredient(ItemID.CursedFlame, 5)
+                    .AddRecipeGroup("IronBar", 20)
+                    .Register();
             }
-
-            var alt = new ModRecipe(mod);
-            alt.AddTile(mod.GetTile("SewingMachine"));
-            alt.AddRecipeGroup("JourneyTrend:KnightwalkerCapes");
-            alt.SetResult(this);
-            alt.AddRecipe();
         }
     }
 }

@@ -1,3 +1,5 @@
+using Terraria.GameContent.Creative;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,30 +10,27 @@ namespace JourneyTrend.Items.Vanity.Invisible
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Can't");
+
+            ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.White;
-            item.vanity = true;
-        }
-
-        public override bool DrawHead()
-        {
-            return false;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.White;
+            Item.vanity = true;
         }
 
         public override void AddRecipes()
         {
-            var recipe = new ModRecipe(mod);
-            recipe.AddTile(mod.GetTile("SewingMachine"));
-            recipe.AddIngredient(ItemID.Glass);
-            recipe.needWater = true;
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            CreateRecipe()
+                .AddTile<Tiles.SewingMachine>()
+                .AddIngredient(ItemID.Glass)
+                .AddCondition(Recipe.Condition.NearWater)
+                .Register();
         }
     }
 }

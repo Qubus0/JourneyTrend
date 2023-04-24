@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,6 +9,7 @@ namespace JourneyTrend.Items.Vanity.Terra
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Terra Chestplate");
             Tooltip.SetDefault(
                 "A set of armor created with the power of light and dark\nThe heart is where that power resides\nIt feels nice\nMade by TerraKingCole614");
@@ -15,10 +17,10 @@ namespace JourneyTrend.Items.Vanity.Terra
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Lime;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Lime;
+            Item.vanity = true;
         }
     }
 }

@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
@@ -11,45 +12,43 @@ namespace JourneyTrend.Items.Vanity.Duality
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Duality Shirt");
             Tooltip.SetDefault("Light and dark, perfectly balanced as all things should be.\nMade by Chan");
+
+            ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = true;
+            ArmorIDs.Body.Sets.HidesTopSkin[Item.bodySlot] = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             // Custom RGB "Rarity"
             foreach (var line2 in tooltips)
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
-                    line2.overrideColor = new Color(110, 101, 142);
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
+                    line2.OverrideColor = new Color(110, 101, 142);
         }
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.vanity = true;
-            item.rare = ItemRarityID.White;
-            item.value = 0;
+            Item.width = 18;
+            Item.height = 18;
+            Item.vanity = true;
+            Item.rare = ItemRarityID.White;
+            Item.value = 0;
         }
 
-        public override bool CanBurnInLava()
+        public override bool? CanBurnInLava()
         {
             return false;
         }
 
         public override void AddRecipes()
         {
-            var recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.LightShard);
-            recipe.AddIngredient(ItemID.DarkShard);
-            recipe.AddTile(TileID.Loom);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
-        }
-
-        public override bool DrawBody()
-        {
-            return false;
+            CreateRecipe()
+                .AddIngredient(ItemID.LightShard)
+                .AddIngredient(ItemID.DarkShard)
+                .AddTile(TileID.Loom)
+                .Register();
         }
     }
 }

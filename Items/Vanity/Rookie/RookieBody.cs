@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,27 +11,26 @@ namespace JourneyTrend.Items.Vanity.Rookie
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Rookie Body");
             Tooltip.SetDefault("Life is never just black and white\nMade by PeanutSte");
+
+            ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = true;
+            ArmorIDs.Body.Sets.HidesTopSkin[Item.bodySlot] = true;
         }
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Blue;
-            item.vanity = true;
-            item.value = 0;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Blue;
+            Item.vanity = true;
+            Item.value = 0;
         }
 
-        public override bool DrawBody()
+        public override void EquipFrameEffects(Player player, EquipType type)
         {
-            return false;
-        }
-
-        public override void UpdateVanity(Player player, EquipType type)
-        {
-            player.GetModPlayer<JourneyPlayer>().doOffset = true;
+            player.GetModPlayer<JourneyPlayer>().DoOffset = true;
         }
     }
 }

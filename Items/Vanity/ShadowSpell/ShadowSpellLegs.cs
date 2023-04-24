@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Terraria.ID;
@@ -10,23 +11,24 @@ namespace JourneyTrend.Items.Vanity.ShadowSpell
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Shadow Spell Pants");
             Tooltip.SetDefault("Worn by the forgotten clan of the Shadowflame Shamans.\nMade by Romanov/Ammagon");
         }
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.LightPurple;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.LightPurple;
+            Item.vanity = true;
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)
         {
             foreach (var line2 in tooltips)
-                if (line2.mod == "Terraria" && line2.Name == "ItemName")
-                    line2.overrideColor = new Color(114, 34, 170);
+                if (line2.Mod == "Terraria" && line2.Name == "ItemName")
+                    line2.OverrideColor = new Color(114, 34, 170);
         }
     }
 }

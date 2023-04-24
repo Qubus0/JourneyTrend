@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,21 +9,18 @@ namespace JourneyTrend.Items.Vanity.NineTailedFox
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Nine-Tailed Fox Ears");
             Tooltip.SetDefault("Made by Invalid");
+
+            ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
         }
 
         public override void SetDefaults()
         {
-            item.vanity = true;
-            item.value = 50000;
-            item.rare = ItemRarityID.Lime;
-        }
-
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
-        {
-            drawHair = true;
-            drawAltHair = false;
+            Item.vanity = true;
+            Item.value = 50000;
+            Item.rare = ItemRarityID.Lime;
         }
     }
 }

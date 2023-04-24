@@ -1,4 +1,5 @@
-﻿using Terraria.ID;
+﻿using Terraria.GameContent.Creative;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.Rookie
@@ -9,22 +10,20 @@ namespace JourneyTrend.Items.Vanity.Rookie
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Rookie Base");
             Tooltip.SetDefault("Stay Grounded\nMade by PeanutSte");
+
+            ArmorIDs.Legs.Sets.OverridesLegs[Item.legSlot] = true;
         }
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Blue;
-            item.vanity = true;
-            item.value = 0;
-        }
-
-        public override bool DrawLegs()
-        {
-            return false;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Blue;
+            Item.vanity = true;
+            Item.value = 0;
         }
     }
 }

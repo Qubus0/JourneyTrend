@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -11,17 +12,18 @@ namespace JourneyTrend.Items.Vanity.StormConqueror
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Storm Conqueror's Visage");
             Tooltip.SetDefault("Wow, so shiny!\nMade by Dandandooo");
         }
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Cyan;
-            item.vanity = true;
-            item.value = 0;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Cyan;
+            Item.vanity = true;
+            Item.value = 0;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
@@ -29,7 +31,7 @@ namespace JourneyTrend.Items.Vanity.StormConqueror
             return body.type == ItemType<StormConquerorBody>() && legs.type == ItemType<StormConquerorLegs>();
         }
 
-        public override void UpdateVanitySet(Player player)
+        public override void EquipFrameEffects(Player player, EquipType type)
         {
             if (player.velocity != Vector2.Zero && Main.rand.NextFloat() < 0.2f)
                 Dust.NewDust(player.Center - new Vector2(player.direction * 10 + 5, 20), 10, 40,

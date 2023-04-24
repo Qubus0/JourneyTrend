@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
@@ -11,25 +12,25 @@ namespace JourneyTrend.Items.Vanity.ShadowFiend
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Shadow Fiend Helmet");
             Tooltip.SetDefault("Cursed Flames consume you!\nMade by CakeBoiii");
         }
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.LightPurple;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.LightPurple;
+            Item.vanity = true;
         }
 
         public override void AddRecipes()
         {
-            var alt = new ModRecipe(mod);
-            alt.AddTile(mod.GetTile("SewingMachine"));
-            alt.AddRecipeGroup("JourneyTrend:WorldEvilDemonHeads");
-            alt.SetResult(this);
-            alt.AddRecipe();
+            CreateRecipe()
+            .AddTile<Tiles.SewingMachine>()
+            .AddRecipeGroup("JourneyTrend:WorldEvilDemonHeads")
+            .Register();
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
@@ -37,7 +38,7 @@ namespace JourneyTrend.Items.Vanity.ShadowFiend
             return body.type == ItemType<ShadowFiendBody>() && legs.type == ItemType<ShadowFiendLegs>();
         }
 
-        public override void UpdateVanitySet(Player player)
+        public override void EquipFrameEffects(Player player, EquipType type)
         {
             if (player.velocity != Vector2.Zero && Main.rand.NextFloat() < 0.2f)
                 Dust.NewDust(player.Center - new Vector2(player.direction * 10 + 5, 20), 10, 40,

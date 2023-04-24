@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,28 +9,28 @@ namespace JourneyTrend.Items.Vanity.Nexus
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Nexus Greaves");
             Tooltip.SetDefault("Light and swift\nMade by LazyGhost14");
         }
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Green;
-            item.vanity = true;
-            item.value = 0;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Green;
+            Item.vanity = true;
+            Item.value = 0;
         }
 
         public override void AddRecipes()
         {
-            var recipe = new ModRecipe(mod);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.AddRecipeGroup("IronBar", 15);
-            recipe.AddIngredient(ItemID.SoulofSight, 3);
-            recipe.AddIngredient(ItemID.Silk, 3);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            CreateRecipe()
+                .AddTile(TileID.MythrilAnvil)
+                .AddRecipeGroup("IronBar", 15)
+                .AddIngredient(ItemID.SoulofSight, 3)
+                .AddIngredient(ItemID.Silk, 3)
+            .Register();
         }
     }
 }

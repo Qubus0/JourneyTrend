@@ -10,18 +10,18 @@ using static Terraria.ModLoader.ModContent;
 
 namespace JourneyTrend.World
 {
-    public class JourneyWorld : ModWorld
+    public class JourneyWorld : ModSystem
     {
-        private static NPC FindNPC(int npcType)
+        private static NPC FindNpc(int npcType)
         {
             return Main.npc.FirstOrDefault(npc => npc.type == npcType && npc.active);
         }
 
-        public override void PreUpdate()
+        public override void PreUpdateNPCs()
         {
-            // Update the shop if there is a trader and it is a new day, or no shop
-            var vanityTrader = FindNPC(NPCType<VanityTrader>());
-            if (vanityTrader != null && (Main.dayTime && Main.time == 0 || VanityTrader.currentShop.Count <= 0))
+            // Update the shop if there is a trader and it is a new day, or no shop is set up yet
+            var vanityTrader = FindNpc(NPCType<VanityTrader>());
+            if (vanityTrader != null && (Main.dayTime && Main.time == 0 || VanityTrader.CurrentShop.Count <= 0))
                 VanityTrader.CreateNewShop();
         }
 
@@ -38,8 +38,8 @@ namespace JourneyTrend.World
             {
                 var chest = Main.chest[chestIndex];
                 // If chest type is Ice Chest
-                if (chest != null && Main.tile[chest.x, chest.y].type == TileID.Containers &&
-                    Main.tile[chest.x, chest.y].frameX == 11 * 36)
+                if (chest != null && Main.tile[chest.x, chest.y].TileType == TileID.Containers &&
+                    Main.tile[chest.x, chest.y].TileFrameX == 11 * 36)
                     // Sprite for Chests in Tiles_21 -> 12th: Ice Chest, counted from 0 is where 11 comes from. 36 comes from the width of each tile including padding
                     // 1 in 4 chests will have the following
                     if (Main.rand.Next(4) < 1)
@@ -57,8 +57,8 @@ namespace JourneyTrend.World
 
                 itemsToPlaceInIceChestsChoice = 0;
                 // If chest type is Living Chest
-                if (chest != null && Main.tile[chest.x, chest.y].type == TileID.Containers &&
-                    Main.tile[chest.x, chest.y].frameX == 12 * 36)
+                if (chest != null && Main.tile[chest.x, chest.y].TileType == TileID.Containers &&
+                    Main.tile[chest.x, chest.y].TileFrameX == 12 * 36)
                     // 1 in 2 Living Chests will have the following
                     if (Main.rand.Next(2) < 1)
                         // For each inventory slot in the chest
@@ -76,8 +76,8 @@ namespace JourneyTrend.World
                 itemsToPlaceInLivingChestsChoice = 0;
 
                 // If chest type is Sky Chest
-                if (chest != null && Main.tile[chest.x, chest.y].type == TileID.Containers &&
-                    Main.tile[chest.x, chest.y].frameX == 13 * 36)
+                if (chest != null && Main.tile[chest.x, chest.y].TileType == TileID.Containers &&
+                    Main.tile[chest.x, chest.y].TileFrameX == 13 * 36)
                     // 1 in 4 Sky Chests will have the following
                     if (Main.rand.Next(4) < 1)
                         // For each inventory slot in the chest

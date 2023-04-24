@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,25 +9,25 @@ namespace JourneyTrend.Items.Vanity.ShadowFiend
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Crimson Scourge Leggings");
             Tooltip.SetDefault("Ichor flows through you!\nMade by CakeBoiii");
         }
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.LightRed;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.LightRed;
+            Item.vanity = true;
         }
 
         public override void AddRecipes()
         {
-            var alt = new ModRecipe(mod);
-            alt.AddTile(mod.GetTile("SewingMachine"));
-            alt.AddRecipeGroup("JourneyTrend:WorldEvilDemonLegs");
-            alt.SetResult(this);
-            alt.AddRecipe();
+            CreateRecipe()
+            .AddTile<Tiles.SewingMachine>()
+            .AddRecipeGroup("JourneyTrend:WorldEvilDemonLegs")
+            .Register();
         }
     }
 }

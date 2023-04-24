@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,21 +9,19 @@ namespace JourneyTrend.Items.Vanity.Traveller
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Traveller Shirt");
             Tooltip.SetDefault("We've come a long way\nMade by Upixel");
+
+            ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false;
         }
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Green;
-            item.vanity = true;
-        }
-
-        public override void DrawHands(ref bool drawHands, ref bool drawArms)
-        {
-            drawHands = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Green;
+            Item.vanity = true;
         }
     }
 }

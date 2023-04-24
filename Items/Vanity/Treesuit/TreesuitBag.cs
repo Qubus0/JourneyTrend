@@ -1,4 +1,5 @@
-using Terraria;
+using Terraria.GameContent.Creative;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -9,17 +10,18 @@ namespace JourneyTrend.Items.Vanity.Treesuit
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Treesuit Bag");
             Tooltip.SetDefault("Spriting assisted by Curt 'Bucket Face' Black\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()
         {
-            item.maxStack = 999;
-            item.consumable = true;
-            item.width = 24;
-            item.height = 24;
-            item.rare = ItemRarityID.Blue;
+            Item.maxStack = 999;
+            Item.consumable = true;
+            Item.width = 24;
+            Item.height = 24;
+            Item.rare = ItemRarityID.Blue;
         }
 
         public override bool CanRightClick()
@@ -27,11 +29,11 @@ namespace JourneyTrend.Items.Vanity.Treesuit
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<TreesuitLegs>());
-            player.QuickSpawnItem(ItemType<TreesuitBody>());
-            player.QuickSpawnItem(ItemType<TreesuitHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<TreesuitLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<TreesuitBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<TreesuitHead>()));
         }
     }
 }

@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -9,19 +10,20 @@ namespace JourneyTrend.Items.Vanity.Planetary
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Planetary Hat");
             Tooltip.SetDefault("Made by Goddigger3_1");
         }
         
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Blue;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Blue;
+            Item.vanity = true;
         }
 
-        public override void UpdateVanity(Player player, EquipType type)
+        public override void EquipFrameEffects(Player player, EquipType type)
         {
             player.GetModPlayer<JourneyPlayer>().PlanetaryHeadEquipped = true;
         }

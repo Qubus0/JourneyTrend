@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,35 +9,34 @@ namespace JourneyTrend.Items.Vanity.Hivenet
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("HiveNet Leggings");
             Tooltip.SetDefault("Complete with 2 bytes of ram.\nMade by Sam Holt");
         }
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Green;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Green;
+            Item.vanity = true;
         }
 
         public override void AddRecipes()
         {
-            var recipe = new ModRecipe(mod);
-            recipe.AddTile(TileID.Anvils);
-            recipe.AddIngredient(ItemID.CopperBar, 10);
-            recipe.AddIngredient(ItemID.BeeWax, 5);
-            recipe.AddIngredient(ItemID.Wire, 3);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            CreateRecipe()
+                .AddTile(TileID.Anvils)
+                .AddIngredient(ItemID.CopperBar, 10)
+                .AddIngredient(ItemID.BeeWax, 5)
+                .AddIngredient(ItemID.Wire, 3)
+                .Register();
 
-            recipe = new ModRecipe(mod);
-            recipe.AddTile(TileID.Anvils);
-            recipe.AddIngredient(ItemID.TinBar, 10);
-            recipe.AddIngredient(ItemID.BeeWax, 5);
-            recipe.AddIngredient(ItemID.Wire, 3);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            CreateRecipe()
+                .AddTile(TileID.Anvils)
+                .AddIngredient(ItemID.TinBar, 10)
+                .AddIngredient(ItemID.BeeWax, 5)
+                .AddIngredient(ItemID.Wire, 3)
+                .Register();
         }
     }
 }

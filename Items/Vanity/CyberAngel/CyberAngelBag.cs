@@ -1,4 +1,5 @@
-using Terraria;
+using Terraria.GameContent.Creative;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -9,6 +10,7 @@ namespace JourneyTrend.Items.Vanity.CyberAngel
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Cyber Angel Bag");
             Tooltip.SetDefault(
                 "Spriting assisted by Faskeon\nBag sprite by Polish_Soap\n{$CommonItemTooltip.RightClickToOpen}");
@@ -16,11 +18,11 @@ namespace JourneyTrend.Items.Vanity.CyberAngel
 
         public override void SetDefaults()
         {
-            item.maxStack = 999;
-            item.consumable = true;
-            item.width = 24;
-            item.height = 24;
-            item.rare = ItemRarityID.Blue;
+            Item.maxStack = 999;
+            Item.consumable = true;
+            Item.width = 24;
+            Item.height = 24;
+            Item.rare = ItemRarityID.Blue;
         }
 
         public override bool CanRightClick()
@@ -28,11 +30,11 @@ namespace JourneyTrend.Items.Vanity.CyberAngel
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<CyberAngelLegs>());
-            player.QuickSpawnItem(ItemType<CyberAngelBody>());
-            player.QuickSpawnItem(ItemType<CyberAngelHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<CyberAngelLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<CyberAngelBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<CyberAngelHead>()));
         }
     }
 }

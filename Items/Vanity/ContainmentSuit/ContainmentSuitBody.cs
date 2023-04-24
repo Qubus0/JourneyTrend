@@ -1,3 +1,9 @@
+using Terraria.GameContent.Creative;
+using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using ReLogic.Content;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -6,29 +12,42 @@ namespace JourneyTrend.Items.Vanity.ContainmentSuit
     [AutoloadEquip(EquipType.Body)]
     public class ContainmentSuitBody : ModItem
     {
+        private static Lazy<Asset<Texture2D>> Glowmask;
+        public override void Unload()
+        {
+            Glowmask = null;
+        }
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Containment Chestpiece");
             Tooltip.SetDefault("A traveler's chestpiece for harsh environments.\nMade by MikeLeaArt");
+            
+            if (!Main.dedServ)
+            {
+                Glowmask = new(() => ModContent.Request<Texture2D>(Texture + "Glow"));
+            
+                BodyGlowmaskPlayer.RegisterData(Item.bodySlot, () => new Color(255, 255, 255, 0) * 0.8f);
+            }
+
         }
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Green;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Green;
+            Item.vanity = true;
         }
 
         public override void AddRecipes()
         {
-            var recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.Silk, 3);
-            recipe.AddIngredient(ItemID.Wire, 4);
-            recipe.AddRecipeGroup("IronBar", 3);
-            recipe.AddTile(TileID.HeavyWorkBench);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            CreateRecipe()
+                .AddIngredient(ItemID.Silk, 3)
+                .AddIngredient(ItemID.Wire, 4)
+                .AddRecipeGroup("IronBar", 3)
+                .AddTile(TileID.HeavyWorkBench)
+                .Register();
         }
     }
 }

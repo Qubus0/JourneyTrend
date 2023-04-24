@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,31 +9,28 @@ namespace JourneyTrend.Items.Vanity.Terra
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Terra Crown");
             Tooltip.SetDefault(
                 "A crown powered by the force of nature\nIts said that the powers of light and dark are inside it as well\nFits your hair just right!\nMade by TerraKingCole614");
+
+            ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
         }
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Lime;
-            item.vanity = true;
-        }
-
-        public override void DrawHair(ref bool drawHair, ref bool drawAltHair)
-        {
-            drawHair = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Lime;
+            Item.vanity = true;
         }
 
         public override void AddRecipes()
         {
-            var alt = new ModRecipe(mod);
-            alt.AddTile(mod.GetTile("SewingMachine"));
-            alt.AddRecipeGroup("JourneyTrend:TerraCrowns");
-            alt.SetResult(this);
-            alt.AddRecipe();
+            CreateRecipe()
+            .AddTile<Tiles.SewingMachine>()
+            .AddRecipeGroup("JourneyTrend:TerraCrowns")
+            .Register();
         }
     }
 }

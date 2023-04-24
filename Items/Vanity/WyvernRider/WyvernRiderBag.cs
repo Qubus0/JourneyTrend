@@ -1,4 +1,5 @@
-using Terraria;
+using Terraria.GameContent.Creative;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -9,17 +10,18 @@ namespace JourneyTrend.Items.Vanity.WyvernRider
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Wyvern Rider Bag");
             Tooltip.SetDefault("Bag sprite by PeanutSte\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()
         {
-            item.maxStack = 999;
-            item.consumable = true;
-            item.width = 24;
-            item.height = 24;
-            item.rare = ItemRarityID.Blue;
+            Item.maxStack = 999;
+            Item.consumable = true;
+            Item.width = 24;
+            Item.height = 24;
+            Item.rare = ItemRarityID.Blue;
         }
 
         public override bool CanRightClick()
@@ -27,12 +29,12 @@ namespace JourneyTrend.Items.Vanity.WyvernRider
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<WyvernRiderWings>());
-            player.QuickSpawnItem(ItemType<WyvernRiderLegs>());
-            player.QuickSpawnItem(ItemType<WyvernRiderBody>());
-            player.QuickSpawnItem(ItemType<WyvernRiderHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<WyvernRiderWings>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<WyvernRiderLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<WyvernRiderBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<WyvernRiderHead>()));
         }
     }
 }

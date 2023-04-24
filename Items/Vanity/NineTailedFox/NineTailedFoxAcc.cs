@@ -1,4 +1,5 @@
-﻿using Terraria;
+﻿using Terraria.GameContent.Creative;
+using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -9,27 +10,22 @@ namespace JourneyTrend.Items.Vanity.NineTailedFox
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Nine-Tailed Fox Tails");
             Tooltip.SetDefault("Why does the inventory sprite only show 7 tails? Is this a scam?\nMade by Invalid");
         }
 
         public override void SetDefaults()
         {
-            item.accessory = true;
-            item.vanity = true;
-            item.value = 50000;
-            item.rare = ItemRarityID.Lime;
+            Item.accessory = true;
+            Item.vanity = true;
+            Item.value = 50000;
+            Item.rare = ItemRarityID.Lime;
         }
 
-        public override bool WingUpdate(Player player, bool inUse)
+        public override void EquipFrameEffects(Player player, EquipType type)
         {
-            if (inUse) player.GetModPlayer<JourneyPlayer>().NinetailedFlying = true;
-            return false;
-        }
-
-        public override void UpdateVanity(Player player, EquipType type)
-        {
-            player.GetModPlayer<JourneyPlayer>().FoxTailsEquipped = true;
+            player.GetModPlayer<JourneyPlayer>().NineTailedFoxAccBackEquipped = true;
         }
     }
 }

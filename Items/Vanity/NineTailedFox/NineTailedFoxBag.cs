@@ -1,4 +1,5 @@
-using Terraria;
+using Terraria.GameContent.Creative;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -9,18 +10,19 @@ namespace JourneyTrend.Items.Vanity.NineTailedFox
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Nine-Tailed Fox Bag");
             Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()
         {
-            item.maxStack = 999;
-            item.consumable = true;
-            item.width = 24;
-            item.height = 24;
-            item.value = 200000;
-            item.rare = ItemRarityID.Blue;
+            Item.maxStack = 999;
+            Item.consumable = true;
+            Item.width = 24;
+            Item.height = 24;
+            Item.value = 200000;
+            Item.rare = ItemRarityID.Blue;
         }
 
         public override bool CanRightClick()
@@ -28,12 +30,12 @@ namespace JourneyTrend.Items.Vanity.NineTailedFox
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<NineTailedFoxHead>());
-            player.QuickSpawnItem(ItemType<NineTailedFoxBody>());
-            player.QuickSpawnItem(ItemType<NineTailedFoxLegs>());
-            player.QuickSpawnItem(ItemType<NineTailedFoxAcc>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<NineTailedFoxAcc>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<NineTailedFoxLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<NineTailedFoxBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<NineTailedFoxHead>()));
         }
     }
 }

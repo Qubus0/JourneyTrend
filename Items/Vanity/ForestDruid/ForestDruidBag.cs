@@ -1,4 +1,5 @@
-using Terraria;
+using Terraria.GameContent.Creative;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -9,6 +10,7 @@ namespace JourneyTrend.Items.Vanity.ForestDruid
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Forest Druid's Bag");
             Tooltip.SetDefault(
                 "Spriting assisted by Drdragonfly\nBag sprite by Curt 'Bucket Face' Black\n{$CommonItemTooltip.RightClickToOpen}");
@@ -16,11 +18,11 @@ namespace JourneyTrend.Items.Vanity.ForestDruid
 
         public override void SetDefaults()
         {
-            item.maxStack = 999;
-            item.consumable = true;
-            item.width = 24;
-            item.height = 24;
-            item.rare = ItemRarityID.Blue;
+            Item.maxStack = 999;
+            Item.consumable = true;
+            Item.width = 24;
+            Item.height = 24;
+            Item.rare = ItemRarityID.Blue;
         }
 
         public override bool CanRightClick()
@@ -28,10 +30,10 @@ namespace JourneyTrend.Items.Vanity.ForestDruid
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<ForestDruidBody>());
-            player.QuickSpawnItem(ItemType<ForestDruidHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<ForestDruidBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<ForestDruidHead>()));
         }
     }
 }

@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,26 +9,26 @@ namespace JourneyTrend.Items.Vanity.SeaHunter
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Sea Hunter's Boots");
             Tooltip.SetDefault("May the hunt commence\nMade by Authon");
         }
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Blue;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Blue;
+            Item.vanity = true;
         }
 
         public override void AddRecipes()
         {
-            var recipe = new ModRecipe(mod);
-            recipe.AddTile(TileID.Loom);
-            recipe.AddIngredient(ItemID.Silk, 10);
-            recipe.AddIngredient(ItemID.SharkFin, 5);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            CreateRecipe()
+                .AddTile(TileID.Loom)
+                .AddIngredient(ItemID.Silk, 10)
+                .AddIngredient(ItemID.SharkFin, 5)
+                .Register();
         }
     }
 }

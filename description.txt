@@ -6,11 +6,23 @@ Since there were so many downright awesome contest entries, we decided to make a
 We asked many, many contestants for permission to use their designs, and so far, have been given permission to use over 90 submissions. And 17 of those 90 are our beloved finalists.
 
 Each set can be acquired in their own unique way, some are easier and some are harder to get your hands on.
-But, to reduce the grind, we have also implemented a new NPC that will gladly sell you any set you are missing in your collection, for a hefty price mind you.
-Though you will need to rid his way from the "mastermind behind all terrors".
+But, to reduce the grind, we have also added a new NPC that will gladly sell you any set you are missing in your collection. 
+He might not always be ready to sell each set - it's worth to check the stock every now and then.
+You will need to rid his way from the "mastermind behind all terrors" first, so he may arrive.
 
 
 This Mod is a pure vanity mod and will not influence game progression whatsoever.
 This should ensure compability with every other mod there is.
 Every Set is 100% in accordance with the creator.
 Only sets from the official Community Vanity Contest are part of this mod.
+
+
+Credits:
+
+* Lotaru and Lobster2 for the original idea, contacting the artists and making this mod possible. 
+* All artists, for providing their work (Credited on each set). Without that, we wouldn't have a mod.
+* Our Coders: Lobster2 and Ste
+* And our Spriting helpers: Faskeon, Curt 'Bucket Face' Black (Massive thanks for porting almost every set to 1.4!), Drdragonfly, Lotaru, Squidcrane, Cakeboiii, Fake_Tank, VaeloroK, Pyromma, Chan, poiuygfd, GIO, Polish_Soap
+
+Wiki/Vanity Set List:
+https://github.com/Qubus0/JourneyTrend/wiki/Vanity-Set-Catalog

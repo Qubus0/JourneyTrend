@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
@@ -10,25 +11,25 @@ namespace JourneyTrend.Items.Vanity.ShadowFiend
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Crimson Scourge Helmet");
             Tooltip.SetDefault("Ichor flows through you!\nMade by CakeBoiii");
         }
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.LightRed;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.LightRed;
+            Item.vanity = true;
         }
 
         public override void AddRecipes()
         {
-            var alt = new ModRecipe(mod);
-            alt.AddTile(mod.GetTile("SewingMachine"));
-            alt.AddRecipeGroup("JourneyTrend:WorldEvilDemonHeads");
-            alt.SetResult(this);
-            alt.AddRecipe();
+            CreateRecipe()
+            .AddTile<Tiles.SewingMachine>()
+            .AddRecipeGroup("JourneyTrend:WorldEvilDemonHeads")
+            .Register();
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
@@ -36,9 +37,9 @@ namespace JourneyTrend.Items.Vanity.ShadowFiend
             return body.type == ItemType<ShadowFiendBody1>() && legs.type == ItemType<ShadowFiendLegs1>();
         }
 
-        public override void UpdateVanitySet(Player player)
+        public override void EquipFrameEffects(Player player, EquipType type)
         {
-            if (Main.rand.NextFloat() < 0.1f)
+            if (Main.rand.NextFloat() < 0.05f)
                 Dust.NewDust(player.TopLeft, player.width, player.height, DustType<ShadowFiendDust1>());
         }
     }

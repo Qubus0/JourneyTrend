@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,16 +9,17 @@ namespace JourneyTrend.Items.Vanity.AndromedaPilot
     {
         public override void SetStaticDefaults()
         {
+            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Andromeda Pilot Breastplate");
             Tooltip.SetDefault("Let there be a constellation with your name on it\nMade by Nedrilax");
         }
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Lime;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Lime;
+            Item.vanity = true;
         }
     }
 }

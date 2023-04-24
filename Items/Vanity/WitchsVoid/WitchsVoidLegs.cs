@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,16 +9,17 @@ namespace JourneyTrend.Items.Vanity.WitchsVoid
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Void's Boots");
             Tooltip.SetDefault("The numbers '2416' are etched on each piece...how strange.\nMade by Hexanne");
         }
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Pink;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Pink;
+            Item.vanity = true;
         }
     }
 }

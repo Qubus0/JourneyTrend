@@ -1,4 +1,5 @@
-using Terraria;
+using Terraria.GameContent.Creative;
+using Terraria.GameContent.ItemDropRules;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -9,17 +10,18 @@ namespace JourneyTrend.Items.Vanity.Birdie
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Birdie Bag");
             Tooltip.SetDefault("Bag sprite by PeanutSte\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()
         {
-            item.maxStack = 999;
-            item.consumable = true;
-            item.width = 24;
-            item.height = 24;
-            item.rare = ItemRarityID.Blue;
+            Item.maxStack = 999;
+            Item.consumable = true;
+            Item.width = 24;
+            Item.height = 24;
+            Item.rare = ItemRarityID.Blue;
         }
 
         public override bool CanRightClick()
@@ -27,11 +29,11 @@ namespace JourneyTrend.Items.Vanity.Birdie
             return true;
         }
 
-        public override void RightClick(Player player)
+        public override void ModifyItemLoot(ItemLoot itemLoot)
         {
-            player.QuickSpawnItem(ItemType<BirdieLegs>());
-            player.QuickSpawnItem(ItemType<BirdieBody>());
-            player.QuickSpawnItem(ItemType<BirdieHead>());
+            itemLoot.Add(ItemDropRule.Common(ItemType<BirdieLegs>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<BirdieBody>()));
+            itemLoot.Add(ItemDropRule.Common(ItemType<BirdieHead>()));
         }
     }
 }

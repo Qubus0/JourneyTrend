@@ -1,3 +1,4 @@
+using Terraria.GameContent.Creative;
 using Terraria.ID;
 using Terraria.ModLoader;
 
@@ -8,25 +9,25 @@ namespace JourneyTrend.Items.Vanity.ForestDruid
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Forest Druid's Mask");
             Tooltip.SetDefault("Like animal horns, branches have grown in your head\nMade by Kohi_aue");
         }
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Green;
-            item.vanity = true;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Green;
+            Item.vanity = true;
         }
 
         public override void AddRecipes()
         {
-            var alt = new ModRecipe(mod);
-            alt.AddTile(mod.GetTile("SewingMachine"));
-            alt.AddRecipeGroup("JourneyTrend:DruidMasks");
-            alt.SetResult(this);
-            alt.AddRecipe();
+            CreateRecipe()
+            .AddTile<Tiles.SewingMachine>()
+            .AddRecipeGroup("JourneyTrend:DruidMasks")
+            .Register();
         }
     }
 }

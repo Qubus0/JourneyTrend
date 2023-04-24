@@ -1,5 +1,7 @@
+using Terraria.GameContent.Creative;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -11,34 +13,35 @@ namespace JourneyTrend.Items.Vanity.Hivenet
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("HiveNet Digital Wings");
             Tooltip.SetDefault("Cloud-based Engineering.\nMade by Sam Holt");
+            
+            // These wings use the same values as the fledgling wings
+            ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(25, 2.5f, 1.5f);
         }
 
         public override void SetDefaults()
         {
-            item.width = 22;
-            item.height = 20;
-            item.rare = ItemRarityID.Green;
-            item.vanity = true;
-            item.accessory = true;
+            Item.width = 22;
+            Item.height = 20;
+            Item.rare = ItemRarityID.Green;
+            Item.vanity = true;
+            Item.accessory = true;
         }
 
         public override void AddRecipes()
         {
-            var recipe = new ModRecipe(mod);
-            recipe.AddTile(TileID.MythrilAnvil);
-            recipe.AddIngredient(ItemID.BeeWax, 5);
-            recipe.AddIngredient(ItemID.SoulofFlight, 5);
-            recipe.AddIngredient(ItemID.Wire, 15);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            CreateRecipe()
+                .AddTile(TileID.MythrilAnvil)
+                .AddIngredient(ItemID.BeeWax, 5)
+                .AddIngredient(ItemID.SoulofFlight, 5)
+                .AddIngredient(ItemID.Wire, 15)
+                .Register();
         }
 
-        public override void UpdateVanity(Player player, EquipType type)
+        public override void EquipFrameEffects(Player player, EquipType type)
         {
-            //if (Main.rand.NextFloat() < 0.02f)		//for random particle spawns
-
             if (Main.GameUpdateCount % 20 == 0)
             {
                 //big wing

@@ -1,4 +1,5 @@
-﻿using Terraria.ID;
+﻿using Terraria.GameContent.Creative;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace JourneyTrend.Items.Vanity.CrystalLegacy
@@ -8,6 +9,7 @@ namespace JourneyTrend.Items.Vanity.CrystalLegacy
     {
         public override void SetStaticDefaults()
         {
+			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Crystal Helmet");
             Tooltip.SetDefault(
                 "A memento of the dangers in the creeping crystal caves...\nMade by Curt 'Bucket Face' Black");
@@ -15,20 +17,19 @@ namespace JourneyTrend.Items.Vanity.CrystalLegacy
 
         public override void SetDefaults()
         {
-            item.width = 18;
-            item.height = 18;
-            item.rare = ItemRarityID.Orange;
-            item.vanity = true;
-            item.value = 0;
+            Item.width = 18;
+            Item.height = 18;
+            Item.rare = ItemRarityID.Orange;
+            Item.vanity = true;
+            Item.value = 0;
         }
 
         public override void AddRecipes()
         {
-            var recipe = new ModRecipe(mod);
-            recipe.AddIngredient(ItemID.CrystalShard, 20);
-            recipe.AddTile(TileID.Anvils);
-            recipe.SetResult(this);
-            recipe.AddRecipe();
+            CreateRecipe()
+                .AddIngredient(ItemID.CrystalShard, 20)
+                .AddTile(TileID.Anvils)
+                .Register();
         }
     }
 }
