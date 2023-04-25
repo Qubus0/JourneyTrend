@@ -1,0 +1,1770 @@
+# .hjson files contain translations for the language specified in the filename. (Make sure this file is UTF-8 encoded only.)
+# The possible languages are: English ("en-US"), German ("de-DE"), Italian ("it-IT"), French ("fr-FR"), Spanish ("es-ES"), Russian ("ru-RU"), Chinese ("zh-Hans"), Portuguese ("pt-BR"), and Polish ("pl-PL")
+
+Mods: {
+	JourneyTrend: {
+		Tiles.SewingMachine.MapEntry: Mods.JourneyTrend.MapObject.SewingMachine
+		NPCs.VanityTrader.DisplayName: Vanity Trader
+		Bestiary.VanityTrader: Finally free to roam this world, now that their otherworldly captor has been vanquished, this trader can offer you a variety of outfits for any occasion. Where they got them from? Well, why do you think they were held captive?
+
+		# This is what displays during all of an NPC's happiness levels. Note that the localization key for these should always be "TownNPCMood.*NPCName*.*Mood*" or else it won't display properly.
+		TownNPCMood: {
+			VanityTrader: {
+				Content: I feel pretty fine right now.
+				NoHome: Hey, do you have a house with a sewing machine? If not, any loom will also do.
+				LoveSpace: Lovely, I finally have enough space to display all these pretty outfits.
+				FarFromHome: Could you please get me back to my house?
+				DislikeCrowded: So many people here... I hope nobody steals my bags.
+				HateCrowded: There are more people here than I can fit in my backpack. That's too many!
+				LikeBiome: "{BiomeName} is nice to present my outfits. But the sand always gets everywhere."
+				LoveBiome: I love being in {BiomeName}. It has the perfect neutral lighting to show off my outfits!
+				DislikeBiome: Everything is blue in {BiomeName}... How are you supposed to see all the pretty colors like this?
+				HateBiome: Yuck! There are too many disgusting monsters making all the clothes dirty in  {BiomeName}.
+				LikeNPC: "{NPCName} knows how to make their outfit look good. I can respect that."
+				LoveNPC: ""
+				DislikeNPC: ""
+				HateNPC: ""
+			}
+		}
+
+		# This is used to display the NPC's dialogues.
+		Dialogue: {
+			VanityTrader: {
+				ClothierDialogue: Could you ask if {0} would sow some new outfits for me?
+				PainterDialogue: Last time I met them, {0} spilled paint all over me. I was barely able to wash it all out.
+				DyeTraderDialogue: "{0} really has the most beautiful colors. But I'm a little concerned about his obsession with strange plants."
+				NamedCarl1: I do not kill people. That is my least favourite thing to do.
+				NamedCarl2: I have the best hat.
+				SewingMachine: Have you ever worked with a sewing machine [i:{0}] before? It's perfect if you want to give your familiar outfits a little variation.
+				RareDialogue: Have you tried fried harpy wing before? Delicious.
+				SelfDialogue: "{0} has wears if you have coin."
+				StandardDialogue1: What? Oh, that. No, I don't have a face.
+				StandardDialogue2: So you've never bought second hand before?
+				StandardDialogue3: What do you mean by 'cosplay'?
+				StandardDialogue4: Majora? No, I don't know any Majora, why do you ask?
+				StandardDialogue5: Shirts? Armors? Fish bowls? It's yours, my friend, as long as you have enough coins!
+				StandardDialogue6: Got some rare things on sale, stranger!
+			}
+		}
+
+		NpcShopButtons.VanityTrader.button2: Restock Bags ({0}Plt)
+
+		Items: {
+			SewingMachine: {
+				DisplayName: Sewing Machine
+				Tooltip:
+					'''
+					Not so fond of that one vanity in particular? 
+					Try yourself at the job of a tailor here.
+					'''
+			}
+
+			AndromedaPilotBag: {
+				DisplayName: Andromeda Pilot Bag
+				Tooltip:
+					'''
+					Spriting assisted by Faskeon
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			AndromedaPilotBody: {
+				DisplayName: Andromeda Pilot Breastplate
+				Tooltip:
+					'''
+					Let there be a constellation with your name on it
+					Made by Nedrilax
+					'''
+			}
+
+			AndromedaPilotHead: {
+				DisplayName: Andromeda Pilot Helmet
+				Tooltip:
+					'''
+					Let there be a constellation with your name on it
+					Made by Nedrilax
+					'''
+			}
+
+			AndromedaPilotLegs: {
+				DisplayName: Andromeda Pilot Cetus
+				Tooltip:
+					'''
+					Those chains really don't suit you
+					Made by Nedrilax
+					'''
+			}
+
+			ArcaneExosuitBag: {
+				DisplayName: Arcane Exosuit Bag
+				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			ArcaneExosuitBody: {
+				DisplayName: Arcane Exosuit Ribcage
+				Tooltip:
+					'''
+					The energy core for the exosuit is damaged but perhaps there is a way to restore it
+					Made by Faskeon
+					'''
+			}
+
+			ArcaneExosuitHead: {
+				DisplayName: Arcane Exosuit Skull
+				Tooltip:
+					'''
+					Resembles the skull of a long extinct species
+					Made by Faskeon
+					'''
+			}
+
+			ArcaneExosuitLegs: {
+				DisplayName: Arcane Exosuit Femora
+				Tooltip:
+					'''
+					The armor shines a dull gold that could be enhanced with a solar coating
+					Made by Faskeon
+					'''
+			}
+
+			BirdieBag: {
+				DisplayName: Birdie Bag
+				Tooltip:
+					'''
+					Bag sprite by PeanutSte
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			BirdieBody: {
+				DisplayName: Birdie Sweater
+				Tooltip:
+					'''
+					It's not stylish anymore...
+					Made by Pyromma
+					'''
+			}
+
+			BirdieHead: {
+				DisplayName: Birdie Headgear
+				Tooltip:
+					'''
+					Go ahead, dominate this golf course!
+					Made by Pyromma
+					'''
+			}
+
+			BirdieLegs: {
+				DisplayName: Birdie Pants
+				Tooltip:
+					'''
+					By spreading your legs a little, you can nail a pretty decent shot!
+					Made by Pyromma
+					'''
+			}
+
+			BountyHunterBag: {
+				DisplayName: Bounty Hunter's Bag
+				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			BountyHunterBody: {
+				DisplayName: Bounty Hunter Chestplate
+				Tooltip:
+					'''
+					A high-tech battle armour developed by Dr. Tobopolis.
+					Watch out for space dragons!
+					Made by Tobopolis
+					'''
+			}
+
+			BountyHunterHead: {
+				DisplayName: Bounty Hunter Mask
+				Tooltip:
+					'''
+					A high-tech battle armour developed by Dr. Tobopolis.
+					Some Accidental Disintegrations.
+					Made by Tobopolis
+					'''
+			}
+
+			BountyHunterLegs: {
+				DisplayName: Bounty Hunter Greaves
+				Tooltip:
+					'''
+					A high-tech battle armour developed by Dr. Tobopolis.
+					It's strictly business.
+					Made by Tobopolis
+					'''
+			}
+
+			BrokenHeroBag: {
+				DisplayName: Broken Hero's Bag
+				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			BrokenHeroBody: {
+				DisplayName: Broken Hero Chestplate
+				Tooltip:
+					'''
+					The broken edges scratch your skin
+					Made by Kirichin
+					'''
+			}
+
+			BrokenHeroHead: {
+				DisplayName: Broken Hero Helmet
+				Tooltip:
+					'''
+					Smells of rust and mold
+					Made by Kirichin
+					'''
+			}
+
+			BrokenHeroLegs: {
+				DisplayName: Broken Hero Greaves
+				Tooltip:
+					'''
+					Eerily fits you perfectly
+					Made by Kirichin
+					'''
+			}
+
+			BubbleheadBag: {
+				DisplayName: Bubblehead Bag
+				Tooltip:
+					'''
+					Found him!
+					Bag sprite by PeanutSte
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			BubbleheadBody: {
+				DisplayName: Hydro Tank v3
+				Tooltip:
+					'''
+					One of the most modern supply tanks!
+					Made by Metidigiti
+					'''
+			}
+
+			BubbleheadHead: {
+				DisplayName: Bubble Head
+				Tooltip:
+					'''
+					Literally a Bubble Head.
+					Made by Metidigiti
+					'''
+			}
+
+			BubbleheadHead1: {
+				DisplayName: Bubble Head
+				Tooltip:
+					'''
+					Literally a Bubble Head.
+					Made by Metidigiti
+					'''
+			}
+
+			BubbleheadHead2: {
+				DisplayName: Bubble Head
+				Tooltip:
+					'''
+					Literally a Bubble Head.
+					Made by Metidigiti
+					'''
+			}
+
+			BubbleheadHead3: {
+				DisplayName: Bubble Head
+				Tooltip:
+					'''
+					Literally a Bubble Head.
+					Made by Metidigiti
+					'''
+			}
+
+			BubbleheadHead4: {
+				DisplayName: Bubble Head
+				Tooltip:
+					'''
+					Literally a Bubble Head.
+					Made by Metidigiti
+					'''
+			}
+
+			BubbleheadHead5: {
+				DisplayName: Bubble Head
+				Tooltip:
+					'''
+					Literally a Bubble Head.
+					Made by Metidigiti
+					'''
+			}
+
+			BubbleheadHead6: {
+				DisplayName: Bubble Head
+				Tooltip:
+					'''
+					Literally a Bubble Head.
+					Made by Metidigiti
+					'''
+			}
+
+			BubbleheadLegs: {
+				DisplayName: Carbon Boots
+				Tooltip:
+					'''
+					Carbon has fantastic properties.
+					Made by Metidigiti
+					'''
+			}
+
+			ContainmentSuitBag: {
+				DisplayName: Containment Suit Bag
+				Tooltip:
+					'''
+					Spriting assisted by Curt 'Bucket Face' Black
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			ContainmentSuitBody: {
+				DisplayName: Containment Chestpiece
+				Tooltip:
+					'''
+					A traveler's chestpiece for harsh environments.
+					Made by MikeLeaArt
+					'''
+			}
+
+			ContainmentSuitHead: {
+				DisplayName: Containment Helmet
+				Tooltip:
+					'''
+					A traveler's helmet for harsh environments.
+					Made by MikeLeaArt
+					'''
+			}
+
+			ContainmentSuitLegs: {
+				DisplayName: Containment Boots
+				Tooltip:
+					'''
+					A traveler's boots for harsh environments.
+					Made by MikeLeaArt
+					'''
+			}
+
+			CosmicTerrorBag: {
+				DisplayName: Cosmic Terror Bag
+				Tooltip:
+					'''
+					Bag sprite by PeanutSte
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			CosmicTerrorBody: {
+				DisplayName: Cosmic Terror's Body
+				Tooltip:
+					'''
+					But he is not the only one;
+					 there is another cosmic being but him in this world.
+					The destroyer of worlds, the Moon Lord.
+					Made by RegMeow
+					'''
+			}
+
+			CosmicTerrorHead: {
+				DisplayName: Cosmic Terror's Head
+				Tooltip:
+					'''
+					From the beginning of time, primordial beings rise
+					 from the endless fear and suffering,
+					  to torment this plane of existence.
+					Made by RegMeow
+					'''
+			}
+
+			CosmicTerrorLegs: {
+				DisplayName: Cosmic Terror's Legs
+				Tooltip:
+					'''
+					His body badly hurt from the endless battle with the Lunar God, it will finally come to an end.
+					Soon he might succumb to his wounds, so use his form to face "Moon Lord" once more.
+					Made by RegMeow
+					'''
+			}
+
+			CrystalLegacyBag: {
+				DisplayName: Crystal Legacy Bag
+				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			CrystalLegacyBody: {
+				DisplayName: Crystal Torso
+				Tooltip:
+					'''
+					The remnants of an overzealous adventurer...
+					Made by Curt 'Bucket Face' Black
+					'''
+			}
+
+			CrystalLegacyHead: {
+				DisplayName: Crystal Helmet
+				Tooltip:
+					'''
+					A memento of the dangers in the creeping crystal caves...
+					Made by Curt 'Bucket Face' Black
+					'''
+			}
+
+			CrystalLegacyLegs: {
+				DisplayName: Crystal Greaves
+				Tooltip:
+					'''
+					Greaves burdened by crystal growths...
+					Made by Curt 'Bucket Face' Black
+					'''
+			}
+
+			CyberAngelBag: {
+				DisplayName: Cyber Angel Bag
+				Tooltip:
+					'''
+					Spriting assisted by Faskeon
+					Bag sprite by Polish_Soap
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			CyberAngelBody: {
+				DisplayName: Cyber Coat
+				Tooltip:
+					'''
+					The energy is used to purify the corruption and the crimson of the world.
+					Made by Rariaz
+					'''
+			}
+
+			CyberAngelHead: {
+				DisplayName: Cyber Halo
+				Tooltip:
+					'''
+					This armor was designed to restrict,
+					control and extract the power and energy of gods,
+					angels and powerful beings.
+					Made by Rariaz
+					'''
+			}
+
+			CyberAngelHead1: {
+				DisplayName: Cyber Halo
+				Tooltip:
+					'''
+					This armor was designed to restrict,
+					control and extract the power and energy of gods,
+					angels and powerful beings.
+					Made by Rariaz
+					'''
+			}
+
+			CyberAngelLegs: {
+				DisplayName: Cyber Leggings
+				Tooltip:
+					'''
+					Some dare to use this armor, but just a few can bear the fatigue,
+					only those who achieve power, wisdom, nimbleness,
+					and kindness are worthy to try this armor.
+					Made by Rariaz
+					'''
+			}
+
+			DeepDiverBag: {
+				DisplayName: Deep Diver's Disguise Bag
+				Tooltip:
+					'''
+					Spriting assisted by Curt 'Bucket Face' Black
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			DeepDiverBody: {
+				DisplayName: Deep Diver Torso
+				Tooltip:
+					'''
+					Stay warm in the depths of the ocean.
+					Made by Nick T.
+					'''
+			}
+
+			DeepDiverHead: {
+				DisplayName: Deep Diver Hood
+				Tooltip:
+					'''
+					Creepy, stylish and it also glows!
+					Made by Nick T.
+					'''
+			}
+
+			DeepDiverLegs: {
+				DisplayName: Deep Diver Pants
+				Tooltip:
+					'''
+					Great for long walks on the beach below water level.
+					Made by Nick T.
+					'''
+			}
+
+			DraugrBag: {
+				DisplayName: Draugr Bag
+				Tooltip:
+					'''
+					Spriting assisted by Faskeon 
+					 {$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			DraugrBody: {
+				DisplayName: Draugr Chestplate
+				Tooltip: Made by tic
+			}
+
+			DraugrHead: {
+				DisplayName: Draugr Horned Helmet
+				Tooltip: Made by tic
+			}
+
+			DraugrLegs: {
+				DisplayName: Draugr Greaves
+				Tooltip: Made by tic
+			}
+
+			DualityBag: {
+				DisplayName: Duality Bag
+				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			DualityBody: {
+				DisplayName: Duality Shirt
+				Tooltip:
+					'''
+					Light and dark, perfectly balanced as all things should be.
+					Made by Chan
+					'''
+			}
+
+			DualityHead: {
+				DisplayName: Duality Mask
+				Tooltip:
+					'''
+					Good and evil, mind of two worlds.
+					Made by Chan
+					'''
+			}
+
+			DualityLegs: {
+				DisplayName: Duality Pants
+				Tooltip:
+					'''
+					Past and future, walk the path from one to the other.
+					Made by Chan
+					'''
+			}
+
+			ForestDruidBag: {
+				DisplayName: Forest Druid's Bag
+				Tooltip:
+					'''
+					Spriting assisted by Drdragonfly
+					Bag sprite by Curt 'Bucket Face' Black
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			ForestDruidBody: {
+				DisplayName: Forest Druid's Robe
+				Tooltip:
+					'''
+					An ancient robe filled with the forest's essence
+					Made by Kohi_aue
+					'''
+			}
+
+			ForestDruidHead: {
+				DisplayName: Forest Druid's Horns
+				Tooltip:
+					'''
+					Like animal horns, branches have grown in your head
+					Made by Kohi_aue
+					'''
+			}
+
+			ForestDruidHead1: {
+				DisplayName: Forest Druid's Mask
+				Tooltip:
+					'''
+					Like animal horns, branches have grown in your head
+					Made by Kohi_aue
+					'''
+			}
+
+			ForestDruidHead2: {
+				DisplayName: Forest Druid's Hood
+				Tooltip:
+					'''
+					Like animal horns, branches have grown in your head
+					Made by Kohi_aue
+					'''
+			}
+
+			GraniteBag: {
+				DisplayName: Granite Golem Bag
+				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			GraniteBody: {
+				DisplayName: Granite Golem Chestpiece
+				Tooltip: Made by EpicCrownKing
+			}
+
+			GraniteHead: {
+				DisplayName: Granite Golem Greathelm
+				Tooltip: Made by EpicCrownKing
+			}
+
+			GraniteLegs: {
+				DisplayName: Granite Golem Legs
+				Tooltip: Made by EpicCrownKing
+			}
+
+			GridBag: {
+				DisplayName: Grid's Bag
+				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			GridBody: {
+				DisplayName: Grid's Body Armor
+				Tooltip:
+					'''
+					A legendary piece of armor.
+					Made by Grid
+					'''
+			}
+
+			GridHead: {
+				DisplayName: Grid's Facemask
+				Tooltip:
+					'''
+					A legendary piece of armor.
+					Made by Grid
+					'''
+			}
+
+			GridLegs: {
+				DisplayName: Grid's Footgear
+				Tooltip:
+					'''
+					A legendary piece of armor.
+					Made by Grid
+					'''
+			}
+
+			HellWardenBag: {
+				DisplayName: Hell Warden's Bag
+				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			HellWardenBody: {
+				DisplayName: Hell Warden's Chestplate
+				Tooltip: Made by Adrian R.A.
+			}
+
+			HellWardenHead: {
+				DisplayName: Hell Warden's Horns
+				Tooltip: Made by Adrian R.A.
+			}
+
+			HellWardenLegs: {
+				DisplayName: Hell Warden's Boots
+				Tooltip: Made by Adrian R.A.
+			}
+
+			HivenetBag: {
+				DisplayName: Hivenet Bag
+				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			HivenetBody: {
+				DisplayName: HiveNet Chestplate
+				Tooltip:
+					'''
+					Not as Protective as it Looks.
+					Made by Sam Holt
+					'''
+			}
+
+			HivenetHead: {
+				DisplayName: HiveNet Headset
+				Tooltip:
+					'''
+					Listen to the Queen
+					Made by Sam Holt
+					'''
+			}
+
+			HivenetLegs: {
+				DisplayName: HiveNet Leggings
+				Tooltip:
+					'''
+					Complete with 2 bytes of ram.
+					Made by Sam Holt
+					'''
+			}
+
+			HivenetWings: {
+				DisplayName: HiveNet Digital Wings
+				Tooltip:
+					'''
+					Cloud-based Engineering.
+					Made by Sam Holt
+					'''
+			}
+
+			InvisibleBag: {
+				DisplayName: Invisible
+				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			InvisibleBody.DisplayName: See
+			InvisibleHead.DisplayName: Can't
+			InvisibleLegs.DisplayName: Me
+
+			IronCoreBag: {
+				DisplayName: Knight of the Iron Core Bag
+				Tooltip:
+					'''
+					Bag sprite by Polish_Soap
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			IronCoreBody: {
+				DisplayName: Breastplate of the Iron Core
+				Tooltip:
+					'''
+					A worn down chestpiece for an old knight.
+					Your heart feels a little heavier when you put this on, but you aren't any stronger.
+					Made by TunaToda & RealStiel
+					'''
+			}
+
+			IronCoreHead: {
+				DisplayName: Helmet of the Iron Core
+				Tooltip:
+					'''
+					A rusty iron helmet from a knight long dead.
+					It's heavy, cold, and not very helpful.
+					Made by TunaToda & RealStiel
+					'''
+			}
+
+			IronCoreLegs: {
+				DisplayName: Greaves of the Iron Core
+				Tooltip:
+					'''
+					Some ruined leggings from a long gone warrior.
+					Legends say that you can hold a mountain up while wearing them. They're wrong.
+					Made by TunaToda & RealStiel
+					'''
+			}
+
+			JourneymanBag: {
+				DisplayName: Journeyman Bag
+				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			JourneymanBody: {
+				DisplayName: Journeyman Shirt
+				Tooltip:
+					'''
+					A fancy jacket worn by journeymen.
+					Made by poiuygfd
+					'''
+			}
+
+			JourneymanHead: {
+				DisplayName: Journeyman Hat
+				Tooltip:
+					'''
+					The snazzy hat worn by journeymen.
+					Made by poiuygfd
+					'''
+			}
+
+			JourneymanLegs: {
+				DisplayName: Journeyman Pants
+				Tooltip:
+					'''
+					A pair of pants worn by journeymen.
+					Made by poiuygfd
+					'''
+			}
+
+			KingfisherBag: {
+				DisplayName: The Common Kingfisher's Bag
+				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			KingfisherBody: {
+				DisplayName: Common Kingfisher Shirt
+				Tooltip:
+					'''
+					How could there be a day in your whole life that doesn't have a splash of happiness?
+					The Kingfisher wasn't born to think about it, or anything else!
+					Alcedo atthis Approved!
+					Made by Squidcrane
+					'''
+			}
+
+			KingfisherHead: {
+				DisplayName: Common Kingfisher Mask
+				Tooltip:
+					'''
+					The kingfisher rises out of the black wave like a blue flower.
+					In his beak, he carries a silver leaf.
+					Alcedo atthis Approved!
+					Made by Squidcrane
+					'''
+			}
+
+			KingfisherLegs: {
+				DisplayName: Common Kingfisher Pants
+				Tooltip:
+					'''
+					Hunger is the only story he has ever heard in his life.
+					Religiously, he swallows the silver leaf.
+					Alcedo atthis Approved!
+					Made by Squidcrane
+					'''
+			}
+
+			KnightOfJudgementBag: {
+				DisplayName: Knight of Judgement's Bag
+				Tooltip:
+					'''
+					Spriting assisted by Cakeboiii
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			KnightOfJudgementBody: {
+				DisplayName: Knight of Judgement's Chestplate
+				Tooltip: Made by Silvrsterlng
+			}
+
+			KnightOfJudgementHead: {
+				DisplayName: Knight of Judgement's Helmet
+				Tooltip: Made by Silvrsterlng
+			}
+
+			KnightOfJudgementLegs: {
+				DisplayName: Knight of Judgement's Leggings
+				Tooltip: Made by Silvrsterlng
+			}
+
+			KnightwalkerBag: {
+				DisplayName: The Knightwalker's Bag
+				Tooltip:
+					'''
+					Spriting assisted by Curt 'Bucket Face' Black
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			KnightwalkerBody: {
+				DisplayName: Mantle of the Knightwalker
+				Tooltip:
+					'''
+					Burning Hot
+					Made by Dusk Ealain
+					'''
+			}
+
+			KnightwalkerHead: {
+				DisplayName: Helmet of the Knightwalker
+				Tooltip: Made by Dusk Ealain
+			}
+
+			KnightwalkerLegs: {
+				DisplayName: Greaves of the Knightwalker
+				Tooltip: Made by Dusk Ealain
+			}
+
+			KuijiaBag: {
+				DisplayName: Kuijia Bag
+				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			KuijiaBody: {
+				DisplayName: Kuijia Platemail
+				Tooltip:
+					'''
+					Used by fighters to protect their bodies.
+					Made by PatisNow
+					'''
+			}
+
+			KuijiaHead: {
+				DisplayName: Dragonhat
+				Tooltip:
+					'''
+					Used as a hat to protect from the sun and the rain.
+					Made by PatisNow
+					'''
+			}
+
+			KuijiaLegs: {
+				DisplayName: Kuijia Legmail
+				Tooltip:
+					'''
+					Used by fighters for splash and impact protection.
+					Made by PatisNow
+					'''
+			}
+
+			MagicGrillBag: {
+				DisplayName: Magic Grill Megashark Bag
+				Tooltip:
+					'''
+					Spriting assisted by Faskeon
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			MagicGrillBody: {
+				DisplayName: Magic Grill Megashark Top
+				Tooltip:
+					'''
+					Dw, it's fake shark leather.
+					Made by Pepsi
+					'''
+			}
+
+			MagicGrillHead: {
+				DisplayName: Magic Grill Megashark Hood
+				Tooltip:
+					'''
+					Boss may be proud!
+					Made by Pepsi
+					'''
+			}
+
+			MagicGrillLegs: {
+				DisplayName: Magic Grill Megashark Skirt
+				Tooltip:
+					'''
+					Use carefully on windy days.
+					Made by Pepsi
+					'''
+			}
+
+			MothronBag: {
+				DisplayName: Mothron Bag
+				Tooltip:
+					'''
+					Bag sprite by PeanutSte
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			MothronBody: {
+				DisplayName: Mothron Shirt
+				Tooltip:
+					'''
+					Fashioned from the thorax of an ancient Kaiju.
+					Made by Drdragonfly
+					'''
+			}
+
+			MothronHead: {
+				DisplayName: Mothron Mask
+				Tooltip:
+					'''
+					A mask born in the dim light of a solar eclipse.
+					Made by Drdragonfly
+					'''
+			}
+
+			MothronLegs: {
+				DisplayName: Mothron Pants
+				Tooltip:
+					'''
+					The pattern resembles that of Mothron's abdomen.
+					Made by Drdragonfly
+					'''
+			}
+
+			MushroomAlchemistBag: {
+				DisplayName: Mushroom Alchemist Bag
+				Tooltip:
+					'''
+					Bag sprite by TerraQueenCole
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			MushroomAlchemistBody: {
+				DisplayName: Mushroom Alchemist Shirt
+				Tooltip:
+					'''
+					Makes you feel a little fungi.
+					Made by Galahad
+					'''
+			}
+
+			MushroomAlchemistHead: {
+				DisplayName: Mushroom Alchemist Cap
+				Tooltip:
+					'''
+					Everything is blue.
+					Made by Galahad
+					'''
+			}
+
+			MushroomAlchemistLegs: {
+				DisplayName: Mushroom Alchemist Pants
+				Tooltip:
+					'''
+					Feels like magic.
+					Made by Galahad
+					'''
+			}
+
+			NexusBag: {
+				DisplayName: Nexus Bag
+				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			NexusBody: {
+				DisplayName: Nexus Chestplate
+				Tooltip:
+					'''
+					You sense ceaseless energy coming from within
+					Made by LazyGhost14
+					'''
+			}
+
+			NexusHead: {
+				DisplayName: Nexus Helmet
+				Tooltip:
+					'''
+					100% waterproof
+					Made by LazyGhost14
+					'''
+			}
+
+			NexusLegs: {
+				DisplayName: Nexus Greaves
+				Tooltip:
+					'''
+					Light and swift
+					Made by LazyGhost14
+					'''
+			}
+
+			NightlightBag: {
+				DisplayName: Nightlight Bag
+				Tooltip:
+					'''
+					Bag sprite by PeanutSte
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			NightlightBody: {
+				DisplayName: Nightlight Body
+				Tooltip:
+					'''
+					A bright friendly glow in the night.
+					Made by Metalsquirrel
+					'''
+			}
+
+			NightlightHead: {
+				DisplayName: Nightlight Eyes
+				Tooltip:
+					'''
+					Eyes that reflect a moonlit night...
+					Made by Metalsquirrel
+					'''
+			}
+
+			NightlightLegs: {
+				DisplayName: Nightlight Feet
+				Tooltip:
+					'''
+					No tripping at night with bug feet.
+					Made by Metalsquirrel
+					'''
+			}
+
+			NineTailedFoxAcc: {
+				DisplayName: Nine-Tailed Fox Tails
+				Tooltip:
+					'''
+					Why does the inventory sprite only show 7 tails? Is this a scam?
+					Made by Invalid
+					'''
+			}
+
+			NineTailedFoxBag: {
+				DisplayName: Nine-Tailed Fox Bag
+				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			NineTailedFoxBody: {
+				DisplayName: Nine-Tailed Fox Chestplate
+				Tooltip: Made by Invalid
+			}
+
+			NineTailedFoxHead: {
+				DisplayName: Nine-Tailed Fox Ears
+				Tooltip: Made by Invalid
+			}
+
+			NineTailedFoxLegs: {
+				DisplayName: Nine-Tailed Fox Leggings
+				Tooltip: Made by Invalid
+			}
+
+			PilotBag: {
+				DisplayName: Pilot Bag
+				Tooltip:
+					'''
+					Spriting assisted by Faskeon
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			PilotBody: {
+				DisplayName: Pilot's Jumpsuit
+				Tooltip:
+					'''
+					Parachute not included.
+					Made by CyrantontheCold
+					'''
+			}
+
+			PilotHead: {
+				DisplayName: Pilot's Cap
+				Tooltip:
+					'''
+					Still some wyvern saliva in the goggles,
+					but otherwise surprisingly intact.
+					Made by CyrantontheCold
+					'''
+			}
+
+			PlanetaryBag: {
+				DisplayName: Planetary Bag
+				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			PlanetaryBody: {
+				DisplayName: Planetary Shirt
+				Tooltip: Made by Goddigger3_1
+			}
+
+			PlanetaryHead: {
+				DisplayName: Planetary Hat
+				Tooltip: Made by Goddigger3_1
+			}
+
+			PlanetaryLegs: {
+				DisplayName: Planetary Pants
+				Tooltip: Made by Goddigger3_1
+			}
+
+			PoweredPanoplyBag: {
+				DisplayName: Powered Panoply Bag
+				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			PoweredPanoplyBody: {
+				DisplayName: Powered Breastplate
+				Tooltip: Made by Fake_Tank
+			}
+
+			PoweredPanoplyHead: {
+				DisplayName: Powered Armet
+				Tooltip:
+					'''
+					'Three fourths and a fifth'
+					Made by Fake_Tank
+					'''
+			}
+
+			PoweredPanoplyLegs: {
+				DisplayName: Powered Cuisses
+				Tooltip: Made by Fake_Tank
+			}
+
+			Hotwings: {
+				DisplayName: Hotwings
+				Tooltip: Spicy
+			}
+
+			RookieBag: {
+				DisplayName: Rookie Bag
+				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			RookieBody: {
+				DisplayName: Rookie Body
+				Tooltip:
+					'''
+					Life is never just black and white
+					Made by PeanutSte
+					'''
+			}
+
+			RookieHead: {
+				DisplayName: Rookie Steepletop
+				Tooltip:
+					'''
+					Created by an aspiring artist
+					Made by PeanutSte
+					'''
+			}
+
+			RookieLegs: {
+				DisplayName: Rookie Base
+				Tooltip:
+					'''
+					Stay Grounded
+					Made by PeanutSte
+					'''
+			}
+
+			SeaBuckthornTeaBag: {
+				DisplayName: Sea Buckthorn Tea Bag
+				Tooltip:
+					'''
+					Bag sprite by PeanutSte
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			SeaBuckthornTeaBody: {
+				DisplayName: Butler's Vest and Tie
+				Tooltip:
+					'''
+					With this, you will look well dressed!
+					Made by VaeloroK
+					'''
+			}
+
+			SeaBuckthornTeaHead: {
+				DisplayName: A Cup of Tea
+				Tooltip:
+					'''
+					It smells like Sea Buckthorn Tea!
+					Made by VaeloroK
+					'''
+			}
+
+			SeaBuckthornTeaLegs: {
+				DisplayName: Butler's Pants and Shoes
+				Tooltip:
+					'''
+					Cleaned-ironed-polished!
+					Made by VaeloroK
+					'''
+			}
+
+			SeaHunterBag: {
+				DisplayName: Sea Hunter Bag
+				Tooltip:
+					'''
+					Spriting assisted by Faskeon
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			SeaHunterBody: {
+				DisplayName: Sea Hunter's Longcoat
+				Tooltip:
+					'''
+					May the hunt commence
+					Made by Authon
+					'''
+			}
+
+			SeaHunterHead: {
+				DisplayName: Sea Hunter's Trifold Hat
+				Tooltip:
+					'''
+					May the hunt commence
+					Made by Authon
+					'''
+			}
+
+			SeaHunterLegs: {
+				DisplayName: Sea Hunter's Boots
+				Tooltip:
+					'''
+					May the hunt commence
+					Made by Authon
+					'''
+			}
+
+			ShadowFiendBag: {
+				DisplayName: Shadow Fiend's Bag
+				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			ShadowFiendBag1: {
+				DisplayName: Crimson Scourge's Bag
+				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			ShadowFiendBody: {
+				DisplayName: Shadow Fiend Breastplate
+				Tooltip:
+					'''
+					Cursed Flames consume you!
+					Made by CakeBoiii
+					'''
+			}
+
+			ShadowFiendBody1: {
+				DisplayName: Crimson Scourge Breastplate
+				Tooltip:
+					'''
+					Ichor flows through you!
+					Made by CakeBoiii
+					'''
+			}
+
+			ShadowFiendHead: {
+				DisplayName: Shadow Fiend Helmet
+				Tooltip:
+					'''
+					Cursed Flames consume you!
+					Made by CakeBoiii
+					'''
+			}
+
+			ShadowFiendHead1: {
+				DisplayName: Crimson Scourge Helmet
+				Tooltip:
+					'''
+					Ichor flows through you!
+					Made by CakeBoiii
+					'''
+			}
+
+			ShadowFiendLegs: {
+				DisplayName: Shadow Fiend Leggings
+				Tooltip:
+					'''
+					Cursed Flames consume you!
+					Made by CakeBoiii
+					'''
+			}
+
+			ShadowFiendLegs1: {
+				DisplayName: Crimson Scourge Leggings
+				Tooltip:
+					'''
+					Ichor flows through you!
+					Made by CakeBoiii
+					'''
+			}
+
+			ShadowSpellBag: {
+				DisplayName: Shadow Spell Wizard Bag
+				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			ShadowSpellBody: {
+				DisplayName: Shadow Spell Robes
+				Tooltip:
+					'''
+					Worn by the forgotten clan of the Shadowflame Shamans.
+					Made by Romanov/Ammagon
+					'''
+			}
+
+			ShadowSpellHead: {
+				DisplayName: Shadow Spell Hat
+				Tooltip:
+					'''
+					Worn by the forgotten clan of the Shadowflame Shamans.
+					Made by Romanov/Ammagon
+					'''
+			}
+
+			ShadowSpellLegs: {
+				DisplayName: Shadow Spell Pants
+				Tooltip:
+					'''
+					Worn by the forgotten clan of the Shadowflame Shamans.
+					Made by Romanov/Ammagon
+					'''
+			}
+
+			SharkBag: {
+				DisplayName: Shark Bag
+				Tooltip:
+					'''
+					Bag sprite by PeanutSte
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			SharkBody: {
+				DisplayName: Shark Shirt
+				Tooltip:
+					'''
+					An inflated shark costume.
+					Those fins are moving on their own!
+					Made by Giobun
+					'''
+			}
+
+			SharkHead: {
+				DisplayName: Shark Mask
+				Tooltip:
+					'''
+					An inflated shark mask.
+					Does not let you breathe underwater.
+					Made by Giobun
+					'''
+			}
+
+			SharkLegs: {
+				DisplayName: Shark Pants
+				Tooltip:
+					'''
+					A pair of inflated shark pants.
+					Just go with the flow.
+					Made by Giobun
+					'''
+			}
+
+			ShootsatonBag: {
+				DisplayName: Sire Shootsaton Bag
+				Tooltip:
+					'''
+					Spriting assisted by Faskeon
+					Bag sprite by PeanutSte
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			ShootsatonBody: {
+				DisplayName: Sire Shootsaton Jerkin
+				Tooltip:
+					'''
+					Take aim of your talons in the dark
+					Made by Enembra
+					'''
+			}
+
+			ShootsatonHead: {
+				DisplayName: Sire Shootsaton Hooten Mask
+				Tooltip:
+					'''
+					I love havin' an owl head
+					Made by Enembra
+					'''
+			}
+
+			ShootsatonLegs: {
+				DisplayName: Sire Shootsaton Pants
+				Tooltip:
+					'''
+					Take aim of your talons in the dark
+					Made by Enembra
+					'''
+			}
+
+			StarlightDreamBag: {
+				DisplayName: Starlight Dream Bag
+				Tooltip:
+					'''
+					Spriting assisted by Cakeboiii
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			StarlightDreamBody: {
+				DisplayName: Starlight Dream Shirt
+				Tooltip: Made by Golditale
+			}
+
+			StarlightDreamHead: {
+				DisplayName: Starlight Dream Hood
+				Tooltip: Made by Golditale
+			}
+
+			StarlightDreamLegs: {
+				DisplayName: Starlight Dream Pants
+				Tooltip: Made by Golditale
+			}
+
+			StormConquerorBag: {
+				DisplayName: Storm Conqueror's Bag
+				Tooltip: "{$CommonItemTooltip.RightClickToOpen}"
+			}
+
+			StormConquerorBody: {
+				DisplayName: Storm Conqueror's Breastplate
+				Tooltip:
+					'''
+					Ouch, it zapped me!
+					Made by Dandandooo
+					'''
+			}
+
+			StormConquerorHead: {
+				DisplayName: Storm Conqueror's Visage
+				Tooltip:
+					'''
+					Wow, so shiny!
+					Made by Dandandooo
+					'''
+			}
+
+			StormConquerorLegs: {
+				DisplayName: Storm Conqueror's Greaves
+				Tooltip:
+					'''
+					So comfy
+					Made by Dandandooo
+					'''
+			}
+
+			SwampHorrorBag: {
+				DisplayName: Swamp Horror Bag
+				Tooltip:
+					'''
+					Spriting assisted by Drdragonfly
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			SwampHorrorBody: {
+				DisplayName: Swamp Horror Shirt
+				Tooltip: Made by Outerwar
+			}
+
+			SwampHorrorHead: {
+				DisplayName: Swamp Horror Mask
+				Tooltip: Made by Outerwar
+			}
+
+			SwampHorrorLegs: {
+				DisplayName: Swamp Horror Pants
+				Tooltip: Made by Outerwar
+			}
+
+			TerraBag: {
+				DisplayName: Terra Bag
+				Tooltip:
+					'''
+					Spriting assisted by Chan, Lotaru and Cakeboiii
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			TerraBody: {
+				DisplayName: Terra Chestplate
+				Tooltip:
+					'''
+					A set of armor created with the power of light and dark
+					The heart is where that power resides
+					It feels nice
+					Made by TerraQueenCole
+					'''
+			}
+
+			TerraHead: {
+				DisplayName: Terra Crown
+				Tooltip:
+					'''
+					A crown powered by the force of nature
+					Its said that the powers of light and dark are inside it as well
+					Fits just right!
+					Made by TerraQueenCole
+					'''
+			}
+
+			TerraHead1: {
+				DisplayName: Terra Crown
+				Tooltip:
+					'''
+					A crown powered by the force of nature
+					Its said that the powers of light and dark are inside it as well
+					Fits your hair just right!
+					Made by TerraQueenCole
+					'''
+			}
+
+			TerraLegs: {
+				DisplayName: Terra Leggings
+				Tooltip:
+					'''
+					Powers from the edge of nights and the light of new days
+					May this armor help you reach the journey's end
+					Made by TerraQueenCole
+					'''
+			}
+
+			TravellerBag: {
+				DisplayName: The Traveller's Bag
+				Tooltip:
+					'''
+					Spriting assisted by VaeloroK
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			TravellerBody: {
+				DisplayName: Traveller Shirt
+				Tooltip:
+					'''
+					We've come a long way
+					Made by Upixel
+					'''
+			}
+
+			TravellerHead: {
+				DisplayName: Traveller Hat
+				Tooltip:
+					'''
+					We've come a long way
+					Made by Upixel
+					'''
+			}
+
+			TravellerLegs: {
+				DisplayName: Traveller Pants
+				Tooltip:
+					'''
+					We've come a long way
+					Made by Upixel
+					'''
+			}
+
+			TreesuitBag: {
+				DisplayName: Treesuit Bag
+				Tooltip:
+					'''
+					Spriting assisted by Curt 'Bucket Face' Black
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			TreesuitBody: {
+				DisplayName: Tree Shirt
+				Tooltip: Made by Drawter
+			}
+
+			TreesuitHead: {
+				DisplayName: Tree Crown
+				Tooltip: Made by Drawter
+			}
+
+			TreesuitLegs: {
+				DisplayName: Tree Stump
+				Tooltip: Made by Drawter
+			}
+
+			WitchsVoidBag: {
+				DisplayName: Witch's Void Bag
+				Tooltip:
+					'''
+					Spriting assisted by Pyromma
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			WitchsVoidBody: {
+				DisplayName: Void's Cloak
+				Tooltip:
+					'''
+					The numbers '2416' are etched on each piece...how strange.
+					Made by Hexanne
+					'''
+			}
+
+			WitchsVoidHead: {
+				DisplayName: Void's Eye
+				Tooltip:
+					'''
+					The numbers '2416' are etched on each piece...how strange.
+					Made by Hexanne
+					'''
+			}
+
+			WitchsVoidLegs: {
+				DisplayName: Void's Boots
+				Tooltip:
+					'''
+					The numbers '2416' are etched on each piece...how strange.
+					Made by Hexanne
+					'''
+			}
+
+			WyvernRiderBag: {
+				DisplayName: Wyvern Rider Bag
+				Tooltip:
+					'''
+					Bag sprite by PeanutSte
+					{$CommonItemTooltip.RightClickToOpen}
+					'''
+			}
+
+			WyvernRiderBody: {
+				DisplayName: Wyvern Rider Shirt
+				Tooltip:
+					'''
+					It doesn't allow you to ride wyverns, sorry
+					Made by manzXja
+					'''
+			}
+
+			WyvernRiderHead: {
+				DisplayName: Wyvern Rider Hat
+				Tooltip:
+					'''
+					It doesn't allow you to ride wyverns, sorry
+					Made by manzXja
+					'''
+			}
+
+			WyvernRiderLegs: {
+				DisplayName: Wyvern Rider Pants
+				Tooltip:
+					'''
+					It doesn't allow you to ride wyverns, sorry
+					Made by manzXja
+					'''
+			}
+
+			WyvernRiderWings: {
+				DisplayName: Wyvern Rider Tail
+				Tooltip:
+					'''
+					It doesn't allow you to ride wyverns, sorry
+					Made by manzXja
+					'''
+			}
+		}
+	}
+}
