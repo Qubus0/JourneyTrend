@@ -12,7 +12,7 @@ namespace JourneyTrend.Items.Vanity.MushroomAlchemist
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Mushroom Alchemist Bag");
-            Tooltip.SetDefault("Bag sprite by TerraKingCole614\n{$CommonItemTooltip.RightClickToOpen}");
+            Tooltip.SetDefault("Bag sprite by TerraQueenCole\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()
