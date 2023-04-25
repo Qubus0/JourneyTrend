@@ -12,7 +12,7 @@ namespace JourneyTrend.Items.Vanity.Terra
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Terra Chestplate");
             Tooltip.SetDefault(
-                "A set of armor created with the power of light and dark\nThe heart is where that power resides\nIt feels nice\nMade by TerraKingCole614");
+                "A set of armor created with the power of light and dark\nThe heart is where that power resides\nIt feels nice\nMade by TerraQueenCole");
         }
 
         public override void SetDefaults()

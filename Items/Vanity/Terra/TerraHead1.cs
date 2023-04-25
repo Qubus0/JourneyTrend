@@ -12,7 +12,7 @@ namespace JourneyTrend.Items.Vanity.Terra
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             DisplayName.SetDefault("Terra Crown");
             Tooltip.SetDefault(
-                "A crown powered by the force of nature\nIts said that the powers of light and dark are inside it as well\nFits your hair just right!\nMade by TerraKingCole614");
+                "A crown powered by the force of nature\nIts said that the powers of light and dark are inside it as well\nFits your hair just right!\nMade by TerraQueenCole");
 
             ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
         }
