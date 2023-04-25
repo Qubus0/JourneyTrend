@@ -134,7 +134,7 @@ namespace JourneyTrend.NPCs.Trader
             if (NPC.life <= 0) CurrentShop.Clear();
         }
 
-        public override bool CanTownNPCSpawn(int numTownNpcs, int money)
+        public override bool CanTownNPCSpawn(int numTownNpcs)
         {
             for (var k = 0; k < 255; k++)
             {
@@ -212,23 +212,27 @@ namespace JourneyTrend.NPCs.Trader
             button2 = Language.GetTextValue("Mods.JourneyTrend.NpcShopButtons.VanityTrader.button2", RestockPricePlat);
         }
 
-        public override void OnChatButtonClicked(bool firstButton, ref bool shop)
+        public override void OnChatButtonClicked(bool firstButton, ref string shopName)
         {
             if (firstButton)
             {
                 Main.playerInventory = true;
                 // remove the chat window...
                 Main.npcChatText = "";
-                shop = true;
+                // open the shop window
+                shopName = "Shop";
             }
             else
             {
+                // restock
                 SoundEngine.PlaySound(SoundID.Grab);
                 SoundEngine.PlaySound(SoundID.Coins);
                 Main.LocalPlayer.BuyItem(RestockPricePlat * PlatMultiplier);
+                // remove the chat window...
                 Main.npcChatText = "";
                 CreateNewShop();
-                shop = true;
+                // open the shop window
+                shopName = "Shop";
             }
         }
 
