@@ -1,5 +1,5 @@
 displayName = Journey's Trend: The Community Vanity Mod
 author = Lobster2, Ste, Artists
-version = 1.0.0
+version = 1.0.1
 buildIgnore = .gitattributes, README.md
 includePDB = false
