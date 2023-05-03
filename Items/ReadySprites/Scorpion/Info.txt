@@ -1,0 +1,17 @@
+Dune Scorpion Helm: [A vicious looking visor, but mostly just keeps the sun out of your eyes]
+Dune Scorpion Chestplate: [It's sturdy looking exoskeleton armor but... maybe layer up just in case]
+Dune Scorpion Leggings: [Useful for chitin enemies!]
+Dune Scorpion Tail: [Not as venomous as you might think, but intimidating nonetheless]
+
+Credited as: "[Thorrin]" 
+
+Method of obtaining:
+[Each piece can be crafted with 2 Black Scorpions (maybe three for the tail) at a Dye Vat or Loom or Anvil, whatever makes more sense. 
+The bag itself is a rare drop (maybe 1/200) from Sand Poachers]
+
+Rarity Colour: [Pink]
+
+Additional Info:
+
+[Tail of the sprite is extended a bit and is intended to be layered behind the player. Not tested with the jump animation, so may need to be extended more to not look weird.
+Should be an easy fix, just let me know if that's the case, and I'll address it.]
