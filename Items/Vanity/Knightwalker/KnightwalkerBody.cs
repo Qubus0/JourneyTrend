@@ -1,6 +1,7 @@
 using Terraria.GameContent.Creative;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -37,17 +38,21 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
             var walkUpShift = player.GetModPlayer<JourneyPlayer>().GetWalkUpShift();
 
             if (player.GetModPlayer<JourneyPlayer>().IsIdle()) return;
+            
             switch (Main.GameUpdateCount % 4)
             {
                 case 0:
                     Dust.NewDustPerfect(player.Center + new Vector2(player.direction * 9, -2 + walkUpShift),
-                        DustType<KnightwalkerDust>());
+                        DustType<KnightwalkerDust>())
+                        .shader = bodyShader;
                     Dust.NewDustPerfect(player.Center + new Vector2(-player.direction * 9, -2 + walkUpShift),
-                        DustType<KnightwalkerDust>());
+                        DustType<KnightwalkerDust>())
+                        .shader = bodyShader;
                     break;
                 case 2:
                     Dust.NewDustPerfect(player.Center + new Vector2(-player.direction * 11, -2 + walkUpShift),
-                        DustType<KnightwalkerDust>());
+                        DustType<KnightwalkerDust>())
+                        .shader = bodyShader;
                     break;
             }
         }

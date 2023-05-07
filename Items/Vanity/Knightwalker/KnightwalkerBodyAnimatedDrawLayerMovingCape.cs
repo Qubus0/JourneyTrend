@@ -23,10 +23,7 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
             return journeyPlayer.GetPlayerBodyFrameYIndex();
         }
 
-        protected override int GetShader(PlayerDrawSet drawInfo)
-        {
-            return drawInfo.cBody;
-        }
+        protected override int GetShader(PlayerDrawSet drawInfo) => drawInfo.cBody;
 
         // before/after from back to front - behind/in front
         public override Position GetDefaultPosition() => new BeforeParent(PlayerDrawLayers.BackAcc);

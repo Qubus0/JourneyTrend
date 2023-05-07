@@ -20,6 +20,8 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
             journeyPlayer.KnightwalkerHeadAlwaysFlameAnimationFrameCounter.NextFrame();
             return journeyPlayer.KnightwalkerHeadAlwaysFlameAnimationFrameCounter.GetFrameIndex();
         }
+        
+        protected override int GetShader(PlayerDrawSet drawInfo) => drawInfo.cHead;
 
         // if it will be rendered on the minimap. needs to be parented to head.
         public override bool IsHeadLayer => true;

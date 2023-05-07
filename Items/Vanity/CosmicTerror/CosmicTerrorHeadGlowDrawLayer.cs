@@ -18,6 +18,7 @@ namespace JourneyTrend.Items.Vanity.CosmicTerror
         public override Position GetDefaultPosition() => new AfterParent(PlayerDrawLayers.Head);
         
         protected override Rectangle GetPlayerFrame(PlayerDrawSet drawInfo) => drawInfo.drawPlayer.bodyFrame;
+        protected override int GetShader(PlayerDrawSet drawInfo) => drawInfo.cHead;
 
 
         public override bool GetDefaultVisibility(PlayerDrawSet drawInfo)

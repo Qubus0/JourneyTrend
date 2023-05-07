@@ -19,6 +19,8 @@ namespace JourneyTrend.Items.Vanity.Bubblehead
             journeyPlayer.BubbleheadHeadAnimationFrameCounter.NextFrame();
             return journeyPlayer.BubbleheadHeadAnimationFrameCounter.GetFrameIndex();
         }
+        
+        protected override int GetShader(PlayerDrawSet drawInfo) => -1; // no shader
 
         // if it will be rendered on the minimap. needs to be parented to head.
         public override bool IsHeadLayer => true;

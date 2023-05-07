@@ -35,10 +35,7 @@ namespace JourneyTrend
 
         protected abstract int GetFrameIndex(JourneyPlayer journeyPlayer);
 
-        protected virtual int GetShader(PlayerDrawSet drawInfo)
-        {
-            return -1; // no shader
-        }
+        protected abstract int GetShader(PlayerDrawSet drawInfo);
 
         protected override void Draw(ref PlayerDrawSet drawInfo)
         {

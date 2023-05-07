@@ -27,6 +27,8 @@ namespace JourneyTrend
         public override bool GetDefaultVisibility(PlayerDrawSet drawInfo) => !drawInfo.drawPlayer.dead;
 
         protected abstract Rectangle GetPlayerFrame(PlayerDrawSet drawInfo);
+        
+        protected abstract int GetShader(PlayerDrawSet drawInfo);
 
         protected override void Draw(ref PlayerDrawSet drawInfo)
         {
@@ -44,20 +46,22 @@ namespace JourneyTrend
             var flipVertically =
                 (int) drawInfo.drawPlayer.gravDir == 1 ? SpriteEffects.None : SpriteEffects.FlipVertically;
 
+
+            var drawData = new DrawData(
+                PartTexture.Value, //The texture to render.
+                renderPosition,
+                currentFrame,
+                Color.White,
+                0f, //Rotation.
+                new Vector2(PartTexture.Width() * 0.5f, 0), //Origin. Uses the width center.
+                1f, //Scale.
+                flipHorizontally | flipVertically,
+                0 //'Layer'. This is always 0 in Terraria.
+            );
             
+            drawData.shader = GetShader(drawInfo);
             
-            drawInfo.DrawDataCache.Add(
-                new DrawData(
-                    PartTexture.Value, //The texture to render.
-                    renderPosition,
-                    currentFrame,
-                    Color.White,
-                    0f, //Rotation.
-                    new Vector2(PartTexture.Width() * 0.5f, 0), //Origin. Uses the width center.
-                    1f, //Scale.
-                    flipHorizontally | flipVertically,
-                    0 //'Layer'. This is always 0 in Terraria.
-                ));
+            drawInfo.DrawDataCache.Add(drawData);
         }
     }
 }

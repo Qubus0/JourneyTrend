@@ -19,6 +19,8 @@ namespace JourneyTrend.Items.Vanity.CyberAngel
         
         protected override Rectangle GetPlayerFrame(PlayerDrawSet drawInfo) => drawInfo.drawPlayer.bodyFrame;
 
+        protected override int GetShader(PlayerDrawSet drawInfo) => drawInfo.cHead;
+        
         public override bool GetDefaultVisibility(PlayerDrawSet drawInfo)
         {
             return (drawInfo.drawPlayer.head == EquipLoader.GetEquipSlot(Mod, "CyberAngelHead", EquipType.Head) ||

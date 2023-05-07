@@ -16,6 +16,8 @@ namespace JourneyTrend.Items.Vanity.CyberAngel
 
         protected override Rectangle GetPlayerFrame(PlayerDrawSet drawInfo) => drawInfo.drawPlayer.legFrame;
         
+        protected override int GetShader(PlayerDrawSet drawInfo) => drawInfo.cLegs;
+        
         public override bool GetDefaultVisibility(PlayerDrawSet drawInfo)
         {
             return drawInfo.drawPlayer.legs == EquipLoader.GetEquipSlot(Mod, "CyberAngelLegs", EquipType.Legs)
