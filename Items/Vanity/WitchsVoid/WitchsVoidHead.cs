@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Terraria.GameContent.Creative;
 using Terraria;
 using Terraria.ID;
@@ -8,7 +9,7 @@ namespace JourneyTrend.Items.Vanity.WitchsVoid
     [AutoloadEquip(EquipType.Head)]
     public class WitchsVoidHead : ModItem
     {
-        private readonly float adj = 0.00392f / 2; //adjusts the rgb value from 0-255 to 0-1 (/2)
+        private readonly Color LightColor = ColorUtils.DimColor(new Color(240, 152, 239), .5f);
 
         public override void SetStaticDefaults()
         {
@@ -27,7 +28,7 @@ namespace JourneyTrend.Items.Vanity.WitchsVoid
 
         public override void EquipFrameEffects(Player player, EquipType type)
         {
-            Lighting.AddLight(player.Center, 240 * adj, 152 * adj, 239 * adj);
+            Lighting.AddLight(player.Center, ColorUtils.ShaderResponsiveColor(LightColor, player.cHead, player));
         }
     }
 }

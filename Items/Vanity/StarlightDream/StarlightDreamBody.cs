@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Terraria.GameContent.Creative;
 using Terraria;
 using Terraria.ID;
@@ -8,7 +9,7 @@ namespace JourneyTrend.Items.Vanity.StarlightDream
     [AutoloadEquip(EquipType.Body)]
     public class StarlightDreamBody : ModItem
     {
-        private readonly float adj = 0.00392f / 2; //adjusts the rgb value from 0-255 to 0-1 (/2)
+        private readonly Color LightColor = ColorUtils.DimColor(new Color(241, 215, 108), .5f);
 
         public override void SetStaticDefaults()
         {
@@ -30,7 +31,7 @@ namespace JourneyTrend.Items.Vanity.StarlightDream
         public override void EquipFrameEffects(Player player, EquipType type)
         {
             player.GetModPlayer<JourneyPlayer>().StarlightDreamBodyEquipped = true;
-            Lighting.AddLight(player.Center, 241 * adj, 215 * adj, 108 * adj);
+            Lighting.AddLight(player.Center, ColorUtils.ShaderResponsiveColor(LightColor, player.cBody, player));
         }
     }
 }

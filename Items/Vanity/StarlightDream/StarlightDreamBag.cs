@@ -11,7 +11,7 @@ namespace JourneyTrend.Items.Vanity.StarlightDream
 {
     public class StarlightDreamBag : ModItem
     {
-        private const float Adj = 0.00392f / 2; //adjusts the rgb value from 0-255 to 0-1 because light is stupid
+        private readonly Vector3 LightColor = ColorUtils.DimColor(new Color(241, 215, 108), 0.5f).ToVector3();
 
         public override void SetStaticDefaults()
         {
@@ -43,11 +43,11 @@ namespace JourneyTrend.Items.Vanity.StarlightDream
         
         public override void Update(ref float gravity, ref float maxFallSpeed)
         {
-            Lighting.AddLight(Item.Center, 241 * Adj, 215 * Adj, 108 * Adj);
+            Lighting.AddLight(Item.Center, LightColor);
             if (Main.dayTime && Main.time == 0)
             {
                 Item.TurnToAir();
-                for (var i = 0; i < 20; i++) Dust.NewDust(Item.Center, 20, 8, 15);
+                for (var i = 0; i < 20; i++) Dust.NewDust(Item.Center, 20, 8, DustID.MagicMirror);
             }
         }
 

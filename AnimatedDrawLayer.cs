@@ -84,20 +84,11 @@ namespace JourneyTrend
                 return Color.White;
 
             // if some glow and white glow is brighter than the base color, use white color
-            if (glow > 0f && GetColorBrightness(Color.White * glow) > GetColorBrightness(baseColor))
+            if (glow > 0f && ColorUtils.GetColorBrightness(Color.White * glow) > ColorUtils.GetColorBrightness(baseColor))
                 return Color.White * glow;
 
             // else, use the shaded color
             return baseColor;
-        }
-
-        private static int GetColorBrightness(Color color)
-        {
-            // https://stackoverflow.com/questions/596216/formula-to-determine-brightness-of-rgb-color
-            return (int)Math.Sqrt(
-                color.R * color.R * .241 +
-                color.G * color.G * .691 +
-                color.B * color.B * .068);
         }
     }
 }

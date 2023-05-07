@@ -12,8 +12,7 @@ namespace JourneyTrend.Items.Vanity.Nightlight
     [AutoloadEquip(EquipType.Body)]
     public class NightlightBody : ModItem
     {
-        // Converts RGB 0-255 ==> RGB 0-1 and halves due to brightness (Cause light is stupid like that)
-        private readonly float adj = 0.00392f / 2;
+        private readonly Color LightColor = ColorUtils.DimColor(new Color(198, 229, 10), 0.5f);
         
         private static Lazy<Asset<Texture2D>> Glowmask;
         public override void Unload()
@@ -46,7 +45,7 @@ namespace JourneyTrend.Items.Vanity.Nightlight
 
         public override void EquipFrameEffects(Player player, EquipType type)
         {
-            Lighting.AddLight(player.Center, 198 * adj, 229 * adj, 10 * adj);
+            Lighting.AddLight(player.Center, ColorUtils.ShaderResponsiveColor(LightColor, player.cBody, player));
         }
 
         public override void AddRecipes()

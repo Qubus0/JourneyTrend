@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Terraria.GameContent.Creative;
 using Terraria;
 using Terraria.ID;
@@ -8,7 +9,7 @@ namespace JourneyTrend.Items.Vanity.ContainmentSuit
     [AutoloadEquip(EquipType.Head)]
     public class ContainmentSuitHead : ModItem
     {
-        private readonly float adj = 0.00392f / 3; //adjusts the rgb value from 0-255 to 0-1 (/3)
+        private readonly Color LightColor = ColorUtils.DimColor(new Color(255, 210, 159), .33f);  
 
         public override void SetStaticDefaults()
         {
@@ -37,7 +38,7 @@ namespace JourneyTrend.Items.Vanity.ContainmentSuit
 
         public override void EquipFrameEffects(Player player, EquipType type)
         {
-            Lighting.AddLight(player.Center, 255 * adj, 210 * adj, 159 * adj);
+            Lighting.AddLight(player.Center, ColorUtils.ShaderResponsiveColor(LightColor, player.cHead, player));
         }
     }
 }

@@ -10,7 +10,7 @@ namespace JourneyTrend.Items.Vanity.DeepDiver
     [AutoloadEquip(EquipType.Head)]
     public class DeepDiverHead : ModItem
     {
-        private readonly float adj = 0.00392f / 2; //adjusts the rgb value from 0-255 to 0-1 (/3)
+        private readonly Color LightColor = new(226, 255, 88);
 
         public override void SetStaticDefaults()
         {
@@ -37,7 +37,7 @@ namespace JourneyTrend.Items.Vanity.DeepDiver
 
         public override void EquipFrameEffects(Player player, EquipType type)
         {
-            Lighting.AddLight(player.Center, 226 * adj, 255 * adj, 88 * adj);
+            Lighting.AddLight(player.Center, ColorUtils.ShaderResponsiveColor(LightColor, player.cHead, player));
         }
     }
 }

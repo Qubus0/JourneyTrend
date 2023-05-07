@@ -11,8 +11,7 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
     [AutoloadEquip(EquipType.Body)]
     public class KnightwalkerBody : ModItem
     {
-        private readonly float
-            adj = 0.00392f / 2; //adjusts the rgb value from 0-255 to 0-1 because light is stupid like that
+        private readonly Color LightColor = ColorUtils.DimColor(new Color(204, 82, 255), 0.5f);
 
         public override void SetStaticDefaults()
         {
@@ -33,12 +32,13 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
         {
             player.GetModPlayer<JourneyPlayer>().KnightwalkerBodyEquipped = true;
 
-            Lighting.AddLight(player.Center, 204 * adj, 82 * adj, 255 * adj);
+            Lighting.AddLight(player.Center, ColorUtils.ShaderResponsiveColor(LightColor, player.cBody, player));
 
             var walkUpShift = player.GetModPlayer<JourneyPlayer>().GetWalkUpShift();
 
             if (player.GetModPlayer<JourneyPlayer>().IsIdle()) return;
             
+            var bodyShader = GameShaders.Armor.GetSecondaryShader(player.cBody, player);
             switch (Main.GameUpdateCount % 4)
             {
                 case 0:
