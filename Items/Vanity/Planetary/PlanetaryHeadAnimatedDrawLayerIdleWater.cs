@@ -21,6 +21,11 @@ namespace JourneyTrend.Items.Vanity.Planetary
             return journeyPlayer.PlanetaryHeadIdleWaterFrameCounter.GetFrameIndex();
         }
 
+        protected override int GetShader(PlayerDrawSet drawInfo)
+        {
+            return drawInfo.cHead;
+        }
+
         // if it will be rendered on the minimap. needs to be parented to head.
         public override bool IsHeadLayer => true;
 

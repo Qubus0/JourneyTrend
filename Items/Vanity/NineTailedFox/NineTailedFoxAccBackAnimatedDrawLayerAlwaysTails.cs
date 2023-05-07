@@ -21,6 +21,11 @@ namespace JourneyTrend.Items.Vanity.NineTailedFox
             return journeyPlayer.IsJumping() ? 10 : journeyPlayer.NineTailedFoxAccBackAnimationFrameCounter.GetFrameIndex();
         }
 
+        protected override int GetShader(PlayerDrawSet drawInfo)
+        {
+            return drawInfo.cWings;
+        }
+
         // before/after from back to front - behind/in front
         public override Position GetDefaultPosition() => new AfterParent(PlayerDrawLayers.Wings);
 

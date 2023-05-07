@@ -35,6 +35,11 @@ namespace JourneyTrend
 
         protected abstract int GetFrameIndex(JourneyPlayer journeyPlayer);
 
+        protected virtual int GetShader(PlayerDrawSet drawInfo)
+        {
+            return -1; // no shader
+        }
+
         protected override void Draw(ref PlayerDrawSet drawInfo)
         {
             var modPlayer = drawInfo.drawPlayer.GetModPlayer<JourneyPlayer>();
@@ -58,18 +63,21 @@ namespace JourneyTrend
             var flipVertically =
                 (int)drawInfo.drawPlayer.gravDir == 1 ? SpriteEffects.None : SpriteEffects.FlipVertically;
 
-            drawInfo.DrawDataCache.Add(
-                new DrawData(
-                    PartTexture.Value, // The texture to render.
-                    renderPosition,
-                    currentFrame,
-                    ApplyGlowToColor(Glow, drawInfo.colorArmorBody),
-                    0f, // Rotation.
-                    new Vector2(PartTexture.Width() * 0.5f, 0), // Origin. Uses the width center.
-                    1f, // Scale.
-                    flipHorizontally | flipVertically,
-                    0 // 'Layer'. This is always 0 in Terraria.
-                ));
+            DrawData drawData = new DrawData(
+                PartTexture.Value, // The texture to render.
+                renderPosition,
+                currentFrame,
+                ApplyGlowToColor(Glow, drawInfo.colorArmorBody),
+                0f, // Rotation.
+                new Vector2(PartTexture.Width() * 0.5f, 0), // Origin. Uses the width center.
+                1f, // Scale.
+                flipHorizontally | flipVertically,
+                0 // 'Layer'. This is always 0 in Terraria.
+            );
+            
+            drawData.shader = GetShader(drawInfo);
+            
+            drawInfo.DrawDataCache.Add(drawData);
         }
 
         private Color ApplyGlowToColor(float glow, Color baseColor)
