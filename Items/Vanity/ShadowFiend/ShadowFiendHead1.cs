@@ -1,5 +1,6 @@
 using Terraria.GameContent.Creative;
 using Terraria;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -40,7 +41,8 @@ namespace JourneyTrend.Items.Vanity.ShadowFiend
         public override void EquipFrameEffects(Player player, EquipType type)
         {
             if (Main.rand.NextFloat() < 0.05f)
-                Dust.NewDust(player.TopLeft, player.width, player.height, DustType<ShadowFiendDust1>());
+                Dust.NewDustDirect(player.TopLeft, player.width, player.height, DustType<ShadowFiendDust1>())
+                    .shader = GameShaders.Armor.GetSecondaryShader(player.cHead, player);
         }
     }
 }

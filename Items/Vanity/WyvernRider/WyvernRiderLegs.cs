@@ -1,6 +1,7 @@
 using Terraria.GameContent.Creative;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent; //for dust
@@ -38,8 +39,9 @@ namespace JourneyTrend.Items.Vanity.WyvernRider
         public override void EquipFrameEffects(Player player, EquipType type)
         {
             if (player.velocity != Vector2.Zero && Main.rand.NextBool(5))
-                Dust.NewDust(player.Center + new Vector2(-5 + player.direction * -10, 16), 10, 2,
-                    DustType<WyvernRiderDust>());
+                Dust.NewDustDirect(player.Center + new Vector2(-5 + player.direction * -10, 16), 10, 2,
+                    DustType<WyvernRiderDust>())
+                    .shader = GameShaders.Armor.GetSecondaryShader(player.cLegs, player);
         }
     }
 }

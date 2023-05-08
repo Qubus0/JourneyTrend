@@ -1,6 +1,7 @@
 using Terraria.GameContent.Creative;
 using Microsoft.Xna.Framework;
 using Terraria;
+using Terraria.Graphics.Shaders;
 using Terraria.ID;
 using Terraria.ModLoader;
 using static Terraria.ModLoader.ModContent;
@@ -34,8 +35,9 @@ namespace JourneyTrend.Items.Vanity.StormConqueror
         public override void EquipFrameEffects(Player player, EquipType type)
         {
             if (player.velocity != Vector2.Zero && Main.rand.NextFloat() < 0.2f)
-                Dust.NewDust(player.Center - new Vector2(player.direction * 10 + 5, 20), 10, 40,
-                    DustType<StormConquerorDust>());
+                Dust.NewDustDirect(player.Center - new Vector2(player.direction * 10 + 5, 20), 10, 40,
+                    DustType<StormConquerorDust>())
+                    .shader = GameShaders.Armor.GetSecondaryShader(player.cHead, player);
         }
     }
 }
