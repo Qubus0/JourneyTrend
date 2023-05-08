@@ -9,7 +9,7 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
 
         private const int SpritePositionOffsetX = -1;
         private const int SpritePositionOffsetY = -32;
-        private const float Glow = 1f;
+        private const float Glow = 0f;
         private const int FrameCount = 20;
 
 
