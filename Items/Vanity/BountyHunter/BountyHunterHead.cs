@@ -10,9 +10,9 @@ namespace JourneyTrend.Items.Vanity.BountyHunter
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Bounty Hunter Mask");
-            Tooltip.SetDefault(
-                "A high-tech battle armour developed by Dr. Tobopolis.\nSome Accidental Disintegrations.\nMade by Tobopolis");
+            // DisplayName.SetDefault("Bounty Hunter Mask");
+            /* Tooltip.SetDefault(
+                "A high-tech battle armour developed by Dr. Tobopolis.\nSome Accidental Disintegrations.\nMade by Tobopolis"); */
 
             ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }

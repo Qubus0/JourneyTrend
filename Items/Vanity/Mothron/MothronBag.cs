@@ -11,8 +11,8 @@ namespace JourneyTrend.Items.Vanity.Mothron
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Mothron Bag");
-            Tooltip.SetDefault("Bag sprite by PeanutSte\n{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("Mothron Bag");
+            // Tooltip.SetDefault("Bag sprite by PeanutSte\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()

@@ -3,17 +3,10 @@
 
 Mods: {
 	JourneyTrend: {
-	    MapObject: {
-	        SewingMachine: Sewing Machine
-	    }
-	
-		NPCName: {
-			VanityTrader: Vanity Trader
-		}
-		
-		Bestiary: {
-			VanityTrader: Finally free to roam this world, now that their otherworldly captor has been vanquished, this trader can offer you a variety of outfits for any occasion. Where they got them from? Well, why do you think they were held captive?
-		}
+		MapObject.SewingMachine: Sewing Machine
+		NPCName.VanityTrader: Vanity Trader
+		Bestiary.VanityTrader: Finally free to roam this world, now that their otherworldly captor has been vanquished, this trader can offer you a variety of outfits for any occasion. Where they got them from? Well, why do you think they were held captive?
+		Conditions.activeMartians: During Martian Madness
 
 		# This is what displays during all of an NPC's happiness levels. Note that the localization key for these should always be "TownNPCMood.*NPCName*.*Mood*" or else it won't display properly.
 		TownNPCMood: {
@@ -25,9 +18,9 @@ Mods: {
 				DislikeCrowded: So many people here... I hope nobody steals my bags.
 				HateCrowded: There are more people here than I can fit in my backpack. That's too many!
 				LikeBiome: "{BiomeName} is nice to present my outfits. But the sand always gets everywhere."
-				LoveBiome: "I love being in {BiomeName}. It has the perfect neutral lighting to show off my outfits!"
-				DislikeBiome: "Everything is blue in {BiomeName}... How are you supposed to see all the pretty colors like this?"
-				HateBiome: "Yuck! There are too many disgusting monsters making all the clothes dirty in  {BiomeName}."
+				LoveBiome: I love being in {BiomeName}. It has the perfect neutral lighting to show off my outfits!
+				DislikeBiome: Everything is blue in {BiomeName}... How are you supposed to see all the pretty colors like this?
+				HateBiome: Yuck! There are too many disgusting monsters making all the clothes dirty in  {BiomeName}.
 				LikeNPC: "{NPCName} knows how to make their outfit look good. I can respect that."
 				LoveNPC: ""
 				DislikeNPC: ""
@@ -38,12 +31,12 @@ Mods: {
 		# This is used to display the NPC's dialogues.
 		Dialogue: {
 			VanityTrader: {
-				ClothierDialogue: "Could you ask if {0} would sow some new outfits for me?"
-				PainterDialogue: "Last time I met them, {0} spilled paint all over me. I was barely able to wash it all out."
+				ClothierDialogue: Could you ask if {0} would sow some new outfits for me?
+				PainterDialogue: Last time I met them, {0} spilled paint all over me. I was barely able to wash it all out.
 				DyeTraderDialogue: "{0} really has the most beautiful colors. But I'm a little concerned about his obsession with strange plants."
 				NamedCarl1: I do not kill people. That is my least favourite thing to do.
 				NamedCarl2: I have the best hat.
-				SewingMachine: "Have you ever worked with a sewing machine [i:{0}] before? It's perfect if you want to give your familiar outfits a little variation."
+				SewingMachine: Have you ever worked with a sewing machine [i:{0}] before? It's perfect if you want to give your familiar outfits a little variation.
 				RareDialogue: Have you tried fried harpy wing before? Delicious.
 				SelfDialogue: "{0} has wears if you have coin."
 				StandardDialogue1: What? Oh, that. No, I don't have a face.
@@ -54,11 +47,1098 @@ Mods: {
 				StandardDialogue6: Got some rare things on sale, stranger!
 			}
 		}
-		
-		NpcShopButtons: {
-		    VanityTrader: {
-		        button2: "Restock Bags ({0}Plt)"
-		    }
+
+		NpcShopButtons.VanityTrader.button2: Restock Bags ({0}Plt)
+
+		Items: {
+			PoweredPanoplyLegs: {
+				Tooltip: ""
+				DisplayName: Powered Panoply Legs
+			}
+
+			Hotwings: {
+				DisplayName: Hotwings
+				Tooltip: ""
+			}
+
+			RookieBag: {
+				DisplayName: Rookie Bag
+				Tooltip: ""
+			}
+
+			RookieBody: {
+				DisplayName: Rookie Body
+				Tooltip: ""
+			}
+
+			RookieHead: {
+				DisplayName: Rookie Head
+				Tooltip: ""
+			}
+
+			RookieLegs: {
+				DisplayName: Rookie Legs
+				Tooltip: ""
+			}
+
+			SeaBuckthornTeaBag: {
+				DisplayName: Sea Buckthorn Tea Bag
+				Tooltip: ""
+			}
+
+			SeaBuckthornTeaBody: {
+				DisplayName: Sea Buckthorn Tea Body
+				Tooltip: ""
+			}
+
+			SeaBuckthornTeaHead: {
+				DisplayName: Sea Buckthorn Tea Head
+				Tooltip: ""
+			}
+
+			SeaBuckthornTeaLegs: {
+				DisplayName: Sea Buckthorn Tea Legs
+				Tooltip: ""
+			}
+
+			SeaHunterBag: {
+				DisplayName: Sea Hunter Bag
+				Tooltip: ""
+			}
+
+			SeaHunterBody: {
+				DisplayName: Sea Hunter Body
+				Tooltip: ""
+			}
+
+			SeaHunterHead: {
+				DisplayName: Sea Hunter Head
+				Tooltip: ""
+			}
+
+			SeaHunterLegs: {
+				DisplayName: Sea Hunter Legs
+				Tooltip: ""
+			}
+
+			ShadowFiendBag: {
+				DisplayName: Shadow Fiend Bag
+				Tooltip: ""
+			}
+
+			ShadowFiendBag1: {
+				DisplayName: Shadow Fiend Bag1
+				Tooltip: ""
+			}
+
+			ShadowFiendBody: {
+				DisplayName: Shadow Fiend Body
+				Tooltip: ""
+			}
+
+			ShadowFiendBody1: {
+				DisplayName: Shadow Fiend Body1
+				Tooltip: ""
+			}
+
+			ShadowFiendHead: {
+				DisplayName: Shadow Fiend Head
+				Tooltip: ""
+			}
+
+			ShadowFiendHead1: {
+				DisplayName: Shadow Fiend Head1
+				Tooltip: ""
+			}
+
+			ShadowFiendLegs: {
+				DisplayName: Shadow Fiend Legs
+				Tooltip: ""
+			}
+
+			ShadowFiendLegs1: {
+				DisplayName: Shadow Fiend Legs1
+				Tooltip: ""
+			}
+
+			ShadowSpellBag: {
+				DisplayName: Shadow Spell Bag
+				Tooltip: ""
+			}
+
+			ShadowSpellBody: {
+				DisplayName: Shadow Spell Body
+				Tooltip: ""
+			}
+
+			ShadowSpellHead: {
+				DisplayName: Shadow Spell Head
+				Tooltip: ""
+			}
+
+			ShadowSpellLegs: {
+				DisplayName: Shadow Spell Legs
+				Tooltip: ""
+			}
+
+			SharkBag: {
+				DisplayName: Shark Bag
+				Tooltip: ""
+			}
+
+			SharkBody: {
+				DisplayName: Shark Body
+				Tooltip: ""
+			}
+
+			SharkHead: {
+				DisplayName: Shark Head
+				Tooltip: ""
+			}
+
+			SharkLegs: {
+				DisplayName: Shark Legs
+				Tooltip: ""
+			}
+
+			ShootsatonBag: {
+				DisplayName: Shootsaton Bag
+				Tooltip: ""
+			}
+
+			ShootsatonBody: {
+				DisplayName: Shootsaton Body
+				Tooltip: ""
+			}
+
+			ShootsatonHead: {
+				DisplayName: Shootsaton Head
+				Tooltip: ""
+			}
+
+			ShootsatonLegs: {
+				DisplayName: Shootsaton Legs
+				Tooltip: ""
+			}
+
+			StarlightDreamBag: {
+				DisplayName: Starlight Dream Bag
+				Tooltip: ""
+			}
+
+			StarlightDreamBody: {
+				DisplayName: Starlight Dream Body
+				Tooltip: ""
+			}
+
+			StarlightDreamHead: {
+				DisplayName: Starlight Dream Head
+				Tooltip: ""
+			}
+
+			StarlightDreamLegs: {
+				DisplayName: Starlight Dream Legs
+				Tooltip: ""
+			}
+
+			StormConquerorBag: {
+				DisplayName: Storm Conqueror Bag
+				Tooltip: ""
+			}
+
+			StormConquerorBody: {
+				DisplayName: Storm Conqueror Body
+				Tooltip: ""
+			}
+
+			StormConquerorHead: {
+				DisplayName: Storm Conqueror Head
+				Tooltip: ""
+			}
+
+			StormConquerorLegs: {
+				DisplayName: Storm Conqueror Legs
+				Tooltip: ""
+			}
+
+			SwampHorrorBag: {
+				DisplayName: Swamp Horror Bag
+				Tooltip: ""
+			}
+
+			SwampHorrorBody: {
+				DisplayName: Swamp Horror Body
+				Tooltip: ""
+			}
+
+			SwampHorrorHead: {
+				DisplayName: Swamp Horror Head
+				Tooltip: ""
+			}
+
+			SwampHorrorLegs: {
+				DisplayName: Swamp Horror Legs
+				Tooltip: ""
+			}
+
+			TerraBag: {
+				DisplayName: Terra Bag
+				Tooltip: ""
+			}
+
+			TerraBody: {
+				DisplayName: Terra Body
+				Tooltip: ""
+			}
+
+			TerraHead: {
+				DisplayName: Terra Head
+				Tooltip: ""
+			}
+
+			TerraHead1: {
+				DisplayName: Terra Head1
+				Tooltip: ""
+			}
+
+			TerraLegs: {
+				DisplayName: Terra Legs
+				Tooltip: ""
+			}
+
+			TravellerBag: {
+				DisplayName: Traveller Bag
+				Tooltip: ""
+			}
+
+			TravellerBody: {
+				DisplayName: Traveller Body
+				Tooltip: ""
+			}
+
+			TravellerHead: {
+				DisplayName: Traveller Head
+				Tooltip: ""
+			}
+
+			TravellerLegs: {
+				DisplayName: Traveller Legs
+				Tooltip: ""
+			}
+
+			TreesuitBag: {
+				DisplayName: Treesuit Bag
+				Tooltip: ""
+			}
+
+			TreesuitBody: {
+				DisplayName: Treesuit Body
+				Tooltip: ""
+			}
+
+			TreesuitHead: {
+				DisplayName: Treesuit Head
+				Tooltip: ""
+			}
+
+			TreesuitLegs: {
+				DisplayName: Treesuit Legs
+				Tooltip: ""
+			}
+
+			WitchsVoidBag: {
+				DisplayName: Witchs Void Bag
+				Tooltip: ""
+			}
+
+			WitchsVoidBody: {
+				DisplayName: Witchs Void Body
+				Tooltip: ""
+			}
+
+			WitchsVoidHead: {
+				DisplayName: Witchs Void Head
+				Tooltip: ""
+			}
+
+			WitchsVoidLegs: {
+				DisplayName: Witchs Void Legs
+				Tooltip: ""
+			}
+
+			WyvernRiderBag: {
+				DisplayName: Wyvern Rider Bag
+				Tooltip: ""
+			}
+
+			WyvernRiderBody: {
+				DisplayName: Wyvern Rider Body
+				Tooltip: ""
+			}
+
+			WyvernRiderHead: {
+				DisplayName: Wyvern Rider Head
+				Tooltip: ""
+			}
+
+			WyvernRiderLegs: {
+				DisplayName: Wyvern Rider Legs
+				Tooltip: ""
+			}
+
+			WyvernRiderWings: {
+				DisplayName: Wyvern Rider Wings
+				Tooltip: ""
+			}
+
+			PoweredPanoplyHead: {
+				Tooltip: ""
+				DisplayName: Powered Panoply Head
+			}
+
+			PoweredPanoplyBody: {
+				Tooltip: ""
+				DisplayName: Powered Panoply Body
+			}
+
+			PoweredPanoplyBag: {
+				Tooltip: ""
+				DisplayName: Powered Panoply Bag
+			}
+
+			PlanetaryLegs: {
+				Tooltip: ""
+				DisplayName: Planetary Legs
+			}
+
+			PlanetaryHead: {
+				Tooltip: ""
+				DisplayName: Planetary Head
+			}
+
+			PlanetaryBody: {
+				Tooltip: ""
+				DisplayName: Planetary Body
+			}
+
+			PlanetaryBag: {
+				Tooltip: ""
+				DisplayName: Planetary Bag
+			}
+
+			PilotHead: {
+				Tooltip: ""
+				DisplayName: Pilot Head
+			}
+
+			PilotBody: {
+				Tooltip: ""
+				DisplayName: Pilot Body
+			}
+
+			PilotBag: {
+				Tooltip: ""
+				DisplayName: Pilot Bag
+			}
+
+			NineTailedFoxLegs: {
+				Tooltip: ""
+				DisplayName: Nine Tailed Fox Legs
+			}
+
+			NineTailedFoxHead: {
+				Tooltip: ""
+				DisplayName: Nine Tailed Fox Head
+			}
+
+			NineTailedFoxBody: {
+				Tooltip: ""
+				DisplayName: Nine Tailed Fox Body
+			}
+
+			NineTailedFoxBag: {
+				Tooltip: ""
+				DisplayName: Nine Tailed Fox Bag
+			}
+
+			NineTailedFoxAcc: {
+				Tooltip: ""
+				DisplayName: Nine Tailed Fox Acc
+			}
+
+			NightlightLegs: {
+				Tooltip: ""
+				DisplayName: Nightlight Legs
+			}
+
+			NightlightHead: {
+				Tooltip: ""
+				DisplayName: Nightlight Head
+			}
+
+			NightlightBody: {
+				Tooltip: ""
+				DisplayName: Nightlight Body
+			}
+
+			NightlightBag: {
+				Tooltip: ""
+				DisplayName: Nightlight Bag
+			}
+
+			NexusLegs: {
+				Tooltip: ""
+				DisplayName: Nexus Legs
+			}
+
+			NexusHead: {
+				Tooltip: ""
+				DisplayName: Nexus Head
+			}
+
+			NexusBody: {
+				Tooltip: ""
+				DisplayName: Nexus Body
+			}
+
+			NexusBag: {
+				Tooltip: ""
+				DisplayName: Nexus Bag
+			}
+
+			MushroomAlchemistLegs: {
+				Tooltip: ""
+				DisplayName: Mushroom Alchemist Legs
+			}
+
+			MushroomAlchemistHead: {
+				Tooltip: ""
+				DisplayName: Mushroom Alchemist Head
+			}
+
+			MushroomAlchemistBody: {
+				Tooltip: ""
+				DisplayName: Mushroom Alchemist Body
+			}
+
+			MushroomAlchemistBag: {
+				Tooltip: ""
+				DisplayName: Mushroom Alchemist Bag
+			}
+
+			MothronLegs: {
+				Tooltip: ""
+				DisplayName: Mothron Legs
+			}
+
+			MothronHead: {
+				Tooltip: ""
+				DisplayName: Mothron Head
+			}
+
+			MothronBody: {
+				Tooltip: ""
+				DisplayName: Mothron Body
+			}
+
+			MothronBag: {
+				Tooltip: ""
+				DisplayName: Mothron Bag
+			}
+
+			MagicGrillLegs: {
+				Tooltip: ""
+				DisplayName: Magic Grill Legs
+			}
+
+			MagicGrillHead: {
+				Tooltip: ""
+				DisplayName: Magic Grill Head
+			}
+
+			MagicGrillBody: {
+				Tooltip: ""
+				DisplayName: Magic Grill Body
+			}
+
+			MagicGrillBag: {
+				Tooltip: ""
+				DisplayName: Magic Grill Bag
+			}
+
+			KuijiaLegs: {
+				Tooltip: ""
+				DisplayName: Kuijia Legs
+			}
+
+			KuijiaHead: {
+				Tooltip: ""
+				DisplayName: Kuijia Head
+			}
+
+			KuijiaBody: {
+				Tooltip: ""
+				DisplayName: Kuijia Body
+			}
+
+			KuijiaBag: {
+				Tooltip: ""
+				DisplayName: Kuijia Bag
+			}
+
+			KnightwalkerLegs: {
+				Tooltip: ""
+				DisplayName: Knightwalker Legs
+			}
+
+			KnightwalkerHead: {
+				Tooltip: ""
+				DisplayName: Knightwalker Head
+			}
+
+			KnightwalkerBody: {
+				Tooltip: ""
+				DisplayName: Knightwalker Body
+			}
+
+			KnightwalkerBag: {
+				Tooltip: ""
+				DisplayName: Knightwalker Bag
+			}
+
+			KnightOfJudgementLegs: {
+				Tooltip: ""
+				DisplayName: Knight Of Judgement Legs
+			}
+
+			KnightOfJudgementHead: {
+				Tooltip: ""
+				DisplayName: Knight Of Judgement Head
+			}
+
+			KnightOfJudgementBody: {
+				Tooltip: ""
+				DisplayName: Knight Of Judgement Body
+			}
+
+			KnightOfJudgementBag: {
+				Tooltip: ""
+				DisplayName: Knight Of Judgement Bag
+			}
+
+			KingfisherLegs: {
+				Tooltip: ""
+				DisplayName: Kingfisher Legs
+			}
+
+			KingfisherHead: {
+				Tooltip: ""
+				DisplayName: Kingfisher Head
+			}
+
+			KingfisherBody: {
+				Tooltip: ""
+				DisplayName: Kingfisher Body
+			}
+
+			KingfisherBag: {
+				Tooltip: ""
+				DisplayName: Kingfisher Bag
+			}
+
+			JourneymanLegs: {
+				Tooltip: ""
+				DisplayName: Journeyman Legs
+			}
+
+			JourneymanHead: {
+				Tooltip: ""
+				DisplayName: Journeyman Head
+			}
+
+			JourneymanBody: {
+				Tooltip: ""
+				DisplayName: Journeyman Body
+			}
+
+			JourneymanBag: {
+				Tooltip: ""
+				DisplayName: Journeyman Bag
+			}
+
+			IronCoreLegs: {
+				Tooltip: ""
+				DisplayName: Iron Core Legs
+			}
+
+			IronCoreHead: {
+				Tooltip: ""
+				DisplayName: Iron Core Head
+			}
+
+			IronCoreBody: {
+				Tooltip: ""
+				DisplayName: Iron Core Body
+			}
+
+			IronCoreBag: {
+				Tooltip: ""
+				DisplayName: Iron Core Bag
+			}
+
+			InvisibleLegs: {
+				Tooltip: ""
+				DisplayName: Invisible Legs
+			}
+
+			InvisibleHead: {
+				Tooltip: ""
+				DisplayName: Invisible Head
+			}
+
+			InvisibleBody: {
+				Tooltip: ""
+				DisplayName: Invisible Body
+			}
+
+			InvisibleBag: {
+				Tooltip: ""
+				DisplayName: Invisible Bag
+			}
+
+			HivenetWings: {
+				Tooltip: ""
+				DisplayName: Hivenet Wings
+			}
+
+			HivenetLegs: {
+				Tooltip: ""
+				DisplayName: Hivenet Legs
+			}
+
+			HivenetHead: {
+				Tooltip: ""
+				DisplayName: Hivenet Head
+			}
+
+			HivenetBody: {
+				Tooltip: ""
+				DisplayName: Hivenet Body
+			}
+
+			HivenetBag: {
+				Tooltip: ""
+				DisplayName: Hivenet Bag
+			}
+
+			HellWardenLegs: {
+				Tooltip: ""
+				DisplayName: Hell Warden Legs
+			}
+
+			HellWardenHead: {
+				Tooltip: ""
+				DisplayName: Hell Warden Head
+			}
+
+			HellWardenBody: {
+				Tooltip: ""
+				DisplayName: Hell Warden Body
+			}
+
+			HellWardenBag: {
+				Tooltip: ""
+				DisplayName: Hell Warden Bag
+			}
+
+			GridLegs: {
+				Tooltip: ""
+				DisplayName: Grid Legs
+			}
+
+			GridHead: {
+				Tooltip: ""
+				DisplayName: Grid Head
+			}
+
+			GridBody: {
+				Tooltip: ""
+				DisplayName: Grid Body
+			}
+
+			GridBag: {
+				Tooltip: ""
+				DisplayName: Grid Bag
+			}
+
+			GraniteLegs: {
+				Tooltip: ""
+				DisplayName: Granite Legs
+			}
+
+			GraniteHead: {
+				Tooltip: ""
+				DisplayName: Granite Head
+			}
+
+			GraniteBody: {
+				Tooltip: ""
+				DisplayName: Granite Body
+			}
+
+			GraniteBag: {
+				Tooltip: ""
+				DisplayName: Granite Bag
+			}
+
+			ForestDruidHead2: {
+				Tooltip: ""
+				DisplayName: Forest Druid Head2
+			}
+
+			ForestDruidHead1: {
+				Tooltip: ""
+				DisplayName: Forest Druid Head1
+			}
+
+			ForestDruidHead: {
+				Tooltip: ""
+				DisplayName: Forest Druid Head
+			}
+
+			ForestDruidBody: {
+				Tooltip: ""
+				DisplayName: Forest Druid Body
+			}
+
+			ForestDruidBag: {
+				Tooltip: ""
+				DisplayName: Forest Druid Bag
+			}
+
+			DualityLegs: {
+				Tooltip: ""
+				DisplayName: Duality Legs
+			}
+
+			DualityHead: {
+				Tooltip: ""
+				DisplayName: Duality Head
+			}
+
+			DualityBody: {
+				Tooltip: ""
+				DisplayName: Duality Body
+			}
+
+			DualityBag: {
+				Tooltip: ""
+				DisplayName: Duality Bag
+			}
+
+			DraugrLegs: {
+				Tooltip: ""
+				DisplayName: Draugr Legs
+			}
+
+			DraugrHead: {
+				Tooltip: ""
+				DisplayName: Draugr Head
+			}
+
+			DraugrBody: {
+				Tooltip: ""
+				DisplayName: Draugr Body
+			}
+
+			DraugrBag: {
+				Tooltip: ""
+				DisplayName: Draugr Bag
+			}
+
+			DeepDiverLegs: {
+				Tooltip: ""
+				DisplayName: Deep Diver Legs
+			}
+
+			DeepDiverHead: {
+				Tooltip: ""
+				DisplayName: Deep Diver Head
+			}
+
+			DeepDiverBody: {
+				Tooltip: ""
+				DisplayName: Deep Diver Body
+			}
+
+			DeepDiverBag: {
+				Tooltip: ""
+				DisplayName: Deep Diver Bag
+			}
+
+			CyberAngelLegs: {
+				Tooltip: ""
+				DisplayName: Cyber Angel Legs
+			}
+
+			CyberAngelHead1: {
+				Tooltip: ""
+				DisplayName: Cyber Angel Head1
+			}
+
+			CyberAngelHead: {
+				Tooltip: ""
+				DisplayName: Cyber Angel Head
+			}
+
+			CyberAngelBody: {
+				Tooltip: ""
+				DisplayName: Cyber Angel Body
+			}
+
+			CyberAngelBag: {
+				Tooltip: ""
+				DisplayName: Cyber Angel Bag
+			}
+
+			CrystalLegacyLegs: {
+				Tooltip: ""
+				DisplayName: Crystal Legacy Legs
+			}
+
+			CrystalLegacyHead: {
+				Tooltip: ""
+				DisplayName: Crystal Legacy Head
+			}
+
+			CrystalLegacyBody: {
+				Tooltip: ""
+				DisplayName: Crystal Legacy Body
+			}
+
+			CrystalLegacyBag: {
+				Tooltip: ""
+				DisplayName: Crystal Legacy Bag
+			}
+
+			CosmicTerrorLegs: {
+				Tooltip: ""
+				DisplayName: Cosmic Terror Legs
+			}
+
+			CosmicTerrorHead: {
+				Tooltip: ""
+				DisplayName: Cosmic Terror Head
+			}
+
+			CosmicTerrorBody: {
+				Tooltip: ""
+				DisplayName: Cosmic Terror Body
+			}
+
+			CosmicTerrorBag: {
+				Tooltip: ""
+				DisplayName: Cosmic Terror Bag
+			}
+
+			ContainmentSuitLegs: {
+				Tooltip: ""
+				DisplayName: Containment Suit Legs
+			}
+
+			ContainmentSuitHead: {
+				Tooltip: ""
+				DisplayName: Containment Suit Head
+			}
+
+			ContainmentSuitBody: {
+				Tooltip: ""
+				DisplayName: Containment Suit Body
+			}
+
+			ContainmentSuitBag: {
+				Tooltip: ""
+				DisplayName: Containment Suit Bag
+			}
+
+			BubbleheadLegs: {
+				Tooltip: ""
+				DisplayName: Bubblehead Legs
+			}
+
+			BubbleheadHead6: {
+				Tooltip: ""
+				DisplayName: Bubblehead Head6
+			}
+
+			BubbleheadHead5: {
+				Tooltip: ""
+				DisplayName: Bubblehead Head5
+			}
+
+			BubbleheadHead4: {
+				Tooltip: ""
+				DisplayName: Bubblehead Head4
+			}
+
+			BubbleheadHead3: {
+				Tooltip: ""
+				DisplayName: Bubblehead Head3
+			}
+
+			BubbleheadHead2: {
+				Tooltip: ""
+				DisplayName: Bubblehead Head2
+			}
+
+			BubbleheadHead1: {
+				Tooltip: ""
+				DisplayName: Bubblehead Head1
+			}
+
+			BubbleheadHead: {
+				Tooltip: ""
+				DisplayName: Bubblehead Head
+			}
+
+			BubbleheadBody: {
+				Tooltip: ""
+				DisplayName: Bubblehead Body
+			}
+
+			BubbleheadBag: {
+				Tooltip: ""
+				DisplayName: Bubblehead Bag
+			}
+
+			BrokenHeroLegs: {
+				Tooltip: ""
+				DisplayName: Broken Hero Legs
+			}
+
+			BrokenHeroHead: {
+				Tooltip: ""
+				DisplayName: Broken Hero Head
+			}
+
+			BrokenHeroBody: {
+				Tooltip: ""
+				DisplayName: Broken Hero Body
+			}
+
+			BrokenHeroBag: {
+				Tooltip: ""
+				DisplayName: Broken Hero Bag
+			}
+
+			BountyHunterLegs: {
+				Tooltip: ""
+				DisplayName: Bounty Hunter Legs
+			}
+
+			BountyHunterHead: {
+				Tooltip: ""
+				DisplayName: Bounty Hunter Head
+			}
+
+			BountyHunterBody: {
+				Tooltip: ""
+				DisplayName: Bounty Hunter Body
+			}
+
+			BountyHunterBag: {
+				Tooltip: ""
+				DisplayName: Bounty Hunter Bag
+			}
+
+			BirdieLegs: {
+				Tooltip: ""
+				DisplayName: Birdie Legs
+			}
+
+			BirdieHead: {
+				Tooltip: ""
+				DisplayName: Birdie Head
+			}
+
+			BirdieBody: {
+				Tooltip: ""
+				DisplayName: Birdie Body
+			}
+
+			BirdieBag: {
+				Tooltip: ""
+				DisplayName: Birdie Bag
+			}
+
+			ArcaneExosuitLegs: {
+				Tooltip: ""
+				DisplayName: Arcane Exosuit Legs
+			}
+
+			ArcaneExosuitHead: {
+				Tooltip: ""
+				DisplayName: Arcane Exosuit Head
+			}
+
+			ArcaneExosuitBody: {
+				Tooltip: ""
+				DisplayName: Arcane Exosuit Body
+			}
+
+			ArcaneExosuitBag: {
+				Tooltip: ""
+				DisplayName: Arcane Exosuit Bag
+			}
+
+			AndromedaPilotLegs: {
+				Tooltip: ""
+				DisplayName: Andromeda Pilot Legs
+			}
+
+			AndromedaPilotHead: {
+				Tooltip: ""
+				DisplayName: Andromeda Pilot Head
+			}
+
+			AndromedaPilotBody: {
+				Tooltip: ""
+				DisplayName: Andromeda Pilot Body
+			}
+
+			AndromedaPilotBag: {
+				Tooltip: ""
+				DisplayName: Andromeda Pilot Bag
+			}
+
+			SewingMachine: {
+				Tooltip: ""
+				DisplayName: Sewing Machine
+			}
 		}
+
+		NPCs: {
+			VanityTrader: {
+				DisplayName: Vanity Trader
+
+				TownNPCMood: {
+					Content: "{$Mods.JourneyTrend.TownNPCMood.VanityTrader.Content}"
+					NoHome: "{$Mods.JourneyTrend.TownNPCMood.VanityTrader.NoHome}"
+					FarFromHome: "{$Mods.JourneyTrend.TownNPCMood.VanityTrader.FarFromHome}"
+					LoveSpace: "{$Mods.JourneyTrend.TownNPCMood.VanityTrader.LoveSpace}"
+					DislikeCrowded: "{$Mods.JourneyTrend.TownNPCMood.VanityTrader.DislikeCrowded}"
+					HateCrowded: "{$Mods.JourneyTrend.TownNPCMood.VanityTrader.HateCrowded}"
+					LoveBiome: "{$Mods.JourneyTrend.TownNPCMood.VanityTrader.LoveBiome}"
+					LikeBiome: "{$Mods.JourneyTrend.TownNPCMood.VanityTrader.LikeBiome}"
+					DislikeBiome: "{$Mods.JourneyTrend.TownNPCMood.VanityTrader.DislikeBiome}"
+					HateBiome: "{$Mods.JourneyTrend.TownNPCMood.VanityTrader.HateBiome}"
+					LikeNPC: "{$Mods.JourneyTrend.TownNPCMood.VanityTrader.LikeNPC}"
+					LikeNPC_Princess: I like {NPCName}.
+					Princess_LovesNPC: I like {NPCName}.
+				}
+			}
+		}
+
+		Tiles.SewingMachine.MapEntry: Sewing Machine
 	}
 }

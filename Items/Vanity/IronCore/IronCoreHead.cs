@@ -10,9 +10,9 @@ namespace JourneyTrend.Items.Vanity.IronCore
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Helmet of the Iron Core");
-            Tooltip.SetDefault(
-                "A rusty iron helmet from a knight long dead.\nIt's heavy, cold, and not very helpful.\nMade by TunaToda & RealStiel");
+            // DisplayName.SetDefault("Helmet of the Iron Core");
+            /* Tooltip.SetDefault(
+                "A rusty iron helmet from a knight long dead.\nIt's heavy, cold, and not very helpful.\nMade by TunaToda & RealStiel"); */
 
             ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }

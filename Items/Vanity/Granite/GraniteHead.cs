@@ -11,8 +11,8 @@ namespace JourneyTrend.Items.Vanity.Granite
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Granite Golem Greathelm");
-            Tooltip.SetDefault("Made by EpicCrownKing");
+            // DisplayName.SetDefault("Granite Golem Greathelm");
+            // Tooltip.SetDefault("Made by EpicCrownKing");
             
             ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }

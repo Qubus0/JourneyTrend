@@ -11,8 +11,8 @@ namespace JourneyTrend.Items.Vanity.Traveller
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("The Traveller's Bag");
-            Tooltip.SetDefault("Spriting assisted by VaeloroK\n{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("The Traveller's Bag");
+            // Tooltip.SetDefault("Spriting assisted by VaeloroK\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()

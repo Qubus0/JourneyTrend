@@ -11,8 +11,8 @@ namespace JourneyTrend.Items.Vanity.Hivenet
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Hivenet Bag");
-            Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("Hivenet Bag");
+            // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()

@@ -11,8 +11,8 @@ namespace JourneyTrend.Items.Vanity.HellWarden
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Hell Warden's Bag");
-            Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("Hell Warden's Bag");
+            // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()

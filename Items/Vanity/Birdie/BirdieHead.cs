@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Vanity.Birdie
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Birdie Headgear");
-            Tooltip.SetDefault("Go ahead, dominate this golf course!\nMade by Pyromma");
+            // DisplayName.SetDefault("Birdie Headgear");
+            // Tooltip.SetDefault("Go ahead, dominate this golf course!\nMade by Pyromma");
         }
 
         public override void SetDefaults()

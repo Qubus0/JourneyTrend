@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Vanity.BrokenHero
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Broken Hero Greaves");
-            Tooltip.SetDefault("Eerily fits you perfectly\nMade by Kirichin");
+            // DisplayName.SetDefault("Broken Hero Greaves");
+            // Tooltip.SetDefault("Eerily fits you perfectly\nMade by Kirichin");
         }
 
         public override void SetDefaults()

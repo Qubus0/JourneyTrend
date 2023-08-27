@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Vanity.ArcaneExosuit
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Arcane Exosuit Skull");
-            Tooltip.SetDefault("Resembles the skull of a long extinct species\nMade by Faskeon");
+            // DisplayName.SetDefault("Arcane Exosuit Skull");
+            // Tooltip.SetDefault("Resembles the skull of a long extinct species\nMade by Faskeon");
 
             ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }

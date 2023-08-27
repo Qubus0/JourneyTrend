@@ -11,8 +11,8 @@ namespace JourneyTrend.Items.Vanity.Invisible
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Invisible");
-            Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("Invisible");
+            // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()

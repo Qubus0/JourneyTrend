@@ -20,9 +20,9 @@ namespace JourneyTrend.Items.Vanity.CyberAngel
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Cyber Coat");
-            Tooltip.SetDefault(
-                "The energy is used to purify the corruption and the crimson of the world.\nMade by Rariaz");
+            // DisplayName.SetDefault("Cyber Coat");
+            /* Tooltip.SetDefault(
+                "The energy is used to purify the corruption and the crimson of the world.\nMade by Rariaz"); */
 
             ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false;
             

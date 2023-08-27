@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Vanity.SeaBuckthornTea
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Butler's Pants and Shoes");
-            Tooltip.SetDefault("Cleaned-ironed-polished!\nMade by VaeloroK");
+            // DisplayName.SetDefault("Butler's Pants and Shoes");
+            // Tooltip.SetDefault("Cleaned-ironed-polished!\nMade by VaeloroK");
         }
 
         public override void SetDefaults()

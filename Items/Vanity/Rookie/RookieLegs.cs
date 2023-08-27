@@ -11,8 +11,8 @@ namespace JourneyTrend.Items.Vanity.Rookie
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Rookie Base");
-            Tooltip.SetDefault("Stay Grounded\nMade by PeanutSte");
+            // DisplayName.SetDefault("Rookie Base");
+            // Tooltip.SetDefault("Stay Grounded\nMade by PeanutSte");
 
             ArmorIDs.Legs.Sets.OverridesLegs[Item.legSlot] = true;
         }

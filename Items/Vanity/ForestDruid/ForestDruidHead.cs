@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Vanity.ForestDruid
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Forest Druid's Horns");
-            Tooltip.SetDefault("Like animal horns, branches have grown in your head\nMade by Kohi_aue");
+            // DisplayName.SetDefault("Forest Druid's Horns");
+            // Tooltip.SetDefault("Like animal horns, branches have grown in your head\nMade by Kohi_aue");
 
             ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
         }

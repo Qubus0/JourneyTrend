@@ -12,8 +12,8 @@ namespace JourneyTrend.Items.Vanity.Rookie
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Rookie Body");
-            Tooltip.SetDefault("Life is never just black and white\nMade by PeanutSte");
+            // DisplayName.SetDefault("Rookie Body");
+            // Tooltip.SetDefault("Life is never just black and white\nMade by PeanutSte");
 
             ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = true;
             ArmorIDs.Body.Sets.HidesTopSkin[Item.bodySlot] = true;

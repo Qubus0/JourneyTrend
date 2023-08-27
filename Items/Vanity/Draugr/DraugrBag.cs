@@ -11,8 +11,8 @@ namespace JourneyTrend.Items.Vanity.Draugr
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Draugr Bag");
-            Tooltip.SetDefault("Spriting assisted by Faskeon \n {$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("Draugr Bag");
+            // Tooltip.SetDefault("Spriting assisted by Faskeon \n {$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()

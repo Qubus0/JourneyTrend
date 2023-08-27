@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Vanity.NineTailedFox
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Nine-Tailed Fox Chestplate");
-            Tooltip.SetDefault("Made by Invalid");
+            // DisplayName.SetDefault("Nine-Tailed Fox Chestplate");
+            // Tooltip.SetDefault("Made by Invalid");
 
             ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = false;
         }

@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Vanity.NineTailedFox
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Nine-Tailed Fox Ears");
-            Tooltip.SetDefault("Made by Invalid");
+            // DisplayName.SetDefault("Nine-Tailed Fox Ears");
+            // Tooltip.SetDefault("Made by Invalid");
 
             ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
         }

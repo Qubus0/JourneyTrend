@@ -11,8 +11,8 @@ namespace JourneyTrend.Items.Vanity.PoweredPanoply
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Powered Panoply Bag");
-            Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("Powered Panoply Bag");
+            // Tooltip.SetDefault("{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()

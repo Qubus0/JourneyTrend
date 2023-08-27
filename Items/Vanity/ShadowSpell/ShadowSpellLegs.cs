@@ -12,8 +12,8 @@ namespace JourneyTrend.Items.Vanity.ShadowSpell
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Shadow Spell Pants");
-            Tooltip.SetDefault("Worn by the forgotten clan of the Shadowflame Shamans.\nMade by Romanov/Ammagon");
+            // DisplayName.SetDefault("Shadow Spell Pants");
+            // Tooltip.SetDefault("Worn by the forgotten clan of the Shadowflame Shamans.\nMade by Romanov/Ammagon");
         }
 
         public override void SetDefaults()

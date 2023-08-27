@@ -11,8 +11,8 @@ namespace JourneyTrend.Items.Vanity.CosmicTerror
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Cosmic Terror Bag");
-            Tooltip.SetDefault("Bag sprite by PeanutSte\n{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("Cosmic Terror Bag");
+            // Tooltip.SetDefault("Bag sprite by PeanutSte\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()

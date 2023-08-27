@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Vanity.AndromedaPilot
         public override void SetStaticDefaults()
         {
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Andromeda Pilot Breastplate");
-            Tooltip.SetDefault("Let there be a constellation with your name on it\nMade by Nedrilax");
+            // DisplayName.SetDefault("Andromeda Pilot Breastplate");
+            // Tooltip.SetDefault("Let there be a constellation with your name on it\nMade by Nedrilax");
         }
 
         public override void SetDefaults()

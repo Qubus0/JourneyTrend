@@ -12,8 +12,8 @@ namespace JourneyTrend.Items.Vanity.Kuijia
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Kuijia Legmail");
-            Tooltip.SetDefault("Used by fighters for splash and impact protection.\nMade by PatisNow");
+            // DisplayName.SetDefault("Kuijia Legmail");
+            // Tooltip.SetDefault("Used by fighters for splash and impact protection.\nMade by PatisNow");
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

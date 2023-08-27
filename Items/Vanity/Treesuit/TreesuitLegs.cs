@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Vanity.Treesuit
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Tree Stump");
-            Tooltip.SetDefault("Made by Drawter");
+            // DisplayName.SetDefault("Tree Stump");
+            // Tooltip.SetDefault("Made by Drawter");
         }
 
         public override void SetDefaults()

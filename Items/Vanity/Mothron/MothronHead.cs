@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Vanity.Mothron
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Mothron Mask");
-            Tooltip.SetDefault("A mask born in the dim light of a solar eclipse.\nMade by Drdragonfly");
+            // DisplayName.SetDefault("Mothron Mask");
+            // Tooltip.SetDefault("A mask born in the dim light of a solar eclipse.\nMade by Drdragonfly");
         }
 
         public override void SetDefaults()

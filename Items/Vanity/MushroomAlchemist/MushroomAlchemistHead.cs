@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Vanity.MushroomAlchemist
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Mushroom Alchemist Cap");
-            Tooltip.SetDefault("Everything is blue.\nMade by Galahad");
+            // DisplayName.SetDefault("Mushroom Alchemist Cap");
+            // Tooltip.SetDefault("Everything is blue.\nMade by Galahad");
         }
 
         public override void SetDefaults()

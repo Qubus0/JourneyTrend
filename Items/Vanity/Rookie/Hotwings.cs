@@ -12,8 +12,8 @@ namespace JourneyTrend.Items.Vanity.Rookie
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Hotwings");
-            Tooltip.SetDefault("Spicy");
+            // DisplayName.SetDefault("Hotwings");
+            // Tooltip.SetDefault("Spicy");
             
             // These wings use the same values as the fledgling wings
             ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(25, 2.5f, 1.5f);

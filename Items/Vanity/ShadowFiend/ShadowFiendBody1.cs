@@ -22,8 +22,8 @@ namespace JourneyTrend.Items.Vanity.ShadowFiend
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Crimson Scourge Breastplate");
-            Tooltip.SetDefault("Ichor flows through you!\nMade by CakeBoiii");
+            // DisplayName.SetDefault("Crimson Scourge Breastplate");
+            // Tooltip.SetDefault("Ichor flows through you!\nMade by CakeBoiii");
 
             if (!Main.dedServ)
             {

@@ -21,8 +21,8 @@ namespace JourneyTrend.Items.Vanity.Nexus
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Nexus Chestplate");
-            Tooltip.SetDefault("You sense ceaseless energy coming from within\nMade by LazyGhost14");
+            // DisplayName.SetDefault("Nexus Chestplate");
+            // Tooltip.SetDefault("You sense ceaseless energy coming from within\nMade by LazyGhost14");
 
             if (!Main.dedServ)
             {

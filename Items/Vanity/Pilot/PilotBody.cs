@@ -21,8 +21,8 @@ namespace JourneyTrend.Items.Vanity.Pilot
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Pilot's Jumpsuit");
-            Tooltip.SetDefault("Parachute not included.\nMade by CyrantontheCold");
+            // DisplayName.SetDefault("Pilot's Jumpsuit");
+            // Tooltip.SetDefault("Parachute not included.\nMade by CyrantontheCold");
         }
 
         public override void SetDefaults()

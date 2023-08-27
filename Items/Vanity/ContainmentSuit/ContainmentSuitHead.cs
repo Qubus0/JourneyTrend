@@ -13,8 +13,8 @@ namespace JourneyTrend.Items.Vanity.ContainmentSuit
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Containment Helmet");
-            Tooltip.SetDefault("A traveler's helmet for harsh environments.\nMade by MikeLeaArt");
+            // DisplayName.SetDefault("Containment Helmet");
+            // Tooltip.SetDefault("A traveler's helmet for harsh environments.\nMade by MikeLeaArt");
         }
 
         public override void SetDefaults()

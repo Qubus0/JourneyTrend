@@ -11,9 +11,9 @@ namespace JourneyTrend.Items.Vanity.ForestDruid
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Forest Druid's Bag");
-            Tooltip.SetDefault(
-                "Spriting assisted by Drdragonfly\nBag sprite by Curt 'Bucket Face' Black\n{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("Forest Druid's Bag");
+            /* Tooltip.SetDefault(
+                "Spriting assisted by Drdragonfly\nBag sprite by Curt 'Bucket Face' Black\n{$CommonItemTooltip.RightClickToOpen}"); */
         }
 
         public override void SetDefaults()

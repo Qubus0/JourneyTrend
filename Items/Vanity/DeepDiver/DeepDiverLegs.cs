@@ -12,8 +12,8 @@ namespace JourneyTrend.Items.Vanity.DeepDiver
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Deep Diver Pants");
-            Tooltip.SetDefault("Great for long walks on the beach below water level.\nMade by Nick T.");
+            // DisplayName.SetDefault("Deep Diver Pants");
+            // Tooltip.SetDefault("Great for long walks on the beach below water level.\nMade by Nick T.");
         }
 
         public override void SetDefaults()

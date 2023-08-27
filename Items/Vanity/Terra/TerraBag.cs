@@ -11,9 +11,9 @@ namespace JourneyTrend.Items.Vanity.Terra
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Terra Bag");
-            Tooltip.SetDefault(
-                "Spriting assisted by Chan, Lotaru and Cakeboiii\n{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("Terra Bag");
+            /* Tooltip.SetDefault(
+                "Spriting assisted by Chan, Lotaru and Cakeboiii\n{$CommonItemTooltip.RightClickToOpen}"); */
         }
 
         public override void SetDefaults()

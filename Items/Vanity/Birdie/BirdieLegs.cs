@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Vanity.Birdie
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Birdie Pants");
-            Tooltip.SetDefault("By spreading your legs a little, you can nail a pretty decent shot!\nMade by Pyromma");
+            // DisplayName.SetDefault("Birdie Pants");
+            // Tooltip.SetDefault("By spreading your legs a little, you can nail a pretty decent shot!\nMade by Pyromma");
         }
 
         public override void SetDefaults()

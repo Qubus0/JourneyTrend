@@ -20,8 +20,8 @@ namespace JourneyTrend.Items.Vanity.ContainmentSuit
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Containment Chestpiece");
-            Tooltip.SetDefault("A traveler's chestpiece for harsh environments.\nMade by MikeLeaArt");
+            // DisplayName.SetDefault("Containment Chestpiece");
+            // Tooltip.SetDefault("A traveler's chestpiece for harsh environments.\nMade by MikeLeaArt");
             
             if (!Main.dedServ)
             {

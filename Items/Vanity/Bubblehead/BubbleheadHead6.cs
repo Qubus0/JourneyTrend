@@ -11,8 +11,8 @@ namespace JourneyTrend.Items.Vanity.Bubblehead
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Bubble Head");
-            Tooltip.SetDefault("Literally a Bubble Head.\nMade by Metidigiti");
+            // DisplayName.SetDefault("Bubble Head");
+            // Tooltip.SetDefault("Literally a Bubble Head.\nMade by Metidigiti");
 
             ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }

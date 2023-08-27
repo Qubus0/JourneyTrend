@@ -13,8 +13,8 @@ namespace JourneyTrend.Items.Vanity.WitchsVoid
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Void's Eye");
-            Tooltip.SetDefault("The numbers '2416' are etched on each piece...how strange.\nMade by Hexanne");
+            // DisplayName.SetDefault("Void's Eye");
+            // Tooltip.SetDefault("The numbers '2416' are etched on each piece...how strange.\nMade by Hexanne");
         }
 
         public override void SetDefaults()

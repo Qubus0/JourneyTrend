@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Vanity.Traveller
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Traveller Shirt");
-            Tooltip.SetDefault("We've come a long way\nMade by Upixel");
+            // DisplayName.SetDefault("Traveller Shirt");
+            // Tooltip.SetDefault("We've come a long way\nMade by Upixel");
 
             ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false;
         }

@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Vanity.ShadowFiend
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Shadow Fiend Leggings");
-            Tooltip.SetDefault("Cursed Flames consume you!\nMade by CakeBoiii");
+            // DisplayName.SetDefault("Shadow Fiend Leggings");
+            // Tooltip.SetDefault("Cursed Flames consume you!\nMade by CakeBoiii");
         }
 
         public override void SetDefaults()

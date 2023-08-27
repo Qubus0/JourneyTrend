@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Vanity.SeaBuckthornTea
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("A Cup of Tea");
-            Tooltip.SetDefault("It smells like Sea Buckthorn Tea!\nMade by VaeloroK");
+            // DisplayName.SetDefault("A Cup of Tea");
+            // Tooltip.SetDefault("It smells like Sea Buckthorn Tea!\nMade by VaeloroK");
 
             ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }

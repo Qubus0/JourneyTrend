@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Vanity.Bubblehead
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Carbon Boots");
-            Tooltip.SetDefault("Carbon has fantastic properties.\nMade by Metidigiti");
+            // DisplayName.SetDefault("Carbon Boots");
+            // Tooltip.SetDefault("Carbon has fantastic properties.\nMade by Metidigiti");
         }
 
         public override void SetDefaults()

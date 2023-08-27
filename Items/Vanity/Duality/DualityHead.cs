@@ -13,8 +13,7 @@ namespace JourneyTrend.Items.Vanity.Duality
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Duality Mask");
-            Tooltip.SetDefault("Good and evil, mind of two worlds.\nMade by Chan");
+            ItemID.Sets.IsLavaImmuneRegardlessOfRarity[Item.type] = true;
 
             ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }
@@ -35,12 +34,7 @@ namespace JourneyTrend.Items.Vanity.Duality
             Item.rare = ItemRarityID.White;
             Item.value = 0;
         }
-
-        public override bool? CanBurnInLava()
-        {
-            return false;
-        }
-
+        
         public override void AddRecipes()
         {
             CreateRecipe()

@@ -10,9 +10,9 @@ namespace JourneyTrend.Items.Vanity.Pilot
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Pilot's Cap");
-            Tooltip.SetDefault(
-                "Still some wyvern saliva in the goggles,\nbut otherwise surprisingly intact.\nMade by CyrantontheCold");
+            // DisplayName.SetDefault("Pilot's Cap");
+            /* Tooltip.SetDefault(
+                "Still some wyvern saliva in the goggles,\nbut otherwise surprisingly intact.\nMade by CyrantontheCold"); */
         }
 
         public override void SetDefaults()

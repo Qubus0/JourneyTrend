@@ -11,8 +11,8 @@ namespace JourneyTrend.Items.Vanity.Shark
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Shark Mask");
-            Tooltip.SetDefault("An inflated shark mask.\nDoes not let you breathe underwater.\nMade by Giobun");
+            // DisplayName.SetDefault("Shark Mask");
+            // Tooltip.SetDefault("An inflated shark mask.\nDoes not let you breathe underwater.\nMade by Giobun");
 
             ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }

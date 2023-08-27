@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Vanity.PoweredPanoply
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Powered Cuisses");
-            Tooltip.SetDefault("Made by Fake_Tank");
+            // DisplayName.SetDefault("Powered Cuisses");
+            // Tooltip.SetDefault("Made by Fake_Tank");
         }
 
         public override void SetDefaults()

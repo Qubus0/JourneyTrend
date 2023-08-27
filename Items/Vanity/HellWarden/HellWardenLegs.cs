@@ -11,8 +11,8 @@ namespace JourneyTrend.Items.Vanity.HellWarden
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Hell Warden's Boots");
-            Tooltip.SetDefault("Made by Adrian R.A.");
+            // DisplayName.SetDefault("Hell Warden's Boots");
+            // Tooltip.SetDefault("Made by Adrian R.A.");
         }
 
         public override void SetDefaults()
@@ -29,7 +29,7 @@ namespace JourneyTrend.Items.Vanity.HellWarden
                 .AddTile(TileID.Hellforge)
                 .AddIngredient(ItemID.HellstoneBar, 5)
                 .AddIngredient(ItemID.LavaBucket)
-                .AddCondition(Recipe.Condition.NearLava)
+                .AddCondition(Condition.NearLava)
                 .Register();
         }
     }

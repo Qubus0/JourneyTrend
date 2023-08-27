@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Vanity.BrokenHero
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Broken Hero Helmet");
-            Tooltip.SetDefault("Smells of rust and mold\nMade by Kirichin");
+            // DisplayName.SetDefault("Broken Hero Helmet");
+            // Tooltip.SetDefault("Smells of rust and mold\nMade by Kirichin");
         }
 
         public override void SetDefaults()

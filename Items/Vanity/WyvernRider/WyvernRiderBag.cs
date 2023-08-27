@@ -11,8 +11,8 @@ namespace JourneyTrend.Items.Vanity.WyvernRider
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Wyvern Rider Bag");
-            Tooltip.SetDefault("Bag sprite by PeanutSte\n{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("Wyvern Rider Bag");
+            // Tooltip.SetDefault("Bag sprite by PeanutSte\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()

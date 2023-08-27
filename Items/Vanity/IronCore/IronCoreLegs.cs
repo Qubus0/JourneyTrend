@@ -10,9 +10,9 @@ namespace JourneyTrend.Items.Vanity.IronCore
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Greaves of the Iron Core");
-            Tooltip.SetDefault(
-                "Some ruined leggings from a long gone warrior.\nLegends say that you can hold a mountain up while wearing them. They're wrong.\nMade by TunaToda & RealStiel");
+            // DisplayName.SetDefault("Greaves of the Iron Core");
+            /* Tooltip.SetDefault(
+                "Some ruined leggings from a long gone warrior.\nLegends say that you can hold a mountain up while wearing them. They're wrong.\nMade by TunaToda & RealStiel"); */
         }
 
         public override void SetDefaults()

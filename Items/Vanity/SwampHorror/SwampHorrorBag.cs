@@ -11,8 +11,8 @@ namespace JourneyTrend.Items.Vanity.SwampHorror
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Swamp Horror Bag");
-            Tooltip.SetDefault("Spriting assisted by Drdragonfly\n{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("Swamp Horror Bag");
+            // Tooltip.SetDefault("Spriting assisted by Drdragonfly\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()

@@ -10,8 +10,10 @@ namespace JourneyTrend.Items.Vanity.Journeyman
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Journeyman Hat");
-            Tooltip.SetDefault("The snazzy hat worn by journeymen.\nMade by poiuygfd");
+            ItemID.Sets.IsLavaImmuneRegardlessOfRarity[Item.type] = true;
+
+            // DisplayName.SetDefault("Journeyman Hat");
+            // Tooltip.SetDefault("The snazzy hat worn by journeymen.\nMade by poiuygfd");
 
             ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true;
         }
@@ -23,11 +25,6 @@ namespace JourneyTrend.Items.Vanity.Journeyman
             Item.value = 150000;
             Item.rare = ItemRarityID.Gray;
             Item.vanity = true;
-        }
-
-        public override bool? CanBurnInLava()
-        {
-            return false;
         }
     }
 }

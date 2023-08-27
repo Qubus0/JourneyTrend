@@ -10,9 +10,9 @@ namespace JourneyTrend.Items.Vanity.CrystalLegacy
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Crystal Helmet");
-            Tooltip.SetDefault(
-                "A memento of the dangers in the creeping crystal caves...\nMade by Curt 'Bucket Face' Black");
+            // DisplayName.SetDefault("Crystal Helmet");
+            /* Tooltip.SetDefault(
+                "A memento of the dangers in the creeping crystal caves...\nMade by Curt 'Bucket Face' Black"); */
         }
 
         public override void SetDefaults()

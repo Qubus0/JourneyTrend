@@ -12,8 +12,8 @@ namespace JourneyTrend.Items.Vanity.DeepDiver
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Deep Diver Torso");
-            Tooltip.SetDefault("Stay warm in the depths of the ocean.\nMade by Nick T.");
+            // DisplayName.SetDefault("Deep Diver Torso");
+            // Tooltip.SetDefault("Stay warm in the depths of the ocean.\nMade by Nick T.");
         }
 
         public override void SetDefaults()

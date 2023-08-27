@@ -13,8 +13,8 @@ namespace JourneyTrend.Items.Vanity.Grid
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Grid's Body Armor");
-            Tooltip.SetDefault("A legendary piece of armor.\nMade by Grid");
+            // DisplayName.SetDefault("Grid's Body Armor");
+            // Tooltip.SetDefault("A legendary piece of armor.\nMade by Grid");
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

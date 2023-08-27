@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Vanity.Birdie
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Birdie Sweater");
-            Tooltip.SetDefault("It's not stylish anymore...\nMade by Pyromma");
+            // DisplayName.SetDefault("Birdie Sweater");
+            // Tooltip.SetDefault("It's not stylish anymore...\nMade by Pyromma");
 
             ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = false;
         }

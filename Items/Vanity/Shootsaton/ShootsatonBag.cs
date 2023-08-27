@@ -11,9 +11,9 @@ namespace JourneyTrend.Items.Vanity.Shootsaton
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Sire Shootsaton Bag");
-            Tooltip.SetDefault(
-                "Spriting assisted by Faskeon\nBag sprite by PeanutSte\n{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("Sire Shootsaton Bag");
+            /* Tooltip.SetDefault(
+                "Spriting assisted by Faskeon\nBag sprite by PeanutSte\n{$CommonItemTooltip.RightClickToOpen}"); */
         }
 
         public override void SetDefaults()

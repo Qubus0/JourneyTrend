@@ -11,8 +11,8 @@ namespace JourneyTrend.Items.Vanity.SeaHunter
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Sea Hunter Bag");
-            Tooltip.SetDefault("Spriting assisted by Faskeon\n{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("Sea Hunter Bag");
+            // Tooltip.SetDefault("Spriting assisted by Faskeon\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()

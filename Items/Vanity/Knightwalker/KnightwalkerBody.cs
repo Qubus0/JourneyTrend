@@ -16,8 +16,8 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Mantle of the Knightwalker");
-            Tooltip.SetDefault("Burning Hot\nMade by Dusk Ealain");
+            // DisplayName.SetDefault("Mantle of the Knightwalker");
+            // Tooltip.SetDefault("Burning Hot\nMade by Dusk Ealain");
         }
 
         public override void SetDefaults()

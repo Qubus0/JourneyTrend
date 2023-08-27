@@ -11,7 +11,7 @@ namespace JourneyTrend.Items.Vanity.Invisible
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Me");
+            // DisplayName.SetDefault("Me");
 
             ArmorIDs.Legs.Sets.OverridesLegs[Item.legSlot] = true;
         }
@@ -29,7 +29,7 @@ namespace JourneyTrend.Items.Vanity.Invisible
             CreateRecipe()
                 .AddTile<Tiles.SewingMachine>()
                 .AddIngredient(ItemID.Glass)
-                .AddCondition(Recipe.Condition.NearWater)
+                .AddCondition(Condition.NearWater)
                 .Register();
         }
     }

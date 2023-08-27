@@ -11,8 +11,8 @@ namespace JourneyTrend.Items.Vanity.WyvernRider
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Wyvern Rider Tail");
-            Tooltip.SetDefault("It doesn't allow you to ride wyverns, sorry\nMade by manzXja");
+            // DisplayName.SetDefault("Wyvern Rider Tail");
+            // Tooltip.SetDefault("It doesn't allow you to ride wyverns, sorry\nMade by manzXja");
             
             // These wings use the same values as the fledgling wings
             ArmorIDs.Wing.Sets.Stats[Item.wingSlot] = new WingStats(25, 2.5f, 1.5f);

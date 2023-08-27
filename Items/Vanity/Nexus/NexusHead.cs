@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Vanity.Nexus
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Nexus Helmet");
-            Tooltip.SetDefault("100% waterproof\nMade by LazyGhost14");
+            // DisplayName.SetDefault("Nexus Helmet");
+            // Tooltip.SetDefault("100% waterproof\nMade by LazyGhost14");
         }
 
         public override void SetDefaults()

@@ -12,8 +12,8 @@ namespace JourneyTrend.Items.Vanity.MagicGrill
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Magic Grill Megashark Skirt");
-            Tooltip.SetDefault("Use carefully on windy days.\nMade by Pepsi");
+            // DisplayName.SetDefault("Magic Grill Megashark Skirt");
+            // Tooltip.SetDefault("Use carefully on windy days.\nMade by Pepsi");
         }
 
         public override void ModifyTooltips(List<TooltipLine> tooltips)

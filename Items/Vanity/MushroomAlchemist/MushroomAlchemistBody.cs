@@ -20,8 +20,8 @@ namespace JourneyTrend.Items.Vanity.MushroomAlchemist
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Mushroom Alchemist Shirt");
-            Tooltip.SetDefault("Makes you feel a little fungi.\nMade by Galahad");
+            // DisplayName.SetDefault("Mushroom Alchemist Shirt");
+            // Tooltip.SetDefault("Makes you feel a little fungi.\nMade by Galahad");
 
             ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = false;
             

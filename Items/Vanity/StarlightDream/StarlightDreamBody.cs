@@ -13,8 +13,8 @@ namespace JourneyTrend.Items.Vanity.StarlightDream
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Starlight Dream Shirt");
-            Tooltip.SetDefault("Made by Golditale");
+            // DisplayName.SetDefault("Starlight Dream Shirt");
+            // Tooltip.SetDefault("Made by Golditale");
 
             ArmorIDs.Body.Sets.HidesHands[Item.bodySlot] = false;
         }

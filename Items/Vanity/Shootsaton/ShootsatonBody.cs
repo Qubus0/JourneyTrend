@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Vanity.Shootsaton
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Sire Shootsaton Jerkin");
-            Tooltip.SetDefault("Take aim of your talons in the dark\nMade by Enembra");
+            // DisplayName.SetDefault("Sire Shootsaton Jerkin");
+            // Tooltip.SetDefault("Take aim of your talons in the dark\nMade by Enembra");
         }
 
         public override void SetDefaults()

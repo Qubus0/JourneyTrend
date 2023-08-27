@@ -13,8 +13,7 @@ namespace JourneyTrend.Items.Vanity.Duality
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Duality Pants");
-            Tooltip.SetDefault("Past and future, walk the path from one to the other.\nMade by Chan");
+            ItemID.Sets.IsLavaImmuneRegardlessOfRarity[Item.type] = true;
 
             ArmorIDs.Legs.Sets.OverridesLegs[Item.legSlot] = true;
         }
@@ -35,13 +34,7 @@ namespace JourneyTrend.Items.Vanity.Duality
             Item.rare = ItemRarityID.White;
             Item.value = 0;
         }
-
-
-        public override bool? CanBurnInLava()
-        {
-            return false;
-        }
-
+        
         public override void AddRecipes()
         {
             CreateRecipe()

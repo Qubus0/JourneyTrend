@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Vanity.StormConqueror
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Storm Conqueror's Breastplate");
-            Tooltip.SetDefault("Ouch, it zapped me!\nMade by Dandandooo");
+            // DisplayName.SetDefault("Storm Conqueror's Breastplate");
+            // Tooltip.SetDefault("Ouch, it zapped me!\nMade by Dandandooo");
         }
 
         public override void SetDefaults()

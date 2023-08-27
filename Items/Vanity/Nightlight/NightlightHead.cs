@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Vanity.Nightlight
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Nightlight Eyes");
-            Tooltip.SetDefault("Eyes that reflect a moonlit night...\nMade by Metalsquirrel");
+            // DisplayName.SetDefault("Nightlight Eyes");
+            // Tooltip.SetDefault("Eyes that reflect a moonlit night...\nMade by Metalsquirrel");
         }
 
         public override void SetDefaults()

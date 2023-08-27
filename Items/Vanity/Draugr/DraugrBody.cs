@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Vanity.Draugr
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Draugr Chestplate");
-            Tooltip.SetDefault("Made by tic");
+            // DisplayName.SetDefault("Draugr Chestplate");
+            // Tooltip.SetDefault("Made by tic");
         }
 
         public override void SetDefaults()

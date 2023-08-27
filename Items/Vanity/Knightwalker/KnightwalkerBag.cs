@@ -11,8 +11,8 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("The Knightwalker's Bag");
-            Tooltip.SetDefault("Spriting assisted by Curt 'Bucket Face' Black\n{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("The Knightwalker's Bag");
+            // Tooltip.SetDefault("Spriting assisted by Curt 'Bucket Face' Black\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()

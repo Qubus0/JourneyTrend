@@ -12,9 +12,8 @@ namespace JourneyTrend.Items.Vanity.Duality
     {
         public override void SetStaticDefaults()
         {
-			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Duality Shirt");
-            Tooltip.SetDefault("Light and dark, perfectly balanced as all things should be.\nMade by Chan");
+            CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
+            ItemID.Sets.IsLavaImmuneRegardlessOfRarity[Item.type] = true;
 
             ArmorIDs.Body.Sets.HidesArms[Item.bodySlot] = true;
             ArmorIDs.Body.Sets.HidesTopSkin[Item.bodySlot] = true;
@@ -35,11 +34,6 @@ namespace JourneyTrend.Items.Vanity.Duality
             Item.vanity = true;
             Item.rare = ItemRarityID.White;
             Item.value = 0;
-        }
-
-        public override bool? CanBurnInLava()
-        {
-            return false;
         }
 
         public override void AddRecipes()

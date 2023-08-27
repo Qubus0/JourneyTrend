@@ -16,8 +16,8 @@ namespace JourneyTrend.Items.Vanity.StarlightDream
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Starlight Dream Bag");
-            Tooltip.SetDefault("Spriting assisted by Cakeboiii\n{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("Starlight Dream Bag");
+            // Tooltip.SetDefault("Spriting assisted by Cakeboiii\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()

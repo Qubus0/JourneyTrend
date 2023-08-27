@@ -11,8 +11,8 @@ namespace JourneyTrend.Items.Vanity.Bubblehead
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Bubblehead Bag");
-            Tooltip.SetDefault("Found him!\nBag sprite by PeanutSte\n{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("Bubblehead Bag");
+            // Tooltip.SetDefault("Found him!\nBag sprite by PeanutSte\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()

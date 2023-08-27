@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Placeable
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            Tooltip.SetDefault(
-                "Not so fond of that one vanity in particular? \nTry yourself at the job of a tailor here.");
+            /* Tooltip.SetDefault(
+                "Not so fond of that one vanity in particular? \nTry yourself at the job of a tailor here."); */
         }
 
         public override void SetDefaults()
@@ -34,7 +34,7 @@ namespace JourneyTrend.Items.Placeable
             CreateRecipe()
                 .AddTile(TileID.Anvils)
                 .AddRecipeGroup("IronBar", 8)
-                .AddRecipeGroup("PresurePlate")
+                .AddRecipeGroup("PressurePlate")
                 .AddIngredient(ItemID.Rope, 5)
                 .Register();
         }

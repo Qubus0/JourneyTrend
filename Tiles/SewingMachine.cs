@@ -27,7 +27,7 @@ namespace JourneyTrend.Tiles
             TileObjectData.addTile(Type);
             
             var name = CreateMapEntryName();
-            name.SetDefault(Language.GetTextValue("Mods.JourneyTrend.MapObject.SewingMachine"));
+            // name.SetDefault(Language.GetTextValue("Mods.JourneyTrend.MapObject.SewingMachine"));
             AddMapEntry(new Color(175, 175, 215), name);
         }
 

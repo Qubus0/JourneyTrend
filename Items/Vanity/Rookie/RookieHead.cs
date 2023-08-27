@@ -11,8 +11,8 @@ namespace JourneyTrend.Items.Vanity.Rookie
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Rookie Steepletop");
-            Tooltip.SetDefault("Created by an aspiring artist\nMade by PeanutSte");
+            // DisplayName.SetDefault("Rookie Steepletop");
+            // Tooltip.SetDefault("Created by an aspiring artist\nMade by PeanutSte");
 
             ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = false;
         }

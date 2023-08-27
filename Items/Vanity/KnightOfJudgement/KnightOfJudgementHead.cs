@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Vanity.KnightOfJudgement
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Knight of Judgement's Helmet");
-            Tooltip.SetDefault("Made by Silvrsterlng");
+            // DisplayName.SetDefault("Knight of Judgement's Helmet");
+            // Tooltip.SetDefault("Made by Silvrsterlng");
         }
 
         public override void SetDefaults()

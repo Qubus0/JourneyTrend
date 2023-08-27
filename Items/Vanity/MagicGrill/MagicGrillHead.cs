@@ -12,8 +12,8 @@ namespace JourneyTrend.Items.Vanity.MagicGrill
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Magic Grill Megashark Hood");
-            Tooltip.SetDefault("Boss may be proud!\nMade by Pepsi");
+            // DisplayName.SetDefault("Magic Grill Megashark Hood");
+            // Tooltip.SetDefault("Boss may be proud!\nMade by Pepsi");
 
             ArmorIDs.Head.Sets.DrawHatHair[Item.headSlot] = true;
         }

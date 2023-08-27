@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Vanity.AndromedaPilot
         public override void SetStaticDefaults()
         {
             CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Andromeda Pilot Cetus");
-            Tooltip.SetDefault("Those chains really don't suit you\nMade by Nedrilax");
+            // DisplayName.SetDefault("Andromeda Pilot Cetus");
+            // Tooltip.SetDefault("Those chains really don't suit you\nMade by Nedrilax");
         }
 
         public override void SetDefaults()

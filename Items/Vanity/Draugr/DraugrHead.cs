@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Vanity.Draugr
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Draugr Horned Helmet");
-            Tooltip.SetDefault("Made by tic");
+            // DisplayName.SetDefault("Draugr Horned Helmet");
+            // Tooltip.SetDefault("Made by tic");
 
             ArmorIDs.Head.Sets.DrawHead[Item.headSlot] = true;
         }

@@ -24,8 +24,8 @@ namespace JourneyTrend.Items.Vanity.Nightlight
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Nightlight Body");
-            Tooltip.SetDefault("A bright friendly glow in the night.\nMade by Metalsquirrel");
+            // DisplayName.SetDefault("Nightlight Body");
+            // Tooltip.SetDefault("A bright friendly glow in the night.\nMade by Metalsquirrel");
 
             if (!Main.dedServ)
             {

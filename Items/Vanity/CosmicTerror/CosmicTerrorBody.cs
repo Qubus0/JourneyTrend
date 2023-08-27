@@ -21,9 +21,9 @@ namespace JourneyTrend.Items.Vanity.CosmicTerror
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Cosmic Terror's Body");
-            Tooltip.SetDefault(
-                "But he is not the only one;\n there is another cosmic being but him in this world.\nThe destroyer of worlds, the Moon Lord.\nMade by RegMeow");
+            // DisplayName.SetDefault("Cosmic Terror's Body");
+            /* Tooltip.SetDefault(
+                "But he is not the only one;\n there is another cosmic being but him in this world.\nThe destroyer of worlds, the Moon Lord.\nMade by RegMeow"); */
             
             if (!Main.dedServ)
             {

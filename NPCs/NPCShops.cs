@@ -17,106 +17,67 @@ namespace JourneyTrend.NPCs
 {
     public class NPCShops : GlobalNPC
     {
-        public override void SetupShop(int type, Chest shop, ref int nextSlot)
+        public override void ModifyShop(NPCShop shop)
         {
-            switch (type)
+            switch (shop.NpcType)
             {
                 case NPCID.WitchDoctor:
-                    if (Main.player[Main.myPlayer].ZoneJungle && Main.bloodMoon)
-                    {
-                        // 5 Gold from Witch Doctor, during Blood Moon, in Jungle - Single Item - Arcane Exosuit Set
-                        shop.item[nextSlot].SetDefaults(ItemType<ArcaneExosuitHead>());
-                        nextSlot++;
-                        shop.item[nextSlot].SetDefaults(ItemType<ArcaneExosuitBody>());
-                        nextSlot++;
-                        shop.item[nextSlot].SetDefaults(ItemType<ArcaneExosuitLegs>());
-                        nextSlot++;
-                    }
-
+                    // 5 Gold from Witch Doctor, during Blood Moon, in Jungle - Single Item - Arcane Exosuit Set
+                    shop.Add<ArcaneExosuitHead>(Condition.InJungle, Condition.BloodMoon);
+                    shop.Add<ArcaneExosuitBody>(Condition.InJungle, Condition.BloodMoon);
+                    shop.Add<ArcaneExosuitLegs>(Condition.InJungle, Condition.BloodMoon);
                     break;
 
                 case NPCID.DD2Bartender:
                     // 25 Gold from Tavernkeep - Single Item - Sea Buckthorn Tea Set
-                    shop.item[nextSlot].SetDefaults(ItemType<SeaBuckthornTeaHead>());
-                    nextSlot++;
-                    shop.item[nextSlot].SetDefaults(ItemType<SeaBuckthornTeaBody>());
-                    nextSlot++;
-                    shop.item[nextSlot].SetDefaults(ItemType<SeaBuckthornTeaLegs>());
-                    nextSlot++;
+                    shop.Add<SeaBuckthornTeaHead>();
+                    shop.Add<SeaBuckthornTeaBody>();
+                    shop.Add<SeaBuckthornTeaLegs>();
                     break;
 
                 case NPCID.Cyborg:
-                    if (Main.player[Main.myPlayer].ZoneJungle && Main.invasionType == 4)
-                    {
-                        // 50 Gold from Cyborg, during Martian Madness, in Jungle - Single Item - Grid's Set
-                        shop.item[nextSlot].SetDefaults(ItemType<GridHead>());
-                        nextSlot++;
-                        shop.item[nextSlot].SetDefaults(ItemType<GridBody>());
-                        nextSlot++;
-                        shop.item[nextSlot].SetDefaults(ItemType<GridLegs>());
-                        nextSlot++;
-                    }
+                    // 50 Gold from Cyborg, during Martian Madness, in Jungle - Single Item - Grid's Set
+                    var activeMartians = new Condition("Mods.JourneyTrend.Conditions.activeMartians",
+                        () => Main.invasionType == 4);
+                    shop.Add<GridHead>(Condition.InJungle, activeMartians);
+                    shop.Add<GridBody>(Condition.InJungle, activeMartians);
+                    shop.Add<GridLegs>(Condition.InJungle, activeMartians);
 
-                    if (!Main.dayTime && NPC.downedMartians)
-                    {
-                        // 5 Gold from Cyborg after Martian Madness is defeated, at night - Single Item - Bounty Hunter Set
-                        shop.item[nextSlot].SetDefaults(ItemType<BountyHunterHead>());
-                        nextSlot++;
-                        shop.item[nextSlot].SetDefaults(ItemType<BountyHunterBody>());
-                        nextSlot++;
-                        shop.item[nextSlot].SetDefaults(ItemType<BountyHunterLegs>());
-                        nextSlot++;
-                    }
+                    // 5 Gold from Cyborg after Martian Madness is defeated, at night - Single Item - Bounty Hunter Set
+                    shop.Add<BountyHunterHead>(Condition.TimeNight, Condition.DownedMartians);
+                    shop.Add<BountyHunterBody>(Condition.TimeNight, Condition.DownedMartians);
+                    shop.Add<BountyHunterLegs>(Condition.TimeNight, Condition.DownedMartians);
 
-                    if (Main.dayTime)
-                    {
-                        // 25 Gold from Cyborg during day time - Single Item - Cyber Angel Set
-                        shop.item[nextSlot].SetDefaults(ItemType<CyberAngelHead>());
-                        nextSlot++;
-                        shop.item[nextSlot].SetDefaults(ItemType<CyberAngelBody>());
-                        nextSlot++;
-                        shop.item[nextSlot].SetDefaults(ItemType<CyberAngelLegs>());
-                        nextSlot++;
-                    }
-
+                    // 25 Gold from Cyborg during day time - Single Item - Cyber Angel Set
+                    shop.Add<CyberAngelHead>(Condition.TimeDay);
+                    shop.Add<CyberAngelBody>(Condition.TimeDay);
+                    shop.Add<CyberAngelLegs>(Condition.TimeDay);
                     break;
 
                 case NPCID.Golfer:
                     // 5 Gold from Golfer - Single Item - Birdie Set
-                    shop.item[nextSlot].SetDefaults(ItemType<BirdieHead>());
-                    nextSlot++;
-                    shop.item[nextSlot].SetDefaults(ItemType<BirdieBody>());
-                    nextSlot++;
-                    shop.item[nextSlot].SetDefaults(ItemType<BirdieLegs>());
-                    nextSlot++;
+                    shop.Add<BirdieHead>();
+                    shop.Add<BirdieBody>();
+                    shop.Add<BirdieLegs>();
                     break;
 
                 case NPCID.Pirate:
-                    if (Main.raining)
-                    {
-                        // 10 Gold from Pirate during Rain - Single Item - Deep Diver Set
-                        shop.item[nextSlot].SetDefaults(ItemType<DeepDiverHead>());
-                        nextSlot++;
-                        shop.item[nextSlot].SetDefaults(ItemType<DeepDiverBody>());
-                        nextSlot++;
-                        shop.item[nextSlot].SetDefaults(ItemType<DeepDiverLegs>());
-                        nextSlot++;
-                    }
-
+                    // 10 Gold from Pirate during Rain - Single Item - Deep Diver Set
+                    shop.Add<DeepDiverHead>(Condition.InRain);
+                    shop.Add<DeepDiverBody>(Condition.InRain);
+                    shop.Add<DeepDiverLegs>(Condition.InRain);
                     break;
 
                 case NPCID.Truffle:
                     // 20 Gold from Truffle - Single Item - Mushroom Alchemist Set
-                    shop.item[nextSlot].SetDefaults(ItemType<MushroomAlchemistHead>());
-                    nextSlot++;
-                    shop.item[nextSlot].SetDefaults(ItemType<MushroomAlchemistBody>());
-                    nextSlot++;
-                    shop.item[nextSlot].SetDefaults(ItemType<MushroomAlchemistLegs>());
-                    nextSlot++;
+                    shop.Add<MushroomAlchemistHead>();
+                    shop.Add<MushroomAlchemistBody>();
+                    shop.Add<MushroomAlchemistLegs>();
                     break;
             }
         }
 
+        // todo
         public override void SetupTravelShop(int[] shop, ref int nextSlot)
         {
             if (Main.moonPhase == 6)

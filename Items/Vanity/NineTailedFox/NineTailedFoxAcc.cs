@@ -11,8 +11,8 @@ namespace JourneyTrend.Items.Vanity.NineTailedFox
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Nine-Tailed Fox Tails");
-            Tooltip.SetDefault("Why does the inventory sprite only show 7 tails? Is this a scam?\nMade by Invalid");
+            // DisplayName.SetDefault("Nine-Tailed Fox Tails");
+            // Tooltip.SetDefault("Why does the inventory sprite only show 7 tails? Is this a scam?\nMade by Invalid");
         }
 
         public override void SetDefaults()

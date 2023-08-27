@@ -16,8 +16,8 @@ namespace JourneyTrend.Items.Vanity.WitchsVoid
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Witch's Void Bag");
-            Tooltip.SetDefault("Spriting assisted by Pyromma\n{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("Witch's Void Bag");
+            // Tooltip.SetDefault("Spriting assisted by Pyromma\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()

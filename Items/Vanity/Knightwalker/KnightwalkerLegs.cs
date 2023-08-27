@@ -11,8 +11,8 @@ namespace JourneyTrend.Items.Vanity.Knightwalker
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Greaves of the Knightwalker");
-            Tooltip.SetDefault("Made by Dusk Ealain");
+            // DisplayName.SetDefault("Greaves of the Knightwalker");
+            // Tooltip.SetDefault("Made by Dusk Ealain");
         }
 
         public override void SetDefaults()

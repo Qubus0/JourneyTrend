@@ -11,8 +11,8 @@ namespace JourneyTrend.Items.Vanity.Mothron
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
             base.SetStaticDefaults();
-            DisplayName.SetDefault("Mothron Pants");
-            Tooltip.SetDefault("The pattern resembles that of Mothron's abdomen.\nMade by Drdragonfly");
+            // DisplayName.SetDefault("Mothron Pants");
+            // Tooltip.SetDefault("The pattern resembles that of Mothron's abdomen.\nMade by Drdragonfly");
         }
 
         public override void SetDefaults()

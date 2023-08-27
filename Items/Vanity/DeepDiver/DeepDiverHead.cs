@@ -15,8 +15,8 @@ namespace JourneyTrend.Items.Vanity.DeepDiver
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Deep Diver Hood");
-            Tooltip.SetDefault("Creepy, stylish and it also glows!\nMade by Nick T.");
+            // DisplayName.SetDefault("Deep Diver Hood");
+            // Tooltip.SetDefault("Creepy, stylish and it also glows!\nMade by Nick T.");
         }
 
         public override void SetDefaults()

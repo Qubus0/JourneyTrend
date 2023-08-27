@@ -10,8 +10,8 @@ namespace JourneyTrend.Items.Vanity.Nightlight
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Nightlight Feet");
-            Tooltip.SetDefault("No tripping at night with bug feet.\nMade by Metalsquirrel");
+            // DisplayName.SetDefault("Nightlight Feet");
+            // Tooltip.SetDefault("No tripping at night with bug feet.\nMade by Metalsquirrel");
         }
 
         public override void SetDefaults()

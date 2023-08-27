@@ -11,8 +11,8 @@ namespace JourneyTrend.Items.Vanity.Treesuit
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Treesuit Bag");
-            Tooltip.SetDefault("Spriting assisted by Curt 'Bucket Face' Black\n{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("Treesuit Bag");
+            // Tooltip.SetDefault("Spriting assisted by Curt 'Bucket Face' Black\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()

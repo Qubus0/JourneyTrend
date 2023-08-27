@@ -126,7 +126,7 @@ namespace JourneyTrend.NPCs.Trader
             };
         }
 
-        public override void HitEffect(int hitDirection, double damage)
+        public override void HitEffect(NPC.HitInfo hit)
         {
             var num = NPC.life > 0 ? 5 : 20;
             for (var k = 0; k < num; k++) Dust.NewDust(NPC.position, NPC.width, NPC.height, DustID.Silk);
@@ -236,17 +236,30 @@ namespace JourneyTrend.NPCs.Trader
             }
         }
 
-        public override void SetupShop(Chest shop, ref int nextSlot)
-        {
-            foreach (var item in CurrentShop)
-            {
-                // We dont want "empty" items and unloaded items to appear
-                if (item == null || item.type == ItemID.None)
+        // public override void ModifyActiveShop(string shopName, Item[] items)
+        // {
+        //     foreach (var item in CurrentShop)
+        //     {
+        //         // We dont want "empty" items and unloaded items to appear
+        //         if (item == null || item.type == ItemID.None)
+        //             continue;
+        //
+        //         // todo
+        //         shop.item[nextSlot].SetDefaults(item.type);
+        //         shop.item[nextSlot].shopCustomPrice = BagPricePlat * PlatMultiplier;
+        //         nextSlot++;
+        //     }
+        // }
+        
+        public override void ModifyActiveShop(string shopName, Item[] items) {
+            foreach (Item item in items) {
+                // Skip 'air' items and null items.
+                if (item == null || item.type == ItemID.None) {
                     continue;
-
-                shop.item[nextSlot].SetDefaults(item.type);
-                shop.item[nextSlot].shopCustomPrice = BagPricePlat * PlatMultiplier;
-                nextSlot++;
+                }
+                
+                item.SetDefaults(item.type);
+                item.shopCustomPrice = BagPricePlat * PlatMultiplier;
             }
         }
 

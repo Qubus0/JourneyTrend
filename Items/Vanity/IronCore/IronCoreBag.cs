@@ -11,8 +11,8 @@ namespace JourneyTrend.Items.Vanity.IronCore
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Knight of the Iron Core Bag");
-            Tooltip.SetDefault("Bag sprite by Polish_Soap\n{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("Knight of the Iron Core Bag");
+            // Tooltip.SetDefault("Bag sprite by Polish_Soap\n{$CommonItemTooltip.RightClickToOpen}");
         }
 
         public override void SetDefaults()

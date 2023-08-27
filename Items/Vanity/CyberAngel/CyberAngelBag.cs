@@ -11,9 +11,9 @@ namespace JourneyTrend.Items.Vanity.CyberAngel
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Cyber Angel Bag");
-            Tooltip.SetDefault(
-                "Spriting assisted by Faskeon\nBag sprite by Polish_Soap\n{$CommonItemTooltip.RightClickToOpen}");
+            // DisplayName.SetDefault("Cyber Angel Bag");
+            /* Tooltip.SetDefault(
+                "Spriting assisted by Faskeon\nBag sprite by Polish_Soap\n{$CommonItemTooltip.RightClickToOpen}"); */
         }
 
         public override void SetDefaults()

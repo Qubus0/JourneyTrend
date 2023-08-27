@@ -11,8 +11,8 @@ namespace JourneyTrend.Items.Vanity.Bubblehead
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Hydro Tank v3");
-            Tooltip.SetDefault("One of the most modern supply tanks!\nMade by Metidigiti");
+            // DisplayName.SetDefault("Hydro Tank v3");
+            // Tooltip.SetDefault("One of the most modern supply tanks!\nMade by Metidigiti");
         }
 
         public override void SetDefaults()
@@ -31,7 +31,7 @@ namespace JourneyTrend.Items.Vanity.Bubblehead
                 .AddIngredient(ItemID.SoulofNight)
                 .AddIngredient(ItemID.Wire, 20)
                 .AddRecipeGroup("IronBar", 3)
-                .AddCondition(Recipe.Condition.NearWater)
+                .AddCondition(Condition.NearWater)
                 .Register();
         }
     }

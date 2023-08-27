@@ -10,9 +10,9 @@ namespace JourneyTrend.Items.Vanity.Terra
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Terra Crown");
-            Tooltip.SetDefault(
-                "A crown powered by the force of nature\nIts said that the powers of light and dark are inside it as well\nFits your hair just right!\nMade by TerraQueenCole");
+            // DisplayName.SetDefault("Terra Crown");
+            /* Tooltip.SetDefault(
+                "A crown powered by the force of nature\nIts said that the powers of light and dark are inside it as well\nFits your hair just right!\nMade by TerraQueenCole"); */
 
             ArmorIDs.Head.Sets.DrawFullHair[Item.headSlot] = true;
         }

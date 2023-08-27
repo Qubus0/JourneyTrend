@@ -13,8 +13,8 @@ namespace JourneyTrend.Items.Vanity.WyvernRider
         public override void SetStaticDefaults()
         {
 			CreativeItemSacrificesCatalog.Instance.SacrificeCountNeededByItemId[Type] = 1;
-            DisplayName.SetDefault("Wyvern Rider Pants");
-            Tooltip.SetDefault("It doesn't allow you to ride wyverns, sorry\nMade by manzXja");
+            // DisplayName.SetDefault("Wyvern Rider Pants");
+            // Tooltip.SetDefault("It doesn't allow you to ride wyverns, sorry\nMade by manzXja");
         }
 
         public override void SetDefaults()
