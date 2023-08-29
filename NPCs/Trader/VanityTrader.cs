@@ -126,7 +126,7 @@ namespace JourneyTrend.NPCs.Trader
             AnimationType = NPCID.Guide;
         }
 
-        public override void OnSpawn(IEntitySource source) => CreateNewShop();
+        public override void OnSpawn(IEntitySource source) => RollNewShopItems();
 
         public override void SetBestiary(BestiaryDatabase database, BestiaryEntry bestiaryEntry)
         {
@@ -138,10 +138,11 @@ namespace JourneyTrend.NPCs.Trader
                 new FlavorTextBestiaryInfoElement("Mods.JourneyTrend.Bestiary.VanityTrader"),
             });
         }
-        
-        public override bool PreAI() {
+
+        public override bool PreAI()
+        {
             if (Main.dayTime && Main.time == 0)
-                CreateNewShop();
+                RollNewShopItems();
 
             return true;
         }
@@ -191,7 +192,7 @@ namespace JourneyTrend.NPCs.Trader
                 var player = Main.player[k];
                 if (!player.active) continue;
 
-                if (NPC.downedMoonlord) return true;
+                if (Condition.DownedSkeletron.IsMet()) return true;
             }
 
             return false;
@@ -203,7 +204,7 @@ namespace JourneyTrend.NPCs.Trader
             for (int y = top; y <= bottom; y++)
             {
                 int tileType = Main.tile[x, y].TileType;
-                
+
                 if (tileType == ModContent.TileType<SewingMachineTile>()
                     || tileType == TileID.Loom
                     || tileType == TileID.LivingLoom)
@@ -288,76 +289,79 @@ namespace JourneyTrend.NPCs.Trader
                 Main.LocalPlayer.BuyItem(RestockPricePlat * PlatMultiplier);
                 // remove the chat window...
                 Main.npcChatText = "";
-                CreateNewShop();
+                RollNewShopItems();
                 // open the shop window
                 shopName = "Shop";
             }
         }
 
-        private void CreateNewShop()
+        private void RollNewShopItems()
         {
             CurrentShopItems = Shop.GenerateNewInventoryList();
             const string refreshMessage = "Mods.JourneyTrend.Chat.VanityTraderShopRestock";
-            if (Main.netMode == NetmodeID.SinglePlayer) Main.NewText(Language.GetTextValue(refreshMessage, NPC.FullName), 50, 205, 151);
-            else ChatHelper.BroadcastChatMessage(NetworkText.FromKey(refreshMessage, NPC.GetFullNetName()), new Color(50, 205, 151));
+            if (Main.netMode == NetmodeID.SinglePlayer)
+                Main.NewText(Language.GetTextValue(refreshMessage, NPC.FullName), 50, 205, 151);
+            else
+                ChatHelper.BroadcastChatMessage(NetworkText.FromKey(refreshMessage, NPC.GetFullNetName()),
+                    new Color(50, 205, 151));
         }
 
         public override void AddShops()
         {
             Shop = new VanitySetShop(NPC.type);
-            
+
             // https://forums.terraria.org/index.php?threads/journeys-end-vanity-contest-finalists-voting-instructions.87511/
-            Shop.AddPool("Finalists", slots: 2)
-                .AddPriced<TravellerBag>(BagPrice)
-                .AddPriced<ForestDruidBag>(BagPrice)
-                .AddPriced<BubbleheadBag>(BagPrice)
-                .AddPriced<SwampHorrorBag>(BagPrice)
-                .AddPriced<CyberAngelBag>(BagPrice)
-                .AddPriced<WyvernRiderBag>(BagPrice)
-                .AddPriced<WitchsVoidBag>(BagPrice)
-                .AddPriced<StarlightDreamBag>(BagPrice)
-                .AddPriced<MagicGrillBag>(BagPrice)
-                .AddPriced<DeepDiverBag>(BagPrice)
-                .AddPriced<CosmicTerrorBag>(BagPrice)
-                .AddPriced<NightlightBag>(BagPrice)
+            Shop.AddPool("Finalists", slots: 1, slotsHardmode: 2)
+                .AddPriced<BubbleheadBag>(BagPrice, Condition.Hardmode)
                 .AddPriced<ContainmentSuitBag>(BagPrice)
-                .AddPriced<MushroomAlchemistBag>(BagPrice)
+                .AddPriced<CosmicTerrorBag>(BagPrice, Condition.DownedNebulaPillar)
+                .AddPriced<CyberAngelBag>(BagPrice, Condition.DownedPlantera)
+                .AddPriced<DeepDiverBag>(BagPrice, Condition.DownedPirates)
+                .AddPriced<ForestDruidBag>(BagPrice)
+                .AddPriced<MagicGrillBag>(BagPrice, Condition.DownedDukeFishron)
+                .AddPriced<MushroomAlchemistBag>(BagPrice, Condition.Hardmode)
+                .AddPriced<NightlightBag>(BagPrice)
+                .AddPriced<StarlightDreamBag>(BagPrice)
+                .AddPriced<SwampHorrorBag>(BagPrice)
+                .AddPriced<TravellerBag>(BagPrice)
+                .AddPriced<WitchsVoidBag>(BagPrice, Condition.Hardmode)
+                .AddPriced<WyvernRiderBag>(BagPrice, Condition.Hardmode)
                 ;
-            
-            Shop.AddPool("Vanities", slots: 7)
-                .AddPriced<AndromedaPilotBag>(BagPrice)
-                .AddPriced<ArcaneExosuitBag>(BagPrice)
+
+            Shop.AddPool("Vanities", slots: 5,  slotsHardmode: 8)
+                .AddPriced<AndromedaPilotBag>(BagPrice, Condition.DownedDukeFishron)
+                .AddPriced<ArcaneExosuitBag>(BagPrice, Condition.DownedQueenBee)
                 .AddPriced<BirdieBag>(BagPrice)
-                .AddPriced<BountyHunterBag>(BagPrice)
-                .AddPriced<BrokenHeroBag>(BagPrice)
-                .AddPriced<CrystalLegacyBag>(BagPrice)
+                .AddPriced<BountyHunterBag>(BagPrice, Condition.DownedPlantera, Condition.DownedMartians)
+                .AddPriced<BrokenHeroBag>(BagPrice, Condition.DownedMechBossAny)
+                .AddPriced<CrystalLegacyBag>(BagPrice, Condition.Hardmode)
                 .AddPriced<DraugrBag>(BagPrice)
-                .AddPriced<DualityBag>(BagPrice)
+                .AddPriced<DualityBag>(BagPrice, Condition.Hardmode)
                 .AddPriced<GraniteBag>(BagPrice)
-                .AddPriced<GridBag>(BagPrice)
+                .AddPriced<GridBag>(BagPrice, Condition.DownedPlantera)
                 .AddPriced<HellWardenBag>(BagPrice)
                 .AddPriced<HivenetBag>(BagPrice)
-                .AddPriced<IronCoreBag>(BagPrice)
+                .AddPriced<IronCoreBag>(BagPrice, Condition.Hardmode)
                 .AddPriced<JourneymanBag>(BagPrice)
                 .AddPriced<KingfisherBag>(BagPrice)
-                .AddPriced<KnightOfJudgementBag>(BagPrice)
-                .AddPriced<KnightwalkerBag>(BagPrice)
-                .AddPriced<KuijiaBag>(BagPrice)
-                .AddPriced<MothronBag>(BagPrice)
-                .AddPriced<NexusBag>(BagPrice)
+                .AddPriced<KnightOfJudgementBag>(BagPrice, Condition.DownedPlantera)
+                .AddPriced<KnightwalkerBag>(BagPrice, Condition.Hardmode)
+                .AddPriced<KuijiaBag>(BagPrice, Condition.Hardmode)
+                .AddPriced<MothronBag>(BagPrice, Condition.DownedPlantera)
+                .AddPriced<NexusBag>(BagPrice, Condition.DownedTwins)
                 .AddPriced<NineTailedFoxBag>(BagPrice)
-                .AddPriced<PilotBag>(BagPrice)
+                .AddPriced<PilotBag>(BagPrice, Condition.Hardmode)
                 .AddPriced<PlanetaryBag>(BagPrice)
-                .AddPriced<PoweredPanoplyBag>(BagPrice)
+                .AddPriced<PoweredPanoplyBag>(BagPrice, Condition.DownedPlantera)
                 .AddPriced<RookieBag>(BagPrice)
-                .AddPriced<SeaBuckthornTeaBag>(BagPrice)
+                .AddPriced<SeaBuckthornTeaBag>(BagPrice, Condition.DownedEowOrBoc)
                 .AddPriced<SeaHunterBag>(BagPrice)
-                .AddPriced<ShadowFiendBag>(BagPrice)
-                .AddPriced<ShadowSpellBag>(BagPrice)
+                .AddPriced<ShadowFiendBag>(BagPrice, Condition.Hardmode)
+                .AddPriced<ShadowSpellBag>(BagPrice, Condition.DownedGoblinArmy, Condition.Hardmode)
                 .AddPriced<SharkBag>(BagPrice)
-                .AddPriced<ShootsatonBag>(BagPrice)
+                .AddPriced<ShootsatonBag>(BagPrice, Condition.DownedEowOrBoc)
                 .AddPriced<StormConquerorBag>(BagPrice)
-                .AddPriced<TerraBag>(BagPrice)
+                .AddPriced<TerraBag>(BagPrice, Condition.DownedPlantera)
                 .AddPriced<TreesuitBag>(BagPrice)
                 ;
 
@@ -434,7 +438,7 @@ namespace JourneyTrend.NPCs.Trader
             public bool ConditionsMet() => Conditions.All(c => c.IsMet());
         }
 
-        public record Pool(string Name, int Slots, List<Entry> Entries)
+        public record Pool(string Name, int Slots, List<Entry> Entries, int SlotsHardmode = -1)
         {
             public Pool Add(Item item, params Condition[] conditions)
             {
@@ -456,9 +460,11 @@ namespace JourneyTrend.NPCs.Trader
             // Picks a number of items (up to Slots) from the entries list, provided conditions are met.
             public IEnumerable<Item> PickItems()
             {
+                int amount = Condition.Hardmode.IsMet() && SlotsHardmode > 1 ? SlotsHardmode : Slots;
+                
                 // This is not a fast way to pick items without replacement, but it's certainly easy. Be careful not to do this many many times per frame, or on huge lists of items.
                 var list = Entries.Where(e => !e.Disabled && e.ConditionsMet()).ToList();
-                for (int i = 0; i < Slots; i++)
+                for (int i = 0; i < amount; i++)
                 {
                     if (list.Count == 0)
                         break;
@@ -480,9 +486,9 @@ namespace JourneyTrend.NPCs.Trader
 
         public override IEnumerable<Entry> ActiveEntries => Pools.SelectMany(p => p.Entries).Where(e => !e.Disabled);
 
-        public Pool AddPool(string name, int slots)
+        public Pool AddPool(string name, int slots, int slotsHardmode = -1)
         {
-            var pool = new Pool(name, slots, new List<Entry>());
+            var pool = new Pool(name, slots, new List<Entry>(), slotsHardmode);
             Pools.Add(pool);
             return pool;
         }

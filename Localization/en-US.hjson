@@ -5,7 +5,10 @@ Mods: {
 	JourneyTrend: {
 		MapObject.SewingMachine: Sewing Machine
 		NPCName.VanityTrader: Vanity Trader
-		Bestiary.VanityTrader: Finally free to roam this world, now that their otherworldly captor has been vanquished, this trader can offer you a variety of outfits for any occasion. Where they got them from? Well, why do you think they were held captive?
+		Bestiary.VanityTrader: Finally free to roam this world, now that they escaped their otherworldly captor, this trader can offer you a variety of outfits for any occasion. Where they got them from? Well, why do you think they were held captive?
+		Chat.VanityTraderShopRestock: "{0} has chosen a new collection!"
+		NpcShopButtons.VanityTrader.button2: Restock Bags ({0}Plt)
+		OtherMods.Census.VanityTraderCondition: After defeating Skeletron. Requires a house with a [i:{0}] Sewing Machine, Loom or Living Loom.
 		Conditions.activeMartians: During Martian Madness
 
 		# This is what displays during all of an NPC's happiness levels. Note that the localization key for these should always be "TownNPCMood.*NPCName*.*Mood*" or else it won't display properly.
@@ -47,10 +50,6 @@ Mods: {
 				StandardDialogue6: Got some rare things on sale, stranger!
 			}
 		}
-
-		Chat.VanityTraderShopRestock: "{0} has chosen a new collection!"
-		NpcShopButtons.VanityTrader.button2: Restock Bags ({0}Plt)
-		OtherMods.Census.VanityTraderCondition: Defeat the Moonlord and build a house with a [i:{0}] Sewing Machine, Loom or Living Loom.
 
 		Items: {
 			SewingMachine: {
