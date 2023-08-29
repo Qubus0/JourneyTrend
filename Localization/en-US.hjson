@@ -48,7 +48,9 @@ Mods: {
 			}
 		}
 
+		Chat.VanityTraderShopRestock: "{0} has chosen a new collection!"
 		NpcShopButtons.VanityTrader.button2: Restock Bags ({0}Plt)
+		OtherMods.Census.VanityTraderCondition: Defeat the Moonlord and build a house with a [i:{0}] Sewing Machine, Loom or Living Loom.
 
 		Items: {
 			PoweredPanoplyLegs: {
@@ -1136,6 +1138,8 @@ Mods: {
 					LikeNPC_Princess: I like {NPCName}.
 					Princess_LovesNPC: I like {NPCName}.
 				}
+
+				Census.SpawnCondition: Defeat the Moonlord and build a house with a [i:5538] Sewing Machine, Loom or Living Loom.
 			}
 		}
 

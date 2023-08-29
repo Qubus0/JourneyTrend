@@ -77,7 +77,6 @@ namespace JourneyTrend.NPCs
             }
         }
 
-        // todo
         public override void SetupTravelShop(int[] shop, ref int nextSlot)
         {
             if (Main.moonPhase == 6)

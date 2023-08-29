@@ -17,14 +17,6 @@ namespace JourneyTrend.World
             return Main.npc.FirstOrDefault(npc => npc.type == npcType && npc.active);
         }
 
-        public override void PreUpdateNPCs()
-        {
-            // Update the shop if there is a trader and it is a new day, or no shop is set up yet
-            var vanityTrader = FindNpc(NPCType<VanityTrader>());
-            if (vanityTrader != null && (Main.dayTime && Main.time == 0 || VanityTrader.CurrentShop.Count <= 0))
-                VanityTrader.CreateNewShop();
-        }
-
         public override void PostWorldGen()
         {
             int[] itemsToPlaceInIceChests = {ItemType<IronCoreBag>()};
